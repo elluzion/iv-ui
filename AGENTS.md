@@ -10,13 +10,13 @@
 
 This is a Svelte 5 component library (`iv-ui`) wrapped in a SvelteKit app for development/showcase.
 
-| Directory | Purpose |
-|-----------|---------|
-| `src/lib/components/` | Library components (Button, Input, Dialog, ConfirmDialog, Toast, LoadingSpinner) |
-| `src/lib/theme/` | CSS tokens + base styles (`tokens.css`, `base.css`, `components.css`, `theme.css` bundling all) |
-| `src/lib/stores/` | Global state stores (toast, dialog) |
-| `src/lib/index.ts` | Library entry point — re-exports components and stores |
-| `src/routes/` | Showcase/preview SvelteKit app (not part of the distributed package) |
+| Directory             | Purpose                                                                                         |
+| --------------------- | ----------------------------------------------------------------------------------------------- |
+| `src/lib/components/` | Library components (Button, Input, Dialog, ConfirmDialog, Toast, LoadingSpinner)                |
+| `src/lib/theme/`      | CSS tokens + base styles (`tokens.css`, `base.css`, `components.css`, `theme.css` bundling all) |
+| `src/lib/stores/`     | Global state stores (toast, dialog)                                                             |
+| `src/lib/index.ts`    | Library entry point — re-exports components and stores                                          |
+| `src/routes/`         | Showcase/preview SvelteKit app (not part of the distributed package)                            |
 
 Svelte 5 runes mode is forced for all project code (but not `node_modules`) via `vite.config.ts`.
 
@@ -36,6 +36,7 @@ bun run format          # prettier --write
 ## Exports / Package Shape
 
 The package exports CSS files at separate paths (see `package.json` exports):
+
 ```
 import '@iv-ui/theme.css'       # all CSS
 import '@iv-ui/tokens.css'     # design tokens only
@@ -50,6 +51,7 @@ Consumers must also install `@tabler/icons-svelte` (peer dependency).
 **Read `DESIGN.md` before writing or modifying any component.** It defines a monochrome dark UI: pure black canvas, hairline borders, pill-shaped controls, one accent color (brass). Hardcoded hex/rgba values in components are forbidden — always reference tokens from `src/lib/theme/tokens.css`.
 
 DESIGN.md references design token files; if paths are stale, the authoritative locations are:
+
 - Tokens: `src/lib/theme/tokens.css`
 - Base/reset: `src/lib/theme/base.css`
 - Component styles: `src/lib/theme/components.css`
