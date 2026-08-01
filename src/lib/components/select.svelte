@@ -99,14 +99,14 @@
 		selectedValues.map((v) => normalized.find((o) => o.value === v)?.label ?? v)
 	);
 
-	const triggerText = $derived.by(() => {
-		if (selectedLabels.length === 0) return '';
-		if (multiple) {
-			if (selectedLabels.length <= 3) return selectedLabels.join(', ');
-			return `${selectedLabels.slice(0, 3).join(', ')} +${selectedLabels.length - 3}`;
-		}
-		return selectedLabels[0];
-	});
+	const selectedItems = $derived(
+		selectedValues.map((v) => ({
+			value: v,
+			label: normalized.find((o) => o.value === v)?.label ?? v
+		}))
+	);
+
+	const triggerText = $derived(selectedLabels[0] ?? '');
 
 	const hasSelection = $derived(selectedValues.length > 0);
 	const showClear = $derived(clearable && hasSelection && !disabled);
@@ -324,9 +324,21 @@
 						: undefined
 					: undefined}
 		>
-			<span class="trigger-label" class:placeholder={!hasSelection}>
-				{hasSelection ? triggerText : placeholder}
-			</span>
+			{#if multiple}
+				<div class="chips" class:placeholder={!hasSelection}>
+					{#if hasSelection}
+						{#each selectedItems as item (item.value)}
+							<span class="chip">{item.label}</span>
+						{/each}
+					{:else}
+						<span class="chip-placeholder">{placeholder}</span>
+					{/if}
+				</div>
+			{:else}
+				<span class="trigger-label" class:placeholder={!hasSelection}>
+					{hasSelection ? triggerText : placeholder}
+				</span>
+			{/if}
 
 			{#if showClear}
 				<button
@@ -486,6 +498,41 @@
 		}
 	}
 
+	.chips {
+		flex: 1;
+		min-width: 0;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 4px;
+
+		&.placeholder {
+			color: var(--iv_foreground-dim);
+		}
+	}
+
+	.chip {
+		display: inline-flex;
+		align-items: center;
+		max-width: 100%;
+		padding: 1px 6px;
+		border-radius: var(--iv_radius-pill);
+		background: var(--iv_surface-overlay);
+		border: 1px solid var(--iv_border);
+		color: var(--iv_foreground);
+		font-family: var(--iv_font-mono);
+		font-size: 13px;
+		font-weight: 500;
+		line-height: 1.7;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.chip-placeholder {
+		color: var(--iv_foreground-dim);
+	}
+
 	.clear-btn {
 		all: unset;
 		display: flex;
@@ -565,6 +612,26 @@
 		display: flex;
 		flex-direction: column;
 		gap: 2px;
+		scrollbar-color: var(--iv_border) transparent;
+		scrollbar-width: thin;
+
+		&::-webkit-scrollbar {
+			width: 8px;
+			height: 8px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: transparent;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: var(--iv_border);
+			border-radius: var(--iv_radius-pill);
+
+			&:hover {
+				background: var(--iv_border-hover);
+			}
+		}
 	}
 
 	.option {

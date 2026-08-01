@@ -3,7 +3,7 @@
 	--iv_surface-raised: #141415;
 	--iv_surface-elevated: #1e1e20;
 	--iv_surface-hover: #242427;
-	--iv_surface-overlay: rgba(255, 255, 255, 0.08);
+	--iv_surface-overlay: rgba(255, 255, 255, 0.1);
 
 	--iv_border: #2a2a2d;
 	--iv_border-hover: #3a3a3d;
@@ -32,7 +32,7 @@
 	--iv_info-surface: rgba(93, 142, 232, 0.1);
 
 	--iv_overlay: rgba(0, 0, 0, 0.4);
-	--iv_ring: rgba(255, 255, 255, 0.06);
+	--iv_ring: rgba(255, 255, 255, 0.1);
 
 	--iv_radius: 14px;
 	--iv_radius-sm: 10px;
@@ -130,7 +130,7 @@
 	--iv_surface-raised: #141415;
 	--iv_surface-elevated: #1e1e20;
 	--iv_surface-hover: #242427;
-	--iv_surface-overlay: rgba(255, 255, 255, 0.08);
+	--iv_surface-overlay: rgba(255, 255, 255, 0.1);
 
 	--iv_border: #2a2a2d;
 	--iv_border-hover: #3a3a3d;
@@ -159,5 +159,5 @@
 	--iv_info-surface: rgba(93, 142, 232, 0.1);
 
 	--iv_overlay: rgba(0, 0, 0, 0.4);
-	--iv_ring: rgba(255, 255, 255, 0.06);
+	--iv_ring: rgba(255, 255, 255, 0.1);
 }
