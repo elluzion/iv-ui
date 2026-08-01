@@ -98,7 +98,7 @@
 	.backdrop {
 		position: fixed;
 		inset: 0;
-		background: var(--overlay);
+		background: var(--iv_overlay);
 		backdrop-filter: blur(12px);
 		display: flex;
 		align-items: center;
@@ -108,10 +108,10 @@
 	}
 
 	.dialog {
-		background: var(--ink-2);
-		border: 1px solid var(--line);
-		border-radius: var(--radius-lg);
-		box-shadow: var(--shadow-lg);
+		background: var(--iv_surface-raised);
+		border: 1px solid var(--iv_border);
+		border-radius: var(--iv_radius-lg);
+		box-shadow: var(--iv_shadow-lg);
 		width: 100%;
 		max-width: 520px;
 		max-height: calc(100dvh - 4rem);
@@ -147,14 +147,14 @@
 			display: flex;
 			align-items: center;
 			flex-shrink: 0;
-			color: var(--paper);
+			color: var(--iv_foreground);
 		}
 
 		h2 {
 			margin: 0;
 			font-size: 1.1rem;
 			font-weight: 600;
-			color: var(--paper);
+			color: var(--iv_foreground);
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
@@ -171,7 +171,7 @@
 		padding-top: 0;
 		overflow-y: auto;
 		flex: 1;
-		color: var(--paper-dim);
+		color: var(--iv_foreground-dim);
 
 		&.body-no-title {
 			padding-top: 1.25rem;

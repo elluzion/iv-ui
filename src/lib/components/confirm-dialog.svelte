@@ -36,7 +36,7 @@
 	.backdrop {
 		position: fixed;
 		inset: 0;
-		background: var(--overlay);
+		background: var(--iv_overlay);
 		backdrop-filter: blur(12px);
 		display: flex;
 		align-items: center;
@@ -45,13 +45,13 @@
 	}
 
 	.dialog {
-		background: var(--ink-2);
-		border: 1px solid var(--line);
-		border-radius: var(--radius-lg);
+		background: var(--iv_surface-raised);
+		border: 1px solid var(--iv_border);
+		border-radius: var(--iv_radius-lg);
 		padding: 1.5rem;
 		min-width: 280px;
 		max-width: 400px;
-		box-shadow: var(--shadow-lg);
+		box-shadow: var(--iv_shadow-lg);
 
 		p {
 			margin: 0 0 1.25rem;

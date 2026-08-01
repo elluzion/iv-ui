@@ -1,39 +1,163 @@
 :root {
-	--ink: #000000;
-	--ink-2: #141415;
-	--ink-3: #1e1e20;
+	--iv_surface: #000000;
+	--iv_surface-raised: #141415;
+	--iv_surface-elevated: #1e1e20;
+	--iv_surface-hover: #242427;
+	--iv_surface-overlay: rgba(255, 255, 255, 0.08);
 
-	--line: #2a2a2d;
+	--iv_border: #2a2a2d;
+	--iv_border-hover: #3a3a3d;
+	--iv_border-focus: #4a4a4d;
+	--iv_border-error: #f08858;
 
-	--paper: #fafafa;
-	--paper-dim: #8e8e93;
+	--iv_foreground: #fafafa;
+	--iv_foreground-dim: #8e8e93;
+	--iv_foreground-inverse: #000000;
+	--iv_foreground-hover: #e4e4e4;
 
-	--brass: #c7a24a;
-	--brass-dim: #7d6a3c;
-	--moss: #7c9b7c;
-	--rust: #e8734a;
-	--rust-bg: rgba(232, 115, 74, 0.1);
-	--info: #5d8ee8;
+	--iv_accent: #c7a24a;
+	--iv_accent-dim: #7d6a3c;
+	--iv_accent-surface: rgba(199, 162, 74, 0.1);
 
-	--line-hover: #3a3a3d;
-	--line-focus: #4a4a4d;
-	--ink-3-hover: #242427;
-	--paper-hover: #e4e4e4;
-	--rust-hover: #d1653c;
+	--iv_success: #7c9b7c;
+	--iv_success-dim: #5a7a5a;
+	--iv_success-surface: rgba(124, 155, 124, 0.1);
 
-	--overlay: rgba(0, 0, 0, 0.4);
-	--ring: rgba(255, 255, 255, 0.06);
-	--surface-hover: rgba(255, 255, 255, 0.08);
+	--iv_error: #f08858;
+	--iv_error-dim: #da7550;
+	--iv_error-surface: rgba(240, 136, 88, 0.1);
 
-	--radius: 14px;
-	--radius-sm: 10px;
-	--radius-lg: 20px;
-	--radius-pill: 999px;
+	--iv_info: #5d8ee8;
+	--iv_info-dim: #3a6fcc;
+	--iv_info-surface: rgba(93, 142, 232, 0.1);
 
-	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
-	--shadow-md: 0 4px 20px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.4);
-	--shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.6), 0 2px 6px rgba(0, 0, 0, 0.4);
+	--iv_overlay: rgba(0, 0, 0, 0.4);
+	--iv_ring: rgba(255, 255, 255, 0.06);
 
-	--font-sans: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
-	--font-mono: 'IBM Plex Mono', monospace;
+	--iv_radius: 14px;
+	--iv_radius-sm: 10px;
+	--iv_radius-lg: 20px;
+	--iv_radius-pill: 999px;
+
+	--iv_shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+	--iv_shadow-md: 0 4px 20px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.4);
+	--iv_shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.6), 0 2px 6px rgba(0, 0, 0, 0.4);
+
+	--iv_font-sans: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+	--iv_font-mono: 'IBM Plex Mono', monospace;
+}
+
+@media (prefers-color-scheme: light) {
+	:root:not([data-theme='dark']):not(.theme-dark) {
+		--iv_surface: #ffffff;
+		--iv_surface-raised: #f4f4f5;
+		--iv_surface-elevated: #e4e4e7;
+		--iv_surface-hover: #d4d4d8;
+		--iv_surface-overlay: rgba(0, 0, 0, 0.05);
+
+		--iv_border: #d4d4d8;
+		--iv_border-hover: #a1a1aa;
+		--iv_border-focus: #71717a;
+		--iv_border-error: #b03308;
+
+		--iv_foreground: #18181b;
+		--iv_foreground-dim: #71717a;
+		--iv_foreground-inverse: #ffffff;
+		--iv_foreground-hover: #d4d4d8;
+
+		--iv_accent: #b0851a;
+		--iv_accent-dim: #8b6914;
+		--iv_accent-surface: rgba(176, 133, 26, 0.1);
+
+		--iv_success: #3b7a3b;
+		--iv_success-dim: #2d5e2d;
+		--iv_success-surface: rgba(59, 122, 59, 0.1);
+
+		--iv_error: #b03308;
+		--iv_error-dim: #892a0d;
+		--iv_error-surface: rgba(176, 51, 8, 0.1);
+
+		--iv_info: #2563eb;
+		--iv_info-dim: #1d4ed8;
+		--iv_info-surface: rgba(37, 99, 235, 0.1);
+
+		--iv_overlay: rgba(0, 0, 0, 0.3);
+		--iv_ring: rgba(0, 0, 0, 0.06);
+	}
+}
+
+[data-theme='light'],
+.theme-light {
+	--iv_surface: #ffffff;
+	--iv_surface-raised: #f4f4f5;
+	--iv_surface-elevated: #e4e4e7;
+	--iv_surface-hover: #d4d4d8;
+	--iv_surface-overlay: rgba(0, 0, 0, 0.05);
+
+	--iv_border: #d4d4d8;
+	--iv_border-hover: #a1a1aa;
+	--iv_border-focus: #71717a;
+	--iv_border-error: #b03308;
+
+	--iv_foreground: #18181b;
+	--iv_foreground-dim: #71717a;
+	--iv_foreground-inverse: #ffffff;
+	--iv_foreground-hover: #d4d4d8;
+
+	--iv_accent: #b0851a;
+	--iv_accent-dim: #8b6914;
+	--iv_accent-surface: rgba(176, 133, 26, 0.1);
+
+	--iv_success: #3b7a3b;
+	--iv_success-dim: #2d5e2d;
+	--iv_success-surface: rgba(59, 122, 59, 0.1);
+
+	--iv_error: #b03308;
+	--iv_error-dim: #892a0d;
+	--iv_error-surface: rgba(176, 51, 8, 0.1);
+
+	--iv_info: #2563eb;
+	--iv_info-dim: #1d4ed8;
+	--iv_info-surface: rgba(37, 99, 235, 0.1);
+
+	--iv_overlay: rgba(0, 0, 0, 0.3);
+	--iv_ring: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme='dark'],
+.theme-dark {
+	--iv_surface: #000000;
+	--iv_surface-raised: #141415;
+	--iv_surface-elevated: #1e1e20;
+	--iv_surface-hover: #242427;
+	--iv_surface-overlay: rgba(255, 255, 255, 0.08);
+
+	--iv_border: #2a2a2d;
+	--iv_border-hover: #3a3a3d;
+	--iv_border-focus: #4a4a4d;
+	--iv_border-error: #f08858;
+
+	--iv_foreground: #fafafa;
+	--iv_foreground-dim: #8e8e93;
+	--iv_foreground-inverse: #000000;
+	--iv_foreground-hover: #e4e4e4;
+
+	--iv_accent: #c7a24a;
+	--iv_accent-dim: #7d6a3c;
+	--iv_accent-surface: rgba(199, 162, 74, 0.1);
+
+	--iv_success: #7c9b7c;
+	--iv_success-dim: #5a7a5a;
+	--iv_success-surface: rgba(124, 155, 124, 0.1);
+
+	--iv_error: #f08858;
+	--iv_error-dim: #da7550;
+	--iv_error-surface: rgba(240, 136, 88, 0.1);
+
+	--iv_info: #5d8ee8;
+	--iv_info-dim: #3a6fcc;
+	--iv_info-surface: rgba(93, 142, 232, 0.1);
+
+	--iv_overlay: rgba(0, 0, 0, 0.4);
+	--iv_ring: rgba(255, 255, 255, 0.06);
 }

@@ -9,11 +9,11 @@
 		<div class="toast toast-{$toastState.type}" transition:fly={{ y: 16, duration: 160 }}>
 			<div class="content">
 				{#if $toastState.type === 'error'}
-					<IconMoodSadDizzy stroke={2} size="1.1rem" color="var(--rust)" />
+					<IconMoodSadDizzy stroke={2} size="1.1rem" color="var(--iv_error)" />
 				{:else if $toastState.type === 'success'}
-					<IconCheck stroke={2} size="1.1rem" color="var(--moss)" />
+					<IconCheck stroke={2} size="1.1rem" color="var(--iv_success)" />
 				{:else}
-					<IconInfoCircle stroke={2} size="1.1rem" color="var(--info)" />
+					<IconInfoCircle stroke={2} size="1.1rem" color="var(--iv_info)" />
 				{/if}
 				<span>{$toastState.message}</span>
 			</div>
@@ -46,10 +46,10 @@
 		min-width: 260px;
 		max-width: min(520px, calc(100dvw - 2rem));
 		padding: 0.5rem 0.5rem 0.5rem 0.75rem;
-		border-radius: var(--radius);
-		border: 1px solid var(--line);
-		background: var(--ink-2);
-		box-shadow: var(--shadow-md);
+		border-radius: var(--iv_radius);
+		border: 1px solid var(--iv_border);
+		background: var(--iv_surface-raised);
+		box-shadow: var(--iv_shadow-md);
 	}
 
 	.content {
@@ -67,7 +67,7 @@
 	.close {
 		all: unset;
 		cursor: pointer;
-		border-radius: var(--radius-sm);
+		border-radius: var(--iv_radius-sm);
 		font-weight: 700;
 		opacity: 0.6;
 		display: flex;
@@ -78,7 +78,7 @@
 
 		&:hover {
 			opacity: 1;
-			background: var(--surface-hover);
+			background: var(--iv_surface-overlay);
 		}
 	}
 

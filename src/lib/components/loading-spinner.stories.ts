@@ -20,4 +20,4 @@ export const Small: Story = { args: { size: 16 } };
 
 export const Large: Story = { args: { size: 48 } };
 
-export const CustomColor: Story = { args: { color: 'var(--moss)' } };
+export const CustomColor: Story = { args: { color: 'var(--iv_success)' } };

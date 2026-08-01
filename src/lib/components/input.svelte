@@ -176,28 +176,28 @@
 	.input-wrapper {
 		display: flex;
 		align-items: center;
-		border: 1px solid var(--line);
-		border-radius: var(--radius);
-		background: var(--ink-2);
+		border: 1px solid var(--iv_border);
+		border-radius: var(--iv_radius);
+		background: var(--iv_surface-raised);
 		transition:
 			border-color 0.15s,
 			box-shadow 0.15s;
 		overflow: hidden;
 
 		&:hover {
-			border-color: var(--line-hover);
+			border-color: var(--iv_border-hover);
 		}
 
 		&:focus-within {
-			border-color: var(--line-focus);
-			box-shadow: 0 0 0 3px var(--ring);
+			border-color: var(--iv_border-focus);
+			box-shadow: 0 0 0 3px var(--iv_ring);
 		}
 
 		&.has-error {
-			border-color: var(--rust);
+			border-color: var(--iv_error);
 
 			&:focus-within {
-				box-shadow: 0 0 0 3px rgba(232, 115, 74, 0.15);
+				box-shadow: 0 0 0 3px var(--iv_error-surface);
 			}
 		}
 
@@ -220,7 +220,7 @@
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
-		color: var(--paper-dim);
+		color: var(--iv_foreground-dim);
 
 		&.leading {
 			padding-left: 13px;
@@ -236,14 +236,14 @@
 		all: unset;
 		flex: 1;
 		min-width: 0;
-		font-family: var(--font-mono);
+		font-family: var(--iv_font-mono);
 		font-size: 1rem;
-		color: var(--paper);
+		color: var(--iv_foreground);
 		padding: 9px 13px;
 		width: 100%;
 
 		&::placeholder {
-			color: var(--paper-dim);
+			color: var(--iv_foreground-dim);
 		}
 
 		&:disabled {
@@ -253,8 +253,8 @@
 		&:-webkit-autofill,
 		&:-webkit-autofill:hover,
 		&:-webkit-autofill:focus {
-			-webkit-text-fill-color: var(--paper);
-			-webkit-box-shadow: 0 0 0px 1000px var(--ink-2) inset;
+			-webkit-text-fill-color: var(--iv_foreground);
+			-webkit-box-shadow: 0 0 0px 1000px var(--iv_surface-raised) inset;
 			transition: background-color 5000s ease-in-out 0s;
 		}
 	}
@@ -302,40 +302,40 @@
 		width: 20px;
 		height: 20px;
 		border-radius: 50%;
-		color: var(--paper-dim);
+		color: var(--iv_foreground-dim);
 		flex-shrink: 0;
 
 		&:hover {
-			color: var(--paper);
-			background: var(--surface-hover);
+			color: var(--iv_foreground);
+			background: var(--iv_surface-overlay);
 		}
 	}
 
 	.label {
 		display: block;
-		font-family: var(--font-sans);
+		font-family: var(--iv_font-sans);
 		font-size: 0.85rem;
 		font-weight: 500;
-		color: var(--paper);
+		color: var(--iv_foreground);
 		margin-bottom: 6px;
 	}
 
 	.required-mark {
-		color: var(--rust);
+		color: var(--iv_error);
 		margin-left: 2px;
 	}
 
 	.message {
 		margin: 4px 0 0 0;
-		font-family: var(--font-sans);
+		font-family: var(--iv_font-sans);
 		font-size: 0.8rem;
 	}
 
 	.error-message {
-		color: var(--rust);
+		color: var(--iv_error);
 	}
 
 	.helper-message {
-		color: var(--paper-dim);
+		color: var(--iv_foreground-dim);
 	}
 </style>

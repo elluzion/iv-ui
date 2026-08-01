@@ -1,5 +1,5 @@
 <script lang="ts">
-	let { size = 24, color = 'var(--brass)' } = $props<{
+	let { size = 24, color = 'var(--iv_accent)' } = $props<{
 		size?: number;
 		color?: string;
 	}>();

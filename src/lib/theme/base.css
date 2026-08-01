@@ -1,17 +1,17 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-color: var(--ink);
-	color: var(--paper);
-	font-family: var(--font-sans);
+	background-color: var(--iv_surface);
+	color: var(--iv_foreground);
+	font-family: var(--iv_font-sans);
 	height: 100dvh;
 	display: flex;
 	flex-direction: column;
 }
 
 ::selection {
-	background-color: var(--brass);
-	color: var(--ink);
+	background-color: var(--iv_accent);
+	color: var(--iv_surface);
 }
 
 button {
@@ -23,7 +23,7 @@ a {
 }
 
 html {
-	scrollbar-color: var(--line) var(--ink);
+	scrollbar-color: var(--iv_border) var(--iv_surface);
 	scrollbar-width: thin;
 }
 
@@ -33,14 +33,14 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-	background: var(--ink);
+	background: var(--iv_surface);
 }
 
 ::-webkit-scrollbar-thumb {
-	background: var(--line);
-	border-radius: var(--radius-pill);
+	background: var(--iv_border);
+	border-radius: var(--iv_radius-pill);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: var(--line-hover);
+	background: var(--iv_border-hover);
 }
