@@ -66,4 +66,6 @@ Components accept both `onclick` and `on:click` props to support Svelte 5 $props
 
 ## Testing
 
+**Create a Storybook story file for every component.** Whenever you add or modify a component, you must write (or update) its stories alongside it as `*.stories.svelte` / `*.stories.ts`. Stories should cover the component's variants, states, and props.
+
 Tests are Storybook stories with the `@storybook/addon-vitest` integration (browser tests via Playwright/Chromium). Story files live alongside components (`*.stories.svelte`, `*.stories.ts`). Run via `vitest` or the Storybook test runner.
