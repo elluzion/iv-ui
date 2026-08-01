@@ -1,12 +1,16 @@
 export { default as Button } from './components/button.svelte';
+export { default as Checkbox } from './components/checkbox.svelte';
 export { default as Dialog } from './components/dialog.svelte';
 export { default as ConfirmDialog } from './components/confirm-dialog.svelte';
 export { default as Input } from './components/input.svelte';
 export { default as Textarea } from './components/textarea.svelte';
+export { default as RadioGroup } from './components/radio-group.svelte';
+export type { RadioItem } from './components/radio-group.svelte';
 export { default as Select } from './components/select.svelte';
+export type { SelectOption } from './components/select.svelte';
+export { default as Switch } from './components/switch.svelte';
 export { default as Toast } from './components/toast.svelte';
 export { default as LoadingSpinner } from './components/loading-spinner.svelte';
-export type { SelectOption } from './components/select.svelte';
 
 export { dialogState, showDialog } from './stores/dialog';
 export { toastState, showToast, hideToast } from './stores/toast';
