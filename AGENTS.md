@@ -60,6 +60,8 @@ DESIGN.md references design token files; if paths are stale, the authoritative l
 
 Prettier: tabs, single quotes, no trailing commas, 100 print width, svelte plugin.
 
+**CSS nesting is used everywhere** — in both plain `.css` files (`components.css`) and Svelte `<style>` blocks. Use `&` to scope pseudo-classes (`&:hover`, `&:focus`, `&:active`), variant classes (`&.primary`, `&.danger`), attribute selectors (`&[disabled]`), pseudo-elements (`&::placeholder`), and structural selectors (`&:has(.leading)`). This is the project convention — never write flat/duplicated selector chains for variant or state overrides.
+
 Components accept both `onclick` and `on:click` props to support Svelte 5 $props() and legacy event forwarding. Event handlers chain both callbacks when present.
 
 ## Testing

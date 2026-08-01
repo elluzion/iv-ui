@@ -84,63 +84,63 @@
 </script>
 
 <div class="textarea-container">
-    {#if label}
-    	<label class="label" for={name || undefined}>
-    		{label}
-    		{#if required}
-    			<span class="required-mark" aria-hidden="true">*</span>
-    		{/if}
-    	</label>
-    {/if}
-    
-    <div
-    	class="textarea-wrapper"
-    	class:has-error={hasError || isOverLimit}
-    	class:disabled
-    	style:--textarea-resize={resizable}
-    >
-    	<textarea
-    		{name}
-    		{placeholder}
-    		{disabled}
-    		{readonly}
-    		{required}
-    		{rows}
-    		{maxlength}
-    		{value}
-    		oninput={handleInput}
-    		onchange={handleChange}
-    		onfocus={handleFocus}
-    		onblur={handleBlur}
-    		onkeydown={handleKeydown}
-    		aria-invalid={hasError || isOverLimit || undefined}
-    		aria-describedby={hasError ? `${name}-error` : helper ? `${name}-helper` : undefined}
-    	></textarea>
-    </div>
-    
-    <div class="footer-row">
-    	{#if hasError || isOverLimit}
-    		<p class="message error-message" id={name ? `${name}-error` : undefined}>
-    			{isOverLimit ? `${charCount} / ${maxlength} — limit exceeded` : error}
-    		</p>
-    	{:else if helper}
-    		<p class="message helper-message" id={name ? `${name}-helper` : undefined}>{helper}</p>
-    	{:else}
-    		<span></span>
-    	{/if}
-    
-    	{#if showCharCount}
-    		<span class="char-count" class:over-limit={isOverLimit}>{charCount} / {maxlength}</span>
-    	{/if}
-    </div>
+	{#if label}
+		<label class="label" for={name || undefined}>
+			{label}
+			{#if required}
+				<span class="required-mark" aria-hidden="true">*</span>
+			{/if}
+		</label>
+	{/if}
+
+	<div
+		class="textarea-wrapper"
+		class:has-error={hasError || isOverLimit}
+		class:disabled
+		style:--textarea-resize={resizable}
+	>
+		<textarea
+			{name}
+			{placeholder}
+			{disabled}
+			{readonly}
+			{required}
+			{rows}
+			{maxlength}
+			{value}
+			oninput={handleInput}
+			onchange={handleChange}
+			onfocus={handleFocus}
+			onblur={handleBlur}
+			onkeydown={handleKeydown}
+			aria-invalid={hasError || isOverLimit || undefined}
+			aria-describedby={hasError ? `${name}-error` : helper ? `${name}-helper` : undefined}
+		></textarea>
+	</div>
+
+	<div class="footer-row">
+		{#if hasError || isOverLimit}
+			<p class="message error-message" id={name ? `${name}-error` : undefined}>
+				{isOverLimit ? `${charCount} / ${maxlength} — limit exceeded` : error}
+			</p>
+		{:else if helper}
+			<p class="message helper-message" id={name ? `${name}-helper` : undefined}>{helper}</p>
+		{:else}
+			<span></span>
+		{/if}
+
+		{#if showCharCount}
+			<span class="char-count" class:over-limit={isOverLimit}>{charCount} / {maxlength}</span>
+		{/if}
+	</div>
 </div>
 
 <style>
-    .textarea-container {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
+	.textarea-container {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
 
 	.textarea-wrapper {
 		border: 1px solid var(--line);
@@ -150,28 +150,28 @@
 			border-color 0.15s,
 			box-shadow 0.15s;
 		overflow: hidden;
-	}
 
-	.textarea-wrapper:hover {
-		border-color: var(--line-hover);
-	}
+		&:hover {
+			border-color: var(--line-hover);
+		}
 
-	.textarea-wrapper:focus-within {
-		border-color: var(--line-focus);
-		box-shadow: 0 0 0 3px var(--ring);
-	}
+		&:focus-within {
+			border-color: var(--line-focus);
+			box-shadow: 0 0 0 3px var(--ring);
+		}
 
-	.textarea-wrapper.has-error {
-		border-color: var(--rust);
-	}
+		&.has-error {
+			border-color: var(--rust);
 
-	.textarea-wrapper.has-error:focus-within {
-		box-shadow: 0 0 0 3px rgba(232, 115, 74, 0.15);
-	}
+			&:focus-within {
+				box-shadow: 0 0 0 3px rgba(232, 115, 74, 0.15);
+			}
+		}
 
-	.textarea-wrapper.disabled {
-		opacity: 0.5;
-		cursor: not-allowed;
+		&.disabled {
+			opacity: 0.5;
+			cursor: not-allowed;
+		}
 	}
 
 	textarea {
@@ -185,14 +185,14 @@
 		padding: 9px 13px;
 		resize: var(--textarea-resize, vertical);
 		line-height: 1.5;
-	}
 
-	textarea::placeholder {
-		color: var(--paper-dim);
-	}
+		&::placeholder {
+			color: var(--paper-dim);
+		}
 
-	textarea:disabled {
-		cursor: not-allowed;
+		&:disabled {
+			cursor: not-allowed;
+		}
 	}
 
 	.label {
@@ -217,7 +217,7 @@
 	}
 
 	.message {
-        margin: 0;
+		margin: 0;
 		font-family: var(--font-sans);
 		font-size: 0.8rem;
 	}
@@ -236,9 +236,9 @@
 		font-size: 0.75rem;
 		color: var(--paper-dim);
 		flex-shrink: 0;
-	}
 
-	.char-count.over-limit {
-		color: var(--rust);
+		&.over-limit {
+			color: var(--rust);
+		}
 	}
 </style>

@@ -55,19 +55,21 @@
 </button>
 
 <style>
-	.btn-sm {
-		padding: 5px 13px;
-		font-size: 0.825rem;
-		gap: 0.375rem;
-	}
+	button {
+		&.btn-sm {
+			padding: 5px 13px;
+			font-size: 0.825rem;
+			gap: 0.375rem;
+		}
 
-	.btn-lg {
-		padding: 12px 24px;
-		font-size: 1.05rem;
-		gap: 0.625rem;
-	}
+		&.btn-lg {
+			padding: 12px 24px;
+			font-size: 1.05rem;
+			gap: 0.625rem;
+		}
 
-	.loading {
-		cursor: wait;
+		&.loading {
+			cursor: wait;
+		}
 	}
 </style>

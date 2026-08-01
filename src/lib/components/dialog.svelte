@@ -118,14 +118,14 @@
 		display: flex;
 		flex-direction: column;
 		overflow: hidden;
-	}
 
-	.dialog-sm {
-		max-width: 400px;
-	}
+		&.dialog-sm {
+			max-width: 400px;
+		}
 
-	.dialog-lg {
-		max-width: 640px;
+		&.dialog-lg {
+			max-width: 640px;
+		}
 	}
 
 	.header {
@@ -159,11 +159,11 @@
 			text-overflow: ellipsis;
 			white-space: nowrap;
 		}
-	}
 
-	.close-btn {
-		padding: 0 0.5rem;
-		margin-right: -0.5rem;
+		.close-btn {
+			padding: 0 0.5rem;
+			margin-right: -0.5rem;
+		}
 	}
 
 	.body {
