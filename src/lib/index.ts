@@ -8,6 +8,7 @@ export { default as RadioGroup } from './components/radio-group.svelte';
 export type { RadioItem } from './components/radio-group.svelte';
 export { default as Select } from './components/select.svelte';
 export type { SelectOption } from './components/select.svelte';
+export { default as Slider } from './components/slider.svelte';
 export { default as Switch } from './components/switch.svelte';
 export { default as Toast } from './components/toast.svelte';
 export { default as LoadingSpinner } from './components/loading-spinner.svelte';

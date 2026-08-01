@@ -1,34 +1,5 @@
 # Component Plan — iv-ui
 
-## Phase 1 — Core form controls
-
-- [ ] **Checkbox**
-  - Custom checkbox: `--radius-sm` square, `--ink-2` bg, `--line` border
-  - Checked: `--paper` fill, check icon or inner marker
-  - Label slot, indeterminate state, `$bindable(checked)`
-  - Sizes: sm/md
-
-- [ ] **RadioGroup**
-  - Group of radio items, single selection
-  - Circle indicator: `--ink-2` bg, `--line` border; checked: inner `--paper` dot
-  - Label slot per item, `$bindable(value)`, orientation (horizontal/vertical)
-  - Sizes: sm/md
-
-- [ ] **Switch / Toggle**
-  - Pill-shaped track: `--ink-3` bg when off, `--brass-dim` when on
-  - Circle thumb slides left/right, 120ms transition
-  - `$bindable(checked)`, label, disabled state
-  - Sizes: sm/md
-
-- [ ] **Slider**
-  - Horizontal track: `--ink-3` bg, `--radius-pill`
-  - Filled portion in `--paper-dim` (not `--brass` — no colored fills per §4)
-  - Thumb: small circle, `--paper`, `--shadow-md` on drag
-  - Range (min/max) variant, step support, `$bindable(value)`
-  - Tick marks option
-
----
-
 ## Phase 2 — Layout & surface
 
 - [ ] **Card**
