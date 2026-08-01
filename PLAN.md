@@ -1,29 +1,6 @@
 # Component Plan — iv-ui
 
-## Existing
-
-- [x] **Button** — multi-variant (primary, secondary, outline, ghost, icon, danger), sizes (sm/md/lg), loading state
-- [x] **Input** — text input with label, error, icons, clearable, sizes, bindable value
-- [x] **Dialog** — modal overlay, backdrop, icon/footer slots, close on escape/backdrop, sizes (sm/md/lg)
-- [x] **ConfirmDialog** — store-driven confirmation modal (yes/no)
-- [x] **Toast** — store-driven toast notifications (success/error/info), auto-dismiss
-- [x] **LoadingSpinner** — CSS-animated spinner, size/color props
-
----
-
 ## Phase 1 — Core form controls
-
-- [ ] **Textarea**
-  - Same visual language as Input: `--ink-2` bg, `--radius`, `--line` border, `--font-mono`
-  - Label, error/helper message, character count, `$bindable(value)`, resize control
-  - Sizes: sm/md/lg
-
-- [ ] **Select**
-  - Custom `<select>` replacement with dropdown popover
-  - Trigger: pill-shaped button with chevron icon, same tokens as Input
-  - Options list: `--ink-2` panel, `--shadow-lg`, `--radius-lg`, search/filter built in
-  - Single and multi-select variants
-  - `$bindable(value)`, label, error state
 
 - [ ] **Checkbox**
   - Custom checkbox: `--radius-sm` square, `--ink-2` bg, `--line` border

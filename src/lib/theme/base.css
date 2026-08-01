@@ -23,7 +23,7 @@ a {
 }
 
 html {
-	scrollbar-color: var(--iv_border) var(--iv_surface);
+	scrollbar-color: var(--iv_border) transparent;
 	scrollbar-width: thin;
 }
 
