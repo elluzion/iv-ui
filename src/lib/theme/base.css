@@ -1,0 +1,46 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--ink);
+	color: var(--paper);
+	font-family: var(--font-sans);
+	height: 100dvh;
+	display: flex;
+	flex-direction: column;
+}
+
+::selection {
+	background-color: var(--brass);
+	color: var(--ink);
+}
+
+button {
+	-webkit-tap-highlight-color: transparent;
+}
+
+a {
+	-webkit-tap-highlight-color: transparent;
+}
+
+html {
+	scrollbar-color: var(--line) var(--ink);
+	scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--ink);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--line);
+	border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--line-hover);
+}

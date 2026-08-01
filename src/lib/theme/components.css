@@ -1,0 +1,147 @@
+button {
+	padding: 9px 18px;
+	border-radius: var(--radius-pill);
+	font-weight: 600;
+	border: 1px solid var(--line);
+	color: var(--paper);
+	background: var(--ink-3);
+	font-family: var(--font-sans);
+	cursor: pointer;
+	transition:
+		border-color 0.15s,
+		color 0.15s,
+		background 0.15s,
+		transform 0.1s;
+	display: flex;
+	flex-direction: row;
+	gap: 0.5rem;
+	align-items: center;
+	justify-content: center;
+
+	&:hover {
+		border-color: var(--line-hover);
+		background: var(--ink-3-hover);
+	}
+
+	&:active {
+		transform: scale(0.98);
+	}
+
+	&.primary {
+		background: var(--paper);
+		color: var(--ink);
+		border-color: var(--paper);
+		font-weight: 700;
+
+		&:hover {
+			background: var(--paper-hover);
+			border-color: var(--paper-hover);
+		}
+	}
+
+	&.ghost,
+	&.outline {
+		background: transparent;
+		border: 1px solid var(--line);
+	}
+
+	&.ghost {
+		border-color: transparent;
+	}
+
+	&.icon {
+		background: transparent;
+		color: var(--paper-dim);
+		border: none;
+		padding: 0.5625rem;
+
+		&:hover {
+			color: var(--paper);
+		}
+	}
+
+	&.disabled,
+	&[disabled] {
+		background: var(--ink-2);
+		color: var(--paper-dim);
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
+
+	&.danger {
+		background: var(--rust);
+
+		&:hover {
+			background: var(--rust-hover);
+		}
+	}
+}
+
+a[href] {
+	color: var(--brass);
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+		text-decoration-style: dotted;
+	}
+}
+
+input,
+select,
+textarea,
+.search-container {
+	outline: none;
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	padding: 9px 13px;
+	font-family: var(--font-mono);
+	transition:
+		border-color 0.15s,
+		box-shadow 0.15s;
+	background: var(--ink-2);
+	color: var(--paper);
+	font-size: 1rem;
+
+	&:focus {
+		outline: none;
+		border-color: var(--line-focus);
+		box-shadow: 0 0 0 3px var(--ring);
+	}
+
+	&:hover {
+		border-color: var(--line-hover);
+	}
+
+	&::placeholder {
+		color: var(--paper-dim);
+	}
+}
+
+select {
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%238e8e93" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>');
+	background-repeat: no-repeat;
+	background-position: right 10px center;
+	background-size: 20px;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	padding-right: 2.5rem;
+}
+
+textarea {
+	width: 100%;
+	resize: vertical;
+	box-sizing: border-box;
+	padding: 1rem;
+	min-height: 150px;
+	max-height: 300px;
+	overflow: auto;
+}
+
+span.divider {
+	display: inline-block;
+	width: 100%;
+	height: 1px;
+	background-color: var(--line);
+}

@@ -1,0 +1,39 @@
+:root {
+	--ink: #000000;
+	--ink-2: #141415;
+	--ink-3: #1e1e20;
+
+	--line: #2a2a2d;
+
+	--paper: #fafafa;
+	--paper-dim: #8e8e93;
+
+	--brass: #c7a24a;
+	--brass-dim: #7d6a3c;
+	--moss: #7c9b7c;
+	--rust: #e8734a;
+	--rust-bg: rgba(232, 115, 74, 0.1);
+	--info: #5d8ee8;
+
+	--line-hover: #3a3a3d;
+	--line-focus: #4a4a4d;
+	--ink-3-hover: #242427;
+	--paper-hover: #e4e4e4;
+	--rust-hover: #d1653c;
+
+	--overlay: rgba(0, 0, 0, 0.4);
+	--ring: rgba(255, 255, 255, 0.06);
+	--surface-hover: rgba(255, 255, 255, 0.08);
+
+	--radius: 14px;
+	--radius-sm: 10px;
+	--radius-lg: 20px;
+	--radius-pill: 999px;
+
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+	--shadow-md: 0 4px 20px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.4);
+	--shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.6), 0 2px 6px rgba(0, 0, 0, 0.4);
+
+	--font-sans: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+	--font-mono: 'IBM Plex Mono', monospace;
+}
