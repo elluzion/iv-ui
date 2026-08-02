@@ -5,6 +5,8 @@ export type { AccordionValue } from './components/accordion.svelte';
 export { default as AccordionItem } from './components/accordion-item.svelte';
 export { default as Checkbox } from './components/checkbox.svelte';
 export { default as Dialog } from './components/dialog.svelte';
+export { default as Sheet } from './components/sheet.svelte';
+export type { SheetSide, SheetSize } from './components/sheet.svelte';
 export { default as ConfirmDialog } from './components/confirm-dialog.svelte';
 export { default as Input } from './components/input.svelte';
 export { default as Textarea } from './components/textarea.svelte';

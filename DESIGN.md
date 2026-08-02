@@ -171,6 +171,9 @@ Theme-agnostic tokens that standardize repeated values:
 | `--iv_dialog-sm`        | `400px`                         | Small dialog max-width.                                       |
 | `--iv_dialog-md`        | `520px`                         | Default dialog max-width.                                     |
 | `--iv_dialog-lg`        | `640px`                         | Large dialog max-width.                                       |
+| `--iv_sheet-sm`         | `320px`                         | Small sheet width (side) / height (top-bottom).               |
+| `--iv_sheet-md`         | `440px`                         | Default sheet width (side) / height (top-bottom).             |
+| `--iv_sheet-lg`         | `560px`                         | Large sheet width (side) / height (top-bottom).               |
 | `--iv_scrollbar-size`   | `8px`                           | Custom scrollbar width/height.                                |
 
 ---

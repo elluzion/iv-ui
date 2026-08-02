@@ -26,7 +26,7 @@
   - Panel: `--ink-2` bg, content snippet
   - Border between items: `1px solid var(--line)`
 
-- [ ] **Sheet / Drawer**
+- [x] **Sheet / Drawer**
   - Side panel overlay (left/right/bottom)
   - Same backdrop + transition as Dialog (`fade` + directional `fly`)
   - `--ink-2` panel, `--shadow-lg`

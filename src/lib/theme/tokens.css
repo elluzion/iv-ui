@@ -78,6 +78,10 @@
 	--iv_dialog-md: 520px;
 	--iv_dialog-lg: 640px;
 
+	--iv_sheet-sm: 320px;
+	--iv_sheet-md: 440px;
+	--iv_sheet-lg: 560px;
+
 	--iv_scrollbar-size: 8px;
 }
 
