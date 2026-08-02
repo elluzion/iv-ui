@@ -2,7 +2,7 @@
 
 ## Phase 3 — Overlay & floating
 
-- [ ] **Tooltip**
+- [x] **Tooltip**
   - Small `--ink-2` pill, `--paper` text, 10.5px font, `--shadow-md`
   - 4–6px padding, `--radius-pill`, no border
   - Positions: top/bottom/left/right, auto-flip on edge collision
