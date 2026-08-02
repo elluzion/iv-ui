@@ -2,7 +2,7 @@
 
 ## Phase 2 — Layout & surface
 
-- [ ] **Card**
+- [x] **Card**
   - `--ink-2` bg, `--radius-lg`, `1px solid var(--line)` border
   - Optional header (title + action slot), body, footer slots
   - Padding variants: sm/md/lg
