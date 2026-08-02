@@ -100,7 +100,7 @@
 
 	.group-label {
 		font-family: var(--iv_font-sans);
-		font-size: 0.85rem;
+		font-size: var(--iv_text-label);
 		font-weight: 500;
 		color: var(--iv_foreground);
 		margin-bottom: 2px;
@@ -126,7 +126,7 @@
 		user-select: none;
 
 		&.disabled {
-			opacity: 0.5;
+			opacity: var(--iv_disabled-opacity);
 			cursor: not-allowed;
 		}
 	}
@@ -152,8 +152,8 @@
 		border-radius: 50%;
 		background: var(--iv_surface-raised);
 		transition:
-			border-color 0.12s,
-			background 0.12s;
+			border-color var(--iv_transition-fast),
+			background var(--iv_transition-fast);
 
 		&.sm {
 			width: 16px;
@@ -183,18 +183,18 @@
 	}
 
 	.native:focus-visible + .circle {
-		outline: 2px solid var(--iv_foreground);
-		outline-offset: 2px;
+		outline: var(--iv_outline-width) solid var(--iv_foreground);
+		outline-offset: var(--iv_outline-offset);
 	}
 
 	.label {
 		font-family: var(--iv_font-sans);
-		font-size: 0.9rem;
+		font-size: var(--iv_text-body);
 		color: var(--iv_foreground);
 		line-height: 1.4;
 	}
 
 	.item:has(.sm) .label {
-		font-size: 0.825rem;
+		font-size: var(--iv_text-btn-sm);
 	}
 </style>

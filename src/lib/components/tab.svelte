@@ -48,17 +48,17 @@
 		border-bottom: 2px solid transparent;
 		margin-bottom: -1px;
 		transition:
-			color 0.12s,
-			border-color 0.12s;
+			color var(--iv_transition-fast),
+			border-color var(--iv_transition-fast);
 
 		&.sm {
 			padding: 0.4rem 0.625rem;
-			font-size: 0.825rem;
+			font-size: var(--iv_text-btn-sm);
 		}
 
 		&.md {
 			padding: 0.5rem 0.875rem;
-			font-size: 0.9rem;
+			font-size: var(--iv_text-body);
 		}
 
 		&:hover:not(:disabled):not(.active) {
@@ -71,12 +71,12 @@
 		}
 
 		&:focus-visible {
-			outline: 2px solid var(--iv_foreground);
+			outline: var(--iv_outline-width) solid var(--iv_foreground);
 			outline-offset: -2px;
 		}
 
 		&:disabled {
-			opacity: 0.5;
+			opacity: var(--iv_disabled-opacity);
 			cursor: not-allowed;
 		}
 	}

@@ -99,11 +99,11 @@
 		position: fixed;
 		inset: 0;
 		background: var(--iv_overlay);
-		backdrop-filter: blur(12px);
+		backdrop-filter: blur(var(--iv_blur));
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		z-index: 100;
+		z-index: var(--iv_z-overlay);
 		padding: 1rem;
 	}
 
@@ -113,18 +113,18 @@
 		border-radius: var(--iv_radius-lg);
 		box-shadow: var(--iv_shadow-lg);
 		width: 100%;
-		max-width: 520px;
+		max-width: var(--iv_dialog-md);
 		max-height: calc(100dvh - 4rem);
 		display: flex;
 		flex-direction: column;
 		overflow: hidden;
 
 		&.dialog-sm {
-			max-width: 400px;
+			max-width: var(--iv_dialog-sm);
 		}
 
 		&.dialog-lg {
-			max-width: 640px;
+			max-width: var(--iv_dialog-lg);
 		}
 	}
 
@@ -152,7 +152,7 @@
 
 		h2 {
 			margin: 0;
-			font-size: 1.1rem;
+			font-size: var(--iv_text-xl);
 			font-weight: 600;
 			color: var(--iv_foreground);
 			overflow: hidden;

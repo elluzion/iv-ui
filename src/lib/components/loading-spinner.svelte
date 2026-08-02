@@ -20,7 +20,7 @@
 		border-width: 2px;
 		border-style: solid;
 		border-radius: 50%;
-		animation: spin 0.75s cubic-bezier(0.3, 0.7, 0.7, 0.3) infinite;
+		animation: spin var(--iv_spin-duration) var(--iv_spin-easing) infinite;
 		flex-shrink: 0;
 	}
 

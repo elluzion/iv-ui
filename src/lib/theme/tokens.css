@@ -45,6 +45,40 @@
 
 	--iv_font-sans: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
 	--iv_font-mono: 'IBM Plex Mono', monospace;
+
+	--iv_text-xs: 0.75rem;
+	--iv_text-sm: 0.8rem;
+	--iv_text-btn-sm: 0.825rem;
+	--iv_text-label: 0.85rem;
+	--iv_text-body-sm: 0.875rem;
+	--iv_text-body: 0.9rem;
+	--iv_text-btn: 0.95rem;
+	--iv_text-base: 1rem;
+	--iv_text-lg: 1.05rem;
+	--iv_text-xl: 1.1rem;
+	--iv_text-chips: 10.5px;
+
+	--iv_transition-fast: 0.12s;
+	--iv_transition-base: 0.15s;
+
+	--iv_spin-duration: 0.75s;
+	--iv_spin-easing: cubic-bezier(0.3, 0.7, 0.7, 0.3);
+
+	--iv_outline-width: 2px;
+	--iv_outline-offset: 2px;
+	--iv_ring-width: 3px;
+	--iv_blur: 12px;
+	--iv_disabled-opacity: 0.5;
+
+	--iv_z-dropdown: 50;
+	--iv_z-overlay: 100;
+	--iv_z-toast: 110;
+
+	--iv_dialog-sm: 400px;
+	--iv_dialog-md: 520px;
+	--iv_dialog-lg: 640px;
+
+	--iv_scrollbar-size: 8px;
 }
 
 @media (prefers-color-scheme: light) {

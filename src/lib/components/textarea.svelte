@@ -147,8 +147,8 @@
 		border-radius: var(--iv_radius);
 		background: var(--iv_surface-raised);
 		transition:
-			border-color 0.15s,
-			box-shadow 0.15s;
+			border-color var(--iv_transition-base),
+			box-shadow var(--iv_transition-base);
 		overflow: hidden;
 
 		&:hover {
@@ -157,19 +157,19 @@
 
 		&:focus-within {
 			border-color: var(--iv_border-focus);
-			box-shadow: 0 0 0 3px var(--iv_ring);
+			box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_ring);
 		}
 
 		&.has-error {
 			border-color: var(--iv_error);
 
 			&:focus-within {
-				box-shadow: 0 0 0 3px var(--iv_error-surface);
+				box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_error-surface);
 			}
 		}
 
 		&.disabled {
-			opacity: 0.5;
+			opacity: var(--iv_disabled-opacity);
 			cursor: not-allowed;
 		}
 	}
@@ -180,7 +180,7 @@
 		width: 100%;
 		box-sizing: border-box;
 		font-family: var(--iv_font-mono);
-		font-size: 1rem;
+		font-size: var(--iv_text-base);
 		color: var(--iv_foreground);
 		padding: 9px 13px;
 		resize: var(--textarea-resize, vertical);
@@ -198,7 +198,7 @@
 	.label {
 		display: block;
 		font-family: var(--iv_font-sans);
-		font-size: 0.85rem;
+		font-size: var(--iv_text-label);
 		font-weight: 500;
 		color: var(--iv_foreground);
 		margin-bottom: 6px;
@@ -219,7 +219,7 @@
 	.message {
 		margin: 0;
 		font-family: var(--iv_font-sans);
-		font-size: 0.8rem;
+		font-size: var(--iv_text-sm);
 	}
 
 	.error-message {
@@ -233,7 +233,7 @@
 	.char-count {
 		margin: 0;
 		font-family: var(--iv_font-mono);
-		font-size: 0.75rem;
+		font-size: var(--iv_text-xs);
 		color: var(--iv_foreground-dim);
 		flex-shrink: 0;
 

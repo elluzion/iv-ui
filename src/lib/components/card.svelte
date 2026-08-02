@@ -116,7 +116,7 @@
 		border-radius: var(--iv_radius);
 		color: var(--iv_foreground);
 		overflow: hidden;
-		transition: border-color 0.15s;
+		transition: border-color var(--iv_transition-base);
 
 		--pad-x: 1rem;
 		--pad-y: 0.875rem;
@@ -153,7 +153,7 @@
 		}
 
 		&.disabled {
-			opacity: 0.5;
+			opacity: var(--iv_disabled-opacity);
 			cursor: not-allowed;
 		}
 
@@ -174,7 +174,7 @@
 
 			.title {
 				margin: 0;
-				font-size: 1rem;
+				font-size: var(--iv_text-base);
 				font-weight: 600;
 				color: var(--iv_foreground);
 				overflow: hidden;
@@ -184,7 +184,7 @@
 
 			.description {
 				margin: 0;
-				font-size: 0.85rem;
+				font-size: var(--iv_text-label);
 				color: var(--iv_foreground-dim);
 			}
 

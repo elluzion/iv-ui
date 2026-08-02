@@ -267,7 +267,7 @@
 		box-sizing: border-box;
 
 		&.disabled {
-			opacity: 0.5;
+			opacity: var(--iv_disabled-opacity);
 			cursor: not-allowed;
 		}
 	}
@@ -282,14 +282,14 @@
 
 	.label {
 		font-family: var(--iv_font-sans);
-		font-size: 0.85rem;
+		font-size: var(--iv_text-label);
 		font-weight: 500;
 		color: var(--iv_foreground);
 	}
 
 	.value {
 		font-family: var(--iv_font-mono);
-		font-size: 0.8rem;
+		font-size: var(--iv_text-sm);
 		color: var(--iv_foreground-dim);
 		flex-shrink: 0;
 	}
@@ -314,7 +314,7 @@
 		}
 
 		&:focus-visible {
-			outline: 2px solid var(--iv_foreground);
+			outline: var(--iv_outline-width) solid var(--iv_foreground);
 			outline-offset: 4px;
 		}
 	}
@@ -337,7 +337,7 @@
 		border-radius: 50%;
 		background: var(--iv_foreground);
 		transform: translate(-50%, -50%);
-		transition: box-shadow 0.15s;
+		transition: box-shadow var(--iv_transition-base);
 		cursor: pointer;
 
 		&.active {
@@ -345,7 +345,7 @@
 		}
 
 		&:focus-visible {
-			outline: 2px solid var(--iv_foreground);
+			outline: var(--iv_outline-width) solid var(--iv_foreground);
 			outline-offset: 3px;
 		}
 	}

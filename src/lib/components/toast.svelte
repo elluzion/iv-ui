@@ -33,7 +33,7 @@
 		position: fixed;
 		right: 1rem;
 		bottom: 1rem;
-		z-index: 110;
+		z-index: var(--iv_z-toast);
 		pointer-events: none;
 	}
 

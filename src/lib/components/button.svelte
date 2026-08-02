@@ -58,13 +58,13 @@
 	button {
 		&.btn-sm {
 			padding: 5px 13px;
-			font-size: 0.825rem;
+			font-size: var(--iv_text-btn-sm);
 			gap: 0.375rem;
 		}
 
 		&.btn-lg {
 			padding: 12px 24px;
-			font-size: 1.05rem;
+			font-size: var(--iv_text-lg);
 			gap: 0.625rem;
 		}
 

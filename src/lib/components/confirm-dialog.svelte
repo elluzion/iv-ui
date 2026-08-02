@@ -37,11 +37,11 @@
 		position: fixed;
 		inset: 0;
 		background: var(--iv_overlay);
-		backdrop-filter: blur(12px);
+		backdrop-filter: blur(var(--iv_blur));
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		z-index: 100;
+		z-index: var(--iv_z-overlay);
 	}
 
 	.dialog {

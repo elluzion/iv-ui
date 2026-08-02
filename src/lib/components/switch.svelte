@@ -91,7 +91,7 @@
 		gap: 0.5rem;
 
 		&.disabled {
-			opacity: 0.5;
+			opacity: var(--iv_disabled-opacity);
 			cursor: not-allowed;
 		}
 	}
@@ -105,11 +105,11 @@
 		background: var(--iv_surface-elevated);
 		border: 1px solid var(--iv_border);
 		cursor: pointer;
-		transition: background 0.12s;
+		transition: background var(--iv_transition-fast);
 
 		&:focus-visible {
-			outline: 2px solid var(--iv_foreground);
-			outline-offset: 2px;
+			outline: var(--iv_outline-width) solid var(--iv_foreground);
+			outline-offset: var(--iv_outline-offset);
 		}
 
 		&.sm {
@@ -137,7 +137,7 @@
 		left: 2px;
 		border-radius: 50%;
 		background: var(--iv_foreground);
-		transition: transform 0.12s;
+		transition: transform var(--iv_transition-fast);
 
 		.switch.sm & {
 			width: 14px;
@@ -164,7 +164,7 @@
 
 	.label {
 		font-family: var(--iv_font-sans);
-		font-size: 0.9rem;
+		font-size: var(--iv_text-body);
 		color: var(--iv_foreground);
 		line-height: 1.4;
 		cursor: pointer;

@@ -33,7 +33,7 @@
 	.tab-panel {
 		padding: 1.25rem 0;
 		color: var(--iv_foreground-dim);
-		font-size: 0.9rem;
+		font-size: var(--iv_text-body);
 		line-height: 1.5;
 
 		&.bordered {

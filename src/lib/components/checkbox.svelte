@@ -121,7 +121,7 @@
 		user-select: none;
 
 		&.disabled {
-			opacity: 0.5;
+			opacity: var(--iv_disabled-opacity);
 			cursor: not-allowed;
 		}
 	}
@@ -148,8 +148,8 @@
 		background: var(--iv_surface-raised);
 		color: var(--iv_foreground-inverse);
 		transition:
-			background 0.12s,
-			border-color 0.12s;
+			background var(--iv_transition-fast),
+			border-color var(--iv_transition-fast);
 
 		&.sm {
 			width: 16px;
@@ -169,13 +169,13 @@
 	}
 
 	.native:focus-visible + .box {
-		outline: 2px solid var(--iv_foreground);
-		outline-offset: 2px;
+		outline: var(--iv_outline-width) solid var(--iv_foreground);
+		outline-offset: var(--iv_outline-offset);
 	}
 
 	.label {
 		font-family: var(--iv_font-sans);
-		font-size: 0.9rem;
+		font-size: var(--iv_text-body);
 		color: var(--iv_foreground);
 		line-height: 1.4;
 	}

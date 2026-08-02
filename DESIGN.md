@@ -70,7 +70,7 @@ component — reference the token.
 | `--iv_border`       | `#2a2a2d`  | `#d4d4d8`   | Default hairline border, everywhere. |
 | `--iv_border-hover` | `#3a3a3d`  | `#a1a1aa`   | Border color on hover.               |
 | `--iv_border-focus` | `#4a4a4d`  | `#71717a`   | Border color on focus (inputs).      |
-| `--iv_border-error` | `#f08858`   | `#b03308`   | Border color for error state inputs. |
+| `--iv_border-error` | `#f08858`  | `#b03308`   | Border color for error state inputs. |
 
 ### Text / foreground
 
@@ -93,9 +93,9 @@ Every semantic color follows a `main / dim / surface` pattern:
 | `--iv_success`         | `#7c9b7c`               | `#3b7a3b`              | Success / positive state.                                          |
 | `--iv_success-dim`     | `#5a7a5a`               | `#2d5e2d`              | Muted success.                                                     |
 | `--iv_success-surface` | `rgba(124,155,124,0.1)` | `rgba(59,122,59,0.1)`  | Success background tint.                                           |
-| `--iv_error`        | `#f08858`                    | `#b03308`                    | Error / destructive / attention. |
-| `--iv_error-dim`    | `#da7550`                    | `#892a0d`                    | Darker error (danger button hover). |
-| `--iv_error-surface` | `rgba(240,136,88,0.1)`    | `rgba(176,51,8,0.1)`        | Error background tint.           |
+| `--iv_error`           | `#f08858`               | `#b03308`              | Error / destructive / attention.                                   |
+| `--iv_error-dim`       | `#da7550`               | `#892a0d`              | Darker error (danger button hover).                                |
+| `--iv_error-surface`   | `rgba(240,136,88,0.1)`  | `rgba(176,51,8,0.1)`   | Error background tint.                                             |
 | `--iv_info`            | `#5d8ee8`               | `#2563eb`              | Informational signals (toasts, badges).                            |
 | `--iv_info-dim`        | `#3a6fcc`               | `#1d4ed8`              | Muted info.                                                        |
 | `--iv_info-surface`    | `rgba(93,142,232,0.1)`  | `rgba(37,99,235,0.1)`  | Info background tint.                                              |
@@ -131,6 +131,47 @@ Every semantic color follows a `main / dim / surface` pattern:
 - **Monospace family** for data only: `--iv_font-mono` (`'IBM Plex Mono', monospace`). Used for
   timestamps, keyboard shortcuts, code fragments, source counts. Never used for a page title,
   a button label, or prose.
+
+### Text sizes
+
+All component font sizes come from this scale via `tokens.css` — never a raw `rem`/`px` in a component:
+
+| Token               | Value      | Usage                                                   |
+| ------------------- | ---------- | ------------------------------------------------------- |
+| `--iv_text-xs`      | `0.75rem`  | Character counts, tiny mono meta.                       |
+| `--iv_text-sm`      | `0.8rem`   | Helper/error messages, separator labels, slider values. |
+| `--iv_text-btn-sm`  | `0.825rem` | Small buttons, sm tabs, sm checkbox/radio labels.       |
+| `--iv_text-label`   | `0.85rem`  | Form labels, card descriptions, select empty state.     |
+| `--iv_text-body-sm` | `0.875rem` | Sm inputs/selects, sm search input.                     |
+| `--iv_text-body`    | `0.9rem`   | Default body text, large radio/checkbox/switch labels.  |
+| `--iv_text-btn`     | `0.95rem`  | Accordion trigger.                                      |
+| `--iv_text-base`    | `1rem`     | Inputs, textareas, select trigger, form fields.         |
+| `--iv_text-lg`      | `1.05rem`  | lg buttons, lg inputs.                                  |
+| `--iv_text-xl`      | `1.1rem`   | Dialog titles.                                          |
+| `--iv_text-chips`   | `10.5px`   | Chip / badge / pill labels.                             |
+
+### Motion, focus, and misc system values
+
+Theme-agnostic tokens that standardize repeated values:
+
+| Token                   | Value                           | Usage                                                         |
+| ----------------------- | ------------------------------- | ------------------------------------------------------------- |
+| `--iv_transition-fast`  | `0.12s`                         | Micro-interactions: chevrons, checkboxes, toggles, tab color. |
+| `--iv_transition-base`  | `0.15s`                         | Borders / backgrounds / box-shadows on hover and focus.       |
+| `--iv_spin-duration`    | `0.75s`                         | Loading spinner one revolution.                               |
+| `--iv_spin-easing`      | `cubic-bezier(0.3,0.7,0.7,0.3)` | Loading spinner easing.                                       |
+| `--iv_outline-width`    | `2px`                           | Focus outline width (`outline`).                              |
+| `--iv_outline-offset`   | `2px`                           | Default focus outline offset.                                 |
+| `--iv_ring-width`       | `3px`                           | Focus/`box-shadow` ring width (`box-shadow: 0 0 0 <width>`).  |
+| `--iv_blur`             | `12px`                          | Backdrop blur behind dialogs.                                 |
+| `--iv_disabled-opacity` | `0.5`                           | Disabled element opacity.                                     |
+| `--iv_z-dropdown`       | `50`                            | Select dropdown popover.                                      |
+| `--iv_z-overlay`        | `100`                           | Dialog / modal backdrop.                                      |
+| `--iv_z-toast`          | `110`                           | Toast layer.                                                  |
+| `--iv_dialog-sm`        | `400px`                         | Small dialog max-width.                                       |
+| `--iv_dialog-md`        | `520px`                         | Default dialog max-width.                                     |
+| `--iv_dialog-lg`        | `640px`                         | Large dialog max-width.                                       |
+| `--iv_scrollbar-size`   | `8px`                           | Custom scrollbar width/height.                                |
 
 ---
 

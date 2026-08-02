@@ -443,12 +443,12 @@
 		background: var(--iv_surface-raised);
 		color: var(--iv_foreground);
 		font-family: var(--iv_font-mono);
-		font-size: 1rem;
+		font-size: var(--iv_text-base);
 		padding: 9px 13px;
 		cursor: pointer;
 		transition:
-			border-color 0.15s,
-			box-shadow 0.15s;
+			border-color var(--iv_transition-base),
+			box-shadow var(--iv_transition-base);
 
 		&:hover:not(.disabled) {
 			border-color: var(--iv_border-hover);
@@ -458,29 +458,29 @@
 		&.open {
 			outline: none;
 			border-color: var(--iv_border-focus);
-			box-shadow: 0 0 0 3px var(--iv_ring);
+			box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_ring);
 		}
 
 		&.has-error {
 			border-color: var(--iv_error);
 
 			&.open {
-				box-shadow: 0 0 0 3px var(--iv_error-surface);
+				box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_error-surface);
 			}
 		}
 
 		&.sm {
 			padding: 5px 11px;
-			font-size: 0.875rem;
+			font-size: var(--iv_text-body-sm);
 		}
 
 		&.lg {
 			padding: 13px 16px;
-			font-size: 1.05rem;
+			font-size: var(--iv_text-lg);
 		}
 
 		&.disabled {
-			opacity: 0.5;
+			opacity: var(--iv_disabled-opacity);
 			cursor: not-allowed;
 		}
 	}
@@ -556,7 +556,7 @@
 		align-items: center;
 		flex-shrink: 0;
 		color: var(--iv_foreground-dim);
-		transition: transform 0.12s;
+		transition: transform var(--iv_transition-fast);
 
 		&.open {
 			transform: rotate(180deg);
@@ -569,7 +569,7 @@
 		top: calc(100% + 6px);
 		left: 0;
 		right: 0;
-		z-index: 50;
+		z-index: var(--iv_z-dropdown);
 		background: var(--iv_surface-raised);
 		border: 1px solid var(--iv_border);
 		border-radius: var(--iv_radius);
@@ -616,8 +616,8 @@
 		scrollbar-width: thin;
 
 		&::-webkit-scrollbar {
-			width: 8px;
-			height: 8px;
+			width: var(--iv_scrollbar-size);
+			height: var(--iv_scrollbar-size);
 		}
 
 		&::-webkit-scrollbar-track {
@@ -641,10 +641,10 @@
 		padding: 7px 10px;
 		border-radius: var(--iv_radius-sm);
 		font-family: var(--iv_font-sans);
-		font-size: 0.9rem;
+		font-size: var(--iv_text-body);
 		color: var(--iv_foreground);
 		cursor: pointer;
-		transition: background 0.12s;
+		transition: background var(--iv_transition-fast);
 
 		&:hover,
 		&.active {
@@ -681,14 +681,14 @@
 		padding: 12px 10px;
 		text-align: center;
 		font-family: var(--iv_font-sans);
-		font-size: 0.85rem;
+		font-size: var(--iv_text-label);
 		color: var(--iv_foreground-dim);
 	}
 
 	.label {
 		display: block;
 		font-family: var(--iv_font-sans);
-		font-size: 0.85rem;
+		font-size: var(--iv_text-label);
 		font-weight: 500;
 		color: var(--iv_foreground);
 		margin-bottom: 6px;
@@ -702,7 +702,7 @@
 	.message {
 		margin: 4px 0 0 0;
 		font-family: var(--iv_font-sans);
-		font-size: 0.8rem;
+		font-size: var(--iv_text-sm);
 	}
 
 	.error-message {

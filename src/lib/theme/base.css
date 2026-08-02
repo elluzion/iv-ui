@@ -28,8 +28,8 @@ html {
 }
 
 ::-webkit-scrollbar {
-	width: 8px;
-	height: 8px;
+	width: var(--iv_scrollbar-size);
+	height: var(--iv_scrollbar-size);
 }
 
 ::-webkit-scrollbar-track {

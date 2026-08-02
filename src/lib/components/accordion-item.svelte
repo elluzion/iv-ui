@@ -70,7 +70,7 @@
 		}
 
 		&.disabled {
-			opacity: 0.5;
+			opacity: var(--iv_disabled-opacity);
 		}
 	}
 
@@ -84,12 +84,12 @@
 		width: 100%;
 		padding: 0.875rem 1.25rem;
 		font-family: var(--iv_font-sans);
-		font-size: 0.95rem;
+		font-size: var(--iv_text-btn);
 		font-weight: 500;
 		color: var(--iv_foreground);
 		text-align: left;
 		cursor: pointer;
-		transition: background 0.12s;
+		transition: background var(--iv_transition-fast);
 
 		&:hover:not(:disabled) {
 			background: var(--iv_surface-overlay);
@@ -100,7 +100,7 @@
 		}
 
 		&:focus-visible {
-			outline: 2px solid var(--iv_foreground);
+			outline: var(--iv_outline-width) solid var(--iv_foreground);
 			outline-offset: -2px;
 		}
 	}
@@ -118,7 +118,7 @@
 		align-items: center;
 		flex-shrink: 0;
 		color: var(--iv_foreground-dim);
-		transition: transform 0.12s;
+		transition: transform var(--iv_transition-fast);
 
 		&.open {
 			transform: rotate(180deg);
@@ -131,7 +131,7 @@
 		border-top: 1px solid var(--iv_border);
 		background: var(--iv_surface-raised);
 		color: var(--iv_foreground-dim);
-		font-size: 0.9rem;
+		font-size: var(--iv_text-body);
 		line-height: 1.5;
 		overflow: hidden;
 	}
