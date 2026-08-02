@@ -13,7 +13,7 @@
   - Optional label (horizontal only, centered text)
   - Margins: sm/md/lg
 
-- [ ] **Tabs**
+- [x] **Tabs**
   - Tab list: horizontal row, no border container
   - Active tab: `--paper` text, optional bottom border accent (`--paper`)
   - Inactive tab: `--paper-dim` text, hover → `--paper`
