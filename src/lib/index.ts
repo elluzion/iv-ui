@@ -1,5 +1,6 @@
 export { default as Button } from './components/button.svelte';
 export { default as Card } from './components/card.svelte';
+export { default as Article } from './components/article.svelte';
 export { default as Accordion } from './components/accordion.svelte';
 export type { AccordionValue } from './components/accordion.svelte';
 export { default as AccordionItem } from './components/accordion-item.svelte';
