@@ -1,40 +1,5 @@
 # Component Plan — iv-ui
 
-## Phase 2 — Layout & surface
-
-- [x] **Card**
-  - `--ink-2` bg, `--radius-lg`, `1px solid var(--line)` border
-  - Optional header (title + action slot), body, footer slots
-  - Padding variants: sm/md/lg
-  - Hover: border brightens to `--line-hover` (never lifts, never shadows per §5)
-
-- [x] **Separator**
-  - Horizontal or vertical: `1px solid var(--line)`
-  - Optional label (horizontal only, centered text)
-  - Margins: sm/md/lg
-
-- [x] **Tabs**
-  - Tab list: horizontal row, no border container
-  - Active tab: `--paper` text, optional bottom border accent (`--paper`)
-  - Inactive tab: `--paper-dim` text, hover → `--paper`
-  - Tab panel for content via snippets
-  - Sizes: sm/md
-
-- [x] **Accordion**
-  - Collapsible sections, single or multiple open
-  - Trigger: full-width button row, chevron icon rotates 180deg on open (120ms transition)
-  - Panel: `--ink-2` bg, content snippet
-  - Border between items: `1px solid var(--line)`
-
-- [x] **Sheet / Drawer**
-  - Side panel overlay (left/right/bottom)
-  - Same backdrop + transition as Dialog (`fade` + directional `fly`)
-  - `--ink-2` panel, `--shadow-lg`
-  - Header (title + close), body content slot, optional footer
-  - Sizes: sm/md/lg/full
-
----
-
 ## Phase 3 — Overlay & floating
 
 - [ ] **Tooltip**

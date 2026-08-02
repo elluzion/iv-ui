@@ -2,8 +2,6 @@
 
 A Svelte 5 component library with a monochrome dark design system.
 
-Built with [`sv`](https://npmjs.com/package/sv) and [`@sveltejs/package`](https://svelte.dev/docs/kit/packaging).
-
 ## Components
 
 Button, Input, Dialog, ConfirmDialog, Toast, LoadingSpinner — all following the design system defined in [DESIGN.md](./DESIGN.md).
@@ -11,11 +9,10 @@ Button, Input, Dialog, ConfirmDialog, Toast, LoadingSpinner — all following th
 ## Developing
 
 ```sh
-bun dev               # showcase app
 bun run storybook     # component explorer at :6006
 ```
 
-`src/lib/` is the library; `src/routes/` is the showcase app (not part of the distributed package).
+`src/lib/` is the library; `src/routes/` is the (yet empty) showcase app (not part of the distributed package).
 
 ## Building
 
