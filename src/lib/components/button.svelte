@@ -1,8 +1,9 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import LoadingSpinner from './loading-spinner.svelte';
 
-	interface Props {
+	interface Props extends HTMLAttributes<HTMLButtonElement> {
 		variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'icon' | 'danger';
 		size?: 'sm' | 'md' | 'lg';
 		disabled?: boolean;
@@ -23,7 +24,8 @@
 		type = 'button',
 		onclick,
 		'on:click': onEventClick,
-		children
+		children,
+		...restProps
 	}: Props = $props();
 
 	function handleClick(e: MouseEvent) {
@@ -47,6 +49,7 @@
 	{type}
 	onclick={handleClick}
 	aria-busy={loading}
+	{...restProps}
 >
 	{#if loading}
 		<LoadingSpinner size={size === 'sm' ? 12 : size === 'lg' ? 18 : 14} color="currentColor" />

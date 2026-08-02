@@ -39,7 +39,7 @@
 
 <Story name="LoadingSecondary" args={{ variant: 'secondary', loading: true }}>Processing…</Story>
 
-{#snippet iconTemplate(_args, _ctx)}
+{#snippet iconTemplate()}
 	<Button variant="icon" aria-label="Add item">
 		<IconPlus size="1.125rem" />
 	</Button>
@@ -47,7 +47,7 @@
 
 <Story name="Icon" template={iconTemplate} />
 
-{#snippet iconWithTextTemplate(_args, _ctx)}
+{#snippet iconWithTextTemplate()}
 	<div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap">
 		<Button variant="secondary">
 			<IconDownload size={16} />
@@ -70,7 +70,7 @@
 
 <Story name="IconWithText" template={iconWithTextTemplate} />
 
-{#snippet allVariantsTemplate(_args, _ctx)}
+{#snippet allVariantsTemplate()}
 	<div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap">
 		<Button variant="primary">Primary</Button>
 		<Button variant="secondary">Secondary</Button>
@@ -82,7 +82,7 @@
 
 <Story name="AllVariants" template={allVariantsTemplate} />
 
-{#snippet allSizesTemplate(_args, _ctx)}
+{#snippet allSizesTemplate()}
 	<div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap">
 		<Button variant="primary" size="sm">Small</Button>
 		<Button variant="primary" size="md">Medium</Button>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { IconCheck, IconInfoCircle, IconMoodSadDizzy, IconX } from '@tabler/icons-svelte';
-	import { hideToast, toastState } from '../stores/toast';
+	import { hideToast, toastState } from '../stores/toast.js';
 	import { fade, fly } from 'svelte/transition';
 </script>
 

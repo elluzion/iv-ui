@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import type { ToastState, ToastType } from '../types';
+import type { ToastState, ToastType } from '../types.js';
 
 export const toastState = writable<ToastState | null>(null);
 

@@ -24,7 +24,7 @@ export { default as Switch } from './components/switch.svelte';
 export { default as Toast } from './components/toast.svelte';
 export { default as LoadingSpinner } from './components/loading-spinner.svelte';
 
-export { dialogState, showDialog } from './stores/dialog';
-export { toastState, showToast, hideToast } from './stores/toast';
+export { dialogState, showDialog } from './stores/dialog.js';
+export { toastState, showToast, hideToast } from './stores/toast.js';
 
-export type { ToastType, ToastState, DialogState } from './types';
+export type { ToastType, ToastState, DialogState } from './types.js';

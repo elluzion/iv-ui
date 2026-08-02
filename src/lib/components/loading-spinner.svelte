@@ -1,8 +1,10 @@
 <script lang="ts">
-	let { size = 24, color = 'var(--iv_accent)' } = $props<{
+	interface Props {
 		size?: number;
 		color?: string;
-	}>();
+	}
+
+	let { size = 24, color = 'var(--iv_accent)' }: Props = $props();
 </script>
 
 <span

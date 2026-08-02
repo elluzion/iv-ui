@@ -68,7 +68,7 @@
 
 <Story name="ClearableWithValue" args={{ value: 'Something to clear', clearable: true }} />
 
-{#snippet leadingSearchTemplate(_)}
+{#snippet leadingSearchTemplate()}
 	<Input placeholder="Search knowledge base…" clearable>
 		{#snippet leadingIcon()}
 			<IconSearch size={16} />
@@ -78,7 +78,7 @@
 
 <Story name="LeadingIcon" template={leadingSearchTemplate} />
 
-{#snippet leadingIconWithLabelTemplate(_)}
+{#snippet leadingIconWithLabelTemplate()}
 	<Input label="Your email" placeholder="you@example.com" type="email">
 		{#snippet leadingIcon()}
 			<IconMail size={16} />
@@ -88,7 +88,7 @@
 
 <Story name="LeadingIconWithLabel" template={leadingIconWithLabelTemplate} />
 
-{#snippet trailingIconTemplate(_)}
+{#snippet trailingIconTemplate()}
 	<Input label="Password" placeholder="Enter your password" type="password" value="secret">
 		{#snippet trailingIcon()}
 			<IconLock size={16} />
@@ -98,7 +98,7 @@
 
 <Story name="TrailingIcon" template={trailingIconTemplate} />
 
-{#snippet bothIconsTemplate(_)}
+{#snippet bothIconsTemplate()}
 	<Input label="Search users" placeholder="Type a name…" clearable>
 		{#snippet leadingIcon()}
 			<IconUser size={16} />
@@ -111,7 +111,7 @@
 
 <Story name="BothIcons" template={bothIconsTemplate} />
 
-{#snippet sizesTemplate(_)}
+{#snippet sizesTemplate()}
 	<div style="display:flex;flex-direction:column;gap:1rem">
 		<Input placeholder="Small input" size="sm" />
 		<Input placeholder="Medium input (default)" size="md" />
@@ -121,7 +121,7 @@
 
 <Story name="AllSizes" template={sizesTemplate} />
 
-{#snippet typesTemplate(_)}
+{#snippet typesTemplate()}
 	<div style="display:flex;flex-direction:column;gap:1rem">
 		<Input label="Text" placeholder="Plain text" type="text" />
 		<Input label="Email" placeholder="you@example.com" type="email" />
@@ -135,7 +135,7 @@
 
 <Story name="AllTypes" template={typesTemplate} />
 
-{#snippet allStatesTemplate(_)}
+{#snippet allStatesTemplate()}
 	<div style="display:flex;flex-direction:column;gap:1rem">
 		<Input label="Default" placeholder="Just a regular input" />
 		<Input label="With helper text" helper="A helpful description goes here." placeholder="Type…" />
@@ -147,7 +147,7 @@
 
 <Story name="AllStates" template={allStatesTemplate} />
 
-{#snippet loginFormTemplate(_)}
+{#snippet loginFormTemplate()}
 	<div style="display:flex;flex-direction:column;gap:1rem;max-width:400px">
 		<Input label="Email" placeholder="you@example.com" type="email" required>
 			{#snippet leadingIcon()}
@@ -180,7 +180,7 @@
 
 <Story name="FormExample" template={loginFormTemplate} />
 
-{#snippet clearableInteractiveTemplate(_)}
+{#snippet clearableInteractiveTemplate()}
 	<Input label="Search" placeholder="Type to see the clear button…" clearable type="search">
 		{#snippet leadingIcon()}
 			<IconSearch size={16} />

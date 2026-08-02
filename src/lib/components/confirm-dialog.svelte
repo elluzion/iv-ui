@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { dialogState } from '../stores/dialog';
+	import { dialogState } from '../stores/dialog.js';
 	import { fade, scale } from 'svelte/transition';
 	import Button from './button.svelte';
 
