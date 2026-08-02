@@ -1,5 +1,8 @@
 export { default as Button } from './components/button.svelte';
 export { default as Card } from './components/card.svelte';
+export { default as Accordion } from './components/accordion.svelte';
+export type { AccordionValue } from './components/accordion.svelte';
+export { default as AccordionItem } from './components/accordion-item.svelte';
 export { default as Checkbox } from './components/checkbox.svelte';
 export { default as Dialog } from './components/dialog.svelte';
 export { default as ConfirmDialog } from './components/confirm-dialog.svelte';

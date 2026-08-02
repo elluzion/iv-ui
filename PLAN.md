@@ -20,7 +20,7 @@
   - Tab panel for content via snippets
   - Sizes: sm/md
 
-- [ ] **Accordion**
+- [x] **Accordion**
   - Collapsible sections, single or multiple open
   - Trigger: full-width button row, chevron icon rotates 180deg on open (120ms transition)
   - Panel: `--ink-2` bg, content snippet
