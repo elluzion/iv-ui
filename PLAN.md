@@ -8,7 +8,7 @@
   - Padding variants: sm/md/lg
   - Hover: border brightens to `--line-hover` (never lifts, never shadows per §5)
 
-- [ ] **Separator**
+- [x] **Separator**
   - Horizontal or vertical: `1px solid var(--line)`
   - Optional label (horizontal only, centered text)
   - Margins: sm/md/lg

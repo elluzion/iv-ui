@@ -10,6 +10,7 @@ export { default as Input } from './components/input.svelte';
 export { default as Textarea } from './components/textarea.svelte';
 export { default as RadioGroup } from './components/radio-group.svelte';
 export type { RadioItem } from './components/radio-group.svelte';
+export { default as Separator } from './components/separator.svelte';
 export { default as Select } from './components/select.svelte';
 export type { SelectOption } from './components/select.svelte';
 export { default as Slider } from './components/slider.svelte';
