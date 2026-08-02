@@ -1,6 +1,7 @@
 <script module>
 	import { defineMeta } from '@storybook/addon-svelte-csf';
 	import { IconInfoCircle } from '@tabler/icons-svelte';
+	import Button from './button.svelte';
 	import Sheet from './sheet.svelte';
 
 	const { Story } = defineMeta({
@@ -74,8 +75,8 @@
 		<Sheet open title="Edit Profile" size="sm" onclose={() => (show = false)}>
 			<p>Update your profile information below.</p>
 			{#snippet footer()}
-				<button class="outline" onclick={() => (show = false)}>Cancel</button>
-				<button class="primary" onclick={() => (show = false)}>Save Changes</button>
+				<Button variant="outline" onclick={() => (show = false)}>Cancel</Button>
+				<Button variant="primary" onclick={() => (show = false)}>Save Changes</Button>
 			{/snippet}
 		</Sheet>
 	{/if}

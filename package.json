@@ -32,8 +32,7 @@
 		},
 		"./theme.css": "./src/lib/theme/theme.css",
 		"./tokens.css": "./src/lib/theme/tokens.css",
-		"./base.css": "./src/lib/theme/base.css",
-		"./components.css": "./src/lib/theme/components.css"
+		"./base.css": "./src/lib/theme/base.css"
 	},
 	"peerDependencies": {
 		"@tabler/icons-svelte": "^3.46.0",

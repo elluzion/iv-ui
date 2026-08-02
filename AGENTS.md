@@ -10,13 +10,13 @@
 
 This is a Svelte 5 component library (`iv-ui`) wrapped in a SvelteKit app for development/showcase.
 
-| Directory             | Purpose                                                                                         |
-| --------------------- | ----------------------------------------------------------------------------------------------- |
-| `src/lib/components/` | Library components (Button, Input, Dialog, ConfirmDialog, Toast, LoadingSpinner)                |
-| `src/lib/theme/`      | CSS tokens + base styles (`tokens.css`, `base.css`, `components.css`, `theme.css` bundling all) |
-| `src/lib/stores/`     | Global state stores (toast, dialog)                                                             |
-| `src/lib/index.ts`    | Library entry point — re-exports components and stores                                          |
-| `src/routes/`         | Showcase/preview SvelteKit app (not part of the distributed package)                            |
+| Directory             | Purpose                                                                          |
+| --------------------- | -------------------------------------------------------------------------------- |
+| `src/lib/components/` | Library components (Button, Input, Dialog, ConfirmDialog, Toast, LoadingSpinner) |
+| `src/lib/theme/`      | CSS tokens + base styles (`tokens.css`, `base.css`, `theme.css` bundling all)    |
+| `src/lib/stores/`     | Global state stores (toast, dialog)                                              |
+| `src/lib/index.ts`    | Library entry point — re-exports components and stores                           |
+| `src/routes/`         | Showcase/preview SvelteKit app (not part of the distributed package)             |
 
 Svelte 5 runes mode is forced for all project code (but not `node_modules`) via `vite.config.ts`.
 
@@ -41,7 +41,6 @@ The package exports CSS files at separate paths (see `package.json` exports):
 import '@iv-ui/theme.css'       # all CSS
 import '@iv-ui/tokens.css'     # design tokens only
 import '@iv-ui/base.css'        # base styles only
-import '@iv-ui/components.css'  # component styles only
 ```
 
 Consumers must also install `@tabler/icons-svelte` (peer dependency).
@@ -54,13 +53,13 @@ DESIGN.md references design token files; if paths are stale, the authoritative l
 
 - Tokens: `src/lib/theme/tokens.css`
 - Base/reset: `src/lib/theme/base.css`
-- Component styles: `src/lib/theme/components.css`
+- Component styles: scoped inside `src/lib/components/*.svelte`
 
 ## Code Style
 
 Prettier: tabs, single quotes, no trailing commas, 100 print width, svelte plugin.
 
-**CSS nesting is used everywhere** — in both plain `.css` files (`components.css`) and Svelte `<style>` blocks. Use `&` to scope pseudo-classes (`&:hover`, `&:focus`, `&:active`), variant classes (`&.primary`, `&.danger`), attribute selectors (`&[disabled]`), pseudo-elements (`&::placeholder`), and structural selectors (`&:has(.leading)`). This is the project convention — never write flat/duplicated selector chains for variant or state overrides.
+**CSS nesting is used everywhere** — in both plain `.css` files (`base.css`) and Svelte `<style>` blocks. Use `&` to scope pseudo-classes (`&:hover`, `&:focus`, `&:active`), variant classes (`&.primary`, `&.danger`), attribute selectors (`&[disabled]`), pseudo-elements (`&::placeholder`), and structural selectors (`&:has(.leading)`). This is the project convention — never write flat/duplicated selector chains for variant or state overrides.
 
 Components accept both `onclick` and `on:click` props to support Svelte 5 $props() and legacy event forwarding. Event handlers chain both callbacks when present.
 

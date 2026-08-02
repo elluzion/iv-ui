@@ -42,6 +42,6 @@ import { Button, Dialog, showToast } from 'iv-ui';
 import '@iv-ui/theme.css';
 ```
 
-CSS can also be imported piecemeal: `@iv-ui/tokens.css`, `@iv-ui/base.css`, `@iv-ui/components.css`.
+CSS can also be imported piecemeal: `@iv-ui/tokens.css`, `@iv-ui/base.css`.
 
 Requires `@tabler/icons-svelte` as a peer dependency.

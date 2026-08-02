@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { dialogState } from '../stores/dialog';
 	import { fade, scale } from 'svelte/transition';
+	import Button from './button.svelte';
 
 	function confirm() {
 		$dialogState?.onconfirm();
@@ -25,8 +26,8 @@
 		<div class="dialog" transition:scale={{ duration: 150, start: 0.95 }}>
 			<p>{$dialogState.message}</p>
 			<div class="actions">
-				<button class="outline" onclick={cancel}>No</button>
-				<button onclick={confirm}>Yes</button>
+				<Button variant="outline" onclick={cancel}>No</Button>
+				<Button onclick={confirm}>Yes</Button>
 			</div>
 		</div>
 	</div>

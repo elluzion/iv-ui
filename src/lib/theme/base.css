@@ -22,6 +22,16 @@ a {
 	-webkit-tap-highlight-color: transparent;
 }
 
+a[href] {
+	color: var(--iv_accent);
+	text-decoration: none;
+}
+
+a[href]:hover {
+	text-decoration: underline;
+	text-decoration-style: dotted;
+}
+
 html {
 	scrollbar-color: var(--iv_border) transparent;
 	scrollbar-width: thin;

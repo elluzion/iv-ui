@@ -1,6 +1,7 @@
 <script module>
 	import { defineMeta } from '@storybook/addon-svelte-csf';
 	import { IconInfoCircle } from '@tabler/icons-svelte';
+	import Button from './button.svelte';
 	import Dialog from './dialog.svelte';
 
 	const { Story } = defineMeta({
@@ -21,7 +22,7 @@
 	<p>This is the dialog body content. Use the controls below to toggle properties.</p>
 </Story>
 
-{#snippet iconTemplate(_args, _ctx)}
+{#snippet iconTemplate()}
 	<Dialog open title="Example Dialog with Icon">
 		{#snippet icon()}
 			<IconInfoCircle size="1.125rem" />
@@ -44,13 +45,13 @@
 	<p>This dialog has no title — the header is hidden entirely.</p>
 </Story>
 
-{#snippet template(_args, _ctx)}
+{#snippet template()}
 	{#if show}
 		<Dialog open title="Edit Profile" size="sm" onclose={() => (show = false)}>
 			<p>Update your profile information below.</p>
 			{#snippet footer()}
-				<button class="outline" onclick={() => (show = false)}>Cancel</button>
-				<button class="primary" onclick={() => (show = false)}>Save Changes</button>
+				<Button variant="outline" onclick={() => (show = false)}>Cancel</Button>
+				<Button variant="primary" onclick={() => (show = false)}>Save Changes</Button>
 			{/snippet}
 		</Dialog>
 	{/if}

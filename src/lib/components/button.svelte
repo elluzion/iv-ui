@@ -56,6 +56,85 @@
 
 <style>
 	button {
+		padding: 9px 18px;
+		border-radius: var(--iv_radius-pill);
+		font-weight: 600;
+		border: 1px solid var(--iv_border);
+		color: var(--iv_foreground);
+		background: var(--iv_surface-elevated);
+		font-family: var(--iv_font-sans);
+		cursor: pointer;
+		transition:
+			border-color var(--iv_transition-base),
+			color var(--iv_transition-base),
+			background var(--iv_transition-base),
+			transform var(--iv_transition-fast);
+		display: flex;
+		flex-direction: row;
+		gap: 0.5rem;
+		align-items: center;
+		justify-content: center;
+
+		&:hover {
+			border-color: var(--iv_border-hover);
+			background: var(--iv_surface-hover);
+		}
+
+		&:active {
+			transform: scale(0.98);
+		}
+
+		&.primary {
+			background: var(--iv_foreground);
+			color: var(--iv_surface);
+			border-color: var(--iv_foreground);
+			font-weight: 700;
+
+			&:hover {
+				background: var(--iv_foreground-hover);
+				border-color: var(--iv_foreground-hover);
+			}
+		}
+
+		&.ghost,
+		&.outline {
+			background: transparent;
+			border: 1px solid var(--iv_border);
+		}
+
+		&.ghost {
+			border-color: transparent;
+		}
+
+		&.icon {
+			background: transparent;
+			color: var(--iv_foreground-dim);
+			border: none;
+			padding: 0.5625rem;
+
+			&:hover {
+				color: var(--iv_foreground);
+			}
+		}
+
+		&.disabled,
+		&[disabled] {
+			background: var(--iv_surface-raised);
+			color: var(--iv_foreground-dim);
+			cursor: not-allowed;
+			opacity: var(--iv_disabled-opacity);
+		}
+
+		&.danger {
+			background: var(--iv_error);
+			border-color: transparent;
+			color: var(--iv_surface);
+
+			&:hover {
+				background: var(--iv_error-dim);
+			}
+		}
+
 		&.btn-sm {
 			padding: 5px 13px;
 			font-size: var(--iv_text-btn-sm);

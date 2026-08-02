@@ -238,8 +238,20 @@
 		}
 
 		.close-btn {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: transparent;
+			border: none;
+			color: var(--iv_foreground-dim);
 			padding: 0 0.5rem;
 			margin-right: -0.5rem;
+			cursor: pointer;
+			transition: color var(--iv_transition-base);
+
+			&:hover {
+				color: var(--iv_foreground);
+			}
 		}
 	}
 

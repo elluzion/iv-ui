@@ -7,12 +7,11 @@ controls, and color used only as a sparing signal — never as decoration.
 **The single source of truth for tokens and base styles lives in four CSS files:**
 
 - [`src/lib/theme/tokens.css`](src/lib/theme/tokens.css) — all design tokens. Defines both dark (default) and light theme via `:root`, `@media (prefers-color-scheme: light)`, `[data-theme]`, and `.theme-*` classes.
-- [`src/lib/theme/base.css`](src/lib/theme/base.css) — body reset, selection color, scrollbar styles.
-- [`src/lib/theme/components.css`](src/lib/theme/components.css) — base component styles: buttons, inputs, selects, textareas.
-- [`src/lib/theme/theme.css`](src/lib/theme/theme.css) — bundling entry: imports Google Fonts, tokens, base, and components.
+- [`src/lib/theme/base.css`](src/lib/theme/base.css) — body reset, selection color, scrollbar styles, base element styles (links).
+- [`src/lib/theme/theme.css`](src/lib/theme/theme.css) — bundling entry: imports Google Fonts, tokens, and base.
 
 Hardcoded hex/rgba values do **not** belong in components. Reference the tokens defined in
-`tokens.css` or the pre-built classes in `components.css`.
+`tokens.css` or the pre-built classes in the corresponding `.svelte` components.
 
 ---
 
@@ -232,7 +231,7 @@ If you're unsure whether something should be colored, it shouldn't be.
 
 ## 5. Borders, not shadows, for page content
 
-Base styles live in [`src/lib/theme/components.css`](src/lib/theme/components.css). Every card, list row, input, and
+Base styles are scoped in their respective component `.svelte` files. Every card, list row, input, and
 panel divider gets a `1px solid var(--iv_border)` border with an `--iv_surface-raised` background.
 
 On hover, brighten the border (`--iv_border-hover`) rather than adding a shadow or lifting the
@@ -250,7 +249,7 @@ visually.
 
 ## 6. Buttons
 
-Defined in [`src/lib/theme/components.css`](src/lib/theme/components.css). Three variants, all fully rounded
+Defined in [`src/lib/components/button.svelte`](src/lib/components/button.svelte). Three variants, all fully rounded
 (`--iv_radius-pill`), all the same padding and font-weight:
 
 - **Primary** (`.primary`) — foreground fill (`--iv_foreground`), inverse text (`--iv_foreground-inverse`). Used once per
@@ -270,7 +269,7 @@ button — if the corner radius isn't full pill, it's wrong.
 
 ## 7. Inputs, selects, textareas
 
-Defined in [`src/lib/theme/components.css`](src/lib/theme/components.css). Shared rules:
+Defined in [`src/lib/components/input.svelte`](src/lib/components/input.svelte), `textarea.svelte`, and `select.svelte`. Shared rules:
 
 - Rounded rectangles (`--iv_radius`), not pills — buttons and chips are pills; fields and cards
   are rounded rects.
