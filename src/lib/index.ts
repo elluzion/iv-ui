@@ -8,6 +8,16 @@ export { default as Checkbox } from './components/checkbox.svelte';
 export { default as Dialog } from './components/dialog.svelte';
 export { default as Sheet } from './components/sheet.svelte';
 export type { SheetSide, SheetSize } from './components/sheet.svelte';
+export { default as Popover } from './components/popover.svelte';
+export type {
+	PopoverPlacement,
+	PopoverAlign,
+	PopoverShowEvent,
+	PopoverHideEvent
+} from './components/popover.svelte';
+export { default as Menu } from './components/menu.svelte';
+export type { MenuEntry, MenuItem, MenuSemantic } from './components/menu.svelte';
+export { default as Shortcut } from './components/shortcut.svelte';
 export { default as ConfirmDialog } from './components/confirm-dialog.svelte';
 export { default as Input } from './components/input.svelte';
 export { default as Textarea } from './components/textarea.svelte';
@@ -22,6 +32,8 @@ export { default as Tab } from './components/tab.svelte';
 export { default as TabPanel } from './components/tab-panel.svelte';
 export { default as Slider } from './components/slider.svelte';
 export { default as Switch } from './components/switch.svelte';
+export { default as Tooltip } from './components/tooltip.svelte';
+export type { TooltipPosition } from './components/tooltip.svelte';
 export { default as Toast } from './components/toast.svelte';
 export { default as LoadingSpinner } from './components/loading-spinner.svelte';
 
