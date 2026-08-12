@@ -2,7 +2,7 @@
 
 - **Language**: TypeScript
 - **Package Manager**: bun
-- **Add-ons**: prettier, storybook, ai-tools, eslint
+- **Add-ons**: prettier, storybook, eslint, vitest (browser tests via Storybook), svelte opencode plugin (`@sveltejs/opencode` + Impeccable skill)
 
 ---
 
@@ -12,7 +12,7 @@ This is a Svelte 5 component library (`iv-ui`) wrapped in a SvelteKit app for de
 
 | Directory             | Purpose                                                                          |
 | --------------------- | -------------------------------------------------------------------------------- |
-| `src/lib/components/` | Library components (Button, Input, Dialog, ConfirmDialog, Toast, LoadingSpinner) |
+| `src/lib/components/` | Library components (Button, Card, Article, Accordion, Checkbox, Dialog, Sheet, ConfirmDialog, Popover, Menu, Shortcut, Input, Textarea, RadioGroup, Separator, Select, Tabs, Slider, Switch, Tooltip, Toast, LoadingSpinner) |
 | `src/lib/theme/`      | CSS tokens + base styles (`tokens.css`, `base.css`, `theme.css` bundling all)    |
 | `src/lib/stores/`     | Global state stores (toast, dialog)                                              |
 | `src/lib/index.ts`    | Library entry point — re-exports components and stores                           |
@@ -38,9 +38,9 @@ bun run format          # prettier --write
 The package exports CSS files at separate paths (see `package.json` exports):
 
 ```
-import '@iv-ui/theme.css'       # all CSS
-import '@iv-ui/tokens.css'     # design tokens only
-import '@iv-ui/base.css'        # base styles only
+import '@elluzion/iv-ui/theme.css'      # all CSS
+import '@elluzion/iv-ui/tokens.css'    # design tokens only
+import '@elluzion/iv-ui/base.css'       # base styles only
 ```
 
 Consumers must also install `@tabler/icons-svelte` (peer dependency).
@@ -59,7 +59,9 @@ DESIGN.md references design token files; if paths are stale, the authoritative l
 
 Prettier: tabs, single quotes, no trailing commas, 100 print width, svelte plugin.
 
-**CSS nesting is used everywhere** — in both plain `.css` files (`base.css`) and Svelte `<style>` blocks. Use `&` to scope pseudo-classes (`&:hover`, `&:focus`, `&:active`), variant classes (`&.primary`, `&.danger`), attribute selectors (`&[disabled]`), pseudo-elements (`&::placeholder`), and structural selectors (`&:has(.leading)`). This is the project convention — never write flat/duplicated selector chains for variant or state overrides.
+**All class names are prefixed `iv-`** (e.g. `iv-btn`, `iv-card`, `iv-dialog`) to scope component styles and avoid collisions with consumer styles. Variant/state classes use the same prefix (`iv-primary`, `iv-selected`, `iv-disabled`), and token names use `--iv_` (see DESIGN.md). Never introduce unprefixed class names in components.
+
+**CSS nesting is used everywhere** — in both plain `.css` files (`base.css`) and Svelte `<style>` blocks. Use `&` to scope pseudo-classes (`&:hover`, `&:focus`, `&:active`), variant classes (`&.iv-primary`, `&.iv-danger`), attribute selectors (`&[disabled]`), pseudo-elements (`&::placeholder`), and structural selectors (`&:has(.leading)`). This is the project convention — never write flat/duplicated selector chains for variant or state overrides.
 
 Components accept both `onclick` and `on:click` props to support Svelte 5 $props() and legacy event forwarding. Event handlers chain both callbacks when present.
 
