@@ -151,6 +151,12 @@
 
 		&.iv-clickable {
 			cursor: pointer;
+
+			&:focus-visible {
+				outline: none;
+				border-color: var(--iv_border-focus);
+				box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_ring);
+			}
 		}
 
 		&.iv-disabled {

@@ -3,6 +3,7 @@
 	import { getContext } from 'svelte';
 	import type { Snippet } from 'svelte';
 	import { fade, slide } from 'svelte/transition';
+	import { reducedMotion } from '../stores/motion.js';
 	import { accordionContextKey, type AccordionContext } from './accordion-context.js';
 
 	interface Props {
@@ -47,13 +48,13 @@
 	</button>
 
 	{#if open}
-		<div transition:fade={{ duration: 120 }}>
+		<div transition:fade={{ duration: $reducedMotion ? 0 : 120 }}>
 			<div
 				id={contentId}
 				class="iv-panel"
 				role="region"
 				aria-labelledby={triggerId}
-				transition:slide={{ duration: 180 }}
+				transition:slide={{ duration: $reducedMotion ? 0 : 180 }}
 			>
 				{@render children()}
 			</div>
@@ -132,7 +133,7 @@
 		background: var(--iv_surface-raised);
 		color: var(--iv_foreground-dim);
 		font-size: var(--iv_text-body);
-		line-height: 1.5;
+		line-height: var(--iv_leading-base);
 		overflow: hidden;
 	}
 </style>

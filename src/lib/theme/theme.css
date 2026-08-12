@@ -1,3 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=IBM+Plex+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 @import './tokens.css';
 @import './base.css';
+@import './typeset.css';

@@ -1,0 +1,253 @@
+/* iv-prose — container-aware typeset for rendered markdown and prose.
+ *
+ * Three controls drive every value:
+ *   --iv_typeset-size    base font size (em-relative scale follows it)
+ *   --iv_typeset-leading line height
+ *   --iv_typeset-flow    vertical rhythm between blocks
+ * Set them on the container to preset the whole document (see presets below).
+ *
+ * All element selectors are wrapped in :where() → zero specificity, so any
+ * consumer rule (or Tailwind-style utility) wins. Opt a subtree out of the
+ * typeset with the class `iv-not-typeset` or `data-not-typeset`.
+ *
+ * Streaming-stable: spacing flows in one direction via margin-block-start only;
+ * no :last-child / :has() in layout rules.
+ */
+
+.iv-prose {
+	--iv_typeset-font-body: var(--iv_font-sans);
+	--iv_typeset-font-heading: var(--iv_font-sans);
+	--iv_typeset-font-mono: var(--iv_font-mono);
+
+	font-family: var(--iv_typeset-font-body);
+	font-size: var(--iv_typeset-size);
+	line-height: var(--iv_typeset-leading);
+	color: var(--iv_foreground);
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+
+	&
+		:where(
+			:is(p, h1, h2, h3, h4, h5, h6, ul, ol, blockquote, pre, hr, img, figure, table):not(
+				.iv-not-typeset,
+				.iv-not-typeset *,
+				[data-not-typeset],
+				[data-not-typeset] *
+			)
+		) {
+		margin-block-start: var(--iv_typeset-flow);
+		margin-block-end: 0;
+	}
+
+	&
+		:where(
+			:is(h1, h2, h3, h4, h5, h6):not(
+				.iv-not-typeset,
+				.iv-not-typeset *,
+				[data-not-typeset],
+				[data-not-typeset] *
+			)
+		) {
+		font-family: var(--iv_typeset-font-heading);
+		font-weight: var(--iv_weight-semibold);
+		line-height: var(--iv_leading-heading);
+		letter-spacing: var(--iv_tracking-tight);
+		color: var(--iv_foreground);
+		text-wrap: balance;
+	}
+
+	& :where(h1:not(.iv-not-typeset, .iv-not-typeset *, [data-not-typeset], [data-not-typeset] *)) {
+		font-size: 1.5em;
+	}
+
+	& :where(h2:not(.iv-not-typeset, .iv-not-typeset *, [data-not-typeset], [data-not-typeset] *)) {
+		font-size: 1.25em;
+	}
+
+	& :where(h3:not(.iv-not-typeset, .iv-not-typeset *, [data-not-typeset], [data-not-typeset] *)) {
+		font-size: 1.1em;
+	}
+
+	&
+		:where(
+			:is(h4, h5, h6):not(
+				.iv-not-typeset,
+				.iv-not-typeset *,
+				[data-not-typeset],
+				[data-not-typeset] *
+			)
+		) {
+		font-size: 1em;
+	}
+
+	&
+		:where(
+			a[href]:not(.iv-not-typeset, .iv-not-typeset *, [data-not-typeset], [data-not-typeset] *)
+		) {
+		color: var(--iv_accent);
+		text-decoration: underline;
+		text-decoration-style: dotted;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 3px;
+		transition: color var(--iv_transition-base);
+
+		&:hover {
+			color: var(--iv_accent-dim);
+			text-decoration-style: solid;
+		}
+	}
+
+	&
+		:where(
+			strong:not(.iv-not-typeset, .iv-not-typeset *, [data-not-typeset], [data-not-typeset] *)
+		) {
+		color: var(--iv_foreground);
+		font-weight: var(--iv_weight-semibold);
+	}
+
+	& :where(em:not(.iv-not-typeset, .iv-not-typeset *, [data-not-typeset], [data-not-typeset] *)) {
+		font-style: italic;
+	}
+
+	& :where(ul, ol) {
+		padding-inline-start: 1.5em;
+
+		& :where(li:not(.iv-not-typeset, .iv-not-typeset *, [data-not-typeset], [data-not-typeset] *)) {
+			margin-block-start: calc(var(--iv_typeset-flow) * 0.35);
+			margin-block-end: 0;
+
+			&::marker {
+				color: var(--iv_foreground-dim);
+			}
+		}
+	}
+
+	&
+		:where(
+			blockquote:not(.iv-not-typeset, .iv-not-typeset *, [data-not-typeset], [data-not-typeset] *)
+		) {
+		padding: 0.75em 1em;
+		border-inline-start: 2px solid var(--iv_border);
+		background: var(--iv_surface-raised);
+		border-radius: 0 var(--iv_radius-sm) var(--iv_radius-sm) 0;
+		color: var(--iv_foreground-dim);
+
+		& :where(p:not(.iv-not-typeset, .iv-not-typeset *, [data-not-typeset], [data-not-typeset] *)) {
+			margin-block-start: 0;
+		}
+	}
+
+	& :where(pre:not(.iv-not-typeset, .iv-not-typeset *, [data-not-typeset], [data-not-typeset] *)) {
+		padding: var(--iv_spacing-lg) var(--iv_spacing-xl);
+		overflow-x: auto;
+		background: var(--iv_surface-raised);
+		border: 1px solid var(--iv_border);
+		border-radius: var(--iv_radius);
+		font-family: var(--iv_typeset-font-mono);
+		font-size: 0.85em;
+		line-height: var(--iv_leading-base);
+		color: var(--iv_foreground);
+	}
+
+	&
+		:where(
+			:not(pre)
+				> code:not(.iv-not-typeset, .iv-not-typeset *, [data-not-typeset], [data-not-typeset] *)
+		) {
+		padding: 0.15em 0.4em;
+		background: var(--iv_surface-raised);
+		border: 1px solid var(--iv_border);
+		border-radius: var(--iv_radius-sm);
+		font-family: var(--iv_typeset-font-mono);
+		font-size: 0.85em;
+		color: var(--iv_accent);
+		white-space: nowrap;
+	}
+
+	& :where(pre code) {
+		font-family: var(--iv_typeset-font-mono);
+		font-size: 1em;
+		background: none;
+		border: none;
+		padding: 0;
+		color: inherit;
+		white-space: pre;
+	}
+
+	& :where(kbd:not(.iv-not-typeset, .iv-not-typeset *, [data-not-typeset], [data-not-typeset] *)) {
+		padding: 0.2em 0.4em;
+		background: var(--iv_surface-elevated);
+		border: 1px solid var(--iv_border);
+		border-radius: var(--iv_radius-sm);
+		font-family: var(--iv_typeset-font-mono);
+		font-size: 0.85em;
+		color: var(--iv_foreground-dim);
+	}
+
+	& :where(hr:not(.iv-not-typeset, .iv-not-typeset *, [data-not-typeset], [data-not-typeset] *)) {
+		border: none;
+		border-block-start: 1px solid var(--iv_border);
+	}
+
+	& :where(img:not(.iv-not-typeset, .iv-not-typeset *, [data-not-typeset], [data-not-typeset] *)) {
+		max-width: 100%;
+		height: auto;
+		border-radius: var(--iv_radius);
+		border: 1px solid var(--iv_border);
+	}
+
+	& :where(figure) {
+		&
+			:where(
+				figcaption:not(.iv-not-typeset, .iv-not-typeset *, [data-not-typeset], [data-not-typeset] *)
+			) {
+			margin-block-start: calc(var(--iv_typeset-flow) * 0.5);
+			margin-block-end: 0;
+			font-size: 0.875em;
+			color: var(--iv_foreground-dim);
+		}
+	}
+
+	&
+		:where(
+			table:not(.iv-not-typeset, .iv-not-typeset *, [data-not-typeset], [data-not-typeset] *)
+		) {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.9em;
+
+		& :where(th, td) {
+			padding: 0.5em 0.75em;
+			border-block-end: 1px solid var(--iv_border);
+			text-align: start;
+		}
+
+		& :where(th) {
+			font-weight: var(--iv_weight-semibold);
+			color: var(--iv_foreground);
+		}
+
+		& :where(td) {
+			color: var(--iv_foreground-dim);
+		}
+	}
+
+	/* Presets — roomier for docs, tighter for chat */
+	&.iv-prose-docs {
+		--iv_typeset-size: 0.95rem;
+		--iv_typeset-leading: var(--iv_leading-loose);
+		--iv_typeset-flow: 1.5em;
+	}
+
+	&.iv-prose-chat {
+		--iv_typeset-size: 0.875rem;
+		--iv_typeset-leading: var(--iv_leading-prose);
+		--iv_typeset-flow: 1em;
+	}
+
+	&.iv-prose-lg {
+		--iv_typeset-size: 1rem;
+		--iv_typeset-leading: var(--iv_leading-loose);
+		--iv_typeset-flow: 1.5em;
+	}
+}

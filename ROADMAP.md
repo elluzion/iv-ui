@@ -164,17 +164,17 @@ a11y checks, per AGENTS.md.
 *Goal: every existing component token-pure, an API contract, and a real
 typography system.*
 
-- [ ] Token completion in `tokens.css`: semantic pairs for card/popover/muted/
+- [x] Token completion in `tokens.css`: semantic pairs for card/popover/muted/
       accent/destructive; radius derived scale from `--iv_radius`; line-height +
       tracking + weight tokens; progress/skeleton/table/avatar/badge size tokens;
       reduced-motion + per-context motion tokens.
-- [ ] Typography: extend scale to Display→Caption; add `iv-prose` typeset
+- [x] Typography: extend scale to Display→Caption; add `iv-prose` typeset
       stylesheet with size/leading/flow controls; align `Article` to it.
-- [ ] Write `COMPONENTS.md`: the universal contract (2c) so all future components
+- [x] Write `COMPONENTS.md`: the universal contract (2c) so all future components
       are consistent.
-- [ ] A11y sweep: fix focus-visible, roles, `aria-*`, reduced-motion across
+- [x] A11y sweep: fix focus-visible, roles, `aria-*`, reduced-motion across
       existing components (use the a11y Storybook addon as the checklist).
-- [ ] Add Foundation stories (tokens, type, colors, states).
+- [x] Add Foundation stories (tokens, type, colors, states).
 
 **Done when:** no raw hex/rgba/rem in any component, all components pass a11y
 audit, typography documented and showcased.

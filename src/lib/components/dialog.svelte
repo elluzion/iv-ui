@@ -2,6 +2,8 @@
 	import { IconX } from '@tabler/icons-svelte';
 	import type { Snippet } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
+	import { reducedMotion } from '../stores/motion.js';
+	import { focusTrap } from '../utils/focus-trap.js';
 
 	interface Props {
 		open: boolean;
@@ -26,6 +28,10 @@
 		icon,
 		footer
 	}: Props = $props();
+
+	const uid = $props.id();
+	const titleId = `iv-dialog-${uid}-title`;
+	const descId = `iv-dialog-${uid}-desc`;
 
 	function close() {
 		onclose?.();
@@ -55,16 +61,19 @@
 		class="iv-backdrop"
 		role="dialog"
 		aria-modal="true"
+		aria-labelledby={title ? titleId : undefined}
+		aria-describedby={descId}
 		tabindex="-1"
 		onclick={handleBackdropClick}
 		onkeydown={handleKeydown}
-		transition:fade={{ duration: 150 }}
+		use:focusTrap={{ initial: true }}
+		transition:fade={{ duration: $reducedMotion ? 0 : 150 }}
 	>
 		<div
 			class="iv-dialog"
 			class:iv-dialog-sm={size === 'sm'}
 			class:iv-dialog-lg={size === 'lg'}
-			transition:scale={{ duration: 150, start: 0.95 }}
+			transition:scale={{ duration: $reducedMotion ? 0 : 150, start: 0.95 }}
 		>
 			{#if title || icon}
 				<div class="iv-header">
@@ -73,7 +82,7 @@
 							<span class="iv-icon-slot">{@render icon()}</span>
 						{/if}
 						{#if title}
-							<h2>{title}</h2>
+							<h2 id={titleId}>{title}</h2>
 						{/if}
 					</div>
 					<button class="iv-icon iv-close-btn" onclick={close} aria-label="Close dialog"
@@ -81,7 +90,7 @@
 					>
 				</div>
 			{/if}
-			<div class="iv-body" class:iv-body-no-title={!title}>
+			<div class="iv-body" class:iv-body-no-title={!title} id={descId}>
 				{@render children()}
 			</div>
 			{#if footer}
@@ -173,6 +182,12 @@
 
 			&:hover {
 				color: var(--iv_foreground);
+			}
+
+			&:focus-visible {
+				outline: none;
+				box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_ring);
+				border-radius: var(--iv_radius-sm);
 			}
 		}
 	}

@@ -323,9 +323,11 @@
 		tabindex={disabled ? -1 : 0}
 		aria-expanded={open}
 		aria-haspopup="listbox"
+		aria-autocomplete={searchable ? 'list' : undefined}
 		aria-controls={open ? listId : undefined}
 		aria-activedescendant={open && activeIndex >= 0 ? optionId(activeIndex) : undefined}
 		aria-labelledby={label ? labelId : undefined}
+		aria-label={!label ? placeholder : undefined}
 		aria-invalid={hasError || undefined}
 		aria-disabled={disabled || undefined}
 		onclick={toggle}
@@ -400,6 +402,7 @@
 				semantic="listbox"
 				multiselect={multiple}
 				id={listId}
+				{label}
 				entries={menuEntries}
 				emptyLabel="No options found"
 				className="iv-select-options"
@@ -517,7 +520,7 @@
 		font-family: var(--iv_font-mono);
 		font-size: var(--iv_text-chips);
 		font-weight: 500;
-		line-height: 1.7;
+		line-height: var(--iv_leading-loose);
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
@@ -542,6 +545,12 @@
 		&:hover {
 			color: var(--iv_foreground);
 			background: var(--iv_surface-overlay);
+		}
+
+		&:focus-visible {
+			outline: var(--iv_outline-width) solid var(--iv_foreground);
+			outline-offset: var(--iv_outline-offset);
+			color: var(--iv_foreground);
 		}
 	}
 
@@ -591,6 +600,11 @@
 
 			&::placeholder {
 				color: var(--iv_foreground-dim);
+			}
+
+			&:focus-visible {
+				outline: var(--iv_outline-width) solid var(--iv_foreground);
+				outline-offset: var(--iv_outline-offset);
 			}
 		}
 	}

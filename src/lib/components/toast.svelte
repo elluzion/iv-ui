@@ -1,12 +1,21 @@
 <script lang="ts">
 	import { IconCheck, IconInfoCircle, IconMoodSadDizzy, IconX } from '@tabler/icons-svelte';
 	import { hideToast, toastState } from '../stores/toast.js';
+	import { reducedMotion } from '../stores/motion.js';
 	import { fade, fly } from 'svelte/transition';
 </script>
 
 {#if $toastState}
-	<div class="iv-toast-layer" role="status" aria-live="polite" transition:fade={{ duration: 120 }}>
-		<div class="iv-toast iv-toast-{$toastState.type}" transition:fly={{ y: 16, duration: 160 }}>
+	<div
+		class="iv-toast-layer"
+		role={$toastState.type === 'error' ? 'alert' : 'status'}
+		aria-live={$toastState.type === 'error' ? 'assertive' : 'polite'}
+		transition:fade={{ duration: $reducedMotion ? 0 : 120 }}
+	>
+		<div
+			class="iv-toast iv-toast-{$toastState.type}"
+			transition:fly={{ y: 16, duration: $reducedMotion ? 0 : 160 }}
+		>
 			<div class="iv-content">
 				{#if $toastState.type === 'error'}
 					<IconMoodSadDizzy stroke={2} size="1.1rem" color="var(--iv_error-dim)" />
@@ -94,6 +103,12 @@
 		&:hover {
 			opacity: 1;
 			background: var(--iv_surface-overlay);
+		}
+
+		&:focus-visible {
+			opacity: 1;
+			outline: var(--iv_outline-width) solid var(--iv_foreground);
+			outline-offset: var(--iv_outline-offset);
 		}
 	}
 

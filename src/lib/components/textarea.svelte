@@ -51,6 +51,9 @@
 		'on:keydown': onEventKeydown
 	}: Props = $props();
 
+	const uid = $props.id();
+	const textareaId = `iv-textarea-${uid}`;
+
 	function handleInput(e: Event) {
 		value = (e.target as HTMLTextAreaElement).value;
 		oninput?.(e);
@@ -85,7 +88,7 @@
 
 <div class="iv-textarea-container">
 	{#if label}
-		<label class="iv-label" for={name || undefined}>
+		<label class="iv-label" for={textareaId}>
 			{label}
 			{#if required}
 				<span class="iv-required-mark" aria-hidden="true">*</span>
@@ -100,6 +103,7 @@
 		style:--textarea-resize={resizable}
 	>
 		<textarea
+			id={textareaId}
 			{name}
 			{placeholder}
 			{disabled}
@@ -114,17 +118,20 @@
 			onblur={handleBlur}
 			onkeydown={handleKeydown}
 			aria-invalid={hasError || isOverLimit || undefined}
-			aria-describedby={hasError ? `${name}-error` : helper ? `${name}-helper` : undefined}
-		></textarea>
+			aria-describedby={hasError
+				? `${textareaId}-error`
+				: helper
+					? `${textareaId}-helper`
+					: undefined}></textarea>
 	</div>
 
 	<div class="iv-footer-row">
 		{#if hasError || isOverLimit}
-			<p class="iv-message iv-error-message" id={name ? `${name}-error` : undefined}>
+			<p class="iv-message iv-error-message" id={`${textareaId}-error`}>
 				{isOverLimit ? `${charCount} / ${maxlength} — limit exceeded` : error}
 			</p>
 		{:else if helper}
-			<p class="iv-message iv-helper-message" id={name ? `${name}-helper` : undefined}>{helper}</p>
+			<p class="iv-message iv-helper-message" id={`${textareaId}-helper`}>{helper}</p>
 		{:else}
 			<span></span>
 		{/if}
@@ -184,7 +191,7 @@
 		color: var(--iv_foreground);
 		padding: var(--iv_control-pad-y) var(--iv_control-pad-x);
 		resize: var(--textarea-resize, vertical);
-		line-height: 1.5;
+		line-height: var(--iv_leading-base);
 
 		&::placeholder {
 			color: var(--iv_foreground-dim);

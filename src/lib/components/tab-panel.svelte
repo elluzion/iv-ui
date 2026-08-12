@@ -34,7 +34,12 @@
 		padding: var(--iv_spacing-xl) 0;
 		color: var(--iv_foreground-dim);
 		font-size: var(--iv_text-body);
-		line-height: 1.5;
+		line-height: var(--iv_leading-base);
+
+		&:focus-visible {
+			outline: var(--iv_outline-width) solid var(--iv_foreground);
+			outline-offset: var(--iv_outline-offset);
+		}
 
 		&.iv-bordered {
 			padding: var(--iv_spacing-xl);

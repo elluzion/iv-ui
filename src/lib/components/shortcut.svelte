@@ -38,7 +38,7 @@
 		font-family: var(--iv_font-mono);
 		font-size: var(--iv_text-xs);
 		font-weight: 500;
-		line-height: 1;
+		line-height: var(--iv_leading-none);
 		color: inherit;
 	}
 

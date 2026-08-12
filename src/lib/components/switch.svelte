@@ -166,7 +166,7 @@
 		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-body);
 		color: var(--iv_foreground);
-		line-height: 1.4;
+		line-height: var(--iv_leading-tight);
 		cursor: pointer;
 	}
 </style>

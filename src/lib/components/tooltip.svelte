@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { reducedMotion } from '../stores/motion.js';
 
 	export type TooltipPosition = 'top' | 'bottom' | 'left' | 'right';
 
@@ -151,7 +152,7 @@
 			class:iv-ready={positioned}
 			role="tooltip"
 			style="left: {offset.left}px; top: {offset.top}px"
-			transition:fade={{ duration: 100 }}
+			transition:fade={{ duration: $reducedMotion ? 0 : 100 }}
 		>
 			{#if content}
 				{@render content()}
@@ -181,7 +182,7 @@
 		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-body-sm);
 		font-weight: 500;
-		line-height: 1.4;
+		line-height: var(--iv_leading-tight);
 		white-space: nowrap;
 		box-shadow: var(--iv_shadow-md);
 		visibility: hidden;

@@ -4,11 +4,12 @@
 	import { tabsContextKey, type TabsContext } from './tabs-context.js';
 
 	interface Props {
+		label?: string;
 		className?: string;
 		children: Snippet;
 	}
 
-	let { className = '', children, ...restProps }: Props = $props();
+	let { label = '', className = '', children, ...restProps }: Props = $props();
 
 	const ctx = getContext<TabsContext>(tabsContextKey);
 
@@ -45,6 +46,8 @@
 <div
 	class="iv-tab-list {className}"
 	role="tablist"
+	aria-label={label || undefined}
+	aria-orientation="horizontal"
 	bind:this={rootEl}
 	onkeydown={handleKeydown}
 	{...restProps}

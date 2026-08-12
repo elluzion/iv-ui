@@ -39,5 +39,6 @@ export { default as LoadingSpinner } from './components/loading-spinner.svelte';
 
 export { dialogState, showDialog } from './stores/dialog.js';
 export { toastState, showToast, hideToast } from './stores/toast.js';
+export { reducedMotion } from './stores/motion.js';
 
 export type { ToastType, ToastState, DialogState } from './types.js';

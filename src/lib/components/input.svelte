@@ -69,6 +69,9 @@
 		'on:keydown': onEventKeydown
 	}: Props = $props();
 
+	const uid = $props.id();
+	const inputId = `iv-input-${uid}`;
+
 	let inputEl = $state<HTMLInputElement>();
 
 	function handleInput(e: Event) {
@@ -109,7 +112,7 @@
 </script>
 
 {#if label}
-	<label class="iv-label" for={name || undefined}>
+	<label class="iv-label" for={inputId}>
 		{label}
 		{#if required}
 			<span class="iv-required-mark" aria-hidden="true">*</span>
@@ -130,6 +133,7 @@
 
 	<input
 		bind:this={inputEl}
+		id={inputId}
 		{type}
 		{name}
 		{placeholder}
@@ -149,7 +153,7 @@
 		onblur={handleBlur}
 		onkeydown={handleKeydown}
 		aria-invalid={hasError || undefined}
-		aria-describedby={hasError ? `${name}-error` : helper ? `${name}-helper` : undefined}
+		aria-describedby={hasError ? `${inputId}-error` : helper ? `${inputId}-helper` : undefined}
 	/>
 
 	{#if hasTrailing}
@@ -167,9 +171,11 @@
 </div>
 
 {#if hasError}
-	<p class="iv-message iv-error-message" id={name ? `${name}-error` : undefined}>{error}</p>
+	<p class="iv-message iv-error-message" id={inputId ? `${inputId}-error` : undefined}>{error}</p>
 {:else if helper}
-	<p class="iv-message iv-helper-message" id={name ? `${name}-helper` : undefined}>{helper}</p>
+	<p class="iv-message iv-helper-message" id={inputId ? `${inputId}-helper` : undefined}>
+		{helper}
+	</p>
 {/if}
 
 <style>
@@ -224,11 +230,6 @@
 
 		&.iv-leading {
 			padding-left: var(--iv_spacing-md);
-		}
-
-		&:has(.trailing-icon) {
-			padding-right: var(--iv_spacing-md);
-			gap: var(--iv_spacing-sm);
 		}
 	}
 
@@ -308,6 +309,12 @@
 		&:hover {
 			color: var(--iv_foreground);
 			background: var(--iv_surface-overlay);
+		}
+
+		&:focus-visible {
+			outline: var(--iv_outline-width) solid var(--iv_foreground);
+			outline-offset: var(--iv_outline-offset);
+			color: var(--iv_foreground);
 		}
 	}
 

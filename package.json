@@ -55,6 +55,7 @@
 		"./theme.css": "./dist/theme/theme.css",
 		"./tokens.css": "./dist/theme/tokens.css",
 		"./base.css": "./dist/theme/base.css",
+		"./typeset.css": "./dist/theme/typeset.css",
 		"./package.json": "./package.json"
 	},
 	"publishConfig": {

@@ -35,8 +35,8 @@
 	--iv_ring: rgba(255, 255, 255, 0.1);
 
 	--iv_radius: 14px;
-	--iv_radius-sm: 10px;
-	--iv_radius-lg: 20px;
+	--iv_radius-sm: calc(var(--iv_radius) - 4px);
+	--iv_radius-lg: calc(var(--iv_radius) + 6px);
 	--iv_radius-pill: 999px;
 
 	--iv_shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
@@ -59,6 +59,30 @@
 	--iv_text-chips: 10.5px;
 	--iv_text-chips-sm: 13px;
 
+	--iv_text-display: 2rem;
+	--iv_text-h1: 1.5rem;
+	--iv_text-h2: 1.25rem;
+	--iv_text-h3: 1.1rem;
+	--iv_text-title: 1rem;
+	--iv_text-caption: 0.75rem;
+
+	--iv_leading-none: 1;
+	--iv_leading-tight: 1.25;
+	--iv_leading-heading: 1.3;
+	--iv_leading-base: 1.5;
+	--iv_leading-prose: 1.6;
+	--iv_leading-loose: 1.75;
+
+	--iv_tracking-tight: -0.01em;
+	--iv_tracking-base: 0;
+	--iv_tracking-wide: 0.02em;
+	--iv_tracking-wider: 0.05em;
+
+	--iv_weight-normal: 400;
+	--iv_weight-medium: 500;
+	--iv_weight-semibold: 600;
+	--iv_weight-bold: 700;
+
 	--iv_spacing-2xs: 2px;
 	--iv_spacing-xs: 4px;
 	--iv_spacing-sm: 8px;
@@ -69,6 +93,18 @@
 
 	--iv_transition-fast: 0.12s;
 	--iv_transition-base: 0.15s;
+	--iv_transition-slow: 0.2s;
+
+	--iv_motion-fade: 0.15s;
+	--iv_motion-scale: 0.15s;
+	--iv_motion-fly: 0.16s;
+	--iv_motion-slide: 0.18s;
+	--iv_motion-subtle: 0.12s;
+
+	--iv_ease-in: cubic-bezier(0.4, 0, 1, 1);
+	--iv_ease-out: cubic-bezier(0, 0, 0.2, 1);
+	--iv_ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+	--iv_ease-snappy: cubic-bezier(0.3, 0.7, 0.7, 0.3);
 
 	--iv_spin-duration: 0.75s;
 	--iv_spin-easing: cubic-bezier(0.3, 0.7, 0.7, 0.3);
@@ -150,6 +186,72 @@
 
 	--iv_article-width: 880px;
 	--iv_select-dropdown-max-h: 240px;
+
+	--iv_avatar-xs: 20px;
+	--iv_avatar-sm: 28px;
+	--iv_avatar-md: 36px;
+	--iv_avatar-lg: 48px;
+
+	--iv_badge-h-sm: 20px;
+	--iv_badge-h-md: 26px;
+	--iv_badge-pad-x-sm: 8px;
+	--iv_badge-pad-x-md: 12px;
+
+	--iv_progress-h-sm: 4px;
+	--iv_progress-h-md: 6px;
+
+	--iv_skeleton-radius: var(--iv_radius);
+
+	--iv_table-cell-pad-y: 0.625rem;
+	--iv_table-cell-pad-x: 1rem;
+
+	/* Semantic pairs — surface/foreground pairs themed via the primitives above */
+	--iv_background: var(--iv_surface);
+	--iv_background-foreground: var(--iv_foreground);
+
+	--iv_card: var(--iv_surface-raised);
+	--iv_card-foreground: var(--iv_foreground);
+
+	--iv_popover: var(--iv_surface-elevated);
+	--iv_popover-foreground: var(--iv_foreground);
+
+	--iv_muted: var(--iv_surface-elevated);
+	--iv_muted-foreground: var(--iv_foreground-dim);
+
+	--iv_primary: var(--iv_foreground);
+	--iv_primary-foreground: var(--iv_surface);
+	--iv_primary-hover: var(--iv_foreground-hover);
+
+	--iv_secondary: var(--iv_surface-elevated);
+	--iv_secondary-foreground: var(--iv_foreground);
+
+	--iv_accent-foreground: var(--iv_surface);
+
+	--iv_destructive: var(--iv_error);
+	--iv_destructive-foreground: var(--iv_surface);
+	--iv_destructive-surface: var(--iv_error-surface);
+
+	--iv_input: var(--iv_surface-raised);
+
+	/* Typeset — container-aware prose controls (see typeset.css) */
+	--iv_typeset-size: 0.9rem;
+	--iv_typeset-leading: 1.6;
+	--iv_typeset-flow: 1.25em;
+	--iv_typeset-measure: 68ch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	:root {
+		--iv_transition-fast: 0.01ms;
+		--iv_transition-base: 0.01ms;
+		--iv_transition-slow: 0.01ms;
+		--iv_motion-fade: 0.01ms;
+		--iv_motion-scale: 0.01ms;
+		--iv_motion-fly: 0.01ms;
+		--iv_motion-slide: 0.01ms;
+		--iv_motion-subtle: 0.01ms;
+		--iv_spin-duration: 0s;
+	}
 }
 
 @media (prefers-color-scheme: light) {

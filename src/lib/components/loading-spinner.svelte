@@ -31,4 +31,10 @@
 			transform: rotate(360deg);
 		}
 	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.iv-spinner {
+			animation: none;
+		}
+	}
 </style>

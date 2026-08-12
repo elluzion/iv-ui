@@ -57,6 +57,8 @@
 	class="iv-root"
 	class:iv-horizontal={orientation === 'horizontal'}
 	class:iv-disabled={disabled}
+	role="radiogroup"
+	aria-labelledby={label ? groupLabelId : undefined}
 >
 	{#if label}
 		<span class="iv-group-label" id={groupLabelId}>{label}</span>
@@ -71,7 +73,6 @@
 					checked={value === item.value}
 					{name}
 					disabled={disabled || item.disabled}
-					aria-labelledby={label ? groupLabelId : undefined}
 					onchange={() => handleChange(item.value)}
 				/>
 				<span
@@ -195,7 +196,7 @@
 		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-body);
 		color: var(--iv_foreground);
-		line-height: 1.4;
+		line-height: var(--iv_leading-tight);
 	}
 
 	.iv-item:has(.iv-sm) .iv-label {

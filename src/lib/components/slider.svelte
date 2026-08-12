@@ -132,24 +132,52 @@
 		dragging = which;
 	}
 
-	function handleKeydown(e: KeyboardEvent) {
+	function moveBy(which: 'single' | 'lower' | 'upper', delta: number) {
+		if (range) {
+			if (which === 'lower') {
+				const upper = safeUpper;
+				value = [Math.min(safeLower + delta, upper), upper];
+			} else {
+				const lower = safeLower;
+				value = [lower, Math.max(safeUpper + delta, lower)];
+			}
+		} else {
+			value = clamp(safeSingle + delta);
+		}
+	}
+
+	function handleKeydown(e: KeyboardEvent, which: 'single' | 'lower' | 'upper') {
 		if (disabled) return;
-		if (range) return;
 
-		const increment =
-			e.key === 'ArrowRight' || e.key === 'ArrowUp'
-				? step
-				: e.key === 'ArrowLeft' || e.key === 'ArrowDown'
-					? -step
-					: e.key === 'Home'
-						? min - safeSingle
-						: e.key === 'End'
-							? max - safeSingle
-							: null;
+		const current = range ? (which === 'lower' ? safeLower : safeUpper) : safeSingle;
+		let delta: number | null = null;
 
-		if (increment !== null) {
+		switch (e.key) {
+			case 'ArrowRight':
+			case 'ArrowUp':
+				delta = step;
+				break;
+			case 'ArrowLeft':
+			case 'ArrowDown':
+				delta = -step;
+				break;
+			case 'PageUp':
+				delta = step * 10;
+				break;
+			case 'PageDown':
+				delta = -step * 10;
+				break;
+			case 'Home':
+				delta = min - current;
+				break;
+			case 'End':
+				delta = max - current;
+				break;
+		}
+
+		if (delta !== null) {
 			e.preventDefault();
-			value = clamp(safeSingle + increment);
+			moveBy(which, delta);
 			dispatchChange();
 		}
 	}
@@ -202,7 +230,7 @@
 		onpointerdown={handleTrackPointerDown}
 		onpointermove={handlePointerMove}
 		onpointerup={handlePointerUp}
-		onkeydown={handleKeydown}
+		onkeydown={(e) => handleKeydown(e, 'single')}
 	>
 		{#if range}
 			{@const lowerPct = toPercent(safeLower)}
@@ -219,8 +247,10 @@
 				aria-valuemin={min}
 				aria-valuemax={max}
 				aria-valuenow={Math.round(safeLower)}
-				aria-labelledby={label ? labelId : undefined}
+				aria-valuetext={label ? `${label}: ${Math.round(safeLower)}` : `${Math.round(safeLower)}`}
+				aria-label={label ? `${label} (lower)` : 'Lower value'}
 				onpointerdown={(e: PointerEvent) => handleThumbPointerDown(e, 'lower')}
+				onkeydown={(e) => handleKeydown(e, 'lower')}
 			></div>
 
 			<div
@@ -232,8 +262,10 @@
 				aria-valuemin={min}
 				aria-valuemax={max}
 				aria-valuenow={Math.round(safeUpper)}
-				aria-labelledby={label ? labelId : undefined}
+				aria-valuetext={label ? `${label}: ${Math.round(safeUpper)}` : `${Math.round(safeUpper)}`}
+				aria-label={label ? `${label} (upper)` : 'Upper value'}
 				onpointerdown={(e: PointerEvent) => handleThumbPointerDown(e, 'upper')}
+				onkeydown={(e) => handleKeydown(e, 'upper')}
 			></div>
 		{:else}
 			{@const singlePct = toPercent(safeSingle)}

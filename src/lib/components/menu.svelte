@@ -36,6 +36,7 @@
 		semantic?: MenuSemantic;
 		multiselect?: boolean;
 		emptyLabel?: string;
+		label?: string;
 		id?: string;
 		className?: string;
 		onclick?: (e: MouseEvent, entry: MenuEntry) => void;
@@ -47,6 +48,7 @@
 		semantic = 'menu',
 		multiselect = false,
 		emptyLabel = '',
+		label = '',
 		id = '',
 		className = '',
 		onclick,
@@ -112,6 +114,7 @@
 	class="iv-menu {className}"
 	role={containerRole}
 	id={id || undefined}
+	aria-label={label || undefined}
 	aria-multiselectable={semantic === 'listbox' && multiselect ? 'true' : undefined}
 >
 	{#each entries as entry, i (entry.id)}
@@ -160,6 +163,7 @@
 								entries: entry.children,
 								semantic,
 								emptyLabel,
+								label,
 								onclick,
 								'on:click': onEventClick
 							}}
@@ -178,6 +182,7 @@
 				id={entry.id}
 				tabindex="-1"
 				aria-selected={semantic === 'listbox' ? entry.item.selected : undefined}
+				aria-checked={semantic === 'menu' && entry.item.selected ? true : undefined}
 				aria-disabled={entry.item.disabled || undefined}
 				data-active={entry.item.active || undefined}
 				onclick={(e) => {
@@ -259,6 +264,12 @@
 		&:hover,
 		&.iv-active {
 			background: var(--iv_surface-hover);
+		}
+
+		&:focus-visible {
+			outline: none;
+			background: var(--iv_surface-hover);
+			box-shadow: inset 0 0 0 var(--iv_ring-width) var(--iv_ring);
 		}
 
 		&.iv-disabled {
