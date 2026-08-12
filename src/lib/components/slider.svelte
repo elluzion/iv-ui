@@ -276,8 +276,8 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: baseline;
-		gap: 0.5rem;
-		margin-bottom: 6px;
+		gap: var(--iv_spacing-sm);
+		margin-bottom: var(--iv_spacing-sm);
 	}
 
 	.iv-label {
@@ -365,7 +365,7 @@
 		width: 2px;
 		height: 4px;
 		transform: translate(-50%, -50%);
-		border-radius: 1px;
+		border-radius: var(--iv_radius-pill);
 		background: var(--iv_border);
 
 		&.iv-active {

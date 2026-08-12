@@ -57,6 +57,15 @@
 	--iv_text-lg: 1.05rem;
 	--iv_text-xl: 1.1rem;
 	--iv_text-chips: 10.5px;
+	--iv_text-chips-sm: 13px;
+
+	--iv_spacing-2xs: 2px;
+	--iv_spacing-xs: 4px;
+	--iv_spacing-sm: 8px;
+	--iv_spacing-md: 12px;
+	--iv_spacing-lg: 16px;
+	--iv_spacing-xl: 20px;
+	--iv_spacing-2xl: 24px;
 
 	--iv_transition-fast: 0.12s;
 	--iv_transition-base: 0.15s;
@@ -101,7 +110,7 @@
 		--iv_foreground: #18181b;
 		--iv_foreground-dim: #71717a;
 		--iv_foreground-inverse: #ffffff;
-		--iv_foreground-hover: #d4d4d8;
+		--iv_foreground-hover: #27272a;
 
 		--iv_accent: #b0851a;
 		--iv_accent-dim: #8b6914;
@@ -140,7 +149,7 @@
 	--iv_foreground: #18181b;
 	--iv_foreground-dim: #71717a;
 	--iv_foreground-inverse: #ffffff;
-	--iv_foreground-hover: #d4d4d8;
+	--iv_foreground-hover: #27272a;
 
 	--iv_accent: #b0851a;
 	--iv_accent-dim: #8b6914;

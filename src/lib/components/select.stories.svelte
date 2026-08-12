@@ -114,7 +114,7 @@
 			bind:value={searchValue}
 		/>
 		<p
-			style="margin:0;font-family:var(--iv_font-mono);font-size:0.8rem;color:var(--iv_foreground-dim)"
+			style="margin:0;font-family:var(--iv_font-mono);font-size:var(--iv_text-sm);color:var(--iv_foreground-dim)"
 		>
 			value: {searchValue}
 		</p>
@@ -133,7 +133,7 @@
 			bind:value={multiValue}
 		/>
 		<p
-			style="margin:0;font-family:var(--iv_font-mono);font-size:0.8rem;color:var(--iv_foreground-dim)"
+			style="margin:0;font-family:var(--iv_font-mono);font-size:var(--iv_text-sm);color:var(--iv_foreground-dim)"
 		>
 			value: [{multiValue.join(', ')}]
 		</p>
@@ -166,7 +166,7 @@
 			bind:value={clearValue}
 		/>
 		<p
-			style="margin:0;font-family:var(--iv_font-mono);font-size:0.8rem;color:var(--iv_foreground-dim)"
+			style="margin:0;font-family:var(--iv_font-mono);font-size:var(--iv_text-sm);color:var(--iv_foreground-dim)"
 		>
 			value: {clearValue}
 		</p>

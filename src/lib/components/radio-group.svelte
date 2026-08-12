@@ -95,7 +95,7 @@
 	.iv-root {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: var(--iv_spacing-sm);
 
 		&.iv-disabled {
 			cursor: not-allowed;
@@ -107,25 +107,25 @@
 		font-size: var(--iv_text-label);
 		font-weight: 500;
 		color: var(--iv_foreground);
-		margin-bottom: 2px;
+		margin-bottom: var(--iv_spacing-2xs);
 	}
 
 	.iv-items {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: var(--iv_spacing-sm);
 	}
 
 	.iv-root.iv-horizontal .iv-items {
 		flex-direction: row;
 		flex-wrap: wrap;
-		gap: 0.5rem 1.25rem;
+		gap: var(--iv_spacing-sm) var(--iv_spacing-xl);
 	}
 
 	.iv-item {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.5rem;
+		gap: var(--iv_spacing-sm);
 		cursor: pointer;
 		user-select: none;
 

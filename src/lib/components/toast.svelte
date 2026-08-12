@@ -42,10 +42,10 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 0.75rem;
+		gap: var(--iv_spacing-md);
 		min-width: 260px;
 		max-width: min(520px, calc(100dvw - 2rem));
-		padding: 0.5rem 0.5rem 0.5rem 0.75rem;
+		padding: var(--iv_spacing-sm) var(--iv_spacing-sm) var(--iv_spacing-sm) var(--iv_spacing-md);
 		border-radius: var(--iv_radius);
 		border: 1px solid var(--iv_border);
 		background: var(--iv_surface-raised);
@@ -54,9 +54,9 @@
 
 	.iv-content {
 		display: flex;
-		gap: 0.75rem;
+		gap: var(--iv_spacing-md);
 		align-items: center;
-		font-size: 0.9rem;
+		font-size: var(--iv_text-body);
 		min-width: 0;
 
 		span {

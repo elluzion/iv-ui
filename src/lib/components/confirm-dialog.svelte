@@ -49,19 +49,19 @@
 		background: var(--iv_surface-raised);
 		border: 1px solid var(--iv_border);
 		border-radius: var(--iv_radius-lg);
-		padding: 1.5rem;
+		padding: var(--iv_spacing-2xl);
 		min-width: 280px;
 		max-width: 400px;
 		box-shadow: var(--iv_shadow-lg);
 
 		p {
-			margin: 0 0 1.25rem;
+			margin: 0 0 var(--iv_spacing-xl);
 		}
 	}
 
 	.iv-actions {
 		display: flex;
 		justify-content: flex-end;
-		gap: 0.5rem;
+		gap: var(--iv_spacing-sm);
 	}
 </style>

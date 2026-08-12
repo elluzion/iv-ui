@@ -163,7 +163,7 @@
 			height: var(--iv_sheet-md);
 			left: 0;
 			right: 0;
-			margin: 0 auto;
+			margin: 0 auto 0;
 
 			&.iv-sheet-sm {
 				height: var(--iv_sheet-sm);
@@ -209,14 +209,14 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 1.25rem;
+		padding: var(--iv_spacing-xl);
 		flex-shrink: 0;
-		gap: 0.75rem;
+		gap: var(--iv_spacing-md);
 
 		.iv-title-area {
 			display: flex;
 			align-items: center;
-			gap: 1rem;
+			gap: var(--iv_spacing-lg);
 			min-width: 0;
 		}
 
@@ -256,14 +256,14 @@
 	}
 
 	.iv-body {
-		padding: 1.25rem;
+		padding: var(--iv_spacing-xl);
 		padding-top: 0;
 		overflow-y: auto;
 		flex: 1;
 		color: var(--iv_foreground-dim);
 
 		&.iv-body-no-title {
-			padding-top: 1.25rem;
+			padding-top: var(--iv_spacing-xl);
 		}
 
 		:global(p:first-child) {
@@ -278,7 +278,7 @@
 	.iv-footer {
 		display: flex;
 		justify-content: flex-end;
-		gap: 0.5rem;
+		gap: var(--iv_spacing-sm);
 		padding: 0 1.5rem 1.5rem;
 		flex-shrink: 0;
 	}

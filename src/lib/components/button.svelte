@@ -74,7 +74,7 @@
 			transform var(--iv_transition-fast);
 		display: flex;
 		flex-direction: row;
-		gap: 0.5rem;
+		gap: var(--iv_spacing-sm);
 		align-items: center;
 		justify-content: center;
 
@@ -146,13 +146,13 @@
 		&.iv-btn-sm {
 			padding: 5px 13px;
 			font-size: var(--iv_text-btn-sm);
-			gap: 0.375rem;
+			gap: var(--iv_spacing-xs);
 		}
 
 		&.iv-btn-lg {
 			padding: 12px 24px;
 			font-size: var(--iv_text-lg);
-			gap: 0.625rem;
+			gap: var(--iv_spacing-sm);
 		}
 
 		&.iv-loading {

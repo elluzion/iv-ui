@@ -1,0 +1,377 @@
+{
+	"schemaVersion": 2,
+	"generatedAt": "2026-08-12",
+	"title": "Design System: iv-ui",
+	"extensions": {
+		"colorMeta": {
+			"primary": {
+				"role": "primary",
+				"displayName": "Brass",
+				"canonical": "#c7a24a",
+				"tonalRamp": [
+					"oklch(0.18 0.04 85)",
+					"oklch(0.28 0.05 85)",
+					"oklch(0.38 0.06 85)",
+					"oklch(0.48 0.07 85)",
+					"oklch(0.58 0.08 85)",
+					"oklch(0.68 0.09 85)",
+					"oklch(0.77 0.09 85)",
+					"oklch(0.86 0.07 85)"
+				]
+			},
+			"primary-dim": {
+				"role": "primary",
+				"displayName": "Brass Dim",
+				"canonical": "#7d6a3c",
+				"tonalRamp": [
+					"oklch(0.16 0.035 85)",
+					"oklch(0.26 0.045 85)",
+					"oklch(0.36 0.055 85)",
+					"oklch(0.46 0.06 85)",
+					"oklch(0.56 0.065 85)",
+					"oklch(0.66 0.06 85)",
+					"oklch(0.76 0.05 85)",
+					"oklch(0.86 0.04 85)"
+				]
+			},
+			"success": {
+				"role": "success",
+				"displayName": "Success Sage",
+				"canonical": "#7c9b7c",
+				"tonalRamp": [
+					"oklch(0.18 0.04 135)",
+					"oklch(0.28 0.05 135)",
+					"oklch(0.38 0.06 135)",
+					"oklch(0.48 0.07 135)",
+					"oklch(0.58 0.08 135)",
+					"oklch(0.68 0.08 135)",
+					"oklch(0.78 0.06 135)",
+					"oklch(0.88 0.04 135)"
+				]
+			},
+			"error": {
+				"role": "error",
+				"displayName": "Ember",
+				"canonical": "#f08858",
+				"tonalRamp": [
+					"oklch(0.18 0.06 40)",
+					"oklch(0.28 0.08 40)",
+					"oklch(0.38 0.1 40)",
+					"oklch(0.48 0.12 40)",
+					"oklch(0.58 0.14 40)",
+					"oklch(0.68 0.15 40)",
+					"oklch(0.78 0.14 40)",
+					"oklch(0.88 0.1 40)"
+				]
+			},
+			"info": {
+				"role": "info",
+				"displayName": "Cobalt",
+				"canonical": "#5d8ee8",
+				"tonalRamp": [
+					"oklch(0.18 0.05 260)",
+					"oklch(0.28 0.07 260)",
+					"oklch(0.38 0.09 260)",
+					"oklch(0.48 0.11 260)",
+					"oklch(0.58 0.12 260)",
+					"oklch(0.68 0.12 260)",
+					"oklch(0.78 0.1 260)",
+					"oklch(0.88 0.07 260)"
+				]
+			},
+			"neutral-bg": {
+				"role": "neutral",
+				"displayName": "Canvas Black",
+				"canonical": "#000000",
+				"tonalRamp": [
+					"oklch(0.03 0.005 250)",
+					"oklch(0.12 0.005 250)",
+					"oklch(0.2 0.005 250)",
+					"oklch(0.3 0.005 250)",
+					"oklch(0.42 0.005 250)",
+					"oklch(0.55 0.005 250)",
+					"oklch(0.7 0.005 250)",
+					"oklch(0.86 0.005 250)"
+				]
+			},
+			"neutral-raised": {
+				"role": "neutral",
+				"displayName": "Raised Panel",
+				"canonical": "#141415",
+				"tonalRamp": [
+					"oklch(0.1 0.005 250)",
+					"oklch(0.18 0.005 250)",
+					"oklch(0.28 0.005 250)",
+					"oklch(0.4 0.005 250)",
+					"oklch(0.52 0.005 250)",
+					"oklch(0.65 0.005 250)",
+					"oklch(0.78 0.005 250)",
+					"oklch(0.9 0.005 250)"
+				]
+			},
+			"neutral-elevated": {
+				"role": "neutral",
+				"displayName": "Elevated Panel",
+				"canonical": "#1e1e20",
+				"tonalRamp": [
+					"oklch(0.14 0.005 250)",
+					"oklch(0.22 0.005 250)",
+					"oklch(0.32 0.005 250)",
+					"oklch(0.44 0.005 250)",
+					"oklch(0.56 0.005 250)",
+					"oklch(0.68 0.005 250)",
+					"oklch(0.8 0.005 250)",
+					"oklch(0.92 0.005 250)"
+				]
+			},
+			"foreground": {
+				"role": "neutral",
+				"displayName": "Foreground",
+				"canonical": "#fafafa",
+				"tonalRamp": [
+					"oklch(0.3 0.005 250)",
+					"oklch(0.42 0.005 250)",
+					"oklch(0.54 0.005 250)",
+					"oklch(0.66 0.005 250)",
+					"oklch(0.78 0.005 250)",
+					"oklch(0.87 0.005 250)",
+					"oklch(0.93 0.005 250)",
+					"oklch(0.98 0.005 250)"
+				]
+			},
+			"foreground-dim": {
+				"role": "neutral",
+				"displayName": "Foreground Dim",
+				"canonical": "#8e8e93",
+				"tonalRamp": [
+					"oklch(0.18 0.005 250)",
+					"oklch(0.28 0.005 250)",
+					"oklch(0.38 0.005 250)",
+					"oklch(0.48 0.005 250)",
+					"oklch(0.58 0.005 250)",
+					"oklch(0.68 0.005 250)",
+					"oklch(0.78 0.005 250)",
+					"oklch(0.88 0.005 250)"
+				]
+			},
+			"border": {
+				"role": "neutral",
+				"displayName": "Hairline Border",
+				"canonical": "#2a2a2d",
+				"tonalRamp": [
+					"oklch(0.16 0.005 250)",
+					"oklch(0.24 0.005 250)",
+					"oklch(0.34 0.005 250)",
+					"oklch(0.46 0.005 250)",
+					"oklch(0.58 0.005 250)",
+					"oklch(0.7 0.005 250)",
+					"oklch(0.82 0.005 250)",
+					"oklch(0.93 0.005 250)"
+				]
+			}
+		},
+		"typographyMeta": {
+			"title": {
+				"displayName": "Title",
+				"purpose": "Dialog and sheet titles; heavier weight and larger size of the one sans family."
+			},
+			"body": {
+				"displayName": "Body",
+				"purpose": "Default text, large control labels."
+			},
+			"label": {
+				"displayName": "Label",
+				"purpose": "Form labels, card descriptions, select empty state."
+			},
+			"mono": {
+				"displayName": "Mono",
+				"purpose": "Literal data only: input values, timestamps, keyboard shortcuts, code fragments."
+			}
+		},
+		"shadows": [
+			{
+				"name": "ambient-low",
+				"value": "0 1px 2px rgba(0,0,0,0.5)",
+				"purpose": "Subtle overlay."
+			},
+			{
+				"name": "ambient-md",
+				"value": "0 4px 20px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.4)",
+				"purpose": "Toasts, tooltips, popovers."
+			},
+			{
+				"name": "ambient-lg",
+				"value": "0 24px 60px rgba(0,0,0,0.6), 0 2px 6px rgba(0,0,0,0.4)",
+				"purpose": "Modal dialogs, the command palette."
+			}
+		],
+		"motion": [
+			{
+				"name": "transition-fast",
+				"value": "0.12s",
+				"purpose": "Micro-interactions: chevrons, checkboxes, toggles, tab color."
+			},
+			{
+				"name": "transition-base",
+				"value": "0.15s",
+				"purpose": "Borders, backgrounds, box-shadows on hover and focus."
+			}
+		],
+		"breakpoints": [
+			{
+				"name": "md",
+				"value": "980px",
+				"purpose": "Collapse right panel and shrink sidebar to icon-only."
+			}
+		]
+	},
+	"components": [
+		{
+			"name": "Primary Button",
+			"kind": "button",
+			"refersTo": "button-primary",
+			"description": "The single most important action on a view; white fill on black.",
+			"html": "<button class=\"ds-btn-primary\">Save Changes</button>",
+			"css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: 999px; border: 1px solid var(--iv_foreground, #fafafa); background: var(--iv_foreground, #fafafa); color: var(--iv_surface, #000000); font-family: var(--iv_font-sans, system-ui, sans-serif); font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: border-color 0.15s, background 0.15s, color 0.15s, transform 0.12s; } .ds-btn-primary:hover { background: var(--iv_foreground-hover, #e4e4e4); border-color: var(--iv_foreground-hover, #e4e4e4); } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(255,255,255,0.06); }"
+		},
+		{
+			"name": "Secondary Button",
+			"kind": "button",
+			"refersTo": "button-secondary",
+			"description": "The default button; elevated gray fill with a hairline border.",
+			"html": "<button class=\"ds-btn-secondary\">Cancel</button>",
+			"css": ".ds-btn-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: 999px; border: 1px solid var(--iv_border, #2a2a2d); background: var(--iv_surface-elevated, #1e1e20); color: var(--iv_foreground, #fafafa); font-family: var(--iv_font-sans, system-ui, sans-serif); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: border-color 0.15s, background 0.15s, transform 0.12s; } .ds-btn-secondary:hover { border-color: var(--iv_border-hover, #3a3a3d); background: var(--iv_surface-hover, #242427); } .ds-btn-secondary:active { transform: scale(0.98); } .ds-btn-secondary:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(255,255,255,0.06); }"
+		},
+		{
+			"name": "Danger Button",
+			"kind": "button",
+			"refersTo": "button-danger",
+			"description": "Destructive action; ember fill that deepens on hover.",
+			"html": "<button class=\"ds-btn-danger\">Delete</button>",
+			"css": ".ds-btn-danger { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: 999px; border: 1px solid transparent; background: var(--iv_error, #f08858); color: var(--iv_surface, #000000); font-family: var(--iv_font-sans, system-ui, sans-serif); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.15s, transform 0.12s; } .ds-btn-danger:hover { background: var(--iv_error-dim, #da7550); } .ds-btn-danger:active { transform: scale(0.98); } .ds-btn-danger:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(255,255,255,0.06); }"
+		},
+		{
+			"name": "Ghost Button",
+			"kind": "button",
+			"refersTo": "button-ghost",
+			"description": "Borderless, transparent third-tier action.",
+			"html": "<button class=\"ds-btn-ghost\">Details</button>",
+			"css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: 999px; border: 1px solid transparent; background: transparent; color: var(--iv_foreground, #fafafa); font-family: var(--iv_font-sans, system-ui, sans-serif); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.15s, transform 0.12s; } .ds-btn-ghost:hover { background: var(--iv_surface-overlay, rgba(255,255,255,0.08)); } .ds-btn-ghost:active { transform: scale(0.98); } .ds-btn-ghost:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(255,255,255,0.06); }"
+		},
+		{
+			"name": "Text Input",
+			"kind": "input",
+			"refersTo": "input",
+			"description": "Rounded-rect field; mono values, neutral focus ring, error border on failure.",
+			"html": "<label class=\"ds-label\" for=\"demo\">Project name</label><div class=\"ds-input\"><input id=\"demo\" type=\"text\" placeholder=\"untitled\" value=\"\" /></div><p class=\"ds-helper\">Used as the workspace identifier.</p>",
+			"css": ".ds-label { display: block; font-family: var(--iv_font-sans, system-ui, sans-serif); font-size: 0.85rem; font-weight: 500; color: var(--iv_foreground, #fafafa); margin-bottom: 6px; } .ds-input { display: flex; align-items: center; border: 1px solid var(--iv_border, #2a2a2d); border-radius: 14px; background: var(--iv_surface-raised, #141415); transition: border-color 0.15s, box-shadow 0.15s; } .ds-input:hover { border-color: var(--iv_border-hover, #3a3a3d); } .ds-input:focus-within { border-color: var(--iv_border-focus, #4a4a4d); box-shadow: 0 0 0 3px var(--iv_ring, rgba(255,255,255,0.06)); } .ds-input input { all: unset; flex: 1; min-width: 0; padding: 9px 13px; font-family: var(--iv_font-mono, monospace); font-size: 1rem; color: var(--iv_foreground, #fafafa); } .ds-input input::placeholder { color: var(--iv_foreground-dim, #8e8e93); } .ds-helper { margin: 4px 0 0; font-family: var(--iv_font-sans, system-ui, sans-serif); font-size: 0.8rem; color: var(--iv_foreground-dim, #8e8e93); }"
+		},
+		{
+			"name": "Card",
+			"kind": "card",
+			"refersTo": "card",
+			"description": "Raised rounded-rect container with a hairline border and optional header.",
+			"html": "<div class=\"ds-card\"><div class=\"ds-card-header\"><div><p class=\"ds-title\">Artifacts</p><p class=\"ds-desc\">3 sources active</p></div></div><div class=\"ds-card-body\"><p style=\"margin:0; color:var(--iv_foreground-dim,#8e8e93); font-family:var(--iv_font-sans,system-ui,sans-serif); font-size:0.9rem;\">Content goes here.</p></div></div>",
+			"css": ".ds-card { background: var(--iv_surface-raised, #141415); border: 1px solid var(--iv_border, #2a2a2d); border-radius: 14px; color: var(--iv_foreground, #fafafa); overflow: hidden; transition: border-color 0.15s; } .ds-card:hover { border-color: var(--iv_border-hover, #3a3a3d); } .ds-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 14px 16px; border-bottom: 1px solid var(--iv_border, #2a2a2d); } .ds-title { margin: 0; font-family: var(--iv_font-sans, system-ui, sans-serif); font-size: 1rem; font-weight: 600; color: var(--iv_foreground, #fafafa); } .ds-desc { margin: 2px 0 0; font-family: var(--iv_font-sans, system-ui, sans-serif); font-size: 0.85rem; color: var(--iv_foreground-dim, #8e8e93); } .ds-card-body { padding: 14px 16px; }"
+		},
+		{
+			"name": "Chip / Badge",
+			"kind": "chip",
+			"refersTo": "chip",
+			"description": "Full pill with elevated fill; text may carry a semantic tone, the fill stays neutral.",
+			"html": "<span class=\"ds-chip\">14 sources</span>",
+			"css": ".ds-chip { display: inline-flex; align-items: center; padding: 3px 12px; border-radius: 999px; border: 1px solid var(--iv_border, #2a2a2d); background: var(--iv_surface-elevated, #1e1e20); color: var(--iv_foreground, #fafafa); font-family: var(--iv_font-sans, system-ui, sans-serif); font-size: 10.5px; font-weight: 600; }"
+		},
+		{
+			"name": "Checkbox",
+			"kind": "input",
+			"refersTo": "checkbox",
+			"description": "Small rounded-rect box; checked state fills with foreground and an inverse glyph.",
+			"html": "<label class=\"ds-check\"><input type=\"checkbox\" class=\"ds-native\" checked /><span class=\"ds-box\"><svg viewBox=\"0 0 16 16\" width=\"12\" height=\"12\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\"><path d=\"M3 8.5 6.5 12 13 4.5\"/></svg></span><span class=\"ds-label\">Include draft</span></label>",
+			"css": ".ds-check { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; } .ds-native { position: absolute; width: 1px; height: 1px; opacity: 0; } .ds-box { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border: 1px solid var(--iv_border, #2a2a2d); border-radius: 10px; background: var(--iv_surface-raised, #141415); color: var(--iv_surface, #000000); transition: background 0.12s, border-color 0.12s; } .ds-native:checked + .ds-box { background: var(--iv_foreground, #fafafa); border-color: var(--iv_foreground, #fafafa); } .ds-native:focus-visible + .ds-box { outline: 2px solid var(--iv_foreground, #fafafa); outline-offset: 2px; } .ds-label { font-family: var(--iv_font-sans, system-ui, sans-serif); font-size: 0.9rem; color: var(--iv_foreground, #fafafa); line-height: 1.4; }"
+		},
+		{
+			"name": "Dialog",
+			"kind": "custom",
+			"refersTo": "dialog",
+			"description": "Modal overlay: 20px radius raised panel, deep shadow, blurred 40% scrim.",
+			"html": "<div class=\"ds-backdrop\"><div class=\"ds-dialog\"><div class=\"ds-header\"><h2 class=\"ds-title\">Export</h2><button class=\"ds-close\" aria-label=\"Close\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M18 6 6 18M6 6l12 12\"/></svg></button></div><div class=\"ds-body\"><p style=\"margin:0; color:var(--iv_foreground-dim,#8e8e93); font-family:var(--iv_font-sans,system-ui,sans-serif); font-size:0.9rem;\">Choose a format.</p></div><div class=\"ds-footer\"><button class=\"ds-btn-secondary\">Cancel</button><button class=\"ds-btn-primary\">Export</button></div></div></div>",
+			"css": ".ds-backdrop { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.4); backdrop-filter: blur(12px); padding: 16px; } .ds-dialog { width: 100%; max-width: 520px; max-height: calc(100dvh - 4rem); display: flex; flex-direction: column; overflow: hidden; background: var(--iv_surface-raised, #141415); border: 1px solid var(--iv_border, #2a2a2d); border-radius: 20px; box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 2px 6px rgba(0,0,0,0.4); } .ds-header { display: flex; align-items: center; justify-content: space-between; padding: 20px; flex-shrink: 0; } .ds-title { margin: 0; font-family: var(--iv_font-sans, system-ui, sans-serif); font-size: 1.1rem; font-weight: 600; color: var(--iv_foreground, #fafafa); } .ds-close { display: flex; align-items: center; justify-content: center; background: transparent; border: none; color: var(--iv_foreground-dim, #8e8e93); padding: 0 8px; cursor: pointer; transition: color 0.15s; } .ds-close:hover { color: var(--iv_foreground, #fafafa); } .ds-body { padding: 0 20px 20px; overflow-y: auto; flex: 1; } .ds-footer { display: flex; justify-content: flex-end; gap: 8px; padding: 0 24px 24px; flex-shrink: 0; } .ds-btn-primary { display: inline-flex; align-items: center; padding: 9px 18px; border-radius: 999px; border: 1px solid var(--iv_foreground, #fafafa); background: var(--iv_foreground, #fafafa); color: var(--iv_surface, #000000); font-family: var(--iv_font-sans, system-ui, sans-serif); font-size: 0.95rem; font-weight: 700; cursor: pointer; } .ds-btn-secondary { display: inline-flex; align-items: center; padding: 9px 18px; border-radius: 999px; border: 1px solid var(--iv_border, #2a2a2d); background: var(--iv_surface-elevated, #1e1e20); color: var(--iv_foreground, #fafafa); font-family: var(--iv_font-sans, system-ui, sans-serif); font-size: 0.95rem; font-weight: 600; cursor: pointer; }"
+		},
+		{
+			"name": "Tooltip",
+			"kind": "custom",
+			"refersTo": "tooltip",
+			"description": "Full-pill elevated label floating above the anchor with a medium shadow.",
+			"html": "<div class=\"ds-tooltip\">Copied to clipboard</div>",
+			"css": ".ds-tooltip { display: inline-block; padding: 4px 12px; border-radius: 999px; background: var(--iv_surface-elevated, #1e1e20); color: var(--iv_foreground, #fafafa); font-family: var(--iv_font-sans, system-ui, sans-serif); font-size: 0.875rem; font-weight: 500; line-height: 1.4; white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.4); }"
+		}
+	],
+	"narrative": {
+		"northStar": "The Monochrome Atelier",
+		"overview": "iv-ui is a component library for quiet, precise, tool-like interfaces. It is black-and-white by conviction, not by neglect: the interface is a black workbench where structure comes from hairline seams rather than shadow, and the only brass in the room is reserved for the few instruments that must be found instantly. This is a shadcn/ui-inspired monochrome dark system — pure black canvas, 1px borders instead of drop-shadow depth, pill-shaped controls, and color used only as a sparing signal, never as decoration.\n\nDensity is tight and intentional: buttons, chips, and the search trigger are full pills; cards, inputs, and list rows are rounded rectangles in a 10–20px band; nothing on screen has a sharp or near-sharp corner. The default theme is dark (#000000 canvas), with a full light-theme mirror (#ffffff) applied automatically via prefers-color-scheme or explicitly through data-theme / .theme-* classes. Radii, shadows, and fonts are theme-agnostic — only colors flip.\n\nThe aesthetic philosophy is restraint as craft. Depth is communicated by a four-layer surface stack, each layer one step lighter than the one below, never by gradients, never by hover-lift. Interaction feedback is physical but muted: buttons press down (scale(0.98) on :active), borders brighten on hover, and nothing floats unless it genuinely overlays the page. Confirmed visual rejection: generic AI \"lift\" patterns — drop shadows or translateY motion on page-level cards.",
+		"keyCharacteristics": [
+			"Pure black canvas (dark) / pure white canvas (light), built up through exactly four gray surface layers.",
+			"Hairline 1px borders create all on-page structure; shadows belong only to overlays.",
+			"Every interactive shape is a pill or a rounded rectangle — nothing sharper than a 10px radius.",
+			"Exactly one accent (brass) plus three semantic tones (success / error / info), applied to small marks only.",
+			"One sans-serif family for all UI; monospace reserved for literal data.",
+			"Short, physical motion (120–180ms) that brightens borders and presses down — no lifts, no reveals."
+		],
+		"rules": [
+			{
+				"name": "The Signal Rule",
+				"body": "Color appears on roughly 2% of visible pixels. The primary accent is used on ≤10% of any given screen; its rarity is the point. If unsure whether something should be colored, it shouldn't be.",
+				"section": "colors"
+			},
+			{
+				"name": "The One-Accent Rule",
+				"body": "Exactly one accent hue and three semantic tones — that is the entire palette. No second accent \"for variety,\" no color gradients, ever.",
+				"section": "colors"
+			},
+			{
+				"name": "The One-Family Rule",
+				"body": "Never pair a display serif with the body sans, never introduce a second UI typeface. One sans, one mono, nothing else.",
+				"section": "typography"
+			},
+			{
+				"name": "The Mono-For-Data Rule",
+				"body": "Monospace is for literal data only — never a page title, button label, or prose.",
+				"section": "typography"
+			},
+			{
+				"name": "The Grid-or-List Rule",
+				"body": "A screen is either a two-column card grid (browse-and-pick) or single-column bordered list rows (scan-many-act-on-one) — never both for the same collection.",
+				"section": "layout"
+			},
+			{
+				"name": "The Icon-Label Rule",
+				"body": "When a sidebar collapses to icon-only, never hide labels with a bare element selector — you will hide the icon spans too. Give icons a dedicated class and scope the hiding rule to it.",
+				"section": "layout"
+			},
+			{
+				"name": "The Flat-By-Default Rule",
+				"body": "Surfaces are flat at rest. Hover state is a brighter border or lighter fill, never a shadow and never a lift. Shadows appear only on elements that genuinely overlay the page.",
+				"section": "elevation"
+			}
+		],
+		"dos": [
+			"Do keep the canvas pure black (dark) / pure white (light) and build depth with the four-layer surface stack.",
+			"Do make every button and chip a full pill and every card/input a rounded rectangle in the 10–20px band.",
+			"Do use hairline 1px borders for on-page depth; save shadows for dialogs, popovers, tooltips, and toasts.",
+			"Do keep color to one accent + three semantic tones, applied to small marks only.",
+			"Do brighten a border or fill on hover; press buttons down with scale(0.98) on :active.",
+			"Do reference every color through --iv_* tokens from src/lib/theme/tokens.css — never hardcode a hex/rgba in a component."
+		],
+		"donts": [
+			"Don't fill a button or a large surface with the accent color.",
+			"Don't add a second typeface (serif, display font, alternate sans) for \"personality.\"",
+			"Don't use drop shadows or translateY hover-lift on inline cards or list rows — that \"lift\" reads as generic AI-generated UI.",
+			"Don't use sharp or barely-rounded corners anywhere; minimum radius is 10px, except full pills.",
+			"Don't introduce gradients, color fills for whole sections, or a second accent hue.",
+			"Don't hide sidebar labels with a bare element selector inside a component that also contains an icon in that same element type — scope hiding rules to a dedicated icon class.",
+			"Don't mix card-grid and list-row treatments for the same collection on the same screen.",
+			"Don't set a raw rem/px font size in a component — use the tokenized --iv_text-* scale."
+		]
+	}
+}

@@ -56,7 +56,7 @@
 	.iv-tab-list {
 		display: flex;
 		align-items: flex-end;
-		gap: 0.25rem;
+		gap: var(--iv_spacing-xs);
 		border-bottom: 1px solid var(--iv_border);
 	}
 </style>

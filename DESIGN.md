@@ -1,378 +1,296 @@
-# Design System
+---
+name: iv-ui
+description: A monochrome, hairline-bordered Svelte 5 component library with a single brass accent and color used only as signal.
+colors:
+  primary: "#c7a24a"
+  primary-dim: "#7d6a3c"
+  success: "#7c9b7c"
+  success-dim: "#5a7a5a"
+  error: "#f08858"
+  error-dim: "#da7550"
+  info: "#5d8ee8"
+  info-dim: "#3a6fcc"
+  neutral-bg: "#000000"
+  neutral-raised: "#141415"
+  neutral-elevated: "#1e1e20"
+  neutral-hover: "#242427"
+  foreground: "#fafafa"
+  foreground-dim: "#8e8e93"
+  foreground-hover: "#e4e4e4"
+  border: "#2a2a2d"
+  border-hover: "#3a3a3d"
+  border-focus: "#4a4a4d"
+typography:
+  title:
+    fontFamily: "'Atkinson Hyperlegible Next', system-ui, sans-serif"
+    fontSize: "1.1rem"
+    fontWeight: 600
+  body:
+    fontFamily: "'Atkinson Hyperlegible Next', system-ui, sans-serif"
+    fontSize: "0.9rem"
+    fontWeight: 400
+  label:
+    fontFamily: "'Atkinson Hyperlegible Next', system-ui, sans-serif"
+    fontSize: "0.85rem"
+    fontWeight: 500
+  mono:
+    fontFamily: "'IBM Plex Mono', monospace"
+rounded:
+  sm: "10px"
+  md: "14px"
+  lg: "20px"
+  pill: "999px"
+spacing:
+  xs: "4px"
+  sm: "8px"
+  md: "16px"
+  lg: "20px"
+  xl: "24px"
+components:
+  button-primary:
+    backgroundColor: "{colors.foreground}"
+    textColor: "{colors.neutral-bg}"
+    rounded: "{rounded.pill}"
+    padding: "9px 18px"
+  button-primary-hover:
+    backgroundColor: "{colors.foreground-hover}"
+  button-secondary:
+    backgroundColor: "{colors.neutral-elevated}"
+    textColor: "{colors.foreground}"
+    rounded: "{rounded.pill}"
+    padding: "9px 18px"
+  button-ghost:
+    backgroundColor: "transparent"
+    textColor: "{colors.foreground}"
+    rounded: "{rounded.pill}"
+    padding: "9px 18px"
+  button-danger:
+    backgroundColor: "{colors.error}"
+    textColor: "{colors.neutral-bg}"
+    rounded: "{rounded.pill}"
+  card:
+    backgroundColor: "{colors.neutral-raised}"
+    rounded: "{rounded.md}"
+    padding: "16px 14px"
+  input:
+    backgroundColor: "{colors.neutral-raised}"
+    textColor: "{colors.foreground}"
+    rounded: "{rounded.md}"
+  checkbox:
+    backgroundColor: "{colors.neutral-raised}"
+    rounded: "{rounded.sm}"
+  chip:
+    backgroundColor: "{colors.neutral-elevated}"
+    textColor: "{colors.foreground}"
+    rounded: "{rounded.pill}"
+  dialog:
+    backgroundColor: "{colors.neutral-raised}"
+    rounded: "{rounded.lg}"
+---
 
-This document defines the visual language for this library. The goal is a **monochrome, shadcn/ui-inspired
-dark interface**: pure black canvas, hairline borders instead of shadows-as-depth, pill-shaped
-controls, and color used only as a sparing signal — never as decoration.
+# Design System: iv-ui
 
-**The single source of truth for tokens and base styles lives in four CSS files:**
+## Overview
 
-- [`src/lib/theme/tokens.css`](src/lib/theme/tokens.css) — all design tokens. Defines both dark (default) and light theme via `:root`, `@media (prefers-color-scheme: light)`, `[data-theme]`, and `.theme-*` classes.
-- [`src/lib/theme/base.css`](src/lib/theme/base.css) — body reset, selection color, scrollbar styles, base element styles (links).
-- [`src/lib/theme/theme.css`](src/lib/theme/theme.css) — bundling entry: imports Google Fonts, tokens, and base.
+**Creative North Star: "The Monochrome Atelier"**
 
-Hardcoded hex/rgba values do **not** belong in components. Reference the tokens defined in
-`tokens.css` or the pre-built classes in the corresponding `.svelte` components.
+iv-ui is a component library for quiet, precise, tool-like interfaces. It is black-and-white by conviction, not by neglect: the interface is a black workbench where structure comes from hairline seams rather than shadow, and the only brass in the room is reserved for the few instruments that must be found instantly. This is a shadcn/ui-inspired monochrome dark system — pure black canvas, 1px borders instead of drop-shadow depth, pill-shaped controls, and color used only as a sparing signal, never as decoration.
+
+Density is tight and intentional: buttons, chips, and the search trigger are full pills; cards, inputs, and list rows are rounded rectangles in a 10–20px band; nothing on screen has a sharp or near-sharp corner. The default theme is dark (`#000000` canvas), with a full light-theme mirror (`#ffffff`) applied automatically via `prefers-color-scheme` or explicitly through `data-theme` / `.theme-*` classes. Radii, shadows, and fonts are theme-agnostic — only colors flip.
+
+The aesthetic philosophy is restraint as craft. Depth is communicated by a four-layer surface stack, each layer one step lighter than the one below, never by gradients, never by hover-lift. Interaction feedback is physical but muted: buttons press down (`scale(0.98)` on `:active`), borders brighten on hover, and nothing floats unless it genuinely overlays the page. Confirmed visual rejection: generic AI "lift" patterns — drop shadows or `translateY` motion on page-level cards.
+
+**Key Characteristics:**
+
+- Pure black canvas (dark) / pure white canvas (light), built up through exactly four gray surface layers.
+- Hairline `1px` borders create all on-page structure; shadows belong only to overlays.
+- Every interactive shape is a pill or a rounded rectangle — nothing sharper than a 10px radius.
+- Exactly one accent (brass) plus three semantic tones (success / error / info), applied to small marks only.
+- One sans-serif family for all UI; monospace reserved for literal data.
+- Short, physical motion (120–180ms) that brightens borders and presses down — no lifts, no reveals.
 
 ---
 
-## 0. Theming
+## Colors
 
-All tokens are prefixed `--iv_`. The system supports **dark** and **light** themes.
+The palette is a monochrome gray ladder with one brass accent and three semantic tones. Dark-theme values below are canonical (dark is the default); a mirrored light theme lives in `src/lib/theme/tokens.css` and swaps values under `prefers-color-scheme: light` or `[data-theme="light"]`.
 
-- **Dark** is the default (`:root`). Explicitly set via `[data-theme="dark"]` or `.theme-dark`.
-- **Light** is applied when the system prefers light (`prefers-color-scheme: light`) **and** no explicit dark override is set. Explicitly set via `[data-theme="light"]` or `.theme-light`.
+### Primary
 
-To force a theme, add `data-theme="dark"` or `data-theme="light"` to the `<html>` element, or add the `.theme-dark` / `.theme-light` class.
+- **Brass** (#c7a24a): The single accent. Status dots (≤8px), citation markers in chat, links, the selected-card border, and low-opacity focus rings. Never a button fill, never a card background.
+- **Brass-dim** (#7d6a3c): Muted accent for hovered/subdued accent treatments.
 
-Radii, shadows, and font families are theme-agnostic (same value in both themes).
+### Neutral
 
----
+- **Surface (Canvas)** (#000000): The page background. Sidebar, center panel, chat panel. Pure black, not dark gray — this is a doctrine, not a choice.
+- **Surface-raised** (#141415): First layer. Cards, list rows, dialogs, the search trigger, chat input — anything that reads as a discrete block on the page.
+- **Surface-elevated** (#1e1e20): Second layer. Button backgrounds, controls nested inside a raised element (e.g. an input inside a dialog).
+- **Surface-hover** (#242427): Hover state of an elevated surface (secondary button hover).
+- **Foreground** (#fafafa): Primary text, headings, active icons, and the primary button fill.
+- **Foreground-dim** (#8e8e93): Secondary text, placeholders, meta, inactive icons.
+- **Foreground-hover** (#e4e4e4): Primary button hover fill + border.
+- **Border** (#2a2a2d): The default hairline, everywhere.
+- **Border-hover** (#3a3a3d): Border color on hover.
+- **Border-focus** (#4a4a4d): Border color on focus (inputs).
 
-## 1. Core principles
+### Semantic
 
-1. **Black is the base, not a "dark theme."** The dark canvas is `#000000`, not a dark gray. Depth
-   comes from layering slightly lighter panels on top of it, not from shadows or gradients. The
-   light canvas is `#ffffff` with the same layering principle.
-2. **Borders create structure, shadows are for overlays only.** Cards, inputs, and list rows are
-   separated by a 1px hairline border. Reserve `box-shadow` for things that float above the
-   page: dialogs, the command palette, popovers.
-3. **Color is a signal, not a palette.** There is exactly one accent (brass/amber) and two
-   semantic colors (success = positive, error = warning/attention). They mark a handful of
-   specific things — an active project, a citation, a status dot. Everything else is grayscale.
-4. **Every interactive shape is a pill or a rounded rectangle — never sharp corners.** Buttons,
-   badges, chips, and the search trigger are fully rounded (`border-radius: 999px`). Cards and
-   inputs use large-but-finite radii (10–20px). Nothing in the interface has a 0–4px radius.
-5. **One font family for everything.** Do not pair a display serif with a body sans, and do not
-   introduce a second UI typeface. Monospace is reserved for data, not for prose or labels.
+- **Success** (#7c9b7c): Positive/active state only — status dots, positive deltas, toast icons.
+- **Error** (#f08858): Error, destructive, and attention states — error borders, danger buttons, error toasts. (Doubles as the error border color.)
+- **Info** (#5d8ee8): Informational signals — toasts, badges.
 
----
+### Named Rules
 
-## 2. Design tokens
+**The Signal Rule.** Color appears on roughly 2% of visible pixels. The primary accent is used on ≤10% of any given screen; its rarity is the point. If unsure whether something should be colored, it shouldn't be.
 
-Defined in [`src/lib/theme/tokens.css`](src/lib/theme/tokens.css). Never hardcode a hex value in a
-component — reference the token.
-
-### Surface layers
-
-| Token                   | Dark value               | Light value        | Usage                                                                                                                      |
-| ----------------------- | ------------------------ | ------------------ | -------------------------------------------------------------------------------------------------------------------------- |
-| `--iv_surface`          | `#000000`                | `#ffffff`          | Page canvas. Sidebar, center panel, chat panel background.                                                                 |
-| `--iv_surface-raised`   | `#141415`                | `#f4f4f5`          | First layer: cards, list rows, dialogs, search trigger, chat input. Anything that reads as "a discrete block on the page." |
-| `--iv_surface-elevated` | `#1e1e20`                | `#e4e4e7`          | Second layer: button backgrounds, nested controls inside dialogs.                                                          |
-| `--iv_surface-hover`    | `#242427`                | `#d4d4d8`          | Hover state of elevated surfaces (secondary button hover).                                                                 |
-| `--iv_surface-overlay`  | `rgba(255,255,255,0.08)` | `rgba(0,0,0,0.05)` | Semi-transparent hover overlay on raised surfaces.                                                                         |
-
-### Borders
-
-| Token               | Dark value | Light value | Usage                                |
-| ------------------- | ---------- | ----------- | ------------------------------------ |
-| `--iv_border`       | `#2a2a2d`  | `#d4d4d8`   | Default hairline border, everywhere. |
-| `--iv_border-hover` | `#3a3a3d`  | `#a1a1aa`   | Border color on hover.               |
-| `--iv_border-focus` | `#4a4a4d`  | `#71717a`   | Border color on focus (inputs).      |
-| `--iv_border-error` | `#f08858`  | `#b03308`   | Border color for error state inputs. |
-
-### Text / foreground
-
-| Token                     | Dark value | Light value | Usage                                               |
-| ------------------------- | ---------- | ----------- | --------------------------------------------------- |
-| `--iv_foreground`         | `#fafafa`  | `#18181b`   | Primary text, headings, active icons.               |
-| `--iv_foreground-dim`     | `#8e8e93`  | `#71717a`   | Secondary text, placeholders, meta, inactive icons. |
-| `--iv_foreground-inverse` | `#000000`  | `#ffffff`   | Text on primary buttons / inverted surfaces.        |
-| `--iv_foreground-hover`   | `#e4e4e4`  | `#d4d4d8`   | Primary button hover fill + border.                 |
-
-### Accent & semantic colors
-
-Every semantic color follows a `main / dim / surface` pattern:
-
-| Token                  | Dark value              | Light value            | Usage                                                              |
-| ---------------------- | ----------------------- | ---------------------- | ------------------------------------------------------------------ |
-| `--iv_accent`          | `#c7a24a`               | `#b0851a`              | Single accent: status dots, citation markers, accent icons, links. |
-| `--iv_accent-dim`      | `#7d6a3c`               | `#8b6914`              | Muted accent.                                                      |
-| `--iv_accent-surface`  | `rgba(199,162,74,0.1)`  | `rgba(176,133,26,0.1)` | Accent background tint.                                            |
-| `--iv_success`         | `#7c9b7c`               | `#3b7a3b`              | Success / positive state.                                          |
-| `--iv_success-dim`     | `#5a7a5a`               | `#2d5e2d`              | Muted success.                                                     |
-| `--iv_success-surface` | `rgba(124,155,124,0.1)` | `rgba(59,122,59,0.1)`  | Success background tint.                                           |
-| `--iv_error`           | `#f08858`               | `#b03308`              | Error / destructive / attention.                                   |
-| `--iv_error-dim`       | `#da7550`               | `#892a0d`              | Darker error (danger button hover).                                |
-| `--iv_error-surface`   | `rgba(240,136,88,0.1)`  | `rgba(176,51,8,0.1)`   | Error background tint.                                             |
-| `--iv_info`            | `#5d8ee8`               | `#2563eb`              | Informational signals (toasts, badges).                            |
-| `--iv_info-dim`        | `#3a6fcc`               | `#1d4ed8`              | Muted info.                                                        |
-| `--iv_info-surface`    | `rgba(93,142,232,0.1)`  | `rgba(37,99,235,0.1)`  | Info background tint.                                              |
-
-### Overlays & focus
-
-| Token          | Dark value               | Light value        | Usage                  |
-| -------------- | ------------------------ | ------------------ | ---------------------- |
-| `--iv_overlay` | `rgba(0,0,0,0.4)`        | `rgba(0,0,0,0.3)`  | Modal/dialog backdrop. |
-| `--iv_ring`    | `rgba(255,255,255,0.06)` | `rgba(0,0,0,0.06)` | Neutral focus ring.    |
-
-### Radii
-
-| Token              | Value   | Usage                                                           |
-| ------------------ | ------- | --------------------------------------------------------------- |
-| `--iv_radius`      | `14px`  | Cards, inputs, list rows, dialogs' inner controls.              |
-| `--iv_radius-sm`   | `10px`  | Small controls: selects, icon buttons, chips-that-aren't-pills. |
-| `--iv_radius-lg`   | `20px`  | Dialogs, the command palette, large cards.                      |
-| `--iv_radius-pill` | `999px` | Every button, the search trigger, tag chips.                    |
-
-### Shadows — overlays only
-
-| Token            | Value (theme-agnostic)                                   | Usage                          |
-| ---------------- | -------------------------------------------------------- | ------------------------------ |
-| `--iv_shadow-sm` | `0 1px 2px rgba(0,0,0,0.5)`                              | Subtle overlay.                |
-| `--iv_shadow-md` | `0 4px 20px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.4)` | Toast, popover.                |
-| `--iv_shadow-lg` | `0 24px 60px rgba(0,0,0,0.6), 0 2px 6px rgba(0,0,0,0.4)` | Modal dialog, command palette. |
-
-### Typography
-
-- **Sans-serif family** for all UI: `--iv_font-sans` (`'Atkinson Hyperlegible Next', system-ui, sans-serif`).
-  Headings use the same family as body text, just heavier weight (600–700) and larger size.
-- **Monospace family** for data only: `--iv_font-mono` (`'IBM Plex Mono', monospace`). Used for
-  timestamps, keyboard shortcuts, code fragments, source counts. Never used for a page title,
-  a button label, or prose.
-
-### Text sizes
-
-All component font sizes come from this scale via `tokens.css` — never a raw `rem`/`px` in a component:
-
-| Token               | Value      | Usage                                                   |
-| ------------------- | ---------- | ------------------------------------------------------- |
-| `--iv_text-xs`      | `0.75rem`  | Character counts, tiny mono meta.                       |
-| `--iv_text-sm`      | `0.8rem`   | Helper/error messages, separator labels, slider values. |
-| `--iv_text-btn-sm`  | `0.825rem` | Small buttons, sm tabs, sm checkbox/radio labels.       |
-| `--iv_text-label`   | `0.85rem`  | Form labels, card descriptions, select empty state.     |
-| `--iv_text-body-sm` | `0.875rem` | Sm inputs/selects, sm search input.                     |
-| `--iv_text-body`    | `0.9rem`   | Default body text, large radio/checkbox/switch labels.  |
-| `--iv_text-btn`     | `0.95rem`  | Accordion trigger.                                      |
-| `--iv_text-base`    | `1rem`     | Inputs, textareas, select trigger, form fields.         |
-| `--iv_text-lg`      | `1.05rem`  | lg buttons, lg inputs.                                  |
-| `--iv_text-xl`      | `1.1rem`   | Dialog titles.                                          |
-| `--iv_text-chips`   | `10.5px`   | Chip / badge / pill labels.                             |
-
-### Motion, focus, and misc system values
-
-Theme-agnostic tokens that standardize repeated values:
-
-| Token                   | Value                           | Usage                                                         |
-| ----------------------- | ------------------------------- | ------------------------------------------------------------- |
-| `--iv_transition-fast`  | `0.12s`                         | Micro-interactions: chevrons, checkboxes, toggles, tab color. |
-| `--iv_transition-base`  | `0.15s`                         | Borders / backgrounds / box-shadows on hover and focus.       |
-| `--iv_spin-duration`    | `0.75s`                         | Loading spinner one revolution.                               |
-| `--iv_spin-easing`      | `cubic-bezier(0.3,0.7,0.7,0.3)` | Loading spinner easing.                                       |
-| `--iv_outline-width`    | `2px`                           | Focus outline width (`outline`).                              |
-| `--iv_outline-offset`   | `2px`                           | Default focus outline offset.                                 |
-| `--iv_ring-width`       | `3px`                           | Focus/`box-shadow` ring width (`box-shadow: 0 0 0 <width>`).  |
-| `--iv_blur`             | `12px`                          | Backdrop blur behind dialogs.                                 |
-| `--iv_disabled-opacity` | `0.5`                           | Disabled element opacity.                                     |
-| `--iv_z-dropdown`       | `50`                            | Select dropdown popover.                                      |
-| `--iv_z-overlay`        | `100`                           | Dialog / modal backdrop.                                      |
-| `--iv_z-toast`          | `110`                           | Toast layer.                                                  |
-| `--iv_dialog-sm`        | `400px`                         | Small dialog max-width.                                       |
-| `--iv_dialog-md`        | `520px`                         | Default dialog max-width.                                     |
-| `--iv_dialog-lg`        | `640px`                         | Large dialog max-width.                                       |
-| `--iv_sheet-sm`         | `320px`                         | Small sheet width (side) / height (top-bottom).               |
-| `--iv_sheet-md`         | `440px`                         | Default sheet width (side) / height (top-bottom).             |
-| `--iv_sheet-lg`         | `560px`                         | Large sheet width (side) / height (top-bottom).               |
-| `--iv_scrollbar-size`   | `8px`                           | Custom scrollbar width/height.                                |
+**The One-Accent Rule.** Exactly one accent hue and three semantic tones — that is the entire palette. No second accent "for variety," no color gradients, ever.
 
 ---
 
-## 3. Surface layering
+## Typography
 
-Think of the interface as four stacked layers, each one shade lighter than the one below:
+**Body Font:** Atkinson Hyperlegible Next (with `system-ui, sans-serif` fallback) — used for everything, including headings. Headings are the same family at heavier weight (600–700) and larger size; there is no display serif.
+**Label Font:** Atkinson Hyperlegible Next, weight 500, for form labels and small meta.
+**Mono Font:** IBM Plex Mono (with `monospace` fallback) — for data only: timestamps, keyboard shortcuts, code fragments, source counts, and input/textarea values.
 
-| Layer             | Token                   | Used for                                                                                                                  |
-| ----------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| 0 — Canvas        | `--iv_surface`          | The page background. Sidebar, center panel, and chat panel background.                                                    |
-| 1 — Raised        | `--iv_surface-raised`   | Cards, list rows, dialogs, the search trigger, chat input. Anything that reads as "a discrete block sitting on the page." |
-| 2 — Elevated      | `--iv_surface-elevated` | Button background, controls nested inside a layer-1 element (e.g. an input inside a dialog).                              |
-| 3 — Hover overlay | `--iv_surface-hover`    | Hover state of an elevated surface (secondary button hover).                                                              |
+**Character:** A single warm-humanist sans carries the whole interface; the only typographic contrast is the cold precision of the mono face reserved for literal data. The pairing reads as "human voice, machine numbers."
 
-Additionally, `--iv_surface-overlay` provides a translucent overlay for hover effects on raised
-surfaces (e.g. clear button hover, toast close button hover).
+### Hierarchy
 
-**Rule of thumb:** an element's resting state is one layer lighter than its parent; its hover
-state is one layer lighter than its resting state. Never skip a layer (e.g. canvas straight to
-`--iv_surface-elevated`), and never make a hover state darker than its resting state.
+- **Title** (600, 1.1rem, no cap): Dialog and sheet titles. Truncates with ellipsis on overflow.
+- **Body** (400, 0.9rem): Default text, radio/checkbox/switch labels.
+- **Label** (500, 0.85rem): Form labels, card descriptions, select empty state.
+- **Mono** (400, 1rem): Input, textarea, and select trigger values; chips at 13px.
 
----
+Text scale is tokenized (`--iv_text-xs` 0.75rem through `--iv_text-xl` 1.1rem); never set a raw `rem`/`px` in a component.
 
-## 4. Color usage — the strict part
+### Named Rules
 
-The reference screenshot this system is built from uses color on maybe 2% of visible pixels.
-Match that ratio.
+**The One-Family Rule.** Never pair a display serif with the body sans, never introduce a second UI typeface. One sans, one mono, nothing else.
 
-**Allowed uses of `--iv_accent`:**
-
-- A small (≤8px) status dot identifying one specific project/category among several
-- A citation marker number in chat (`[1]`, `[2]`)
-- Links (`a[href]`)
-- A focus ring, at low opacity, on the one currently-focused input —
-  and only if you're not already using the neutral focus ring (`--iv_ring`)
-- Small accent icons in an otherwise-monochrome badge (e.g. a "file" type badge's icon color)
-
-**Allowed uses of `--iv_success` / `--iv_error` / `--iv_info`:**
-
-- Semantic status only: positive/active state (success), attention/pending/error state (error), informational (info).
-  E.g. a "Pending Setup" dot, a positive delta, a toast icon.
-
-**Never:**
-
-- Fill a button background with `--iv_accent`. Buttons are neutral (§6).
-- Use color for a whole card background, a whole section background, or a large decorative
-  block.
-- Introduce a second accent hue "for variety." One accent color, three semantic colors.
-  That's the whole palette.
-- Use color gradients anywhere.
-
-If you're unsure whether something should be colored, it shouldn't be.
+**The Mono-For-Data Rule.** Monospace is for literal data only — never a page title, button label, or prose.
 
 ---
 
-## 5. Borders, not shadows, for page content
+## Layout
 
-Base styles are scoped in their respective component `.svelte` files. Every card, list row, input, and
-panel divider gets a `1px solid var(--iv_border)` border with an `--iv_surface-raised` background.
+The spatial model is a compact three-pane workbench: a fixed-width left sidebar (~230px), a fluid center panel, and a fixed-width right panel (~340px) for contextual chat. Below ~980px the right panel collapses and the sidebar shrinks to icon-only — the sidebar is never hidden entirely.
 
-On hover, brighten the border (`--iv_border-hover`) rather than adding a shadow or lifting the
-element. The only motion on hover is a border/background color shift and standard `:active`
-scale-down on buttons (`scale(.98)`).
+Content columns are capped at ~880px and centered even inside a fluid panel; unbounded line length is a readability bug.
 
-**Do not** add `transform: translateY(...)` or a drop shadow to page-level cards on hover. That
-"lift" pattern reads as generic AI-generated UI, not as this system.
+Spacing follows a tight 4px-based rhythm (`4 / 8 / 12 / 16 / 20 / 24px`): card padding uses 14–20px on x, 10–20px on y; section gaps run 8–16px; component-internal gaps run 4–8px. Density is compact — this is a workbench, not a magazine.
 
-**Shadows are reserved for things that overlay the page**: the command palette, modal dialogs,
-popovers. These get `--iv_shadow-lg` and nothing else on the page should compete with them
-visually.
+### Named Rules
+
+**The Grid-or-List Rule.** A screen is either a two-column card grid (browse-and-pick, e.g. a dashboard project list) or single-column bordered list rows (scan-many-act-on-one, e.g. a sources or activity list) — never both for the same collection.
+
+**The Icon-Label Rule.** When a sidebar collapses to icon-only, never hide labels with a bare element selector (`span`/`div`) — you will hide the icon spans too. Give icons a dedicated class and scope the hiding rule to it.
 
 ---
 
-## 6. Buttons
+## Elevation & Depth
 
-Defined in [`src/lib/components/button.svelte`](src/lib/components/button.svelte). Three variants, all fully rounded
-(`--iv_radius-pill`), all the same padding and font-weight:
+Depth is tonal layering, not shadow. The interface is a stack of exactly four gray layers — Canvas, Raised, Elevated, Hover — each one step lighter than the layer beneath it. A discrete element sits one layer above its parent; its hover state sits one layer above its resting state. Never skip a layer, and never make a hover state darker than its resting state. A translucent `surface-overlay` (white 8–10%) provides hover tinting on raised surfaces.
 
-- **Primary** (`.primary`) — foreground fill (`--iv_foreground`), inverse text (`--iv_foreground-inverse`). Used once per
-  view, for the single most important action.
-- **Secondary** (default) — elevated fill (`--iv_surface-elevated`), foreground text, hairline border. This is
-  the default button — most buttons on screen are this variant.
-- **Outline** (`.outline`) — same as secondary but transparent background. A third tier (rare).
-- **Ghost** (`.ghost`) — no border, transparent background.
-- **Icon** (`.icon`) — transparent, no padding.
-- **Danger** (`.danger`) — `--iv_error` fill, `--iv_error-dim` on hover.
-- **Disabled** (`.disabled` / `[disabled]`) — `--iv_surface-raised` background, `--iv_foreground-dim` text, reduced opacity.
+Shadows exist for one job only: proving that something floats above the page. Overlays — modal dialogs, the command palette, popovers, tooltips, toasts — cast the deep shadows below. Page-level cards and rows never do.
 
-**Never** give a button a brass/colored fill. **Never** use a sharp-cornered or barely-rounded
-button — if the corner radius isn't full pill, it's wrong.
+### Shadow Vocabulary
 
----
+- **Ambient-low** (`0 1px 2px rgba(0,0,0,0.5)`): Subtle overlay.
+- **Ambient-md** (`0 4px 20px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.4)`): Toasts, tooltips, popovers.
+- **Ambient-lg** (`0 24px 60px rgba(0,0,0,0.6), 0 2px 6px rgba(0,0,0,0.4)`): Modal dialogs, the command palette.
 
-## 7. Inputs, selects, textareas
+Dialog backdrops combine a 40% black scrim with a 12px backdrop blur.
 
-Defined in [`src/lib/components/input.svelte`](src/lib/components/input.svelte), `textarea.svelte`, and `select.svelte`. Shared rules:
+### Named Rules
 
-- Rounded rectangles (`--iv_radius`), not pills — buttons and chips are pills; fields and cards
-  are rounded rects.
-- Background `--iv_surface-raised` (or `--iv_surface-elevated` when nested inside a dialog that's already `--iv_surface-raised`).
-- Border `1px solid var(--iv_border)`, hover `--iv_border-hover`, focus `--iv_border-focus`.
-- Neutral focus ring (`--iv_ring`), not accent. Only use an accent focus ring on a control that is
-  specifically accent-accented elsewhere (rare — see §4).
-- Error state border: `--iv_border-error` (or `--iv_error` for custom input wrappers).
-- Placeholder text always uses `--iv_foreground-dim`, never a lighter/dimmer custom gray.
-- Font family is `--iv_font-mono` for input elements.
+**The Flat-By-Default Rule.** Surfaces are flat at rest. Hover state is a brighter border or lighter fill, never a shadow and never a lift. Shadows appear only on elements that genuinely overlay the page.
 
 ---
 
-## 8. Chips, badges, and pills
+## Shapes
 
-- Badges/chips are filled with `--iv_surface-elevated`, bordered with `--iv_border`.
-- Fully rounded (`--iv_radius-pill`), small font (10.5px), bold (600).
-- They do **not** use an outline-only style with `border: 1px solid currentColor`.
-- Text color on a chip can use a semantic color (success/error/accent) to convey meaning, but the
-  chip's background stays neutral gray. Don't fill the chip background with the semantic color.
+The form language is "pill or rounded rectangle — nothing sharp." Interactive controls that a finger or cursor presses — buttons, chips, badges, the search trigger, tooltips — are full pills (`999px` radius). Structural containers — cards, inputs, selects, list rows — are rounded rectangles in a 10–20px band (`sm` 10px, `md` 14px, `lg` 20px). No corner on any surface is sharper than 10px.
+
+Selected states are signaled with the brass border rather than a fill; checkboxes and small controls use the 10px `sm` radius; dialogs and large cards use the 20px `lg` radius.
 
 ---
 
-## 9. Layout patterns
+## Components
 
-- **Three-pane shell**: fixed-width left sidebar (~230px), fluid center panel, fixed-width right
-  panel (~340px) for contextual chat. Collapse the right panel and shrink the sidebar to
-  icon-only below ~980px — never just hide the sidebar entirely.
-- **Center content max-width**: cap prose/content columns at ~880px and center them, even though
-  the panel itself is fluid. Unbounded line length is a readability bug.
-- **List rows vs. grid cards**: use a two-column card grid for "browse and pick one" contexts
-  (dashboard project list). Use single-column bordered list rows for "scan many, act on one"
-  contexts (sources list, artifacts list, activity feed). Don't mix — a screen is either
-  grid-of-cards or list-of-rows, not both for the same collection.
-- **Stat rows**: small bordered boxes in a horizontal row, each with a large number (`--iv_foreground`,
-  700 weight) and a small dim label beneath. No colored numbers except when the number itself is
-  the semantic signal (rare).
+### Buttons
 
----
+- **Shape:** Full pill (`999px` radius), 1px border, 9px 18px padding at default size (sm 5px 13px, lg 12px 24px). Font weight 600 (700 for primary).
+- **Primary:** Foreground fill (`#fafafa`), inverse text (`#000000`). Hover brightens to `foreground-hover`. Used once per view, for the single most important action.
+- **Secondary (default):** Elevated fill (`#1e1e20`), foreground text, hairline border. This is the workhorse — most buttons on screen are secondary. Hover: brighter border + `surface-hover` fill.
+- **Outline:** Secondary but transparent background (rare third tier).
+- **Ghost:** No border, transparent background.
+- **Icon:** Transparent, no padding, dim icon brightening to foreground on hover.
+- **Danger:** Error fill (`#f08858`), inverse text, darkens to `error-dim` on hover.
+- **Hover / Focus:** Border brightens and fill lightens (120–150ms). `:active` presses down to `scale(0.98)`. Focus shows a 3px neutral ring (`0 0 0 3px rgba(255,255,255,0.06)`).
+- **Disabled:** Raised background, dim text, 50% opacity, `not-allowed` cursor.
 
-## 10. Icons
+**Never** give a button a brass or colored fill; **never** use a corner radius that isn't a full pill.
 
-- Prefer simple geometric glyphs (▤ ◧ ◆ ⌂ ✎) over an icon font or SVG icon library unless the
-  product already has one. They should read as quiet, not decorative.
-- Icons inherit `--iv_foreground-dim` by default; only the active/selected item's icon switches to
-  `--iv_foreground`.
-- Never color an icon with the accent unless it's specifically marking status (see §4).
-- **Sizing discipline in responsive/collapsed states**: when a sidebar collapses to icon-only on
-  small viewports, audit _every_ `<span>` inside a nav item before writing a blanket
-  `nav-item span { display: none }` rule. If the icon itself is also a `<span>`, that rule hides
-  the icon along with the label — always give icon spans a dedicated class (e.g. `.ic`) and
-  explicitly exclude it: `.nav-item span:not(.ic)`. This has broken this exact UI twice; check
-  it explicitly any time you touch the responsive rules.
+### Cards / Containers
 
----
+- **Corner Style:** 14px default, 20px for large cards.
+- **Background:** Raised surface (`#141415`), 1px border.
+- **Shadow Strategy:** None — Flat-By-Default (§Elevation).
+- **Internal Padding:** 16px x-axis / 14px y-axis default (12/10 sm, 20/20 lg).
+- **States:** Hover brightens the border only; selected swaps the border to brass; clickable cards are keyboard-accessible and press with the same border-brighten treatment. Header carries a hairline bottom border; footer a hairline top border.
 
-## 11. Motion
+### Inputs / Fields
 
-- Transitions are short (120–180ms) and limited to `border-color`, `background`,
-  `box-shadow`, and `transform` on `:active` only.
-- No hover-lift (`translateY`) on cards or list rows — border/background shift only (§5).
-- No entrance animations, no staggered reveals, no skeleton shimmer unless explicitly asked for.
-  This system is quiet by default.
+- **Style:** Rounded rectangle (`14px`), raised background, 1px border, mono values, 9px 13px padding. Buttons and chips are pills; fields are rounded rects — never the reverse.
+- **Focus:** Border shifts to `border-focus` plus a 3px neutral ring (`0 0 0 3px rgba(255,255,255,0.1)`). Neutral ring, not accent — accent rings only on a control that is accent-accented elsewhere (rare).
+- **Hover:** Border brightens (`border-hover`).
+- **Error:** Border turns error (`#f08858`); focus ring becomes a soft error tint.
+- **Placeholder / Helper:** Always `foreground-dim`; error message text in error color.
+- **Disabled:** 50% opacity. Inside a dialog, fields step up a layer to `surface-elevated`.
 
----
+### Chips / Badges / Pills
 
-## 12. Do / Don't summary
+- **Style:** Full pill, `surface-elevated` fill, 1px border, 10.5px bold (600) text. Multi-select chips in a select use a translucent overlay fill, mono 13px, and a 1px border.
+- **Rule:** Text color may carry a semantic tone (success/error/accent) to convey meaning, but the chip background stays neutral gray — never fill a chip with a semantic color.
 
-**Do**
+### Checkbox / Radio / Switch
 
-- Use one sans-serif family everywhere; mono only for literal data.
-- Keep the canvas pure black (dark) / pure white (light); build depth with the four-layer surface system (§3).
-- Make every button and chip a full pill; every card/input a rounded rect (14–20px).
-- Use hairline borders for on-page depth; save shadows for dialogs/overlays.
-- Keep color to one accent + three semantic tones, applied to small marks only.
-- Brighten a border on hover, don't lift or shadow the element.
+- Small 10px-radius boxes (16px sm / 20px md) with a raised fill and 1px border; the checked state fills with `foreground` and inverse check glyph. Focus draws a 2px `foreground` outline at 2px offset.
 
-**Don't**
+### Dialog / Sheet
 
-- Don't fill a button or a large surface with the accent color.
-- Don't add a second typeface (serif, display font, alternate sans) for "personality."
-- Don't use drop shadows or `translateY` hover-lift on inline cards/rows.
-- Don't use sharp or barely-rounded corners anywhere (min radius is `--iv_radius-sm`, 10px, except
-  full pills).
-- Don't introduce gradients.
-- Don't write a `display:none` rule against a bare element selector (`span`, `div`) inside a
-  component that also contains an icon in that same element type — you will hide the icon. Scope
-  hiding rules to a specific class.
-- Don't mix card-grid and list-row treatments for the same collection on the same screen.
-- Don't hardcode hex or rgba values in components — always use `--iv_*` tokens.
+- **Shape:** 20px radius, raised fill, hairline border, `ambient-lg` shadow, 400/520/640px widths (small/default/large).
+- **Backdrop:** 40% black scrim with 12px blur; content fades in, the panel scales from 0.95 (150ms). Title at 1.1rem/600; footer buttons right-aligned with 8px gaps.
+
+### Tooltip / Toast
+
+- Tooltips are full pills (elevated fill, 4px 12px padding, 8px gap from the anchor, `ambient-md` shadow, 300ms hover delay). Toasts are 14px rounded rects with a raised fill, hairline border, `ambient-md` shadow, a semantic icon (success/error/info), and a dim close button; they fly up 16px in 160ms.
+
+### Navigation / Tabs
+
+- Text-based tabs with the active tab in `foreground` and a dim inactive state; optional bordered container (14px radius). No underline/pill fill — selection is signaled by color and weight.
 
 ---
 
-## 13. Before shipping a new screen or component, check
+## Do's and Don'ts
 
-1. Does every background come from `--iv_surface`, `--iv_surface-raised`, `--iv_surface-elevated`, or `--iv_surface-hover` — no other grays introduced?
-2. Is every corner either a full pill or one of the three defined radii?
-3. Is color used in fewer than a handful of places on this screen, and only for signal (status,
-   selection, citation) rather than decoration?
-4. Do hover states brighten a border/background rather than adding shadow or lift?
-5. Is there exactly one font family in play (plus mono for data only)?
-6. If this is a responsive/collapsed state, did you verify icon spans survive any label-hiding
-   CSS rules?
-7. Are all color values referenced via `--iv_*` tokens from `tokens.css` — no hardcoded hex/rgba?
+### Do:
 
-(End of file — 352 lines)
+- **Do** keep the canvas pure black (dark) / pure white (light) and build depth with the four-layer surface stack.
+- **Do** make every button and chip a full pill and every card/input a rounded rectangle in the 10–20px band.
+- **Do** use hairline `1px` borders for on-page depth; save shadows for dialogs, popovers, tooltips, and toasts.
+- **Do** keep color to one accent + three semantic tones, applied to small marks only.
+- **Do** brighten a border or fill on hover; press buttons down with `scale(0.98)` on `:active`.
+- **Do** reference every color through `--iv_*` tokens from `src/lib/theme/tokens.css` — never hardcode a hex/rgba in a component.
+
+### Don't:
+
+- **Don't** fill a button or a large surface with the accent color.
+- **Don't** add a second typeface (serif, display font, alternate sans) for "personality."
+- **Don't** use drop shadows or `translateY` hover-lift on inline cards or list rows — that "lift" reads as generic AI-generated UI.
+- **Don't** use sharp or barely-rounded corners anywhere; minimum radius is 10px, except full pills.
+- **Don't** introduce gradients, color fills for whole sections, or a second accent hue.
+- **Don't** hide sidebar labels with a bare element selector inside a component that also contains an icon in that same element type — scope hiding rules to a dedicated icon class.
+- **Don't** mix card-grid and list-row treatments for the same collection on the same screen.
+- **Don't** set a raw `rem`/`px` font size in a component — use the tokenized `--iv_text-*` scale.

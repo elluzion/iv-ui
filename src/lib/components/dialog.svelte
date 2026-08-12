@@ -103,7 +103,7 @@
 		align-items: center;
 		justify-content: center;
 		z-index: var(--iv_z-overlay);
-		padding: 1rem;
+		padding: var(--iv_spacing-lg);
 	}
 
 	.iv-dialog {
@@ -131,14 +131,14 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 1.25rem;
+		padding: var(--iv_spacing-xl);
 		flex-shrink: 0;
-		gap: 0.75rem;
+		gap: var(--iv_spacing-md);
 
 		.iv-title-area {
 			display: flex;
 			align-items: center;
-			gap: 1rem;
+			gap: var(--iv_spacing-lg);
 			min-width: 0;
 		}
 
@@ -166,8 +166,8 @@
 			background: transparent;
 			border: none;
 			color: var(--iv_foreground-dim);
-			padding: 0 0.5rem;
-			margin-right: -0.5rem;
+			padding: 0 var(--iv_spacing-sm);
+			margin-right: calc(var(--iv_spacing-sm) * -1);
 			cursor: pointer;
 			transition: color var(--iv_transition-base);
 
@@ -178,14 +178,14 @@
 	}
 
 	.iv-body {
-		padding: 1.25rem;
+		padding: var(--iv_spacing-xl);
 		padding-top: 0;
 		overflow-y: auto;
 		flex: 1;
 		color: var(--iv_foreground-dim);
 
 		&.iv-body-no-title {
-			padding-top: 1.25rem;
+			padding-top: var(--iv_spacing-xl);
 		}
 
 		:global(p:first-child) {
@@ -200,8 +200,8 @@
 	.iv-footer {
 		display: flex;
 		justify-content: flex-end;
-		gap: 0.5rem;
-		padding: 0 1.5rem 1.5rem;
+		gap: var(--iv_spacing-sm);
+		padding: 0 var(--iv_spacing-2xl) var(--iv_spacing-2xl);
 		flex-shrink: 0;
 	}
 </style>

@@ -161,14 +161,14 @@
 			display: flex;
 			align-items: flex-start;
 			justify-content: space-between;
-			gap: 1rem;
+			gap: var(--iv_spacing-lg);
 			padding: var(--pad-y) var(--pad-x);
 			border-bottom: 1px solid var(--iv_border);
 
 			.iv-header-text {
 				display: flex;
 				flex-direction: column;
-				gap: 0.25rem;
+				gap: var(--iv_spacing-xs);
 				min-width: 0;
 			}
 
@@ -203,7 +203,7 @@
 		.iv-footer {
 			display: flex;
 			align-items: center;
-			gap: 0.5rem;
+			gap: var(--iv_spacing-sm);
 			padding: var(--pad-y) var(--pad-x);
 			border-top: 1px solid var(--iv_border);
 		}

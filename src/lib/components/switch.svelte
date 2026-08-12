@@ -88,7 +88,7 @@
 	.iv-root {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.5rem;
+		gap: var(--iv_spacing-sm);
 
 		&.iv-disabled {
 			opacity: var(--iv_disabled-opacity);

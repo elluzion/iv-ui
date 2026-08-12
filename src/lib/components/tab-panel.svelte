@@ -31,13 +31,13 @@
 
 <style>
 	.iv-tab-panel {
-		padding: 1.25rem 0;
+		padding: var(--iv_spacing-xl) 0;
 		color: var(--iv_foreground-dim);
 		font-size: var(--iv_text-body);
 		line-height: 1.5;
 
 		&.iv-bordered {
-			padding: 1.25rem;
+			padding: var(--iv_spacing-xl);
 		}
 	}
 </style>

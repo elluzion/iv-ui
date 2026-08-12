@@ -52,12 +52,12 @@
 			border-color var(--iv_transition-fast);
 
 		&.iv-sm {
-			padding: 0.4rem 0.625rem;
+			padding: 0.4rem var(--iv_spacing-sm);
 			font-size: var(--iv_text-btn-sm);
 		}
 
 		&.iv-md {
-			padding: 0.5rem 0.875rem;
+			padding: var(--iv_spacing-sm) var(--iv_spacing-md);
 			font-size: var(--iv_text-body);
 		}
 

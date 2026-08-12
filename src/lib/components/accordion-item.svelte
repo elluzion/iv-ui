@@ -80,9 +80,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1rem;
+		gap: var(--iv_spacing-lg);
 		width: 100%;
-		padding: 0.875rem 1.25rem;
+		padding: 0.875rem var(--iv_spacing-xl);
 		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-btn);
 		font-weight: 500;
@@ -127,7 +127,7 @@
 	}
 
 	.iv-panel {
-		padding: 0 1.25rem;
+		padding: 0 var(--iv_spacing-xl);
 		border-top: 1px solid var(--iv_border);
 		background: var(--iv_surface-raised);
 		color: var(--iv_foreground-dim);

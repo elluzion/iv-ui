@@ -81,7 +81,7 @@
 			}
 
 			.iv-label-text {
-				padding-inline: 0.75rem;
+				padding-inline: var(--iv_spacing-md);
 				font-family: var(--iv_font-sans);
 				font-size: var(--iv_text-sm);
 				font-weight: 500;

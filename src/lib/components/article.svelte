@@ -67,7 +67,7 @@
 
 		.iv-body {
 			margin-inline: auto;
-			padding-top: 1.25rem;
+			padding-top: var(--iv_spacing-xl);
 			font-size: var(--iv_text-body);
 
 			& > :global(:first-child) {
@@ -172,7 +172,7 @@
 
 			:global(pre) {
 				margin: 1.25em 0;
-				padding: 1rem 1.25rem;
+				padding: var(--iv_spacing-lg) var(--iv_spacing-xl);
 				overflow-x: auto;
 				background: var(--iv_surface-raised);
 				border: 1px solid var(--iv_border);

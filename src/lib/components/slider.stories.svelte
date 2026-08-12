@@ -62,7 +62,7 @@
 	<div style="max-width:320px;display:flex;flex-direction:column;gap:0.5rem">
 		<Slider label="Interactive" showValue bind:value={bound} />
 		<p
-			style="margin:0;font-family:var(--iv_font-mono);font-size:0.8rem;color:var(--iv_foreground-dim)"
+			style="margin:0;font-family:var(--iv_font-mono);font-size:var(--iv_text-sm);color:var(--iv_foreground-dim)"
 		>
 			value: {bound}
 		</p>
@@ -75,7 +75,7 @@
 	<div style="max-width:320px;display:flex;flex-direction:column;gap:0.5rem">
 		<Slider label="Range" range showValue bind:value={rangeBound} />
 		<p
-			style="margin:0;font-family:var(--iv_font-mono);font-size:0.8rem;color:var(--iv_foreground-dim)"
+			style="margin:0;font-family:var(--iv_font-mono);font-size:var(--iv_text-sm);color:var(--iv_foreground-dim)"
 		>
 			value: [{rangeBound.join(', ')}]
 		</p>

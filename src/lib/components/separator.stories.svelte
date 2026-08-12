@@ -22,11 +22,11 @@
 
 {#snippet spacingTemplate()}
 	<div style="display:flex;flex-direction:column;max-width:360px">
-		<p style="margin:0;font-size:0.85rem">Spacing sm</p>
+		<p style="margin:0;font-size:var(--iv_text-label)">Spacing sm</p>
 		<Separator spacing="sm" />
-		<p style="margin:0;font-size:0.85rem">Spacing md (default)</p>
+		<p style="margin:0;font-size:var(--iv_text-label)">Spacing md (default)</p>
 		<Separator />
-		<p style="margin:0;font-size:0.85rem">Spacing lg</p>
+		<p style="margin:0;font-size:var(--iv_text-label)">Spacing lg</p>
 		<Separator spacing="lg" />
 	</div>
 {/snippet}
@@ -37,11 +37,11 @@
 	<div
 		style="display:flex;align-items:center;gap:1rem;height:80px;padding:0 1rem;border:1px solid var(--iv_border);border-radius:var(--iv_radius);background:var(--iv_surface-raised)"
 	>
-		<span style="font-size:0.9rem">Overview</span>
+		<span style="font-size:var(--iv_text-body)">Overview</span>
 		<Separator orientation="vertical" />
-		<span style="font-size:0.9rem">Analytics</span>
+		<span style="font-size:var(--iv_text-body)">Analytics</span>
 		<Separator orientation="vertical" />
-		<span style="font-size:0.9rem">Settings</span>
+		<span style="font-size:var(--iv_text-body)">Settings</span>
 	</div>
 {/snippet}
 

@@ -139,7 +139,7 @@
 	.iv-textarea-container {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: var(--iv_spacing-sm);
 	}
 
 	.iv-textarea-wrapper {
@@ -201,19 +201,19 @@
 		font-size: var(--iv_text-label);
 		font-weight: 500;
 		color: var(--iv_foreground);
-		margin-bottom: 6px;
+		margin-bottom: var(--iv_spacing-sm);
 	}
 
 	.iv-required-mark {
 		color: var(--iv_error);
-		margin-left: 2px;
+		margin-left: var(--iv_spacing-2xs);
 	}
 
 	.iv-footer-row {
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-start;
-		gap: 0.5rem;
+		gap: var(--iv_spacing-sm);
 	}
 
 	.iv-message {

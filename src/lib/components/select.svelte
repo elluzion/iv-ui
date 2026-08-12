@@ -429,7 +429,7 @@
 	.iv-trigger {
 		display: flex;
 		align-items: center;
-		gap: 0.5rem;
+		gap: var(--iv_spacing-sm);
 		width: 100%;
 		box-sizing: border-box;
 		border: 1px solid var(--iv_border);
@@ -498,7 +498,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		gap: 4px;
+		gap: var(--iv_spacing-xs);
 
 		&.iv-placeholder {
 			color: var(--iv_foreground-dim);
@@ -515,7 +515,7 @@
 		border: 1px solid var(--iv_border);
 		color: var(--iv_foreground);
 		font-family: var(--iv_font-mono);
-		font-size: 13px;
+		font-size: var(--iv_text-chips-sm);
 		font-weight: 500;
 		line-height: 1.7;
 		overflow: hidden;
@@ -570,8 +570,8 @@
 	.iv-search {
 		display: flex;
 		align-items: center;
-		gap: 0.5rem;
-		padding: 8px 10px;
+		gap: var(--iv_spacing-sm);
+		padding: var(--iv_spacing-sm) 10px;
 		border-bottom: 1px solid var(--iv_border);
 
 		.iv-search-icon {
@@ -586,7 +586,7 @@
 			flex: 1;
 			min-width: 0;
 			font-family: var(--iv_font-mono);
-			font-size: 0.875rem;
+			font-size: var(--iv_text-body-sm);
 			color: var(--iv_foreground);
 
 			&::placeholder {
@@ -598,10 +598,10 @@
 	:global(.iv-select-options) {
 		max-height: 240px;
 		overflow-y: auto;
-		padding: 4px;
+		padding: var(--iv_spacing-xs);
 		display: flex;
 		flex-direction: column;
-		gap: 2px;
+		gap: var(--iv_spacing-2xs);
 		scrollbar-color: var(--iv_border) transparent;
 		scrollbar-width: thin;
 		&::-webkit-scrollbar {
@@ -629,16 +629,16 @@
 		font-size: var(--iv_text-label);
 		font-weight: 500;
 		color: var(--iv_foreground);
-		margin-bottom: 6px;
+		margin-bottom: var(--iv_spacing-sm);
 	}
 
 	.iv-required-mark {
 		color: var(--iv_error);
-		margin-left: 2px;
+		margin-left: var(--iv_spacing-2xs);
 	}
 
 	.iv-message {
-		margin: 4px 0 0 0;
+		margin: var(--iv_spacing-xs) 0 0 0;
 		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-sm);
 	}

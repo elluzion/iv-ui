@@ -170,7 +170,7 @@
 		left: 0;
 		top: 0;
 		z-index: var(--iv_z-dropdown);
-		padding: 4px 12px;
+		padding: var(--iv_spacing-xs) var(--iv_spacing-md);
 		border-radius: var(--iv_radius-pill);
 		background: var(--iv_surface-elevated);
 		color: var(--iv_foreground);

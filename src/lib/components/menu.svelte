@@ -239,7 +239,7 @@
 
 	.iv-separator {
 		height: 1px;
-		margin: 0.3rem 0.5rem;
+		margin: var(--iv_spacing-xs) var(--iv_spacing-sm);
 		border: 0;
 		background: var(--iv_border);
 	}
@@ -247,7 +247,7 @@
 	.iv-item {
 		display: flex;
 		align-items: center;
-		gap: 0.5rem;
+		gap: var(--iv_spacing-sm);
 		padding: 0.5rem 0.75rem;
 		border-radius: var(--iv_radius-sm);
 		font-family: var(--iv_font-sans);
@@ -310,7 +310,7 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-		padding-right: 0.5rem;
+		padding-right: var(--iv_spacing-sm);
 	}
 
 	.iv-shortcut {

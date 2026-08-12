@@ -207,11 +207,11 @@
 		}
 
 		&:has(.iv-leading) input {
-			padding-left: 8px;
+			padding-left: var(--iv_spacing-sm);
 		}
 
 		&:has(.iv-trailing) input {
-			padding-right: 8px;
+			padding-right: var(--iv_spacing-sm);
 		}
 	}
 
@@ -223,12 +223,12 @@
 		color: var(--iv_foreground-dim);
 
 		&.iv-leading {
-			padding-left: 13px;
+			padding-left: var(--iv_spacing-md);
 		}
 
-		&.iv-trailing {
-			padding-right: 13px;
-			gap: 6px;
+		&:has(.trailing-icon) {
+			padding-right: var(--iv_spacing-md);
+			gap: var(--iv_spacing-sm);
 		}
 	}
 
@@ -317,16 +317,16 @@
 		font-size: var(--iv_text-label);
 		font-weight: 500;
 		color: var(--iv_foreground);
-		margin-bottom: 6px;
+		margin-bottom: var(--iv_spacing-sm);
 	}
 
 	.iv-required-mark {
 		color: var(--iv_error);
-		margin-left: 2px;
+		margin-left: var(--iv_spacing-2xs);
 	}
 
 	.iv-message {
-		margin: 4px 0 0 0;
+		margin: var(--iv_spacing-xs) 0 0 0;
 		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-sm);
 	}

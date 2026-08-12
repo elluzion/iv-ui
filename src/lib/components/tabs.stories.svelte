@@ -177,7 +177,7 @@
 			</TabPanel>
 		</Tabs>
 		<p
-			style="margin:0;font-family:var(--iv_font-mono);font-size:0.8rem;color:var(--iv_foreground-dim)"
+			style="margin:0;font-family:var(--iv_font-mono);font-size:var(--iv_text-sm);color:var(--iv_foreground-dim)"
 		>
 			active: {activeTab || 'none'}
 		</p>
