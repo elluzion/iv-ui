@@ -130,7 +130,7 @@
 <!-- svelte-ignore a11y_no_static_element_interactions (keyboard and focus triggers are handled via focusin/focusout/keydown) -->
 <span
 	bind:this={wrapperEl}
-	class="root {className}"
+	class="iv-root {className}"
 	onmouseenter={show}
 	onmouseleave={hide}
 	onfocusin={show}
@@ -143,8 +143,8 @@
 		<div
 			bind:this={tipEl}
 			id={tipId}
-			class="tooltip"
-			class:ready={positioned}
+			class="iv-tooltip"
+			class:iv-ready={positioned}
 			role="tooltip"
 			style="left: {offset.left}px; top: {offset.top}px"
 			transition:fade={{ duration: 100 }}
@@ -159,13 +159,13 @@
 </span>
 
 <style>
-	.root {
+	.iv-root {
 		position: relative;
 		display: inline-block;
 		max-width: 100%;
 	}
 
-	.tooltip {
+	.iv-tooltip {
 		position: absolute;
 		left: 0;
 		top: 0;
@@ -183,7 +183,7 @@
 		visibility: hidden;
 		pointer-events: none;
 
-		&.ready {
+		&.iv-ready {
 			visibility: visible;
 		}
 	}

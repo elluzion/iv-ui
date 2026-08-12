@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { IconCheck, IconChevronDown, IconSearch, IconX } from '@tabler/icons-svelte';
-	import { fly } from 'svelte/transition';
+	import { IconChevronDown, IconSearch, IconX } from '@tabler/icons-svelte';
+	import Menu, { type MenuEntry } from './menu.svelte';
+	import Popover from './popover.svelte';
 
 	export type SelectOption = string | { value: string; label?: string; disabled?: boolean };
 
@@ -65,13 +66,13 @@
 
 	const uid = $props.id();
 
-	let rootEl = $state<HTMLDivElement>();
 	let triggerEl = $state<HTMLDivElement>();
 	let searchEl = $state<HTMLInputElement>();
-	let listEl = $state<HTMLDivElement>();
+	let dropdownEl = $state<HTMLDivElement>();
 	let open = $state(false);
 	let search = $state('');
 	let activeIndex = $state(-1);
+	let minWidth = $state(0);
 
 	const listId = `iv-select-${uid}-listbox`;
 	const labelId = `iv-select-${uid}-label`;
@@ -111,6 +112,21 @@
 	const hasSelection = $derived(selectedValues.length > 0);
 	const showClear = $derived(clearable && hasSelection && !disabled);
 	const hasError = $derived(error.length > 0);
+
+	const menuEntries = $derived<MenuEntry[]>(
+		filtered.map((o, i) => ({
+			type: 'item',
+			id: optionId(i),
+			item: {
+				label: o.label,
+				selected: isSelected(o),
+				disabled: o.disabled,
+				active: activeIndex === i,
+				onclick: () => select(o),
+				onmouseenter: () => handleOptionEnter(i)
+			}
+		}))
+	);
 
 	function isSelected(o: NormalizedOption) {
 		return selectedValues.includes(o.value);
@@ -183,9 +199,9 @@
 
 	function scrollActiveIntoView() {
 		setTimeout(() => {
-			listEl?.querySelector<HTMLElement>('[data-active="true"]')?.scrollIntoView({
-				block: 'nearest'
-			});
+			dropdownEl
+				?.querySelector<HTMLElement>('[data-active="true"]')
+				?.scrollIntoView({ block: 'nearest' });
 		}, 0);
 	}
 
@@ -263,176 +279,154 @@
 	}
 
 	$effect(() => {
-		if (!open) return;
-		function onDocMouseDown(e: MouseEvent) {
-			if (rootEl && !rootEl.contains(e.target as Node)) open = false;
-		}
-		document.addEventListener('mousedown', onDocMouseDown);
-		return () => document.removeEventListener('mousedown', onDocMouseDown);
-	});
-
-	$effect(() => {
 		if (open && searchable) {
 			const t = setTimeout(() => searchEl?.focus(), 0);
 			return () => clearTimeout(t);
 		}
 	});
+
+	$effect(() => {
+		const el = triggerEl;
+		if (!el) return;
+		const update = () => {
+			minWidth = el.offsetWidth;
+		};
+		update();
+		window.addEventListener('resize', update);
+		return () => window.removeEventListener('resize', update);
+	});
 </script>
 
 <!-- svelte-ignore a11y_no_static_element_interactions (wrapper catches keyboard events from trigger and search) -->
-<div class="root" class:disabled bind:this={rootEl} onkeydown={handleKeydown}>
+<div class="iv-root" class:iv-disabled={disabled} onkeydown={handleKeydown}>
 	{#if label}
 		<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_noninteractive_element_interactions (label click focuses the combobox) -->
-		<label class="label" id={labelId} for={triggerId} onclick={() => triggerEl?.focus()}>
+		<label class="iv-label" id={labelId} for={triggerId} onclick={() => triggerEl?.focus()}>
 			{label}
 			{#if required}
-				<span class="required-mark" aria-hidden="true">*</span>
+				<span class="iv-required-mark" aria-hidden="true">*</span>
 			{/if}
 		</label>
 	{/if}
 
-	<div class="trigger-wrap">
-		<!-- svelte-ignore a11y_click_events_have_key_events (keyboard events are handled on the wrapper via aria-activedescendant) -->
-		<div
-			bind:this={triggerEl}
-			id={triggerId}
-			class="trigger"
-			class:sm={size === 'sm'}
-			class:lg={size === 'lg'}
-			class:open
-			class:has-error={hasError}
-			class:disabled
-			role="combobox"
-			tabindex={disabled ? -1 : 0}
-			aria-expanded={open}
-			aria-haspopup="listbox"
-			aria-controls={open ? listId : undefined}
-			aria-activedescendant={open && activeIndex >= 0 ? optionId(activeIndex) : undefined}
-			aria-labelledby={label ? labelId : undefined}
-			aria-invalid={hasError || undefined}
-			aria-disabled={disabled || undefined}
-			onclick={toggle}
-			onfocus={handleFocus}
-			onblur={handleBlur}
-			aria-describedby={hasError
+	<!-- svelte-ignore a11y_click_events_have_key_events (keyboard events are handled on the wrapper via aria-activedescendant) -->
+	<div
+		bind:this={triggerEl}
+		id={triggerId}
+		class="iv-trigger"
+		class:iv-sm={size === 'sm'}
+		class:iv-lg={size === 'lg'}
+		class:iv-open={open}
+		class:iv-has-error={hasError}
+		class:iv-disabled={disabled}
+		role="combobox"
+		tabindex={disabled ? -1 : 0}
+		aria-expanded={open}
+		aria-haspopup="listbox"
+		aria-controls={open ? listId : undefined}
+		aria-activedescendant={open && activeIndex >= 0 ? optionId(activeIndex) : undefined}
+		aria-labelledby={label ? labelId : undefined}
+		aria-invalid={hasError || undefined}
+		aria-disabled={disabled || undefined}
+		onclick={toggle}
+		onfocus={handleFocus}
+		onblur={handleBlur}
+		aria-describedby={hasError
+			? name
+				? `${name}-error`
+				: undefined
+			: helper
 				? name
-					? `${name}-error`
+					? `${name}-helper`
 					: undefined
-				: helper
-					? name
-						? `${name}-helper`
-						: undefined
-					: undefined}
-		>
-			{#if multiple}
-				<div class="chips" class:placeholder={!hasSelection}>
-					{#if hasSelection}
-						{#each selectedItems as item (item.value)}
-							<span class="chip">{item.label}</span>
-						{/each}
-					{:else}
-						<span class="chip-placeholder">{placeholder}</span>
-					{/if}
-				</div>
-			{:else}
-				<span class="trigger-label" class:placeholder={!hasSelection}>
-					{hasSelection ? triggerText : placeholder}
-				</span>
-			{/if}
-
-			{#if showClear}
-				<button
-					type="button"
-					class="clear-btn"
-					onclick={handleClearClick}
-					aria-label="Clear selection"
-					tabindex="-1"
-				>
-					<IconX size={14} />
-				</button>
-			{/if}
-
-			<span class="chevron" class:open aria-hidden="true">
-				<IconChevronDown size={16} />
-			</span>
-		</div>
-
-		{#if open}
-			<div
-				class="dropdown"
-				role="listbox"
-				id={listId}
-				aria-multiselectable={multiple || undefined}
-				transition:fly={{ y: -16, duration: 200 }}
-			>
-				{#if searchable}
-					<div class="search">
-						<span class="search-icon" aria-hidden="true"><IconSearch size={14} /></span>
-						<input
-							bind:this={searchEl}
-							type="text"
-							bind:value={search}
-							placeholder="Search options…"
-							aria-label="Search options"
-						/>
-					</div>
-				{/if}
-
-				<div class="options" bind:this={listEl}>
-					{#each filtered as option, i (option.value)}
-						<!-- svelte-ignore a11y_click_events_have_key_events, a11y_mouse_events_have_key_events (keyboard navigation is handled by the combobox via aria-activedescendant) -->
-						<div
-							class="option"
-							class:active={activeIndex === i}
-							class:selected={isSelected(option)}
-							class:disabled={option.disabled}
-							role="option"
-							id={optionId(i)}
-							tabindex="-1"
-							aria-selected={isSelected(option)}
-							aria-disabled={option.disabled || undefined}
-							data-active={activeIndex === i}
-							onclick={() => select(option)}
-							onmouseover={() => handleOptionEnter(i)}
-						>
-							<span class="check" class:checked={isSelected(option)} aria-hidden="true">
-								<IconCheck size={14} />
-							</span>
-							<span class="option-label">{option.label}</span>
-						</div>
-					{:else}
-						<div class="empty">No options found</div>
+				: undefined}
+	>
+		{#if multiple}
+			<div class="iv-chips" class:iv-placeholder={!hasSelection}>
+				{#if hasSelection}
+					{#each selectedItems as item (item.value)}
+						<span class="iv-chip">{item.label}</span>
 					{/each}
-				</div>
+				{:else}
+					<span class="iv-chip-placeholder">{placeholder}</span>
+				{/if}
 			</div>
+		{:else}
+			<span class="iv-trigger-label" class:iv-placeholder={!hasSelection}>
+				{hasSelection ? triggerText : placeholder}
+			</span>
 		{/if}
+
+		{#if showClear}
+			<button
+				type="button"
+				class="iv-clear-btn"
+				onclick={handleClearClick}
+				aria-label="Clear selection"
+				tabindex="-1"
+			>
+				<IconX size={14} />
+			</button>
+		{/if}
+
+		<span class="iv-chevron" class:iv-open={open} aria-hidden="true">
+			<IconChevronDown size={16} />
+		</span>
 	</div>
 
+	<Popover
+		bind:open
+		anchor={triggerEl}
+		placement="bottom"
+		align="start"
+		gap={6}
+		interactive={false}
+	>
+		<div class="iv-dropdown" bind:this={dropdownEl} style:width="{minWidth}px">
+			{#if searchable}
+				<div class="iv-search">
+					<span class="iv-search-icon" aria-hidden="true"><IconSearch size={14} /></span>
+					<input
+						bind:this={searchEl}
+						type="text"
+						bind:value={search}
+						placeholder="Search options…"
+						aria-label="Search options"
+					/>
+				</div>
+			{/if}
+
+			<Menu
+				semantic="listbox"
+				multiselect={multiple}
+				id={listId}
+				entries={menuEntries}
+				emptyLabel="No options found"
+				className="iv-select-options"
+			/>
+		</div>
+	</Popover>
+
 	{#if hasError}
-		<p class="message error-message" id={name ? `${name}-error` : undefined}>{error}</p>
+		<p class="iv-message iv-error-message" id={name ? `${name}-error` : undefined}>{error}</p>
 	{:else if helper}
-		<p class="message helper-message" id={name ? `${name}-helper` : undefined}>{helper}</p>
+		<p class="iv-message iv-helper-message" id={name ? `${name}-helper` : undefined}>{helper}</p>
 	{/if}
 </div>
 
 <style>
-	.root {
+	.iv-root {
 		display: flex;
 		flex-direction: column;
 		width: 100%;
 		box-sizing: border-box;
 
-		&.disabled {
+		&.iv-disabled {
 			cursor: not-allowed;
 		}
 	}
 
-	.trigger-wrap {
-		position: relative;
-		width: 100%;
-	}
-
-	.trigger {
+	.iv-trigger {
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
@@ -450,42 +444,42 @@
 			border-color var(--iv_transition-base),
 			box-shadow var(--iv_transition-base);
 
-		&:hover:not(.disabled) {
+		&:hover:not(.iv-disabled) {
 			border-color: var(--iv_border-hover);
 		}
 
 		&:focus-visible,
-		&.open {
+		&.iv-open {
 			outline: none;
 			border-color: var(--iv_border-focus);
 			box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_ring);
 		}
 
-		&.has-error {
+		&.iv-has-error {
 			border-color: var(--iv_error);
 
-			&.open {
+			&.iv-open {
 				box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_error-surface);
 			}
 		}
 
-		&.sm {
+		&.iv-sm {
 			padding: 5px 11px;
 			font-size: var(--iv_text-body-sm);
 		}
 
-		&.lg {
+		&.iv-lg {
 			padding: 13px 16px;
 			font-size: var(--iv_text-lg);
 		}
 
-		&.disabled {
+		&.iv-disabled {
 			opacity: var(--iv_disabled-opacity);
 			cursor: not-allowed;
 		}
 	}
 
-	.trigger-label {
+	.iv-trigger-label {
 		flex: 1;
 		min-width: 0;
 		overflow: hidden;
@@ -493,12 +487,12 @@
 		white-space: nowrap;
 		text-align: left;
 
-		&.placeholder {
+		&.iv-placeholder {
 			color: var(--iv_foreground-dim);
 		}
 	}
 
-	.chips {
+	.iv-chips {
 		flex: 1;
 		min-width: 0;
 		display: flex;
@@ -506,12 +500,12 @@
 		align-items: center;
 		gap: 4px;
 
-		&.placeholder {
+		&.iv-placeholder {
 			color: var(--iv_foreground-dim);
 		}
 	}
 
-	.chip {
+	.iv-chip {
 		display: inline-flex;
 		align-items: center;
 		max-width: 100%;
@@ -529,11 +523,11 @@
 		white-space: nowrap;
 	}
 
-	.chip-placeholder {
+	.iv-chip-placeholder {
 		color: var(--iv_foreground-dim);
 	}
 
-	.clear-btn {
+	.iv-clear-btn {
 		all: unset;
 		display: flex;
 		align-items: center;
@@ -551,25 +545,21 @@
 		}
 	}
 
-	.chevron {
+	.iv-chevron {
 		display: flex;
 		align-items: center;
 		flex-shrink: 0;
 		color: var(--iv_foreground-dim);
 		transition: transform var(--iv_transition-fast);
 
-		&.open {
+		&.iv-open {
 			transform: rotate(180deg);
 			color: var(--iv_foreground);
 		}
 	}
 
-	.dropdown {
-		position: absolute;
-		top: calc(100% + 6px);
-		left: 0;
-		right: 0;
-		z-index: var(--iv_z-dropdown);
+	.iv-dropdown {
+		box-sizing: border-box;
 		background: var(--iv_surface-raised);
 		border: 1px solid var(--iv_border);
 		border-radius: var(--iv_radius);
@@ -577,14 +567,14 @@
 		overflow: hidden;
 	}
 
-	.search {
+	.iv-search {
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
 		padding: 8px 10px;
 		border-bottom: 1px solid var(--iv_border);
 
-		.search-icon {
+		.iv-search-icon {
 			display: flex;
 			align-items: center;
 			flex-shrink: 0;
@@ -605,7 +595,7 @@
 		}
 	}
 
-	.options {
+	:global(.iv-select-options) {
 		max-height: 240px;
 		overflow-y: auto;
 		padding: 4px;
@@ -614,7 +604,6 @@
 		gap: 2px;
 		scrollbar-color: var(--iv_border) transparent;
 		scrollbar-width: thin;
-
 		&::-webkit-scrollbar {
 			width: var(--iv_scrollbar-size);
 			height: var(--iv_scrollbar-size);
@@ -634,58 +623,7 @@
 		}
 	}
 
-	.option {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		padding: 7px 10px;
-		border-radius: var(--iv_radius-sm);
-		font-family: var(--iv_font-sans);
-		font-size: var(--iv_text-body);
-		color: var(--iv_foreground);
-		cursor: pointer;
-		transition: background var(--iv_transition-fast);
-
-		&:hover,
-		&.active {
-			background: var(--iv_surface-hover);
-		}
-
-		&.disabled {
-			opacity: 0.45;
-			cursor: not-allowed;
-		}
-	}
-
-	.check {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 18px;
-		flex-shrink: 0;
-		color: var(--iv_foreground);
-		visibility: hidden;
-
-		&.checked {
-			visibility: visible;
-		}
-	}
-
-	.option-label {
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-	}
-
-	.empty {
-		padding: 12px 10px;
-		text-align: center;
-		font-family: var(--iv_font-sans);
-		font-size: var(--iv_text-label);
-		color: var(--iv_foreground-dim);
-	}
-
-	.label {
+	.iv-label {
 		display: block;
 		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-label);
@@ -694,22 +632,22 @@
 		margin-bottom: 6px;
 	}
 
-	.required-mark {
+	.iv-required-mark {
 		color: var(--iv_error);
 		margin-left: 2px;
 	}
 
-	.message {
+	.iv-message {
 		margin: 4px 0 0 0;
 		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-sm);
 	}
 
-	.error-message {
+	.iv-error-message {
 		color: var(--iv_error);
 	}
 
-	.helper-message {
+	.iv-helper-message {
 		color: var(--iv_foreground-dim);
 	}
 </style>

@@ -83,20 +83,20 @@
 	const isOverLimit = $derived(maxlength !== undefined && charCount > maxlength);
 </script>
 
-<div class="textarea-container">
+<div class="iv-textarea-container">
 	{#if label}
-		<label class="label" for={name || undefined}>
+		<label class="iv-label" for={name || undefined}>
 			{label}
 			{#if required}
-				<span class="required-mark" aria-hidden="true">*</span>
+				<span class="iv-required-mark" aria-hidden="true">*</span>
 			{/if}
 		</label>
 	{/if}
 
 	<div
-		class="textarea-wrapper"
-		class:has-error={hasError || isOverLimit}
-		class:disabled
+		class="iv-textarea-wrapper"
+		class:iv-has-error={hasError || isOverLimit}
+		class:iv-disabled={disabled}
 		style:--textarea-resize={resizable}
 	>
 		<textarea
@@ -118,31 +118,31 @@
 		></textarea>
 	</div>
 
-	<div class="footer-row">
+	<div class="iv-footer-row">
 		{#if hasError || isOverLimit}
-			<p class="message error-message" id={name ? `${name}-error` : undefined}>
+			<p class="iv-message iv-error-message" id={name ? `${name}-error` : undefined}>
 				{isOverLimit ? `${charCount} / ${maxlength} — limit exceeded` : error}
 			</p>
 		{:else if helper}
-			<p class="message helper-message" id={name ? `${name}-helper` : undefined}>{helper}</p>
+			<p class="iv-message iv-helper-message" id={name ? `${name}-helper` : undefined}>{helper}</p>
 		{:else}
 			<span></span>
 		{/if}
 
 		{#if showCharCount}
-			<span class="char-count" class:over-limit={isOverLimit}>{charCount} / {maxlength}</span>
+			<span class="iv-char-count" class:iv-over-limit={isOverLimit}>{charCount} / {maxlength}</span>
 		{/if}
 	</div>
 </div>
 
 <style>
-	.textarea-container {
+	.iv-textarea-container {
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
 	}
 
-	.textarea-wrapper {
+	.iv-textarea-wrapper {
 		border: 1px solid var(--iv_border);
 		border-radius: var(--iv_radius);
 		background: var(--iv_surface-raised);
@@ -160,7 +160,7 @@
 			box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_ring);
 		}
 
-		&.has-error {
+		&.iv-has-error {
 			border-color: var(--iv_error);
 
 			&:focus-within {
@@ -168,7 +168,7 @@
 			}
 		}
 
-		&.disabled {
+		&.iv-disabled {
 			opacity: var(--iv_disabled-opacity);
 			cursor: not-allowed;
 		}
@@ -195,7 +195,7 @@
 		}
 	}
 
-	.label {
+	.iv-label {
 		display: block;
 		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-label);
@@ -204,40 +204,40 @@
 		margin-bottom: 6px;
 	}
 
-	.required-mark {
+	.iv-required-mark {
 		color: var(--iv_error);
 		margin-left: 2px;
 	}
 
-	.footer-row {
+	.iv-footer-row {
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-start;
 		gap: 0.5rem;
 	}
 
-	.message {
+	.iv-message {
 		margin: 0;
 		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-sm);
 	}
 
-	.error-message {
+	.iv-error-message {
 		color: var(--iv_error);
 	}
 
-	.helper-message {
+	.iv-helper-message {
 		color: var(--iv_foreground-dim);
 	}
 
-	.char-count {
+	.iv-char-count {
 		margin: 0;
 		font-family: var(--iv_font-mono);
 		font-size: var(--iv_text-xs);
 		color: var(--iv_foreground-dim);
 		flex-shrink: 0;
 
-		&.over-limit {
+		&.iv-over-limit {
 			color: var(--iv_error);
 		}
 	}

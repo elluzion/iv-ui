@@ -19,11 +19,11 @@
 <button
 	type="button"
 	id={`${ctx.uid}-tab-${value}`}
-	class="tab {className}"
-	class:active
-	class:disabled
-	class:sm={ctx.size === 'sm'}
-	class:md={ctx.size === 'md'}
+	class="iv-tab {className}"
+	class:iv-active={active}
+	class:iv-disabled={disabled}
+	class:iv-sm={ctx.size === 'sm'}
+	class:iv-md={ctx.size === 'md'}
 	role="tab"
 	aria-selected={active}
 	aria-controls={`${ctx.uid}-panel-${value}`}
@@ -37,7 +37,7 @@
 </button>
 
 <style>
-	.tab {
+	.iv-tab {
 		all: unset;
 		box-sizing: border-box;
 		cursor: pointer;
@@ -51,21 +51,21 @@
 			color var(--iv_transition-fast),
 			border-color var(--iv_transition-fast);
 
-		&.sm {
+		&.iv-sm {
 			padding: 0.4rem 0.625rem;
 			font-size: var(--iv_text-btn-sm);
 		}
 
-		&.md {
+		&.iv-md {
 			padding: 0.5rem 0.875rem;
 			font-size: var(--iv_text-body);
 		}
 
-		&:hover:not(:disabled):not(.active) {
+		&:hover:not(:disabled):not(.iv-active) {
 			color: var(--iv_foreground);
 		}
 
-		&.active {
+		&.iv-active {
 			color: var(--iv_foreground);
 			border-bottom-color: var(--iv_foreground);
 		}

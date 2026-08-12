@@ -68,17 +68,17 @@
 	});
 </script>
 
-<div class="tabs {className}" class:bordered {...restProps}>
+<div class="iv-tabs {className}" class:iv-bordered={bordered} {...restProps}>
 	{@render children()}
 </div>
 
 <style>
-	.tabs {
+	.iv-tabs {
 		display: flex;
 		flex-direction: column;
 		width: 100%;
 
-		&.bordered {
+		&.iv-bordered {
 			border: 1px solid var(--iv_border);
 			border-radius: var(--iv_radius);
 			overflow: hidden;

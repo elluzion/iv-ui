@@ -52,7 +52,7 @@
 
 {#if open}
 	<div
-		class="backdrop"
+		class="iv-backdrop"
 		role="dialog"
 		aria-modal="true"
 		tabindex="-1"
@@ -61,31 +61,31 @@
 		transition:fade={{ duration: 150 }}
 	>
 		<div
-			class="dialog"
-			class:dialog-sm={size === 'sm'}
-			class:dialog-lg={size === 'lg'}
+			class="iv-dialog"
+			class:iv-dialog-sm={size === 'sm'}
+			class:iv-dialog-lg={size === 'lg'}
 			transition:scale={{ duration: 150, start: 0.95 }}
 		>
 			{#if title || icon}
-				<div class="header">
-					<div class="title-area">
+				<div class="iv-header">
+					<div class="iv-title-area">
 						{#if icon}
-							<span class="icon-slot">{@render icon()}</span>
+							<span class="iv-icon-slot">{@render icon()}</span>
 						{/if}
 						{#if title}
 							<h2>{title}</h2>
 						{/if}
 					</div>
-					<button class="icon close-btn" onclick={close} aria-label="Close dialog"
+					<button class="iv-icon iv-close-btn" onclick={close} aria-label="Close dialog"
 						><IconX size={20} /></button
 					>
 				</div>
 			{/if}
-			<div class="body" class:body-no-title={!title}>
+			<div class="iv-body" class:iv-body-no-title={!title}>
 				{@render children()}
 			</div>
 			{#if footer}
-				<div class="footer">
+				<div class="iv-footer">
 					{@render footer()}
 				</div>
 			{/if}
@@ -94,7 +94,7 @@
 {/if}
 
 <style>
-	.backdrop {
+	.iv-backdrop {
 		position: fixed;
 		inset: 0;
 		background: var(--iv_overlay);
@@ -106,7 +106,7 @@
 		padding: 1rem;
 	}
 
-	.dialog {
+	.iv-dialog {
 		background: var(--iv_surface-raised);
 		border: 1px solid var(--iv_border);
 		border-radius: var(--iv_radius-lg);
@@ -118,16 +118,16 @@
 		flex-direction: column;
 		overflow: hidden;
 
-		&.dialog-sm {
+		&.iv-dialog-sm {
 			max-width: var(--iv_dialog-sm);
 		}
 
-		&.dialog-lg {
+		&.iv-dialog-lg {
 			max-width: var(--iv_dialog-lg);
 		}
 	}
 
-	.header {
+	.iv-header {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -135,14 +135,14 @@
 		flex-shrink: 0;
 		gap: 0.75rem;
 
-		.title-area {
+		.iv-title-area {
 			display: flex;
 			align-items: center;
 			gap: 1rem;
 			min-width: 0;
 		}
 
-		.icon-slot {
+		.iv-icon-slot {
 			display: flex;
 			align-items: center;
 			flex-shrink: 0;
@@ -159,7 +159,7 @@
 			white-space: nowrap;
 		}
 
-		.close-btn {
+		.iv-close-btn {
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -177,14 +177,14 @@
 		}
 	}
 
-	.body {
+	.iv-body {
 		padding: 1.25rem;
 		padding-top: 0;
 		overflow-y: auto;
 		flex: 1;
 		color: var(--iv_foreground-dim);
 
-		&.body-no-title {
+		&.iv-body-no-title {
 			padding-top: 1.25rem;
 		}
 
@@ -197,7 +197,7 @@
 		}
 	}
 
-	.footer {
+	.iv-footer {
 		display: flex;
 		justify-content: flex-end;
 		gap: 0.5rem;

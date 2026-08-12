@@ -172,14 +172,14 @@
 	});
 </script>
 
-<div class="root" class:disabled>
+<div class="iv-root" class:iv-disabled={disabled}>
 	{#if label || showValue}
-		<div class="header">
+		<div class="iv-header">
 			{#if label}
-				<span class="label" id={labelId}>{label}</span>
+				<span class="iv-label" id={labelId}>{label}</span>
 			{/if}
 			{#if showValue}
-				<span class="value">{displayValue}</span>
+				<span class="iv-value">{displayValue}</span>
 			{/if}
 		</div>
 	{/if}
@@ -187,10 +187,10 @@
 	<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 	<div
 		bind:this={trackEl}
-		class="track"
-		class:sm={size === 'sm'}
-		class:md={size === 'md'}
-		class:disabled={range ? null : 'disabled-class'}
+		class="iv-track"
+		class:iv-sm={size === 'sm'}
+		class:iv-md={size === 'md'}
+		class:iv-disabled={range ? null : 'disabled-class'}
 		role={range ? 'group' : 'slider'}
 		tabindex={disabled || range ? -1 : 0}
 		aria-valuemin={range ? undefined : min}
@@ -208,11 +208,11 @@
 			{@const lowerPct = toPercent(safeLower)}
 			{@const upperPct = toPercent(safeUpper)}
 
-			<div class="fill" style="left: {lowerPct}%; width: {upperPct - lowerPct}%"></div>
+			<div class="iv-fill" style="left: {lowerPct}%; width: {upperPct - lowerPct}%"></div>
 
 			<div
-				class="thumb"
-				class:active={dragging === 'lower'}
+				class="iv-thumb"
+				class:iv-active={dragging === 'lower'}
 				style="left: {lowerPct}%; --thumb-size: {thumbSize}px"
 				role="slider"
 				tabindex={disabled ? -1 : 0}
@@ -224,8 +224,8 @@
 			></div>
 
 			<div
-				class="thumb"
-				class:active={dragging === 'upper'}
+				class="iv-thumb"
+				class:iv-active={dragging === 'upper'}
 				style="left: {upperPct}%; --thumb-size: {thumbSize}px"
 				role="slider"
 				tabindex={disabled ? -1 : 0}
@@ -238,21 +238,21 @@
 		{:else}
 			{@const singlePct = toPercent(safeSingle)}
 
-			<div class="fill" style="width: {singlePct}%"></div>
+			<div class="iv-fill" style="width: {singlePct}%"></div>
 
 			<div
-				class="thumb"
-				class:active={dragging === 'single'}
+				class="iv-thumb"
+				class:iv-active={dragging === 'single'}
 				style="left: {singlePct}%; --thumb-size: {thumbSize}px"
 			></div>
 		{/if}
 
 		{#if ticks.length > 0}
-			<div class="ticks" aria-hidden="true">
+			<div class="iv-ticks" aria-hidden="true">
 				{#each ticks as t (t)}
 					<span
-						class="tick"
-						class:active={range ? t >= safeLower && t <= safeUpper : t <= safeSingle}
+						class="iv-tick"
+						class:iv-active={range ? t >= safeLower && t <= safeUpper : t <= safeSingle}
 						style="left: {toPercent(t)}%"
 					></span>
 				{/each}
@@ -262,17 +262,17 @@
 </div>
 
 <style>
-	.root {
+	.iv-root {
 		width: 100%;
 		box-sizing: border-box;
 
-		&.disabled {
+		&.iv-disabled {
 			opacity: var(--iv_disabled-opacity);
 			cursor: not-allowed;
 		}
 	}
 
-	.header {
+	.iv-header {
 		display: flex;
 		justify-content: space-between;
 		align-items: baseline;
@@ -280,21 +280,21 @@
 		margin-bottom: 6px;
 	}
 
-	.label {
+	.iv-label {
 		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-label);
 		font-weight: 500;
 		color: var(--iv_foreground);
 	}
 
-	.value {
+	.iv-value {
 		font-family: var(--iv_font-mono);
 		font-size: var(--iv_text-sm);
 		color: var(--iv_foreground-dim);
 		flex-shrink: 0;
 	}
 
-	.track {
+	.iv-track {
 		position: relative;
 		width: 100%;
 		border-radius: var(--iv_radius-pill);
@@ -305,11 +305,11 @@
 
 		--thumb-size: 18px;
 
-		&.sm {
+		&.iv-sm {
 			height: 4px;
 		}
 
-		&.md {
+		&.iv-md {
 			height: 6px;
 		}
 
@@ -319,7 +319,7 @@
 		}
 	}
 
-	.fill {
+	.iv-fill {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -329,7 +329,7 @@
 		pointer-events: none;
 	}
 
-	.thumb {
+	.iv-thumb {
 		position: absolute;
 		top: 50%;
 		width: var(--thumb-size);
@@ -340,7 +340,7 @@
 		transition: box-shadow var(--iv_transition-base);
 		cursor: pointer;
 
-		&.active {
+		&.iv-active {
 			box-shadow: var(--iv_shadow-md);
 		}
 
@@ -350,7 +350,7 @@
 		}
 	}
 
-	.ticks {
+	.iv-ticks {
 		position: absolute;
 		top: 50%;
 		left: 0;
@@ -359,7 +359,7 @@
 		pointer-events: none;
 	}
 
-	.tick {
+	.iv-tick {
 		position: absolute;
 		top: 50%;
 		width: 2px;
@@ -368,7 +368,7 @@
 		border-radius: 1px;
 		background: var(--iv_border);
 
-		&.active {
+		&.iv-active {
 			background: var(--iv_foreground-dim);
 		}
 	}

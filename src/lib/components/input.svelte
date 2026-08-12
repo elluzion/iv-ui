@@ -109,23 +109,23 @@
 </script>
 
 {#if label}
-	<label class="label" for={name || undefined}>
+	<label class="iv-label" for={name || undefined}>
 		{label}
 		{#if required}
-			<span class="required-mark" aria-hidden="true">*</span>
+			<span class="iv-required-mark" aria-hidden="true">*</span>
 		{/if}
 	</label>
 {/if}
 
 <div
-	class="input-wrapper"
-	class:input-sm={size === 'sm'}
-	class:input-lg={size === 'lg'}
-	class:has-error={hasError}
-	class:disabled
+	class="iv-input-wrapper"
+	class:iv-input-sm={size === 'sm'}
+	class:iv-input-lg={size === 'lg'}
+	class:iv-has-error={hasError}
+	class:iv-disabled={disabled}
 >
 	{#if hasLeading}
-		<span class="icon leading">{@render leadingIcon!()}</span>
+		<span class="iv-icon iv-leading">{@render leadingIcon!()}</span>
 	{/if}
 
 	<input
@@ -153,12 +153,12 @@
 	/>
 
 	{#if hasTrailing}
-		<span class="icon trailing">
+		<span class="iv-icon iv-trailing">
 			{#if trailingIcon}
 				{@render trailingIcon()}
 			{/if}
 			{#if showClear}
-				<button class="clear-btn" onclick={clear} aria-label="Clear input" tabindex="-1"
+				<button class="iv-clear-btn" onclick={clear} aria-label="Clear input" tabindex="-1"
 					><IconX size={14} /></button
 				>
 			{/if}
@@ -167,13 +167,13 @@
 </div>
 
 {#if hasError}
-	<p class="message error-message" id={name ? `${name}-error` : undefined}>{error}</p>
+	<p class="iv-message iv-error-message" id={name ? `${name}-error` : undefined}>{error}</p>
 {:else if helper}
-	<p class="message helper-message" id={name ? `${name}-helper` : undefined}>{helper}</p>
+	<p class="iv-message iv-helper-message" id={name ? `${name}-helper` : undefined}>{helper}</p>
 {/if}
 
 <style>
-	.input-wrapper {
+	.iv-input-wrapper {
 		display: flex;
 		align-items: center;
 		border: 1px solid var(--iv_border);
@@ -193,7 +193,7 @@
 			box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_ring);
 		}
 
-		&.has-error {
+		&.iv-has-error {
 			border-color: var(--iv_error);
 
 			&:focus-within {
@@ -201,32 +201,32 @@
 			}
 		}
 
-		&.disabled {
+		&.iv-disabled {
 			opacity: var(--iv_disabled-opacity);
 			cursor: not-allowed;
 		}
 
-		&:has(.leading) input {
+		&:has(.iv-leading) input {
 			padding-left: 8px;
 		}
 
-		&:has(.trailing) input {
+		&:has(.iv-trailing) input {
 			padding-right: 8px;
 		}
 	}
 
-	.icon {
+	.iv-icon {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
 		color: var(--iv_foreground-dim);
 
-		&.leading {
+		&.iv-leading {
 			padding-left: 13px;
 		}
 
-		&.trailing {
+		&.iv-trailing {
 			padding-right: 13px;
 			gap: 6px;
 		}
@@ -259,7 +259,7 @@
 		}
 	}
 
-	.input-sm {
+	.iv-input-sm {
 		--input-padding-y: 5px;
 
 		& input {
@@ -267,16 +267,16 @@
 			padding: 5px 11px;
 		}
 
-		& .icon.leading {
+		& .iv-icon.iv-leading {
 			padding-left: 11px;
 		}
 
-		& .icon.trailing {
+		& .iv-icon.iv-trailing {
 			padding-right: 11px;
 		}
 	}
 
-	.input-lg {
+	.iv-input-lg {
 		--input-padding-y: 13px;
 
 		& input {
@@ -284,16 +284,16 @@
 			padding: 13px 16px;
 		}
 
-		& .icon.leading {
+		& .iv-icon.iv-leading {
 			padding-left: 16px;
 		}
 
-		& .icon.trailing {
+		& .iv-icon.iv-trailing {
 			padding-right: 16px;
 		}
 	}
 
-	.clear-btn {
+	.iv-clear-btn {
 		all: unset;
 		cursor: pointer;
 		display: flex;
@@ -311,7 +311,7 @@
 		}
 	}
 
-	.label {
+	.iv-label {
 		display: block;
 		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-label);
@@ -320,22 +320,22 @@
 		margin-bottom: 6px;
 	}
 
-	.required-mark {
+	.iv-required-mark {
 		color: var(--iv_error);
 		margin-left: 2px;
 	}
 
-	.message {
+	.iv-message {
 		margin: 4px 0 0 0;
 		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-sm);
 	}
 
-	.error-message {
+	.iv-error-message {
 		color: var(--iv_error);
 	}
 
-	.helper-message {
+	.iv-helper-message {
 		color: var(--iv_foreground-dim);
 	}
 </style>

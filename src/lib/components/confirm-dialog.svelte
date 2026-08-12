@@ -17,15 +17,15 @@
 {#if $dialogState}
 	<!-- svelte-ignore a11y_interactive_supports_focus -->
 	<div
-		class="backdrop"
+		class="iv-backdrop"
 		role="dialog"
 		aria-modal="true"
 		onkeydown={(e) => e.key === 'Escape' && cancel()}
 		transition:fade={{ duration: 150 }}
 	>
-		<div class="dialog" transition:scale={{ duration: 150, start: 0.95 }}>
+		<div class="iv-dialog" transition:scale={{ duration: 150, start: 0.95 }}>
 			<p>{$dialogState.message}</p>
-			<div class="actions">
+			<div class="iv-actions">
 				<Button variant="outline" onclick={cancel}>No</Button>
 				<Button onclick={confirm}>Yes</Button>
 			</div>
@@ -34,7 +34,7 @@
 {/if}
 
 <style>
-	.backdrop {
+	.iv-backdrop {
 		position: fixed;
 		inset: 0;
 		background: var(--iv_overlay);
@@ -45,7 +45,7 @@
 		z-index: var(--iv_z-overlay);
 	}
 
-	.dialog {
+	.iv-dialog {
 		background: var(--iv_surface-raised);
 		border: 1px solid var(--iv_border);
 		border-radius: var(--iv_radius-lg);
@@ -59,7 +59,7 @@
 		}
 	}
 
-	.actions {
+	.iv-actions {
 		display: flex;
 		justify-content: flex-end;
 		gap: 0.5rem;

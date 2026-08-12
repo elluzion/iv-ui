@@ -43,7 +43,7 @@
 </script>
 
 <div
-	class="tab-list {className}"
+	class="iv-tab-list {className}"
 	role="tablist"
 	bind:this={rootEl}
 	onkeydown={handleKeydown}
@@ -53,7 +53,7 @@
 </div>
 
 <style>
-	.tab-list {
+	.iv-tab-list {
 		display: flex;
 		align-items: flex-end;
 		gap: 0.25rem;

@@ -72,7 +72,7 @@
 
 {#if open}
 	<div
-		class="backdrop"
+		class="iv-backdrop"
 		role="dialog"
 		aria-modal="true"
 		tabindex="-1"
@@ -81,37 +81,37 @@
 		transition:fade={{ duration: 150 }}
 	>
 		<div
-			class="sheet {className}"
-			class:side-left={side === 'left'}
-			class:side-top={side === 'top'}
-			class:side-bottom={side === 'bottom'}
-			class:sheet-sm={size === 'sm'}
-			class:sheet-lg={size === 'lg'}
-			class:sheet-full={size === 'full'}
+			class="iv-sheet {className}"
+			class:iv-side-left={side === 'left'}
+			class:iv-side-top={side === 'top'}
+			class:iv-side-bottom={side === 'bottom'}
+			class:iv-sheet-sm={size === 'sm'}
+			class:iv-sheet-lg={size === 'lg'}
+			class:iv-sheet-full={size === 'full'}
 			transition:fly={flyParams}
 		>
 			{#if title || icon || showCloseButton}
-				<div class="header">
-					<div class="title-area">
+				<div class="iv-header">
+					<div class="iv-title-area">
 						{#if icon}
-							<span class="icon-slot">{@render icon()}</span>
+							<span class="iv-icon-slot">{@render icon()}</span>
 						{/if}
 						{#if title}
 							<h2>{title}</h2>
 						{/if}
 					</div>
 					{#if showCloseButton}
-						<button class="icon close-btn" onclick={close} aria-label="Close panel"
+						<button class="iv-icon iv-close-btn" onclick={close} aria-label="Close panel"
 							><IconX size={20} /></button
 						>
 					{/if}
 				</div>
 			{/if}
-			<div class="body" class:body-no-title={!title}>
+			<div class="iv-body" class:iv-body-no-title={!title}>
 				{@render children()}
 			</div>
 			{#if footer}
-				<div class="footer">
+				<div class="iv-footer">
 					{@render footer()}
 				</div>
 			{/if}
@@ -120,7 +120,7 @@
 {/if}
 
 <style>
-	.backdrop {
+	.iv-backdrop {
 		position: fixed;
 		inset: 0;
 		background: var(--iv_overlay);
@@ -128,7 +128,7 @@
 		z-index: var(--iv_z-overlay);
 	}
 
-	.sheet {
+	.iv-sheet {
 		position: absolute;
 		width: 100%;
 		height: 100%;
@@ -139,73 +139,73 @@
 		flex-direction: column;
 		overflow: hidden;
 
-		&.side-left,
-		&.side-right {
+		&.iv-side-left,
+		&.iv-side-right {
 			width: var(--iv_sheet-md);
 			height: 100%;
 
-			&.sheet-sm {
+			&.iv-sheet-sm {
 				width: var(--iv_sheet-sm);
 			}
 
-			&.sheet-lg {
+			&.iv-sheet-lg {
 				width: var(--iv_sheet-lg);
 			}
 
-			&.sheet-full {
+			&.iv-sheet-full {
 				width: 100%;
 			}
 		}
 
-		&.side-top,
-		&.side-bottom {
+		&.iv-side-top,
+		&.iv-side-bottom {
 			width: min(100%, var(--iv_sheet-lg));
 			height: var(--iv_sheet-md);
 			left: 0;
 			right: 0;
 			margin: 0 auto;
 
-			&.sheet-sm {
+			&.iv-sheet-sm {
 				height: var(--iv_sheet-sm);
 			}
 
-			&.sheet-lg {
+			&.iv-sheet-lg {
 				height: var(--iv_sheet-lg);
 			}
 
-			&.sheet-full {
+			&.iv-sheet-full {
 				width: 100%;
 				height: 100%;
 				margin: 0;
 			}
 		}
 
-		&.side-left {
+		&.iv-side-left {
 			left: 0;
 			border-radius: 0 var(--iv_radius-lg) var(--iv_radius-lg) 0;
 		}
 
-		&.side-right {
+		&.iv-side-right {
 			right: 0;
 			border-radius: var(--iv_radius-lg) 0 0 var(--iv_radius-lg);
 		}
 
-		&.side-top {
+		&.iv-side-top {
 			top: 0;
 			border-radius: 0 0 var(--iv_radius-lg) var(--iv_radius-lg);
 		}
 
-		&.side-bottom {
+		&.iv-side-bottom {
 			bottom: 0;
 			border-radius: var(--iv_radius-lg) var(--iv_radius-lg) 0 0;
 		}
 
-		&.sheet-full {
+		&.iv-sheet-full {
 			border-radius: var(--iv_radius-lg);
 		}
 	}
 
-	.header {
+	.iv-header {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -213,14 +213,14 @@
 		flex-shrink: 0;
 		gap: 0.75rem;
 
-		.title-area {
+		.iv-title-area {
 			display: flex;
 			align-items: center;
 			gap: 1rem;
 			min-width: 0;
 		}
 
-		.icon-slot {
+		.iv-icon-slot {
 			display: flex;
 			align-items: center;
 			flex-shrink: 0;
@@ -237,7 +237,7 @@
 			white-space: nowrap;
 		}
 
-		.close-btn {
+		.iv-close-btn {
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -255,14 +255,14 @@
 		}
 	}
 
-	.body {
+	.iv-body {
 		padding: 1.25rem;
 		padding-top: 0;
 		overflow-y: auto;
 		flex: 1;
 		color: var(--iv_foreground-dim);
 
-		&.body-no-title {
+		&.iv-body-no-title {
 			padding-top: 1.25rem;
 		}
 
@@ -275,7 +275,7 @@
 		}
 	}
 
-	.footer {
+	.iv-footer {
 		display: flex;
 		justify-content: flex-end;
 		gap: 0.5rem;

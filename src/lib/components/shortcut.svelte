@@ -11,21 +11,21 @@
 	const list = $derived(Array.isArray(keys) ? keys : [keys]);
 </script>
 
-<kbd class="root {className}" class:md={size === 'md'} aria-label={label || undefined}>
+<kbd class="iv-root {className}" class:iv-md={size === 'md'} aria-label={label || undefined}>
 	{#each list as key, i (i)}
-		<kbd class="key">{key}</kbd>
+		<kbd class="iv-key">{key}</kbd>
 	{/each}
 </kbd>
 
 <style>
-	.root {
+	.iv-root {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.2rem;
 		color: var(--iv_foreground-dim);
 	}
 
-	.key {
+	.iv-key {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -42,7 +42,7 @@
 		color: inherit;
 	}
 
-	.md .key {
+	.iv-md .iv-key {
 		min-width: 1.4rem;
 		height: 1.4rem;
 		padding: 0 0.35rem;

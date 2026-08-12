@@ -60,13 +60,13 @@
 	}
 </script>
 
-<div class="root" class:disabled>
+<div class="iv-root" class:iv-disabled={disabled}>
 	<div
-		class="switch"
-		class:checked
-		class:disabled
-		class:sm={size === 'sm'}
-		class:md={size === 'md'}
+		class="iv-switch"
+		class:iv-checked={checked}
+		class:iv-disabled={disabled}
+		class:iv-sm={size === 'sm'}
+		class:iv-md={size === 'md'}
 		role="switch"
 		tabindex={disabled ? -1 : 0}
 		aria-checked={checked}
@@ -76,27 +76,27 @@
 		onfocus={handleFocus}
 		onblur={handleBlur}
 	>
-		<span class="thumb" aria-hidden="true"></span>
+		<span class="iv-thumb" aria-hidden="true"></span>
 	</div>
 
 	{#if label}
-		<span class="label" id={labelId}>{label}</span>
+		<span class="iv-label" id={labelId}>{label}</span>
 	{/if}
 </div>
 
 <style>
-	.root {
+	.iv-root {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
 
-		&.disabled {
+		&.iv-disabled {
 			opacity: var(--iv_disabled-opacity);
 			cursor: not-allowed;
 		}
 	}
 
-	.switch {
+	.iv-switch {
 		position: relative;
 		display: inline-flex;
 		align-items: center;
@@ -112,57 +112,57 @@
 			outline-offset: var(--iv_outline-offset);
 		}
 
-		&.sm {
+		&.iv-sm {
 			width: 32px;
 			height: 18px;
 		}
 
-		&.md {
+		&.iv-md {
 			width: 40px;
 			height: 22px;
 		}
 
-		&.checked {
+		&.iv-checked {
 			background: var(--iv_accent-dim);
 			border-color: var(--iv_accent-dim);
 		}
 
-		&.disabled {
+		&.iv-disabled {
 			cursor: not-allowed;
 		}
 	}
 
-	.thumb {
+	.iv-thumb {
 		position: absolute;
 		left: 2px;
 		border-radius: 50%;
 		background: var(--iv_foreground);
 		transition: transform var(--iv_transition-fast);
 
-		.switch.sm & {
+		.iv-switch.iv-sm & {
 			width: 14px;
 			height: 14px;
 		}
 
-		.switch.md & {
+		.iv-switch.iv-md & {
 			width: 18px;
 			height: 18px;
 		}
 
-		.switch.checked & {
+		.iv-switch.iv-checked & {
 			transform: translateX(calc(100% - 4px));
 		}
 
-		.switch.sm.checked & {
+		.iv-switch.iv-sm.iv-checked & {
 			transform: translateX(14px);
 		}
 
-		.switch.md.checked & {
+		.iv-switch.iv-md.iv-checked & {
 			transform: translateX(18px);
 		}
 	}
 
-	.label {
+	.iv-label {
 		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-body);
 		color: var(--iv_foreground);

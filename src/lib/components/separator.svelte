@@ -17,22 +17,22 @@
 
 {#if orientation === 'horizontal' && label}
 	<div
-		class="separator horizontal labeled {className}"
-		class:spacing-sm={spacing === 'sm'}
-		class:spacing-lg={spacing === 'lg'}
+		class="iv-separator iv-horizontal iv-labeled {className}"
+		class:iv-spacing-sm={spacing === 'sm'}
+		class:iv-spacing-lg={spacing === 'lg'}
 		role="separator"
 		aria-orientation="horizontal"
 		{...restProps}
 	>
-		<span class="line" aria-hidden="true"></span>
-		<span class="label-text">{label}</span>
-		<span class="line" aria-hidden="true"></span>
+		<span class="iv-line" aria-hidden="true"></span>
+		<span class="iv-label-text">{label}</span>
+		<span class="iv-line" aria-hidden="true"></span>
 	</div>
 {:else}
 	<div
-		class="separator {orientation} {className}"
-		class:spacing-sm={spacing === 'sm'}
-		class:spacing-lg={spacing === 'lg'}
+		class="iv-separator iv-{orientation} {className}"
+		class:iv-spacing-sm={spacing === 'sm'}
+		class:iv-spacing-lg={spacing === 'lg'}
 		role="separator"
 		aria-orientation={orientation}
 		{...restProps}
@@ -40,26 +40,26 @@
 {/if}
 
 <style>
-	.separator {
+	.iv-separator {
 		--sep-space: 1rem;
 		box-sizing: border-box;
 
-		&.spacing-sm {
+		&.iv-spacing-sm {
 			--sep-space: 0.5rem;
 		}
 
-		&.spacing-lg {
+		&.iv-spacing-lg {
 			--sep-space: 1.5rem;
 		}
 
-		&.horizontal {
+		&.iv-horizontal {
 			width: 100%;
 			height: 1px;
 			background: var(--iv_border);
 			margin-block: var(--sep-space);
 		}
 
-		&.vertical {
+		&.iv-vertical {
 			width: 1px;
 			height: 100%;
 			background: var(--iv_border);
@@ -68,19 +68,19 @@
 			margin-inline: var(--sep-space);
 		}
 
-		&.labeled {
+		&.iv-labeled {
 			display: flex;
 			align-items: center;
 			height: auto;
 			background: none;
 
-			.line {
+			.iv-line {
 				flex: 1;
 				height: 1px;
 				background: var(--iv_border);
 			}
 
-			.label-text {
+			.iv-label-text {
 				padding-inline: 0.75rem;
 				font-family: var(--iv_font-sans);
 				font-size: var(--iv_text-sm);

@@ -72,11 +72,11 @@
 	const hasLabel = $derived(!!(label || children));
 </script>
 
-<label class="root" class:disabled>
+<label class="iv-root" class:iv-disabled={disabled}>
 	<input
 		bind:this={inputEl}
 		type="checkbox"
-		class="native"
+		class="iv-native"
 		{checked}
 		{disabled}
 		{required}
@@ -88,11 +88,11 @@
 		onblur={handleBlur}
 	/>
 	<span
-		class="box"
-		class:checked
-		class:indeterminate
-		class:sm={size === 'sm'}
-		class:md={size === 'md'}
+		class="iv-box"
+		class:iv-checked={checked}
+		class:iv-indeterminate={indeterminate}
+		class:iv-sm={size === 'sm'}
+		class:iv-md={size === 'md'}
 		aria-hidden="true"
 	>
 		{#if indeterminate}
@@ -102,7 +102,7 @@
 		{/if}
 	</span>
 	{#if children || label}
-		<span class="label" id={boxId}>
+		<span class="iv-label" id={boxId}>
 			{#if children}
 				{@render children()}
 			{:else}
@@ -113,20 +113,20 @@
 </label>
 
 <style>
-	.root {
+	.iv-root {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
 		cursor: pointer;
 		user-select: none;
 
-		&.disabled {
+		&.iv-disabled {
 			opacity: var(--iv_disabled-opacity);
 			cursor: not-allowed;
 		}
 	}
 
-	.native {
+	.iv-native {
 		position: absolute;
 		width: 1px;
 		height: 1px;
@@ -138,7 +138,7 @@
 		border: 0;
 	}
 
-	.box {
+	.iv-box {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -151,29 +151,29 @@
 			background var(--iv_transition-fast),
 			border-color var(--iv_transition-fast);
 
-		&.sm {
+		&.iv-sm {
 			width: 16px;
 			height: 16px;
 		}
 
-		&.md {
+		&.iv-md {
 			width: 20px;
 			height: 20px;
 		}
 
-		&.checked,
-		&.indeterminate {
+		&.iv-checked,
+		&.iv-indeterminate {
 			background: var(--iv_foreground);
 			border-color: var(--iv_foreground);
 		}
 	}
 
-	.native:focus-visible + .box {
+	.iv-native:focus-visible + .iv-box {
 		outline: var(--iv_outline-width) solid var(--iv_foreground);
 		outline-offset: var(--iv_outline-offset);
 	}
 
-	.label {
+	.iv-label {
 		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-body);
 		color: var(--iv_foreground);

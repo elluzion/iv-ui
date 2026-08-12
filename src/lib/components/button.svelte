@@ -36,15 +36,15 @@
 </script>
 
 <button
-	class="btn {className}"
-	class:primary={variant === 'primary'}
-	class:outline={variant === 'outline'}
-	class:ghost={variant === 'ghost'}
-	class:icon={variant === 'icon'}
-	class:danger={variant === 'danger'}
-	class:btn-sm={size === 'sm'}
-	class:btn-lg={size === 'lg'}
-	class:loading
+	class="iv-btn {className}"
+	class:iv-primary={variant === 'primary'}
+	class:iv-outline={variant === 'outline'}
+	class:iv-ghost={variant === 'ghost'}
+	class:iv-icon={variant === 'icon'}
+	class:iv-danger={variant === 'danger'}
+	class:iv-btn-sm={size === 'sm'}
+	class:iv-btn-lg={size === 'lg'}
+	class:iv-loading={loading}
 	{disabled}
 	{type}
 	onclick={handleClick}
@@ -92,7 +92,7 @@
 			box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_ring);
 		}
 
-		&.primary {
+		&.iv-primary {
 			background: var(--iv_foreground);
 			color: var(--iv_surface);
 			border-color: var(--iv_foreground);
@@ -104,17 +104,17 @@
 			}
 		}
 
-		&.ghost,
-		&.outline {
+		&.iv-ghost,
+		&.iv-outline {
 			background: transparent;
 			border: 1px solid var(--iv_border);
 		}
 
-		&.ghost {
+		&.iv-ghost {
 			border-color: transparent;
 		}
 
-		&.icon {
+		&.iv-icon {
 			background: transparent;
 			color: var(--iv_foreground-dim);
 			border: none;
@@ -125,7 +125,7 @@
 			}
 		}
 
-		&.disabled,
+		&.iv-disabled,
 		&[disabled] {
 			background: var(--iv_surface-raised);
 			color: var(--iv_foreground-dim);
@@ -133,7 +133,7 @@
 			opacity: var(--iv_disabled-opacity);
 		}
 
-		&.danger {
+		&.iv-danger {
 			background: var(--iv_error);
 			border-color: transparent;
 			color: var(--iv_surface);
@@ -143,19 +143,19 @@
 			}
 		}
 
-		&.btn-sm {
+		&.iv-btn-sm {
 			padding: 5px 13px;
 			font-size: var(--iv_text-btn-sm);
 			gap: 0.375rem;
 		}
 
-		&.btn-lg {
+		&.iv-btn-lg {
 			padding: 12px 24px;
 			font-size: var(--iv_text-lg);
 			gap: 0.625rem;
 		}
 
-		&.loading {
+		&.iv-loading {
 			cursor: wait;
 		}
 	}

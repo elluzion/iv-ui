@@ -19,38 +19,38 @@
 	}: Props = $props();
 </script>
 
-<article class="article {className}" {...restProps}>
+<article class="iv-article {className}" {...restProps}>
 	{#if title || description}
-		<header class="header">
+		<header class="iv-header">
 			{#if title}
-				<h1 class="title">{title}</h1>
+				<h1 class="iv-title">{title}</h1>
 			{/if}
 			{#if description}
-				<p class="description">{description}</p>
+				<p class="iv-description">{description}</p>
 			{/if}
 		</header>
 	{/if}
 
-	<div class="body" style="max-width: {maxWidth}px">
+	<div class="iv-body" style="max-width: {maxWidth}px">
 		{@render children()}
 	</div>
 </article>
 
 <style>
-	.article {
+	.iv-article {
 		box-sizing: border-box;
 		width: 100%;
 		color: var(--iv_foreground);
 		font-family: var(--iv_font-sans);
 		line-height: 1.6;
 
-		.header {
+		.iv-header {
 			max-width: 880px;
 			margin-inline: auto;
 			padding: 0 0 1.25rem;
 			border-bottom: 1px solid var(--iv_border);
 
-			.title {
+			.iv-title {
 				margin: 0;
 				font-size: var(--iv_text-xl);
 				font-weight: 700;
@@ -58,14 +58,14 @@
 				color: var(--iv_foreground);
 			}
 
-			.description {
+			.iv-description {
 				margin: 0.5rem 0 0;
 				font-size: var(--iv_text-label);
 				color: var(--iv_foreground-dim);
 			}
 		}
 
-		.body {
+		.iv-body {
 			margin-inline: auto;
 			padding-top: 1.25rem;
 			font-size: var(--iv_text-body);

@@ -8,7 +8,7 @@
 </script>
 
 <span
-	class="spinner"
+	class="iv-spinner"
 	style:width="{size}px"
 	style:height="{size}px"
 	style:border-color="{color} transparent transparent transparent"
@@ -17,7 +17,7 @@
 ></span>
 
 <style>
-	.spinner {
+	.iv-spinner {
 		display: inline-block;
 		border-width: 2px;
 		border-style: solid;

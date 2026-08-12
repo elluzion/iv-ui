@@ -23,25 +23,25 @@
 	const contentId = `iv-acc-${uid}-content`;
 </script>
 
-<div class="item" class:open class:disabled>
+<div class="iv-item" class:iv-open={open} class:iv-disabled={disabled}>
 	<button
 		type="button"
 		id={triggerId}
-		class="trigger"
-		class:open
+		class="iv-trigger"
+		class:iv-open={open}
 		aria-expanded={open}
 		aria-controls={contentId}
 		{disabled}
 		onclick={() => ctx.toggle(value)}
 	>
-		<span class="trigger-label">
+		<span class="iv-trigger-label">
 			{#if trigger}
 				{@render trigger()}
 			{:else}
 				{title}
 			{/if}
 		</span>
-		<span class="chevron" class:open aria-hidden="true">
+		<span class="iv-chevron" class:iv-open={open} aria-hidden="true">
 			<IconChevronDown size={16} />
 		</span>
 	</button>
@@ -50,7 +50,7 @@
 		<div transition:fade={{ duration: 120 }}>
 			<div
 				id={contentId}
-				class="panel"
+				class="iv-panel"
 				role="region"
 				aria-labelledby={triggerId}
 				transition:slide={{ duration: 180 }}
@@ -62,19 +62,19 @@
 </div>
 
 <style>
-	.item {
+	.iv-item {
 		border-top: 1px solid var(--iv_border);
 
 		&:first-child {
 			border-top: 0;
 		}
 
-		&.disabled {
+		&.iv-disabled {
 			opacity: var(--iv_disabled-opacity);
 		}
 	}
 
-	.trigger {
+	.iv-trigger {
 		all: unset;
 		box-sizing: border-box;
 		display: flex;
@@ -105,7 +105,7 @@
 		}
 	}
 
-	.trigger-label {
+	.iv-trigger-label {
 		flex: 1;
 		min-width: 0;
 		overflow: hidden;
@@ -113,20 +113,20 @@
 		white-space: nowrap;
 	}
 
-	.chevron {
+	.iv-chevron {
 		display: flex;
 		align-items: center;
 		flex-shrink: 0;
 		color: var(--iv_foreground-dim);
 		transition: transform var(--iv_transition-fast);
 
-		&.open {
+		&.iv-open {
 			transform: rotate(180deg);
 			color: var(--iv_foreground);
 		}
 	}
 
-	.panel {
+	.iv-panel {
 		padding: 0 1.25rem;
 		border-top: 1px solid var(--iv_border);
 		background: var(--iv_surface-raised);

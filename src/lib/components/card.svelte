@@ -55,16 +55,16 @@
 
 <!-- svelte-ignore a11y_no_noninteractive_tabindex (role=button + keyboard handler make clickable cards interactive) -->
 <div
-	class="card {className}"
-	class:pad-sm={padding === 'sm'}
-	class:pad-md={padding === 'md'}
-	class:pad-lg={padding === 'lg'}
-	class:pad-none={padding === 'none'}
-	class:radius-lg={radius === 'lg'}
-	class:hoverable
-	class:selected
-	class:disabled
-	class:clickable
+	class="iv-card {className}"
+	class:iv-pad-sm={padding === 'sm'}
+	class:iv-pad-md={padding === 'md'}
+	class:iv-pad-lg={padding === 'lg'}
+	class:iv-pad-none={padding === 'none'}
+	class:iv-radius-lg={radius === 'lg'}
+	class:iv-hoverable={hoverable}
+	class:iv-selected={selected}
+	class:iv-disabled={disabled}
+	class:iv-clickable={clickable}
 	role={clickable ? 'button' : undefined}
 	tabindex={clickable ? (disabled ? -1 : 0) : undefined}
 	aria-disabled={disabled || undefined}
@@ -73,40 +73,40 @@
 	{...restProps}
 >
 	{#if header}
-		<div class="header">
+		<div class="iv-header">
 			{@render header()}
 		</div>
 	{:else if title || action}
-		<div class="header">
-			<div class="header-text">
+		<div class="iv-header">
+			<div class="iv-header-text">
 				{#if title}
-					<h3 class="title">{title}</h3>
+					<h3 class="iv-title">{title}</h3>
 				{/if}
 				{#if description}
-					<p class="description">{description}</p>
+					<p class="iv-description">{description}</p>
 				{/if}
 			</div>
 			{#if action}
-				<div class="action">
+				<div class="iv-action">
 					{@render action()}
 				</div>
 			{/if}
 		</div>
 	{/if}
 
-	<div class="body">
+	<div class="iv-body">
 		{@render children()}
 	</div>
 
 	{#if footer}
-		<div class="footer">
+		<div class="iv-footer">
 			{@render footer()}
 		</div>
 	{/if}
 </div>
 
 <style>
-	.card {
+	.iv-card {
 		display: flex;
 		flex-direction: column;
 		box-sizing: border-box;
@@ -121,43 +121,43 @@
 		--pad-x: 1rem;
 		--pad-y: 0.875rem;
 
-		&.pad-sm {
+		&.iv-pad-sm {
 			--pad-x: 0.75rem;
 			--pad-y: 0.625rem;
 		}
 
-		&.pad-lg {
+		&.iv-pad-lg {
 			--pad-x: 1.25rem;
 			--pad-y: 1.25rem;
 		}
 
-		&.pad-none {
+		&.iv-pad-none {
 			--pad-x: 0;
 			--pad-y: 0;
 		}
 
-		&.radius-lg {
+		&.iv-radius-lg {
 			border-radius: var(--iv_radius-lg);
 		}
 
-		&.hoverable:hover:not(.disabled):not(.selected) {
+		&.iv-hoverable:hover:not(.iv-disabled):not(.iv-selected) {
 			border-color: var(--iv_border-hover);
 		}
 
-		&.selected {
+		&.iv-selected {
 			border-color: var(--iv_accent);
 		}
 
-		&.clickable {
+		&.iv-clickable {
 			cursor: pointer;
 		}
 
-		&.disabled {
+		&.iv-disabled {
 			opacity: var(--iv_disabled-opacity);
 			cursor: not-allowed;
 		}
 
-		.header {
+		.iv-header {
 			display: flex;
 			align-items: flex-start;
 			justify-content: space-between;
@@ -165,14 +165,14 @@
 			padding: var(--pad-y) var(--pad-x);
 			border-bottom: 1px solid var(--iv_border);
 
-			.header-text {
+			.iv-header-text {
 				display: flex;
 				flex-direction: column;
 				gap: 0.25rem;
 				min-width: 0;
 			}
 
-			.title {
+			.iv-title {
 				margin: 0;
 				font-size: var(--iv_text-base);
 				font-weight: 600;
@@ -182,25 +182,25 @@
 				white-space: nowrap;
 			}
 
-			.description {
+			.iv-description {
 				margin: 0;
 				font-size: var(--iv_text-label);
 				color: var(--iv_foreground-dim);
 			}
 
-			.action {
+			.iv-action {
 				display: flex;
 				align-items: center;
 				flex-shrink: 0;
 			}
 		}
 
-		.body {
+		.iv-body {
 			padding: var(--pad-y) var(--pad-x);
 			flex: 1;
 		}
 
-		.footer {
+		.iv-footer {
 			display: flex;
 			align-items: center;
 			gap: 0.5rem;

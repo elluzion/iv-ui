@@ -5,9 +5,9 @@
 </script>
 
 {#if $toastState}
-	<div class="toast-layer" role="status" aria-live="polite" transition:fade={{ duration: 120 }}>
-		<div class="toast toast-{$toastState.type}" transition:fly={{ y: 16, duration: 160 }}>
-			<div class="content">
+	<div class="iv-toast-layer" role="status" aria-live="polite" transition:fade={{ duration: 120 }}>
+		<div class="iv-toast iv-toast-{$toastState.type}" transition:fly={{ y: 16, duration: 160 }}>
+			<div class="iv-content">
 				{#if $toastState.type === 'error'}
 					<IconMoodSadDizzy stroke={2} size="1.1rem" color="var(--iv_error)" />
 				{:else if $toastState.type === 'success'}
@@ -18,7 +18,7 @@
 				<span>{$toastState.message}</span>
 			</div>
 			<button
-				class="close"
+				class="iv-close"
 				onclick={() => hideToast($toastState?.id)}
 				aria-label="Dismiss notification"
 			>
@@ -29,7 +29,7 @@
 {/if}
 
 <style>
-	.toast-layer {
+	.iv-toast-layer {
 		position: fixed;
 		right: 1rem;
 		bottom: 1rem;
@@ -37,7 +37,7 @@
 		pointer-events: none;
 	}
 
-	.toast {
+	.iv-toast {
 		pointer-events: auto;
 		display: flex;
 		align-items: center;
@@ -52,7 +52,7 @@
 		box-shadow: var(--iv_shadow-md);
 	}
 
-	.content {
+	.iv-content {
 		display: flex;
 		gap: 0.75rem;
 		align-items: center;
@@ -64,7 +64,7 @@
 		}
 	}
 
-	.close {
+	.iv-close {
 		all: unset;
 		cursor: pointer;
 		border-radius: var(--iv_radius-sm);
@@ -83,12 +83,12 @@
 	}
 
 	@media (max-width: 640px) {
-		.toast-layer {
+		.iv-toast-layer {
 			left: 1rem;
 			right: 1rem;
 		}
 
-		.toast {
+		.iv-toast {
 			max-width: none;
 			min-width: 0;
 		}

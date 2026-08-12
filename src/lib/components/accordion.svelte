@@ -72,19 +72,19 @@
 	setContext<AccordionContext>(accordionContextKey, { isOpen, toggle });
 </script>
 
-<div class="accordion {className}" class:disabled {...restProps}>
+<div class="iv-accordion {className}" class:iv-disabled={disabled} {...restProps}>
 	{@render children()}
 </div>
 
 <style>
-	.accordion {
+	.iv-accordion {
 		box-sizing: border-box;
 		width: 100%;
 		border: 1px solid var(--iv_border);
 		border-radius: var(--iv_radius);
 		overflow: hidden;
 
-		&.disabled {
+		&.iv-disabled {
 			cursor: not-allowed;
 		}
 	}

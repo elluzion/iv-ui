@@ -18,8 +18,8 @@
 {#if active}
 	<div
 		id={`${ctx.uid}-panel-${value}`}
-		class="tab-panel {className}"
-		class:bordered={ctx.bordered}
+		class="iv-tab-panel {className}"
+		class:iv-bordered={ctx.bordered}
 		role="tabpanel"
 		aria-labelledby={`${ctx.uid}-tab-${value}`}
 		tabindex="0"
@@ -30,13 +30,13 @@
 {/if}
 
 <style>
-	.tab-panel {
+	.iv-tab-panel {
 		padding: 1.25rem 0;
 		color: var(--iv_foreground-dim);
 		font-size: var(--iv_text-body);
 		line-height: 1.5;
 
-		&.bordered {
+		&.iv-bordered {
 			padding: 1.25rem;
 		}
 	}

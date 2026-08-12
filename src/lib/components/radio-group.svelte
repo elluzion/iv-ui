@@ -53,17 +53,21 @@
 	}
 </script>
 
-<div class="root" class:horizontal={orientation === 'horizontal'} class:disabled>
+<div
+	class="iv-root"
+	class:iv-horizontal={orientation === 'horizontal'}
+	class:iv-disabled={disabled}
+>
 	{#if label}
-		<span class="group-label" id={groupLabelId}>{label}</span>
+		<span class="iv-group-label" id={groupLabelId}>{label}</span>
 	{/if}
 
-	<div class="items">
+	<div class="iv-items">
 		{#each normalized as item (item.value)}
-			<label class="item" class:disabled={disabled || item.disabled}>
+			<label class="iv-item" class:iv-disabled={disabled || item.disabled}>
 				<input
 					type="radio"
-					class="native"
+					class="iv-native"
 					checked={value === item.value}
 					{name}
 					disabled={disabled || item.disabled}
@@ -71,34 +75,34 @@
 					onchange={() => handleChange(item.value)}
 				/>
 				<span
-					class="circle"
-					class:sm={size === 'sm'}
-					class:md={size === 'md'}
-					class:checked={value === item.value}
+					class="iv-circle"
+					class:iv-sm={size === 'sm'}
+					class:iv-md={size === 'md'}
+					class:iv-checked={value === item.value}
 					aria-hidden="true"
 				>
 					{#if value === item.value}
-						<span class="dot"></span>
+						<span class="iv-dot"></span>
 					{/if}
 				</span>
-				<span class="label">{item.label}</span>
+				<span class="iv-label">{item.label}</span>
 			</label>
 		{/each}
 	</div>
 </div>
 
 <style>
-	.root {
+	.iv-root {
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
 
-		&.disabled {
+		&.iv-disabled {
 			cursor: not-allowed;
 		}
 	}
 
-	.group-label {
+	.iv-group-label {
 		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-label);
 		font-weight: 500;
@@ -106,32 +110,32 @@
 		margin-bottom: 2px;
 	}
 
-	.items {
+	.iv-items {
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
 	}
 
-	.root.horizontal .items {
+	.iv-root.iv-horizontal .iv-items {
 		flex-direction: row;
 		flex-wrap: wrap;
 		gap: 0.5rem 1.25rem;
 	}
 
-	.item {
+	.iv-item {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
 		cursor: pointer;
 		user-select: none;
 
-		&.disabled {
+		&.iv-disabled {
 			opacity: var(--iv_disabled-opacity);
 			cursor: not-allowed;
 		}
 	}
 
-	.native {
+	.iv-native {
 		position: absolute;
 		width: 1px;
 		height: 1px;
@@ -143,7 +147,7 @@
 		border: 0;
 	}
 
-	.circle {
+	.iv-circle {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -155,46 +159,46 @@
 			border-color var(--iv_transition-fast),
 			background var(--iv_transition-fast);
 
-		&.sm {
+		&.iv-sm {
 			width: 16px;
 			height: 16px;
 		}
 
-		&.md {
+		&.iv-md {
 			width: 20px;
 			height: 20px;
 		}
 
-		&.checked {
+		&.iv-checked {
 			border-color: var(--iv_foreground);
 		}
 	}
 
-	.dot {
+	.iv-dot {
 		width: 8px;
 		height: 8px;
 		border-radius: 50%;
 		background: var(--iv_foreground);
 	}
 
-	.circle.sm .dot {
+	.iv-circle.iv-sm .iv-dot {
 		width: 5px;
 		height: 5px;
 	}
 
-	.native:focus-visible + .circle {
+	.iv-native:focus-visible + .iv-circle {
 		outline: var(--iv_outline-width) solid var(--iv_foreground);
 		outline-offset: var(--iv_outline-offset);
 	}
 
-	.label {
+	.iv-label {
 		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-body);
 		color: var(--iv_foreground);
 		line-height: 1.4;
 	}
 
-	.item:has(.sm) .label {
+	.iv-item:has(.iv-sm) .iv-label {
 		font-size: var(--iv_text-btn-sm);
 	}
 </style>
