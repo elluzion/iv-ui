@@ -82,7 +82,7 @@
 		justify-content: space-between;
 		gap: var(--iv_spacing-lg);
 		width: 100%;
-		padding: 0.875rem var(--iv_spacing-xl);
+		padding: var(--iv_spacing-lg) var(--iv_spacing-xl);
 		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-btn);
 		font-weight: 500;

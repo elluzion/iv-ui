@@ -59,7 +59,7 @@
 
 <style>
 	button {
-		padding: 9px 18px;
+		padding: var(--iv_control-pad-y) var(--iv_btn-pad-x);
 		border-radius: var(--iv_radius-pill);
 		font-weight: 600;
 		border: 1px solid var(--iv_border);
@@ -118,7 +118,7 @@
 			background: transparent;
 			color: var(--iv_foreground-dim);
 			border: none;
-			padding: 0.5625rem;
+			padding: var(--iv_control-pad-y);
 
 			&:hover {
 				color: var(--iv_foreground);
@@ -144,13 +144,13 @@
 		}
 
 		&.iv-btn-sm {
-			padding: 5px 13px;
+			padding: var(--iv_control-pad-y-sm) var(--iv_btn-pad-x-sm);
 			font-size: var(--iv_text-btn-sm);
 			gap: var(--iv_spacing-xs);
 		}
 
 		&.iv-btn-lg {
-			padding: 12px 24px;
+			padding: var(--iv_control-pad-y-lg) var(--iv_btn-pad-x-lg);
 			font-size: var(--iv_text-lg);
 			gap: var(--iv_spacing-sm);
 		}

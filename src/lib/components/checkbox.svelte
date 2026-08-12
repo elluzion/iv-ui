@@ -152,13 +152,13 @@
 			border-color var(--iv_transition-fast);
 
 		&.iv-sm {
-			width: 16px;
-			height: 16px;
+			width: var(--iv_control-sm);
+			height: var(--iv_control-sm);
 		}
 
 		&.iv-md {
-			width: 20px;
-			height: 20px;
+			width: var(--iv_control-md);
+			height: var(--iv_control-md);
 		}
 
 		&.iv-checked,

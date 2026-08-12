@@ -45,7 +45,7 @@
 		line-height: 1.6;
 
 		.iv-header {
-			max-width: 880px;
+			max-width: var(--iv_article-width);
 			margin-inline: auto;
 			padding: 0 0 1.25rem;
 			border-bottom: 1px solid var(--iv_border);

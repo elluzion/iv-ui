@@ -438,7 +438,7 @@
 		color: var(--iv_foreground);
 		font-family: var(--iv_font-mono);
 		font-size: var(--iv_text-base);
-		padding: 9px 13px;
+		padding: var(--iv_control-pad-y) var(--iv_control-pad-x);
 		cursor: pointer;
 		transition:
 			border-color var(--iv_transition-base),
@@ -456,7 +456,7 @@
 		}
 
 		&.iv-has-error {
-			border-color: var(--iv_error);
+			border-color: var(--iv_border-error);
 
 			&.iv-open {
 				box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_error-surface);
@@ -464,12 +464,12 @@
 		}
 
 		&.iv-sm {
-			padding: 5px 11px;
+			padding: var(--iv_control-pad-y-sm) var(--iv_control-pad-x-sm);
 			font-size: var(--iv_text-body-sm);
 		}
 
 		&.iv-lg {
-			padding: 13px 16px;
+			padding: var(--iv_control-pad-y-lg) var(--iv_control-pad-x-lg);
 			font-size: var(--iv_text-lg);
 		}
 
@@ -515,7 +515,7 @@
 		border: 1px solid var(--iv_border);
 		color: var(--iv_foreground);
 		font-family: var(--iv_font-mono);
-		font-size: var(--iv_text-chips-sm);
+		font-size: var(--iv_text-chips);
 		font-weight: 500;
 		line-height: 1.7;
 		overflow: hidden;
@@ -532,8 +532,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 20px;
-		height: 20px;
+		width: var(--iv_control-md);
+		height: var(--iv_control-md);
 		border-radius: 50%;
 		color: var(--iv_foreground-dim);
 		cursor: pointer;
@@ -571,7 +571,7 @@
 		display: flex;
 		align-items: center;
 		gap: var(--iv_spacing-sm);
-		padding: var(--iv_spacing-sm) 10px;
+		padding: var(--iv_spacing-sm) var(--iv_control-pad-x);
 		border-bottom: 1px solid var(--iv_border);
 
 		.iv-search-icon {
@@ -596,7 +596,7 @@
 	}
 
 	:global(.iv-select-options) {
-		max-height: 240px;
+		max-height: var(--iv_select-dropdown-max-h);
 		overflow-y: auto;
 		padding: var(--iv_spacing-xs);
 		display: flex;

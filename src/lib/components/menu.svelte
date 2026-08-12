@@ -222,7 +222,7 @@
 	.iv-menu {
 		display: flex;
 		flex-direction: column;
-		padding: 0.25rem;
+		padding: var(--iv_spacing-xs);
 
 		&:empty {
 			display: none;
@@ -248,7 +248,7 @@
 		display: flex;
 		align-items: center;
 		gap: var(--iv_spacing-sm);
-		padding: 0.5rem 0.75rem;
+		padding: var(--iv_spacing-sm) var(--iv_spacing-md);
 		border-radius: var(--iv_radius-sm);
 		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-body);
@@ -280,18 +280,18 @@
 		top: -0.375rem;
 		left: calc(100% + 0.25rem);
 		z-index: var(--iv_z-dropdown);
-		min-width: 12rem;
+		min-width: var(--iv_submenu-min-w);
 		background: var(--iv_surface-raised);
 		border: 1px solid var(--iv_border);
 		border-radius: var(--iv_radius);
-		box-shadow: var(--iv_shadow-md);
+		box-shadow: var(--iv_shadow-sm);
 	}
 
 	.iv-leading {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 18px;
+		width: var(--iv_menu-lead-size);
 		flex-shrink: 0;
 		color: var(--iv_foreground);
 

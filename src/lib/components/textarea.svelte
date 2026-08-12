@@ -182,7 +182,7 @@
 		font-family: var(--iv_font-mono);
 		font-size: var(--iv_text-base);
 		color: var(--iv_foreground);
-		padding: 9px 13px;
+		padding: var(--iv_control-pad-y) var(--iv_control-pad-x);
 		resize: var(--textarea-resize, vertical);
 		line-height: 1.5;
 

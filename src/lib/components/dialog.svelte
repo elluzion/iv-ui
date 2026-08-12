@@ -113,7 +113,7 @@
 		box-shadow: var(--iv_shadow-lg);
 		width: 100%;
 		max-width: var(--iv_dialog-md);
-		max-height: calc(100dvh - 4rem);
+		max-height: calc(100dvh - var(--iv_dialog-gap));
 		display: flex;
 		flex-direction: column;
 		overflow: hidden;

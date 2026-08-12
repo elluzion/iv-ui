@@ -92,6 +92,64 @@
 	--iv_sheet-lg: 560px;
 
 	--iv_scrollbar-size: 8px;
+
+	--iv_control-sm: 16px;
+	--iv_control-md: 20px;
+
+	--iv_control-pad-y-sm: 5px;
+	--iv_control-pad-y: 9px;
+	--iv_control-pad-y-lg: 13px;
+
+	--iv_control-pad-x-sm: 11px;
+	--iv_control-pad-x: 13px;
+	--iv_control-pad-x-lg: 16px;
+
+	--iv_btn-pad-x-sm: 13px;
+	--iv_btn-pad-x: 18px;
+	--iv_btn-pad-x-lg: 24px;
+
+	--iv_thumb-sm: 14px;
+	--iv_thumb-md: 18px;
+
+	--iv_switch-w-sm: 32px;
+	--iv_switch-h-sm: 18px;
+	--iv_switch-w: 40px;
+	--iv_switch-h: 22px;
+
+	--iv_slider-track-sm: 4px;
+	--iv_slider-track: 6px;
+
+	--iv_popover-min-w: 10rem;
+	--iv_popover-max-w: 20rem;
+	--iv_popover-margin: 8px;
+
+	--iv_toast-min-w: 260px;
+	--iv_toast-close-size: 32px;
+
+	--iv_submenu-min-w: 12rem;
+	--iv_menu-lead-size: 18px;
+
+	--iv_separator-size: 1px;
+	--iv_spinner-border: 2px;
+
+	--iv_tooltip-gap: 8px;
+	--iv_tooltip-margin: 8px;
+
+	--iv_radio-border: 1.5px;
+	--iv_radio-dot-sm: 5px;
+	--iv_radio-dot: 8px;
+
+	--iv_dialog-gap: 4rem;
+
+	--iv_card-pad-y: 0.875rem;
+	--iv_card-pad-x: 1rem;
+	--iv_card-pad-y-sm: 0.625rem;
+	--iv_card-pad-x-sm: 0.75rem;
+	--iv_card-pad-y-lg: 1.25rem;
+	--iv_card-pad-x-lg: 1.25rem;
+
+	--iv_article-width: 880px;
+	--iv_select-dropdown-max-h: 240px;
 }
 
 @media (prefers-color-scheme: light) {

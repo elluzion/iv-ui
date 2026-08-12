@@ -41,26 +41,26 @@
 
 <style>
 	.iv-separator {
-		--sep-space: 1rem;
+		--sep-space: var(--iv_spacing-lg);
 		box-sizing: border-box;
 
 		&.iv-spacing-sm {
-			--sep-space: 0.5rem;
+			--sep-space: var(--iv_spacing-sm);
 		}
 
 		&.iv-spacing-lg {
-			--sep-space: 1.5rem;
+			--sep-space: var(--iv_spacing-2xl);
 		}
 
 		&.iv-horizontal {
 			width: 100%;
-			height: 1px;
+			height: var(--iv_separator-size);
 			background: var(--iv_border);
 			margin-block: var(--sep-space);
 		}
 
 		&.iv-vertical {
-			width: 1px;
+			width: var(--iv_separator-size);
 			height: 100%;
 			background: var(--iv_border);
 			flex-shrink: 0;
@@ -76,7 +76,7 @@
 
 			.iv-line {
 				flex: 1;
-				height: 1px;
+				height: var(--iv_separator-size);
 				background: var(--iv_border);
 			}
 

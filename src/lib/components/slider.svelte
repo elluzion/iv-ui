@@ -162,7 +162,7 @@
 		endDrag(e);
 	}
 
-	const thumbSize = $derived(size === 'sm' ? 14 : 18);
+	const thumbSize = $derived(size === 'sm' ? 'var(--iv_thumb-sm)' : 'var(--iv_thumb-md)');
 
 	const ticks = $derived.by(() => {
 		if (!tickMarks || step <= 0) return [];
@@ -303,14 +303,14 @@
 		touch-action: none;
 		user-select: none;
 
-		--thumb-size: 18px;
+		--thumb-size: var(--iv_thumb-md);
 
 		&.iv-sm {
-			height: 4px;
+			height: var(--iv_slider-track-sm);
 		}
 
 		&.iv-md {
-			height: 6px;
+			height: var(--iv_slider-track);
 		}
 
 		&:focus-visible {

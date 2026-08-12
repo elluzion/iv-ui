@@ -2,90 +2,90 @@
 name: iv-ui
 description: A monochrome, hairline-bordered Svelte 5 component library with a single brass accent and color used only as signal.
 colors:
-  primary: "#c7a24a"
-  primary-dim: "#7d6a3c"
-  success: "#7c9b7c"
-  success-dim: "#5a7a5a"
-  error: "#f08858"
-  error-dim: "#da7550"
-  info: "#5d8ee8"
-  info-dim: "#3a6fcc"
-  neutral-bg: "#000000"
-  neutral-raised: "#141415"
-  neutral-elevated: "#1e1e20"
-  neutral-hover: "#242427"
-  foreground: "#fafafa"
-  foreground-dim: "#8e8e93"
-  foreground-hover: "#e4e4e4"
-  border: "#2a2a2d"
-  border-hover: "#3a3a3d"
-  border-focus: "#4a4a4d"
+  primary: '#c7a24a'
+  primary-dim: '#7d6a3c'
+  success: '#7c9b7c'
+  success-dim: '#5a7a5a'
+  error: '#f08858'
+  error-dim: '#da7550'
+  info: '#5d8ee8'
+  info-dim: '#3a6fcc'
+  neutral-bg: '#000000'
+  neutral-raised: '#141415'
+  neutral-elevated: '#1e1e20'
+  neutral-hover: '#242427'
+  foreground: '#fafafa'
+  foreground-dim: '#8e8e93'
+  foreground-hover: '#e4e4e4'
+  border: '#2a2a2d'
+  border-hover: '#3a3a3d'
+  border-focus: '#4a4a4d'
 typography:
   title:
     fontFamily: "'Atkinson Hyperlegible Next', system-ui, sans-serif"
-    fontSize: "1.1rem"
+    fontSize: '1.1rem'
     fontWeight: 600
   body:
     fontFamily: "'Atkinson Hyperlegible Next', system-ui, sans-serif"
-    fontSize: "0.9rem"
+    fontSize: '0.9rem'
     fontWeight: 400
   label:
     fontFamily: "'Atkinson Hyperlegible Next', system-ui, sans-serif"
-    fontSize: "0.85rem"
+    fontSize: '0.85rem'
     fontWeight: 500
   mono:
     fontFamily: "'IBM Plex Mono', monospace"
 rounded:
-  sm: "10px"
-  md: "14px"
-  lg: "20px"
-  pill: "999px"
+  sm: '10px'
+  md: '14px'
+  lg: '20px'
+  pill: '999px'
 spacing:
-  xs: "4px"
-  sm: "8px"
-  md: "16px"
-  lg: "20px"
-  xl: "24px"
+  xs: '4px'
+  sm: '8px'
+  md: '16px'
+  lg: '20px'
+  xl: '24px'
 components:
   button-primary:
-    backgroundColor: "{colors.foreground}"
-    textColor: "{colors.neutral-bg}"
-    rounded: "{rounded.pill}"
-    padding: "9px 18px"
+    backgroundColor: '{colors.foreground}'
+    textColor: '{colors.neutral-bg}'
+    rounded: '{rounded.pill}'
+    padding: '9px 18px'
   button-primary-hover:
-    backgroundColor: "{colors.foreground-hover}"
+    backgroundColor: '{colors.foreground-hover}'
   button-secondary:
-    backgroundColor: "{colors.neutral-elevated}"
-    textColor: "{colors.foreground}"
-    rounded: "{rounded.pill}"
-    padding: "9px 18px"
+    backgroundColor: '{colors.neutral-elevated}'
+    textColor: '{colors.foreground}'
+    rounded: '{rounded.pill}'
+    padding: '9px 18px'
   button-ghost:
-    backgroundColor: "transparent"
-    textColor: "{colors.foreground}"
-    rounded: "{rounded.pill}"
-    padding: "9px 18px"
+    backgroundColor: 'transparent'
+    textColor: '{colors.foreground}'
+    rounded: '{rounded.pill}'
+    padding: '9px 18px'
   button-danger:
-    backgroundColor: "{colors.error}"
-    textColor: "{colors.neutral-bg}"
-    rounded: "{rounded.pill}"
+    backgroundColor: '{colors.error}'
+    textColor: '{colors.neutral-bg}'
+    rounded: '{rounded.pill}'
   card:
-    backgroundColor: "{colors.neutral-raised}"
-    rounded: "{rounded.md}"
-    padding: "16px 14px"
+    backgroundColor: '{colors.neutral-raised}'
+    rounded: '{rounded.md}'
+    padding: '16px 14px'
   input:
-    backgroundColor: "{colors.neutral-raised}"
-    textColor: "{colors.foreground}"
-    rounded: "{rounded.md}"
+    backgroundColor: '{colors.neutral-raised}'
+    textColor: '{colors.foreground}'
+    rounded: '{rounded.md}'
   checkbox:
-    backgroundColor: "{colors.neutral-raised}"
-    rounded: "{rounded.sm}"
+    backgroundColor: '{colors.neutral-raised}'
+    rounded: '{rounded.sm}'
   chip:
-    backgroundColor: "{colors.neutral-elevated}"
-    textColor: "{colors.foreground}"
-    rounded: "{rounded.pill}"
+    backgroundColor: '{colors.neutral-elevated}'
+    textColor: '{colors.foreground}'
+    rounded: '{rounded.pill}'
   dialog:
-    backgroundColor: "{colors.neutral-raised}"
-    rounded: "{rounded.lg}"
+    backgroundColor: '{colors.neutral-raised}'
+    rounded: '{rounded.lg}'
 ---
 
 # Design System: iv-ui
@@ -160,7 +160,7 @@ The palette is a monochrome gray ladder with one brass accent and three semantic
 - **Title** (600, 1.1rem, no cap): Dialog and sheet titles. Truncates with ellipsis on overflow.
 - **Body** (400, 0.9rem): Default text, radio/checkbox/switch labels.
 - **Label** (500, 0.85rem): Form labels, card descriptions, select empty state.
-- **Mono** (400, 1rem): Input, textarea, and select trigger values; chips at 13px.
+- **Mono** (400, 1rem): Input, textarea, and select trigger values; chips use `--iv_text-chips` (10.5px) or `--iv_text-chips-sm` (13px).
 
 Text scale is tokenized (`--iv_text-xs` 0.75rem through `--iv_text-xl` 1.1rem); never set a raw `rem`/`px` in a component.
 
@@ -251,7 +251,7 @@ Selected states are signaled with the brass border rather than a fill; checkboxe
 
 ### Chips / Badges / Pills
 
-- **Style:** Full pill, `surface-elevated` fill, 1px border, 10.5px bold (600) text. Multi-select chips in a select use a translucent overlay fill, mono 13px, and a 1px border.
+- **Style:** Full pill, `surface-elevated` fill, 1px border, 10.5px bold (600) text (`--iv_text-chips`). Multi-select chips in a select use a translucent overlay fill, mono 10.5px (`--iv_text-chips`), and a 1px border.
 - **Rule:** Text color may carry a semantic tone (success/error/accent) to convey meaning, but the chip background stays neutral gray — never fill a chip with a semantic color.
 
 ### Checkbox / Radio / Switch

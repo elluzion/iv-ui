@@ -10,13 +10,13 @@
 
 This is a Svelte 5 component library (`iv-ui`) wrapped in a SvelteKit app for development/showcase.
 
-| Directory             | Purpose                                                                          |
-| --------------------- | -------------------------------------------------------------------------------- |
+| Directory             | Purpose                                                                                                                                                                                                                      |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `src/lib/components/` | Library components (Button, Card, Article, Accordion, Checkbox, Dialog, Sheet, ConfirmDialog, Popover, Menu, Shortcut, Input, Textarea, RadioGroup, Separator, Select, Tabs, Slider, Switch, Tooltip, Toast, LoadingSpinner) |
-| `src/lib/theme/`      | CSS tokens + base styles (`tokens.css`, `base.css`, `theme.css` bundling all)    |
-| `src/lib/stores/`     | Global state stores (toast, dialog)                                              |
-| `src/lib/index.ts`    | Library entry point — re-exports components and stores                           |
-| `src/routes/`         | Showcase/preview SvelteKit app (not part of the distributed package)             |
+| `src/lib/theme/`      | CSS tokens + base styles (`tokens.css`, `base.css`, `theme.css` bundling all)                                                                                                                                                |
+| `src/lib/stores/`     | Global state stores (toast, dialog)                                                                                                                                                                                          |
+| `src/lib/index.ts`    | Library entry point — re-exports components and stores                                                                                                                                                                       |
+| `src/routes/`         | Showcase/preview SvelteKit app (not part of the distributed package)                                                                                                                                                         |
 
 Svelte 5 runes mode is forced for all project code (but not `node_modules`) via `vite.config.ts`.
 

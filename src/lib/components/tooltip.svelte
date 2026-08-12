@@ -36,8 +36,12 @@
 
 	const hasContent = $derived(!!(label || content));
 
-	const GAP = 8;
-	const MARGIN = 8;
+	const GAP = parseInt(
+		getComputedStyle(document.documentElement).getPropertyValue('--iv_tooltip-gap')
+	);
+	const MARGIN = parseInt(
+		getComputedStyle(document.documentElement).getPropertyValue('--iv_tooltip-margin')
+	);
 
 	function clearTimer() {
 		if (timer) {

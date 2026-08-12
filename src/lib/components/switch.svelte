@@ -113,13 +113,13 @@
 		}
 
 		&.iv-sm {
-			width: 32px;
-			height: 18px;
+			width: var(--iv_switch-w-sm);
+			height: var(--iv_switch-h-sm);
 		}
 
 		&.iv-md {
-			width: 40px;
-			height: 22px;
+			width: var(--iv_switch-w);
+			height: var(--iv_switch-h);
 		}
 
 		&.iv-checked {
@@ -140,13 +140,13 @@
 		transition: transform var(--iv_transition-fast);
 
 		.iv-switch.iv-sm & {
-			width: 14px;
-			height: 14px;
+			width: var(--iv_thumb-sm);
+			height: var(--iv_thumb-sm);
 		}
 
 		.iv-switch.iv-md & {
-			width: 18px;
-			height: 18px;
+			width: var(--iv_thumb-md);
+			height: var(--iv_thumb-md);
 		}
 
 		.iv-switch.iv-checked & {
@@ -154,11 +154,11 @@
 		}
 
 		.iv-switch.iv-sm.iv-checked & {
-			transform: translateX(14px);
+			transform: translateX(calc(var(--iv_switch-w-sm) - var(--iv_thumb-sm) - 4px));
 		}
 
 		.iv-switch.iv-md.iv-checked & {
-			transform: translateX(18px);
+			transform: translateX(calc(var(--iv_switch-w) - var(--iv_thumb-md) - 4px));
 		}
 	}
 

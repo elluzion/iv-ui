@@ -118,17 +118,17 @@
 		overflow: hidden;
 		transition: border-color var(--iv_transition-base);
 
-		--pad-x: 1rem;
-		--pad-y: 0.875rem;
+		--pad-x: var(--iv_card-pad-x);
+		--pad-y: var(--iv_card-pad-y);
 
 		&.iv-pad-sm {
-			--pad-x: 0.75rem;
-			--pad-y: 0.625rem;
+			--pad-x: var(--iv_card-pad-x-sm);
+			--pad-y: var(--iv_card-pad-y-sm);
 		}
 
 		&.iv-pad-lg {
-			--pad-x: 1.25rem;
-			--pad-y: 1.25rem;
+			--pad-x: var(--iv_card-pad-x-lg);
+			--pad-y: var(--iv_card-pad-y-lg);
 		}
 
 		&.iv-pad-none {
@@ -146,6 +146,7 @@
 
 		&.iv-selected {
 			border-color: var(--iv_accent);
+			background: var(--iv_accent-surface);
 		}
 
 		&.iv-clickable {

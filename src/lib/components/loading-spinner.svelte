@@ -19,7 +19,7 @@
 <style>
 	.iv-spinner {
 		display: inline-block;
-		border-width: 2px;
+		border-width: var(--iv_spinner-border);
 		border-style: solid;
 		border-radius: 50%;
 		animation: spin var(--iv_spin-duration) var(--iv_spin-easing) infinite;

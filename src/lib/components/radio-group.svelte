@@ -152,7 +152,7 @@
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
-		border: 1.5px solid var(--iv_border);
+		border: var(--iv_radio-border) solid var(--iv_border);
 		border-radius: 50%;
 		background: var(--iv_surface-raised);
 		transition:
@@ -160,13 +160,13 @@
 			background var(--iv_transition-fast);
 
 		&.iv-sm {
-			width: 16px;
-			height: 16px;
+			width: var(--iv_control-sm);
+			height: var(--iv_control-sm);
 		}
 
 		&.iv-md {
-			width: 20px;
-			height: 20px;
+			width: var(--iv_control-md);
+			height: var(--iv_control-md);
 		}
 
 		&.iv-checked {
@@ -175,15 +175,15 @@
 	}
 
 	.iv-dot {
-		width: 8px;
-		height: 8px;
+		width: var(--iv_radio-dot);
+		height: var(--iv_radio-dot);
 		border-radius: 50%;
 		background: var(--iv_foreground);
 	}
 
 	.iv-circle.iv-sm .iv-dot {
-		width: 5px;
-		height: 5px;
+		width: var(--iv_radio-dot-sm);
+		height: var(--iv_radio-dot-sm);
 	}
 
 	.iv-native:focus-visible + .iv-circle {

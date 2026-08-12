@@ -244,8 +244,8 @@
 			background: transparent;
 			border: none;
 			color: var(--iv_foreground-dim);
-			padding: 0 0.5rem;
-			margin-right: -0.5rem;
+			padding: 0 var(--iv_spacing-sm);
+			margin-right: calc(var(--iv_spacing-sm) * -1);
 			cursor: pointer;
 			transition: color var(--iv_transition-base);
 
@@ -279,7 +279,7 @@
 		display: flex;
 		justify-content: flex-end;
 		gap: var(--iv_spacing-sm);
-		padding: 0 1.5rem 1.5rem;
+		padding: 0 var(--iv_spacing-2xl) var(--iv_spacing-2xl);
 		flex-shrink: 0;
 	}
 </style>

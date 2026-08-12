@@ -194,7 +194,7 @@
 		}
 
 		&.iv-has-error {
-			border-color: var(--iv_error);
+			border-color: var(--iv_border-error);
 
 			&:focus-within {
 				box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_error-surface);
@@ -239,7 +239,7 @@
 		font-family: var(--iv_font-mono);
 		font-size: var(--iv_text-base);
 		color: var(--iv_foreground);
-		padding: 9px 13px;
+		padding: var(--iv_control-pad-y) var(--iv_control-pad-x);
 		width: 100%;
 
 		&::placeholder {
@@ -260,36 +260,36 @@
 	}
 
 	.iv-input-sm {
-		--input-padding-y: 5px;
+		--input-padding-y: var(--iv_control-pad-y-sm);
 
 		& input {
 			font-size: var(--iv_text-body-sm);
-			padding: 5px 11px;
+			padding: var(--iv_control-pad-y-sm) var(--iv_control-pad-x-sm);
 		}
 
 		& .iv-icon.iv-leading {
-			padding-left: 11px;
+			padding-left: var(--iv_control-pad-x-sm);
 		}
 
 		& .iv-icon.iv-trailing {
-			padding-right: 11px;
+			padding-right: var(--iv_control-pad-x-sm);
 		}
 	}
 
 	.iv-input-lg {
-		--input-padding-y: 13px;
+		--input-padding-y: var(--iv_control-pad-y-lg);
 
 		& input {
 			font-size: var(--iv_text-lg);
-			padding: 13px 16px;
+			padding: var(--iv_control-pad-y-lg) var(--iv_control-pad-x-lg);
 		}
 
 		& .iv-icon.iv-leading {
-			padding-left: 16px;
+			padding-left: var(--iv_control-pad-x-lg);
 		}
 
 		& .iv-icon.iv-trailing {
-			padding-right: 16px;
+			padding-right: var(--iv_control-pad-x-lg);
 		}
 	}
 
@@ -299,8 +299,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 20px;
-		height: 20px;
+		width: var(--iv_control-md);
+		height: var(--iv_control-md);
 		border-radius: 50%;
 		color: var(--iv_foreground-dim);
 		flex-shrink: 0;

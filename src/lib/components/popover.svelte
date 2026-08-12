@@ -61,7 +61,9 @@
 		if (!anchorNode || !panelEl) return;
 		const anchor = anchorNode.getBoundingClientRect();
 		const panel = panelEl.getBoundingClientRect();
-		const margin = 8;
+		const margin = parseInt(
+			getComputedStyle(document.documentElement).getPropertyValue('--iv_popover-margin')
+		);
 		const vw = window.innerWidth;
 		const vh = window.innerHeight;
 
@@ -285,8 +287,8 @@
 	.iv-panel {
 		position: fixed;
 		z-index: var(--iv_z-dropdown);
-		min-width: 10rem;
-		max-width: min(20rem, calc(100vw - 1rem));
+		min-width: var(--iv_popover-min-w);
+		max-width: min(var(--iv_popover-max-w), calc(100vw - 1rem));
 		box-sizing: border-box;
 		background: var(--iv_surface-raised);
 		border: 1px solid var(--iv_border);
