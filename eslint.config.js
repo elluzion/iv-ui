@@ -35,6 +35,14 @@ export default defineConfig(
 		}
 	},
 	{
+		// Library components receive arbitrary hrefs (possibly external) and must not
+		// couple to SvelteKit's $app/paths.
+		files: ['src/lib/**/*.svelte'],
+		rules: {
+			'svelte/no-navigation-without-resolve': 'off'
+		}
+	},
+	{
 		// Override or add rule settings here, such as:
 		// 'svelte/button-has-type': 'error'
 		rules: {}
