@@ -15,6 +15,8 @@
 </script>
 
 <script>
+	import { expect, userEvent, within } from 'storybook/test';
+
 	let bound = $state(false);
 </script>
 
@@ -43,7 +45,20 @@
 	</div>
 {/snippet}
 
-<Story name="Interactive" template={interactiveTemplate} />
+<Story
+	name="Interactive"
+	template={interactiveTemplate}
+	play={async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		const toggle = canvas.getByRole('switch', { name: 'Toggle me' });
+		await userEvent.click(toggle);
+		await expect(toggle).toHaveAttribute('aria-checked', 'true');
+		await expect(canvas.getByText(/checked: true/)).toBeVisible();
+		await toggle.focus();
+		await userEvent.keyboard(' ');
+		await expect(toggle).toHaveAttribute('aria-checked', 'false');
+	}}
+/>
 
 {#snippet allStatesTemplate()}
 	<div style="display:flex;flex-direction:column;gap:0.75rem">

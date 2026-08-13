@@ -16,6 +16,8 @@
 </script>
 
 <script lang="ts">
+	import { expect, userEvent, within } from 'storybook/test';
+
 	let bound = $state(50);
 	let rangeBound: [number, number] = $state([25, 75]);
 </script>
@@ -69,7 +71,19 @@
 	</div>
 {/snippet}
 
-<Story name="InteractiveSingle" template={interactiveSingleTemplate} />
+<Story
+	name="InteractiveSingle"
+	template={interactiveSingleTemplate}
+	play={async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		const slider = canvas.getByRole('slider');
+		slider.focus();
+		await userEvent.keyboard('{ArrowRight}');
+		await expect(canvas.getByText(/value: 51/)).toBeVisible();
+		await userEvent.keyboard('{Home}');
+		await expect(canvas.getByText(/value: 0/)).toBeVisible();
+	}}
+/>
 
 {#snippet interactiveRangeTemplate()}
 	<div style="max-width:320px;display:flex;flex-direction:column;gap:0.5rem">

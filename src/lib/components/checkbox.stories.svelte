@@ -16,6 +16,8 @@
 </script>
 
 <script>
+	import { expect, userEvent, within } from 'storybook/test';
+
 	let binding = $state(false);
 </script>
 
@@ -49,7 +51,19 @@
 	</div>
 {/snippet}
 
-<Story name="Interactive" template={interactiveTemplate} />
+<Story
+	name="Interactive"
+	template={interactiveTemplate}
+	play={async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		const checkbox = canvas.getByRole('checkbox');
+		await userEvent.click(canvas.getByText('Toggle me'));
+		await expect(checkbox).toBeChecked();
+		await expect(canvas.getByText(/checked: true/)).toBeVisible();
+		await userEvent.click(canvas.getByText('Toggle me'));
+		await expect(checkbox).not.toBeChecked();
+	}}
+/>
 
 {#snippet childrenTemplate()}
 	<Checkbox>

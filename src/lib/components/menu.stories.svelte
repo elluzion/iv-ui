@@ -103,6 +103,8 @@
 </script>
 
 <script lang="ts">
+	import { expect, userEvent, within } from 'storybook/test';
+
 	let lastClicked = $state('');
 </script>
 
@@ -138,7 +140,15 @@
 	template={shell}
 />
 
-<Story name="ClickHandling" template={clickShell} />
+<Story
+	name="ClickHandling"
+	template={clickShell}
+	play={async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		await userEvent.click(canvas.getByText('Profile'));
+		await expect(canvas.getByText('Clicked: profile')).toBeVisible();
+	}}
+/>
 
 {#snippet emptyShell()}
 	<div class="iv-shell">

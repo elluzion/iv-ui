@@ -19,6 +19,8 @@
 </script>
 
 <script lang="ts">
+	import { expect, userEvent, within } from 'storybook/test';
+
 	let single = $state('week');
 	let multiple = $state(['bold', 'italic']);
 	let lastChange = $state('');
@@ -99,7 +101,17 @@
 	</div>
 {/snippet}
 
-<Story name="SingleSelect" template={singleTemplate} />
+<Story
+	name="SingleSelect"
+	template={singleTemplate}
+	play={async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		await userEvent.click(canvas.getByRole('button', { name: 'Day' }));
+		await expect(canvas.getByText(/Selected: day single → day/)).toBeVisible();
+		await userEvent.click(canvas.getByRole('button', { name: 'Month' }));
+		await expect(canvas.getByText(/Selected: month single → month/)).toBeVisible();
+	}}
+/>
 
 {#snippet multipleTemplate()}
 	<div style="display:flex;flex-direction:column;align-items:flex-start;gap:0.75rem">

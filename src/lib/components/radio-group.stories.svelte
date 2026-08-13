@@ -21,6 +21,8 @@
 </script>
 
 <script>
+	import { expect, userEvent, within } from 'storybook/test';
+
 	let bound = $state('banana');
 </script>
 
@@ -45,7 +47,18 @@
 	</div>
 {/snippet}
 
-<Story name="Interactive" template={interactiveTemplate} />
+<Story
+	name="Interactive"
+	template={interactiveTemplate}
+	play={async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		await userEvent.click(canvas.getByText('apple'));
+		await expect(canvas.getByRole('radio', { name: 'apple' })).toBeChecked();
+		await expect(canvas.getByText(/value: apple/)).toBeVisible();
+		await userEvent.click(canvas.getByText('cherry'));
+		await expect(canvas.getByText(/value: cherry/)).toBeVisible();
+	}}
+/>
 
 {#snippet allStatesTemplate()}
 	<div style="display:flex;flex-direction:column;gap:1.5rem;max-width:300px">

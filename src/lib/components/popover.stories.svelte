@@ -37,6 +37,8 @@
 </script>
 
 <script lang="ts">
+	import { expect, userEvent, waitFor, within } from 'storybook/test';
+
 	let controlledOpen = $state(false);
 	let interactiveAnchor = $state<HTMLButtonElement>();
 	let controlledAnchor = $state<HTMLButtonElement>();
@@ -83,7 +85,18 @@
 	</Popover>
 </Story>
 
-<Story name="Interactive">
+<Story
+	name="Interactive"
+	play={async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		await userEvent.click(canvas.getByRole('button', { name: 'Open' }));
+		const panel = await canvas.findByRole('dialog');
+		await waitFor(() => expect(panel).toBeVisible());
+		await expect(within(panel).getByText('Profile')).toBeVisible();
+		await userEvent.keyboard('{Escape}');
+		await waitFor(() => expect(canvas.queryByRole('dialog')).not.toBeInTheDocument());
+	}}
+>
 	<button bind:this={interactiveAnchor} class="iv-story-anchor" type="button">Open</button>
 	<Popover anchor={interactiveAnchor}>
 		{@render anchorContent()}

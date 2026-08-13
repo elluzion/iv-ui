@@ -49,6 +49,8 @@
 </script>
 
 <script>
+	import { expect, userEvent, within } from 'storybook/test';
+
 	let searchValue = $state('orange');
 	let multiValue = $state(['apple', 'orange']);
 	let clearValue = $state('banana');
@@ -121,7 +123,18 @@
 	</div>
 {/snippet}
 
-<Story name="Searchable" template={searchableTemplate} />
+<Story
+	name="Searchable"
+	template={searchableTemplate}
+	play={async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		await userEvent.click(canvas.getByRole('combobox'));
+		const search = canvas.getByLabelText('Search options');
+		await userEvent.type(search, 'man');
+		await userEvent.click(await canvas.findByRole('option', { name: 'mango' }));
+		await expect(canvas.getByText(/value: mango/)).toBeVisible();
+	}}
+/>
 
 {#snippet multipleTemplate()}
 	<div style="display:flex;flex-direction:column;gap:1rem;max-width:360px">

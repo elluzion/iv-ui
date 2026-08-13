@@ -18,6 +18,35 @@
 	});
 </script>
 
+<script lang="ts">
+	import { expect, userEvent, within } from 'storybook/test';
+
+	let fruit = $state('Bananas');
+</script>
+
+{#snippet interactiveTemplate()}
+	<div style="display:flex;flex-direction:column;gap:0.5rem;max-width:320px">
+		<NativeSelect label="Fruit" options={['Apples', 'Bananas', 'Cherries']} bind:value={fruit} />
+		<p
+			style="margin:0;font-family:var(--iv_font-mono);font-size:var(--iv_text-sm);color:var(--iv_foreground-dim)"
+		>
+			value: {fruit}
+		</p>
+	</div>
+{/snippet}
+
+<Story
+	name="Interactive"
+	template={interactiveTemplate}
+	play={async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		const select = canvas.getByLabelText('Fruit');
+		await userEvent.selectOptions(select, 'Cherries');
+		await expect(select).toHaveValue('Cherries');
+		await expect(canvas.getByText(/value: Cherries/)).toBeVisible();
+	}}
+/>
+
 <Story
 	name="Default"
 	args={{

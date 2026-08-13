@@ -19,10 +19,30 @@
 </script>
 
 <script lang="ts">
+	import { expect, userEvent, within } from 'storybook/test';
+
 	let activeTab = $state('');
 </script>
 
-<Story name="Default" args={{ defaultValue: 'overview' }}>
+<Story
+	name="Default"
+	args={{ defaultValue: 'overview' }}
+	play={async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		canvas.getByRole('tab', { name: 'Overview' }).focus();
+		await userEvent.keyboard('{ArrowRight}');
+		await expect(canvas.getByRole('tab', { name: 'Analytics' })).toHaveAttribute(
+			'aria-selected',
+			'true'
+		);
+		await expect(canvas.getByText(/Traffic, engagement, and conversion metrics/)).toBeVisible();
+		await userEvent.keyboard('{End}');
+		await expect(canvas.getByRole('tab', { name: 'Reports' })).toHaveAttribute(
+			'aria-selected',
+			'true'
+		);
+	}}
+>
 	<TabList>
 		<Tab value="overview">Overview</Tab>
 		<Tab value="analytics">Analytics</Tab>

@@ -16,6 +16,35 @@
 	});
 </script>
 
+<script lang="ts">
+	import { expect, userEvent, within } from 'storybook/test';
+
+	let bodyValue = $state('');
+</script>
+
+{#snippet interactiveTemplate()}
+	<div style="display:flex;flex-direction:column;gap:0.5rem;max-width:320px">
+		<Textarea label="Bio" placeholder="Tell us about yourself…" bind:value={bodyValue} rows={3} />
+		<p
+			style="margin:0;font-family:var(--iv_font-mono);font-size:var(--iv_text-sm);color:var(--iv_foreground-dim)"
+		>
+			value: {bodyValue}
+		</p>
+	</div>
+{/snippet}
+
+<Story
+	name="Interactive"
+	template={interactiveTemplate}
+	play={async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		const textarea = canvas.getByLabelText('Bio');
+		await userEvent.type(textarea, 'Hello Svelte');
+		await expect(textarea).toHaveValue('Hello Svelte');
+		await expect(canvas.getByText(/value: Hello Svelte/)).toBeVisible();
+	}}
+/>
+
 <Story name="Default" args={{ placeholder: 'Type something…' }}>Default</Story>
 
 <Story

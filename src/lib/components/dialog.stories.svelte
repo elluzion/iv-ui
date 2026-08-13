@@ -15,6 +15,8 @@
 </script>
 
 <script>
+	import { expect, userEvent, waitFor, within } from 'storybook/test';
+
 	let show = $state(true);
 </script>
 
@@ -57,7 +59,18 @@
 	{/if}
 {/snippet}
 
-<Story name="WithFooter" {template} />
+<Story
+	name="WithFooter"
+	{template}
+	play={async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		const dialog = await canvas.findByRole('dialog');
+		await expect(dialog).toBeVisible();
+		await expect(canvas.getByRole('button', { name: 'Save Changes' })).toBeVisible();
+		await userEvent.keyboard('{Escape}');
+		await waitFor(() => expect(canvas.queryByRole('dialog')).not.toBeInTheDocument());
+	}}
+/>
 
 <Story name="LongContent" args={{ open: true, title: 'Scrollable Content' }}>
 	<p>

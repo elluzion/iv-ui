@@ -28,6 +28,42 @@
 	});
 </script>
 
+<script lang="ts">
+	import { expect, userEvent, within } from 'storybook/test';
+
+	let inputValue = $state('');
+	let lastEvent = $state('');
+</script>
+
+{#snippet interactiveTemplate()}
+	<div style="display:flex;flex-direction:column;gap:0.5rem;max-width:320px">
+		<Input
+			label="Name"
+			placeholder="Type your name…"
+			bind:value={inputValue}
+			oninput={() => (lastEvent = 'input')}
+			onchange={() => (lastEvent = 'change')}
+		/>
+		<p
+			style="margin:0;font-family:var(--iv_font-mono);font-size:var(--iv_text-sm);color:var(--iv_foreground-dim)"
+		>
+			value: {inputValue} · last: {lastEvent}
+		</p>
+	</div>
+{/snippet}
+
+<Story
+	name="Interactive"
+	template={interactiveTemplate}
+	play={async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		const input = canvas.getByLabelText('Name');
+		await userEvent.type(input, 'Ada');
+		await expect(input).toHaveValue('Ada');
+		await expect(canvas.getByText(/value: Ada · last: input/)).toBeVisible();
+	}}
+/>
+
 <Story name="Default" args={{ placeholder: 'Type something…' }}>Default</Story>
 
 <Story name="WithValue" args={{ value: 'Hello world', 'aria-label': 'Message' }} />

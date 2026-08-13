@@ -1,5 +1,6 @@
 <script module>
 	import { defineMeta } from '@storybook/addon-svelte-csf';
+	import { expect, userEvent, within } from 'storybook/test';
 	import { IconInfoCircle } from '@tabler/icons-svelte';
 	import Button from './button.svelte';
 	import Tooltip from './tooltip.svelte';
@@ -17,7 +18,16 @@
 	});
 </script>
 
-<Story name="Default" args={{ label: 'Adds a new project' }}>
+<Story
+	name="Default"
+	args={{ label: 'Adds a new project' }}
+	play={async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		await userEvent.hover(canvas.getByRole('button', { name: 'Hover me' }));
+		const tooltip = await canvas.findByRole('tooltip');
+		await expect(tooltip).toHaveTextContent('Adds a new project');
+	}}
+>
 	<Button variant="secondary">Hover me</Button>
 </Story>
 

@@ -19,6 +19,15 @@
 	});
 </script>
 
+<script lang="ts">
+	import { expect, userEvent, within } from 'storybook/test';
+
+	let modern = $state(0);
+	let legacy = $state(0);
+	let disabledClicks = $state(0);
+	let loadingClicks = $state(0);
+</script>
+
 <Story name="Primary" args={{ variant: 'primary' }}>Create Article</Story>
 
 <Story name="Secondary" args={{ variant: 'secondary' }}>Cancel</Story>
@@ -91,3 +100,31 @@
 {/snippet}
 
 <Story name="AllSizes" template={allSizesTemplate} />
+
+{#snippet eventsTemplate()}
+	<div style="display:flex;flex-direction:column;gap:0.75rem;align-items:flex-start">
+		<Button {...{ onclick: () => modern++, 'on:click': () => legacy++ }}>Click me</Button>
+		<Button disabled onclick={() => disabledClicks++}>Disabled</Button>
+		<Button loading onclick={() => loadingClicks++}>Loading</Button>
+		<p
+			style="margin:0;font-family:var(--iv_font-mono);font-size:var(--iv_text-sm);color:var(--iv_foreground-dim)"
+		>
+			modern:{modern} legacy:{legacy} disabled:{disabledClicks} loading:{loadingClicks}
+		</p>
+	</div>
+{/snippet}
+
+<Story
+	name="Events"
+	template={eventsTemplate}
+	play={async ({ canvasElement }) => {
+		const canvas = within(canvasElement);
+		const [active, disabled, loading] = canvas.getAllByRole('button');
+		await expect(active).toHaveAttribute('type', 'button');
+		await userEvent.click(active);
+		await userEvent.click(active);
+		await userEvent.click(disabled);
+		await userEvent.click(loading);
+		await expect(canvas.getByText(/modern:2 legacy:2 disabled:0 loading:0/)).toBeVisible();
+	}}
+/>
