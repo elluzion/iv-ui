@@ -67,7 +67,7 @@
 			{#snippet prefix()}
 				<IconCurrencyDollar size={16} />
 			{/snippet}
-			<NativeSelect options={['USD', 'EUR', 'GBP']} value="USD" />
+			<NativeSelect options={['USD', 'EUR', 'GBP']} value="USD" aria-label="Currency" />
 			<Input placeholder="Amount" />
 		</InputGroup>
 		<InputGroup size="sm">

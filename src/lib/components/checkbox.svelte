@@ -18,6 +18,7 @@
 		'on:focus'?: (e: FocusEvent) => void;
 		onblur?: (e: FocusEvent) => void;
 		'on:blur'?: (e: FocusEvent) => void;
+		[key: string]: unknown;
 	}
 
 	let {
@@ -35,7 +36,8 @@
 		onfocus,
 		'on:focus': onEventFocus,
 		onblur,
-		'on:blur': onEventBlur
+		'on:blur': onEventBlur,
+		...restProps
 	}: Props = $props();
 
 	const uid = $props.id();
@@ -86,6 +88,7 @@
 		onchange={handleInput}
 		onfocus={handleFocus}
 		onblur={handleBlur}
+		{...restProps}
 	/>
 	<span
 		class="iv-box"

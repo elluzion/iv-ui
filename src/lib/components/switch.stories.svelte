@@ -30,7 +30,7 @@
 
 <Story name="SmallChecked" args={{ size: 'sm', checked: true, label: 'Notifications' }} />
 
-<Story name="WithoutLabel" />
+<Story name="WithoutLabel" args={{ 'aria-label': 'Enable notifications' }} />
 
 {#snippet interactiveTemplate()}
 	<div style="display:flex;flex-direction:column;gap:0.75rem">

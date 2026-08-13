@@ -1,5 +1,6 @@
 <script module lang="ts">
 	import { defineMeta } from '@storybook/addon-svelte-csf';
+	import { expect, waitFor, within } from 'storybook/test';
 	import Toast from './toast.svelte';
 	import { toastState } from '../stores/toast.js';
 
@@ -9,28 +10,41 @@
 		tags: ['autodocs']
 	});
 
-	function showToast(id: number, message: string, type: 'success' | 'info' | 'error') {
-		toastState.set({ id, message, type });
+	async function assertToastVisible(
+		message: string,
+		type: 'success' | 'info' | 'error',
+		canvas: HTMLElement
+	) {
+		toastState.set({ id: Math.random(), message, type });
+		const role = type === 'error' ? 'alert' : 'status';
+		const toast = await within(canvas).findByRole(role);
+		await waitFor(() => expect(toast).toBeVisible());
 	}
 </script>
 
-{#snippet successTemplate()}
-	{showToast(1, 'Article saved successfully.', 'success')}
+<Story
+	name="Success"
+	play={async ({ canvasElement }) => {
+		await assertToastVisible('Article saved successfully.', 'success', canvasElement);
+	}}
+>
 	<Toast />
-{/snippet}
+</Story>
 
-<Story name="Success" template={successTemplate} />
-
-{#snippet infoTemplate()}
-	{showToast(2, 'Syncing data from server...', 'info')}
+<Story
+	name="Info"
+	play={async ({ canvasElement }) => {
+		await assertToastVisible('Syncing data from server...', 'info', canvasElement);
+	}}
+>
 	<Toast />
-{/snippet}
+</Story>
 
-<Story name="Info" template={infoTemplate} />
-
-{#snippet errorTemplate()}
-	{showToast(3, 'Failed to save. Please try again.', 'error')}
+<Story
+	name="Error"
+	play={async ({ canvasElement }) => {
+		await assertToastVisible('Failed to save. Please try again.', 'error', canvasElement);
+	}}
+>
 	<Toast />
-{/snippet}
-
-<Story name="Error" template={errorTemplate} />
+</Story>

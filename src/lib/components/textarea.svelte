@@ -127,6 +127,7 @@
 				: helper
 					? `${textareaId}-helper`
 					: undefined}
+			aria-label={label ? undefined : placeholder || undefined}
 			{...restProps}></textarea>
 	</div>
 

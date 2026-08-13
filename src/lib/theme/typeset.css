@@ -80,10 +80,7 @@
 		font-size: 1em;
 	}
 
-	&
-		:where(
-			a[href]:not(.iv-not-typeset, .iv-not-typeset *, [data-not-typeset], [data-not-typeset] *)
-		) {
+	& a[href]:not(.iv-not-typeset, .iv-not-typeset *, [data-not-typeset], [data-not-typeset] *) {
 		color: var(--iv_accent);
 		text-decoration: underline;
 		text-decoration-style: dotted;

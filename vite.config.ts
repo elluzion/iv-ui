@@ -11,6 +11,12 @@ const dirname =
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
+	optimizeDeps: {
+		// `aria-query` is CJS-only, but `@testing-library/dom` imports it as ESM
+		// (`import { elementRoles } from 'aria-query'`). Pre-bundle it so the browser
+		// test environment resolves the named exports.
+		include: ['@testing-library/dom', 'aria-query']
+	},
 	plugins: [
 		sveltekit({
 			compilerOptions: {

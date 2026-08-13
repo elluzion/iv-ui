@@ -10,7 +10,7 @@
 <Story name="Scale">
 	<div class="section">
 		<h3>Roles — Display → Caption, one sans family at heavier weights</h3>
-		{#each [['Display', 'var(--iv_text-display)', '700'], ['Heading 1', 'var(--iv_text-h1)', '600'], ['Heading 2', 'var(--iv_text-h2)', '600'], ['Heading 3', 'var(--iv_text-h3)', '600'], ['Title', 'var(--iv_text-title)', '600'], ['Body', 'var(--iv_text-body)', '400'], ['Label', 'var(--iv_text-label)', '500'], ['Small', 'var(--iv_text-sm)', '400'], ['Caption', 'var(--iv_text-caption)', '400']] as [name, token, weight] ([name, token, weight])}
+		{#each [['Display', 'var(--iv_text-display)', '700'], ['Heading 1', 'var(--iv_text-h1)', '600'], ['Heading 2', 'var(--iv_text-h2)', '600'], ['Heading 3', 'var(--iv_text-h3)', '600'], ['Title', 'var(--iv_text-title)', '600'], ['Body', 'var(--iv_text-body)', '400'], ['Label', 'var(--iv_text-label)', '500'], ['Small', 'var(--iv_text-sm)', '400'], ['Caption', 'var(--iv_text-caption)', '400']] as [name, token, weight] (name)}
 			<div class="scale-row">
 				<div class="sample" style="font-size: {token}; font-weight: {weight}">{name}</div>
 				<div class="meta">{token} · {weight}</div>
@@ -23,7 +23,7 @@
 	<div class="section">
 		<h3>Weights — normal 400 · medium 500 · semibold 600 · bold 700</h3>
 		<div class="weight-demo">
-			{#each [['var(--iv_weight-normal)', 'Body text sits at normal weight'], ['var(--iv_weight-medium)', 'Labels and menu items carry medium'], ['var(--iv_weight-semibold)', 'Headings and strong text are semibold'], ['var(--iv_weight-bold)', 'Primary buttons and titles go bold']] as [token, sample] ([token, sample])}
+			{#each [['var(--iv_weight-normal)', 'Body text sits at normal weight'], ['var(--iv_weight-medium)', 'Labels and menu items carry medium'], ['var(--iv_weight-semibold)', 'Headings and strong text are semibold'], ['var(--iv_weight-bold)', 'Primary buttons and titles go bold']] as [token, sample] (token)}
 				<div class="scale-row">
 					<div class="sample" style="font-weight: {token}">{sample}</div>
 					<div class="meta">{token}</div>
@@ -31,7 +31,7 @@
 			{/each}
 		</div>
 		<h3 style="margin-top: var(--iv_spacing-xl)">Line heights — tokenized</h3>
-		{#each [['var(--iv_leading-tight)', '1.25 — controls and labels'], ['var(--iv_leading-heading)', '1.3 — headings'], ['var(--iv_leading-base)', '1.5 — form fields, accordions'], ['var(--iv_leading-prose)', '1.6 — reading text'], ['var(--iv_leading-loose)', '1.75 — roomy docs']] as [token, note] ([token, note])}
+		{#each [['var(--iv_leading-tight)', '1.25 — controls and labels'], ['var(--iv_leading-heading)', '1.3 — headings'], ['var(--iv_leading-base)', '1.5 — form fields, accordions'], ['var(--iv_leading-prose)', '1.6 — reading text'], ['var(--iv_leading-loose)', '1.75 — roomy docs']] as [token, note] (token)}
 			<div class="scale-row">
 				<div class="sample" style="line-height: {token}">{note}</div>
 				<div class="meta">{token}</div>

@@ -149,5 +149,6 @@ Every component must pass the Storybook a11y addon:
 3. Prefix all classes `iv-`, reference only `--iv_*` tokens.
 4. Accept both `on:event` and `onevent` props for the primary interaction.
 5. Ship a `*.stories.svelte` next to the component covering variants, states,
-   and a11y (see Testing in `AGENTS.md`).
+   and a11y, with a `play` interaction test for the primary interaction (see
+   Testing in `AGENTS.md`).
 6. Export it from `src/lib/index.ts` and run `bun run lint && bun run check`.

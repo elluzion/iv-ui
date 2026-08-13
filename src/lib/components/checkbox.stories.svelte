@@ -33,7 +33,10 @@
 
 <Story name="SmallChecked" args={{ size: 'sm', checked: true, label: 'Dark mode' }} />
 
-<Story name="WithoutLabel" args={{ name: 'nofruit', value: 'apple' }} />
+<Story
+	name="WithoutLabel"
+	args={{ name: 'nofruit', value: 'apple', 'aria-label': 'Select apple' }}
+/>
 
 {#snippet interactiveTemplate()}
 	<div style="display:flex;flex-direction:column;gap:0.75rem">

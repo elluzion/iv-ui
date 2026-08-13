@@ -86,6 +86,7 @@
 		onchange={handleChange}
 		aria-invalid={hasError || undefined}
 		aria-describedby={hasError ? selectId + '-error' : helper ? selectId + '-helper' : undefined}
+		aria-label={label ? undefined : placeholder || undefined}
 		{...restProps}
 	>
 		{#if placeholder}

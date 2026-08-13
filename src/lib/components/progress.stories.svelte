@@ -17,7 +17,7 @@
 	});
 </script>
 
-<Story name="Default" args={{ value: 60 }} />
+<Story name="Default" args={{ value: 60, 'aria-label': 'Loading progress' }} />
 
 <Story name="WithLabel" args={{ label: 'Uploading…', value: 45, showValue: true }} />
 

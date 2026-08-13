@@ -49,9 +49,11 @@ bun run storybook       # storybook at :6006
 bun run check           # type-check with svelte-check
 bun run lint            # prettier --check + eslint
 bun run format          # prettier --write
+bun run test            # vitest browser tests (playwright/chromium)
+bun run test:watch      # vitest in watch mode
 ```
 
-**Before committing:** run `bun run lint && bun run check`. There is no dedicated test command; tests run through Storybook + Vitest browser tests (playwright/chromium).
+**Before committing:** run `bun run lint && bun run check && bun run test`.
 
 ## Exports / Package Shape
 
@@ -93,4 +95,11 @@ Components accept both `onclick` and `on:click` props to support Svelte 5 $props
 
 **Create a Storybook story file for every component.** Whenever you add or modify a component, you must write (or update) its stories alongside it as `*.stories.svelte` / `*.stories.ts`. Stories should cover the component's variants, states, and props.
 
-Tests are Storybook stories with the `@storybook/addon-vitest` integration (browser tests via Playwright/Chromium). Story files live alongside components (`*.stories.svelte`, `*.stories.ts`). Run via `vitest` or the Storybook test runner.
+Tests are Storybook stories run through the `@storybook/addon-vitest` integration (browser tests via Playwright/Chromium). Story files live alongside components (`*.stories.svelte`, `*.stories.ts`). Run via `bun run test` (one-shot) or `bun run test:watch`.
+
+Two tiers of coverage:
+
+1. **Render + accessibility (baseline)** — every story is rendered in the browser and checked by the `@storybook/addon-a11y` addon, which is configured to fail on violations (`test: 'error'` in `.storybook/preview.ts`). New stories must pass axe.
+2. **Interaction tests** — stories that exercise a real interaction define a `play` function on `<Story play={...}>` using helpers imported from `storybook/test` (`expect`, `userEvent`, `within`, `screen`, `fn`, `waitFor`). Play functions run both in the Storybook UI and under Vitest.
+
+Write a `play` function for the component's primary interaction (click/change/keyboard/overlay open-close) whenever the component is interactive; static display components can rely on tier 1. Match assertions to the contract in `COMPONENTS.md` (dual events, accessible names, focus management, reduced motion).

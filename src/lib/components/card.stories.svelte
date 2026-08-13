@@ -41,7 +41,9 @@
 {#snippet actionTemplate()}
 	<Card title="Application Settings" description="Tune the editor to your taste">
 		{#snippet action()}
-			<Button variant="ghost" size="sm" onclick={() => {}}><IconSettings size={16} /></Button>
+			<Button variant="ghost" size="sm" onclick={() => {}} aria-label="Settings"
+				><IconSettings size={16} /></Button
+			>
 		{/snippet}
 		<p>Header actions sit on the right, opposite the title.</p>
 	</Card>
@@ -129,7 +131,9 @@
 		{#snippet header()}
 			<div style="display:flex;align-items:center;justify-content:space-between;width:100%">
 				<span style="font-weight:600">Custom header</span>
-				<Button variant="ghost" size="sm" onclick={() => {}}><IconDots size={16} /></Button>
+				<Button variant="ghost" size="sm" onclick={() => {}} aria-label="More options"
+					><IconDots size={16} /></Button
+				>
 			</div>
 		{/snippet}
 		<p>Pass a <code>header</code> snippet to take full control of the header area.</p>

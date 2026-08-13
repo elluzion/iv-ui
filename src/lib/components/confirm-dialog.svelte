@@ -28,6 +28,7 @@
 		class="iv-backdrop"
 		role="alertdialog"
 		aria-modal="true"
+		aria-label="Confirmation"
 		aria-describedby={descId}
 		tabindex="-1"
 		onkeydown={handleKeydown}

@@ -62,7 +62,7 @@
 	<p>A spacious sheet for complex forms or detailed content.</p>
 </Story>
 
-<Story name="NoTitle" args={{ open: true }}>
+<Story name="NoTitle" args={{ open: true, 'aria-label': 'Sheet without title' }}>
 	<p>This sheet has no title — the header is hidden entirely.</p>
 </Story>
 

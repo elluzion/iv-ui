@@ -41,7 +41,7 @@
 	<p>A spacious dialog for complex forms or detailed content.</p>
 </Story>
 
-<Story name="NoTitle" args={{ open: true }}>
+<Story name="NoTitle" args={{ open: true, 'aria-label': 'Dialog without title' }}>
 	<p>This dialog has no title — the header is hidden entirely.</p>
 </Story>
 

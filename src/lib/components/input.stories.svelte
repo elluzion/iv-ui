@@ -30,7 +30,7 @@
 
 <Story name="Default" args={{ placeholder: 'Type something…' }}>Default</Story>
 
-<Story name="WithValue" args={{ value: 'Hello world' }} />
+<Story name="WithValue" args={{ value: 'Hello world', 'aria-label': 'Message' }} />
 
 <Story name="WithLabel" args={{ label: 'Full name', placeholder: 'John Doe' }} />
 
@@ -60,13 +60,22 @@
 
 <Story name="Disabled" args={{ placeholder: 'Cannot edit this', disabled: true }} />
 
-<Story name="DisabledWithValue" args={{ value: 'Read only value', disabled: true }} />
+<Story
+	name="DisabledWithValue"
+	args={{ value: 'Read only value', disabled: true, 'aria-label': 'Value' }}
+/>
 
-<Story name="Readonly" args={{ value: 'Pre-filled content', readonly: true }} />
+<Story
+	name="Readonly"
+	args={{ value: 'Pre-filled content', readonly: true, 'aria-label': 'Note' }}
+/>
 
 <Story name="Clearable" args={{ placeholder: 'Search…', clearable: true, type: 'search' }} />
 
-<Story name="ClearableWithValue" args={{ value: 'Something to clear', clearable: true }} />
+<Story
+	name="ClearableWithValue"
+	args={{ value: 'Something to clear', clearable: true, 'aria-label': 'Search' }}
+/>
 
 {#snippet leadingSearchTemplate()}
 	<Input placeholder="Search knowledge base…" clearable>

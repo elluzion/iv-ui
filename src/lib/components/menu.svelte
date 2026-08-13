@@ -112,9 +112,9 @@
 
 <div
 	class="iv-menu {className}"
-	role={containerRole}
+	role={hasItems ? containerRole : undefined}
 	id={id || undefined}
-	aria-label={label || undefined}
+	aria-label={hasItems ? label || undefined : undefined}
 	aria-multiselectable={semantic === 'listbox' && multiselect ? 'true' : undefined}
 >
 	{#each entries as entry, i (entry.id)}

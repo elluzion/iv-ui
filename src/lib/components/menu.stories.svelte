@@ -129,7 +129,12 @@
 
 <Story
 	name="Listbox"
-	args={{ entries: listboxEntries, semantic: 'listbox', multiselect: true }}
+	args={{
+		entries: listboxEntries,
+		semantic: 'listbox',
+		multiselect: true,
+		label: 'Choose a fruit'
+	}}
 	template={shell}
 />
 

@@ -20,7 +20,11 @@
 
 <Story
 	name="Default"
-	args={{ options: ['Apples', 'Bananas', 'Cherries', 'Dates'], value: 'Bananas' }}
+	args={{
+		options: ['Apples', 'Bananas', 'Cherries', 'Dates'],
+		value: 'Bananas',
+		'aria-label': 'Fruit'
+	}}
 />
 
 <Story

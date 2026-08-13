@@ -1,5 +1,6 @@
 <script module lang="ts">
 	import { defineMeta } from '@storybook/addon-svelte-csf';
+	import { expect, waitFor, within } from 'storybook/test';
 	import ConfirmDialog from './confirm-dialog.svelte';
 	import { dialogState } from '../stores/dialog.js';
 
@@ -16,27 +17,43 @@
 			oncancel: () => dialogState.set(null)
 		});
 	}
+
+	async function assertDialogVisible(message: string, canvas: HTMLElement) {
+		open(message);
+		const dialog = await within(canvas).findByRole('alertdialog');
+		await waitFor(() => expect(dialog).toBeVisible());
+	}
 </script>
 
-{#snippet defaultDialog()}
-	{open('Are you sure you want to delete this article?')}
+<Story
+	name="Default"
+	play={async ({ canvasElement }) => {
+		await assertDialogVisible('Are you sure you want to delete this article?', canvasElement);
+	}}
+>
 	<ConfirmDialog />
-{/snippet}
+</Story>
 
-<Story name="Default" template={defaultDialog} />
-
-{#snippet longMessageDialog()}
-	{open(
-		'Deleting this category will also remove all subcategories and their associated articles. This action cannot be undone.'
-	)}
+<Story
+	name="LongMessage"
+	play={async ({ canvasElement }) => {
+		await assertDialogVisible(
+			'Deleting this category will also remove all subcategories and their associated articles. This action cannot be undone.',
+			canvasElement
+		);
+	}}
+>
 	<ConfirmDialog />
-{/snippet}
+</Story>
 
-<Story name="LongMessage" template={longMessageDialog} />
-
-{#snippet confirmDeleteDialog()}
-	{open('Permanently delete "Draft proposal"? This cannot be undone.')}
+<Story
+	name="ConfirmDelete"
+	play={async ({ canvasElement }) => {
+		await assertDialogVisible(
+			'Permanently delete "Draft proposal"? This cannot be undone.',
+			canvasElement
+		);
+	}}
+>
 	<ConfirmDialog />
-{/snippet}
-
-<Story name="ConfirmDelete" template={confirmDeleteDialog} />
+</Story>

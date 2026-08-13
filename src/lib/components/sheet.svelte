@@ -21,6 +21,7 @@
 		children: Snippet;
 		icon?: Snippet;
 		footer?: Snippet;
+		[key: string]: unknown;
 	}
 
 	let {
@@ -35,7 +36,8 @@
 		onclose,
 		children,
 		icon,
-		footer
+		footer,
+		...restProps
 	}: Props = $props();
 
 	const uid = $props.id();
@@ -88,6 +90,7 @@
 		onkeydown={handleKeydown}
 		use:focusTrap={{ initial: true }}
 		transition:fade={{ duration: $reducedMotion ? 0 : 150 }}
+		{...restProps}
 	>
 		<div
 			class="iv-sheet {className}"
@@ -116,7 +119,8 @@
 					{/if}
 				</div>
 			{/if}
-			<div class="iv-body" class:iv-body-no-title={!title} id={descId}>
+			<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+			<div class="iv-body" class:iv-body-no-title={!title} id={descId} tabindex="0">
 				{@render children()}
 			</div>
 			{#if footer}

@@ -18,7 +18,10 @@
 
 <Story name="Default" args={{ placeholder: 'Type something…' }}>Default</Story>
 
-<Story name="WithValue" args={{ value: 'Pre-filled text content across multiple lines.' }} />
+<Story
+	name="WithValue"
+	args={{ value: 'Pre-filled text content across multiple lines.', 'aria-label': 'Notes' }}
+/>
 
 <Story name="WithLabel" args={{ label: 'Bio', placeholder: 'Tell us about yourself…' }} />
 
@@ -70,7 +73,11 @@
 
 <Story
 	name="Readonly"
-	args={{ value: 'This content is read-only and cannot be modified.', readonly: true }}
+	args={{
+		value: 'This content is read-only and cannot be modified.',
+		readonly: true,
+		'aria-label': 'Note'
+	}}
 />
 
 <Story name="CustomRows" args={{ placeholder: 'Type something…', rows: 8 }} />

@@ -158,6 +158,7 @@
 		onkeydown={handleKeydown}
 		aria-invalid={hasError || undefined}
 		aria-describedby={hasError ? `${inputId}-error` : helper ? `${inputId}-helper` : undefined}
+		aria-label={label ? undefined : placeholder || undefined}
 		{...restProps}
 	/>
 

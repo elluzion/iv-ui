@@ -10,7 +10,7 @@
 <Story name="Radius">
 	<div class="section">
 		<h3>Derived scale — set --iv_radius and the rest follow via calc()</h3>
-		{#each [['sm', 'var(--iv_radius-sm)', 'calc(radius − 4px)'], ['md', 'var(--iv_radius)', 'base, 14px'], ['lg', 'var(--iv_radius-lg)', 'calc(radius + 6px)'], ['pill', 'var(--iv_radius-pill)', '999px']] as [name, token, note] ([name, token, note])}
+		{#each [['sm', 'var(--iv_radius-sm)', 'calc(radius − 4px)'], ['md', 'var(--iv_radius)', 'base, 14px'], ['lg', 'var(--iv_radius-lg)', 'calc(radius + 6px)'], ['pill', 'var(--iv_radius-pill)', '999px']] as [name, token, note] (name)}
 			<div class="row">
 				<div class="radius-demo" style="border-radius: {token}"></div>
 				<div class="meta">
@@ -54,7 +54,7 @@
 <Story name="Motion">
 	<div class="section">
 		<h3>Durations — per-context tokens, all zeroed under prefers-reduced-motion</h3>
-		{#each [['--iv_transition-fast', '0.12s', 'color, background, chevron rotation'], ['--iv_transition-base', '0.15s', 'borders, shadows, rings'], ['--iv_transition-slow', '0.2s', 'large surfaces'], ['--iv_motion-fade', '0.15s', 'dialog/sheet/toast backdrops'], ['--iv_motion-scale', '0.15s', 'dialog/confirm scale-in'], ['--iv_motion-fly', '0.16s', 'toast rise, popover offset'], ['--iv_motion-slide', '0.18s', 'accordion expand, sheet slide']] as [token, value, use] ([token, value, use])}
+		{#each [['--iv_transition-fast', '0.12s', 'color, background, chevron rotation'], ['--iv_transition-base', '0.15s', 'borders, shadows, rings'], ['--iv_transition-slow', '0.2s', 'large surfaces'], ['--iv_motion-fade', '0.15s', 'dialog/sheet/toast backdrops'], ['--iv_motion-scale', '0.15s', 'dialog/confirm scale-in'], ['--iv_motion-fly', '0.16s', 'toast rise, popover offset'], ['--iv_motion-slide', '0.18s', 'accordion expand, sheet slide']] as [token, value, use] (token)}
 			<div class="row">
 				<div class="meta">
 					<code>{token}</code>
