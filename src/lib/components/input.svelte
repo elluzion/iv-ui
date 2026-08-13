@@ -11,6 +11,7 @@
 		readonly?: boolean;
 		required?: boolean;
 		name?: string;
+		id?: string;
 		autocomplete?: HTMLInputAttributes['autocomplete'];
 		minlength?: number;
 		maxlength?: number;
@@ -34,6 +35,7 @@
 		'on:focus'?: (e: FocusEvent) => void;
 		'on:blur'?: (e: FocusEvent) => void;
 		'on:keydown'?: (e: KeyboardEvent) => void;
+		[key: string]: unknown;
 	}
 
 	let {
@@ -44,6 +46,7 @@
 		readonly = false,
 		required = false,
 		name = '',
+		id = '',
 		autocomplete,
 		minlength,
 		maxlength,
@@ -66,11 +69,12 @@
 		'on:change': onEventChange,
 		'on:focus': onEventFocus,
 		'on:blur': onEventBlur,
-		'on:keydown': onEventKeydown
+		'on:keydown': onEventKeydown,
+		...restProps
 	}: Props = $props();
 
 	const uid = $props.id();
-	const inputId = `iv-input-${uid}`;
+	const inputId = $derived(id || `iv-input-${uid}`);
 
 	let inputEl = $state<HTMLInputElement>();
 
@@ -154,6 +158,7 @@
 		onkeydown={handleKeydown}
 		aria-invalid={hasError || undefined}
 		aria-describedby={hasError ? `${inputId}-error` : helper ? `${inputId}-helper` : undefined}
+		{...restProps}
 	/>
 
 	{#if hasTrailing}

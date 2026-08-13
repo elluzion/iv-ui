@@ -6,6 +6,7 @@
 		readonly?: boolean;
 		required?: boolean;
 		name?: string;
+		id?: string;
 		rows?: number;
 		maxlength?: number;
 		label?: string;
@@ -23,6 +24,7 @@
 		'on:focus'?: (e: FocusEvent) => void;
 		'on:blur'?: (e: FocusEvent) => void;
 		'on:keydown'?: (e: KeyboardEvent) => void;
+		[key: string]: unknown;
 	}
 
 	let {
@@ -32,6 +34,7 @@
 		readonly = false,
 		required = false,
 		name = '',
+		id = '',
 		rows = 4,
 		maxlength,
 		label = '',
@@ -48,11 +51,12 @@
 		'on:change': onEventChange,
 		'on:focus': onEventFocus,
 		'on:blur': onEventBlur,
-		'on:keydown': onEventKeydown
+		'on:keydown': onEventKeydown,
+		...restProps
 	}: Props = $props();
 
 	const uid = $props.id();
-	const textareaId = `iv-textarea-${uid}`;
+	const textareaId = $derived(id || `iv-textarea-${uid}`);
 
 	function handleInput(e: Event) {
 		value = (e.target as HTMLTextAreaElement).value;
@@ -122,7 +126,8 @@
 				? `${textareaId}-error`
 				: helper
 					? `${textareaId}-helper`
-					: undefined}></textarea>
+					: undefined}
+			{...restProps}></textarea>
 	</div>
 
 	<div class="iv-footer-row">
