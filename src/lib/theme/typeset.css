@@ -127,6 +127,7 @@
 			blockquote:not(.iv-not-typeset, .iv-not-typeset *, [data-not-typeset], [data-not-typeset] *)
 		) {
 		padding: 0.75em 1em;
+		margin-inline: 0;
 		border-inline-start: 2px solid var(--iv_border);
 		background: var(--iv_surface-raised);
 		border-radius: 0 var(--iv_radius-sm) var(--iv_radius-sm) 0;
