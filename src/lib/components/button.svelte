@@ -83,10 +83,6 @@
 			background: var(--iv_surface-hover);
 		}
 
-		&:active {
-			transform: scale(0.98);
-		}
-
 		&:focus-visible {
 			outline: none;
 			box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_ring);
