@@ -186,7 +186,7 @@ audit, typography documented and showcased.
 - [x] **Label/Field** wrapper (label, helper, error, required, layout)
 - [x] **Badge**, **Skeleton**, **Progress**, **Alert**, **Empty state**
 - [x] **Button Group**, **Input Group** (prefix/suffix), Button internal `loading`
-- [x] **Avatar**, **Native Select** — **Breadcrumb** still pending
+- [x] **Avatar**, **Native Select**, **Breadcrumb**
 - [ ] Stories + browser tests for each.
 
 **Done when:** form-building is fully covered (label→input→error) and the

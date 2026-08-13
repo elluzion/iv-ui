@@ -53,6 +53,8 @@ export { default as Badge } from './components/badge.svelte';
 export { default as EmptyState } from './components/empty-state.svelte';
 export { default as Avatar } from './components/avatar.svelte';
 export type { AvatarSize, AvatarStatus } from './components/avatar.svelte';
+export { default as Breadcrumb } from './components/breadcrumb.svelte';
+export type { BreadcrumbItem } from './components/breadcrumb.svelte';
 
 export { dialogState, showDialog } from './stores/dialog.js';
 export { toastState, showToast, hideToast } from './stores/toast.js';
