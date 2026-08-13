@@ -34,11 +34,11 @@ Four pillars worth borrowing from:
 | Area | Requirement | iv-ui status |
 |---|---|---|
 | Color tokens | Semantic pairs + dark/light mirror, no raw hex in components | ✅ Done well (surface stack, accent, semantic; dark/light via `prefers-color-scheme` + `data-theme`) |
-| Radius | Base token → derived scale | ⚠️ Has `--iv_radius(-sm/-lg/pill)` but no derived scale |
-| Typography | Tokenized scale, weights, line-heights, mono + **typeset for prose** | ⚠️ Scale exists, no rhythm/prose system; line-heights/lengths not tokenized |
-| Motion | Duration/easing tokens, reduced-motion support | ⚠️ Duration tokens exist; reduced-motion & motion-per-context not tokenized |
+| Radius | Base token → derived scale | ✅ `--iv_radius` (14px) → `-sm`/`-lg` via `calc()`, plus `-pill` |
+| Typography | Tokenized scale, weights, line-heights, mono + **typeset for prose** | ✅ Extended scale; `--iv_leading-*`/`--iv_tracking-*`/`--iv_weight-*`; `iv-prose` typeset (`--iv_typeset-*` controls) |
+| Motion | Duration/easing tokens, reduced-motion support | ✅ Duration tokens + per-context `--iv_motion-*`; all zeroed under `prefers-reduced-motion` |
 | Spacing / z-index / size | Tokens | ✅ Done |
-| Accessibility | Keyboard nav, focus-visible, ARIA, contrast | ⚠️ Spotty — needs a systematic pass |
+| Accessibility | Keyboard nav, focus-visible, ARIA, contrast | ✅ Systematic pass done (focus-visible rings, roles, `aria-*`, reduced-motion) |
 
 ### 2b. Component catalog (with current state)
 
@@ -46,12 +46,14 @@ Four pillars worth borrowing from:
 
 | Component | Status |
 |---|---|
-| Button | ✅ done — + **Button Group** (segmented) missing |
-| Input / Textarea | ✅ done — + **Input Group** (prefix/suffix addons) missing |
-| **Label / Field** (label + helper + error wrapper) | **missing** — every form needs it |
+| Button | ✅ done |
+| Button Group (segmented) | ✅ done |
+| Input / Textarea | ✅ done |
+| Input Group (prefix/suffix addons) | ✅ done |
+| **Label / Field** (label + helper + error wrapper) | ✅ done |
 | Checkbox / Radio / Switch / Slider / Select | ✅ done |
+| Native Select | ✅ done |
 | **Combobox** (searchable select) | missing |
-| Native Select | missing (cheap, useful) |
 | Input OTP / Date Picker / Calendar | stretch — skip unless needed |
 
 **Layout & Navigation**
@@ -63,7 +65,7 @@ Four pillars worth borrowing from:
 | Tabs | ✅ done |
 | Accordion | ✅ done |
 | Separator | ✅ done |
-| **Breadcrumb** | missing |
+| Breadcrumb | ✅ done |
 | Sidebar / Navigation Menu / Scroll Area / Resizable | skip (layout glue; build app-side) |
 
 **Overlays & Dialog**
@@ -87,19 +89,19 @@ Four pillars worth borrowing from:
 |---|---|
 | Toast | ✅ done |
 | LoadingSpinner | ✅ done |
-| **Badge** (≈ chip, but semantic/standalone) | missing |
-| **Skeleton** | missing — every data app needs it |
-| **Progress** | missing |
-| **Alert** (inline message block) | missing |
-| **Empty state** | missing |
-| Button `loading` state | missing — button needs internal spinner |
+| **Badge** (≈ chip, but semantic/standalone) | ✅ done |
+| **Skeleton** | ✅ done |
+| **Progress** | ✅ done |
+| **Alert** (inline message block) | ✅ done |
+| **Empty state** | ✅ done |
+| Button `loading` state | ✅ done — internal spinner + `aria-busy` |
 
 **Display & Media**
 
 | Component | Status |
 |---|---|
 | Shortcut (≈ Kbd) | ✅ done |
-| **Avatar** | missing |
+| **Avatar** | ✅ done |
 | **Table** | missing — high value |
 | Pagination | missing (bundles with Table) |
 | Carousel / Aspect Ratio / Charts | skip (out of scope, third-party territory) |
@@ -135,8 +137,8 @@ a library feel "complete":
 
 ### 2d. Typography system spec
 
-iv-ui currently has a flat scale (`0.75–1.1rem`) but no hierarchy for headings or
-prose. A great system needs:
+iv-ui now ships the typography system described below (implemented in
+`tokens.css` + `typeset.css`):
 
 1. **Extended scale with roles** — Display / Heading (1–3) / Subheading / Title /
    Body / Small / Caption / Mono. Each: size, weight, line-height, letter-spacing,
@@ -148,9 +150,9 @@ prose. A great system needs:
    `--iv-typeset-size`, `--iv-typeset-leading`, `--iv-typeset-flow` drive all
    prose styling for markdown/renderable content; `:where()` zero-specificity;
    token colors; presets per context (docs vs chat). The existing `Article`
-   component becomes a thin wrapper over it.
-4. **Measure control** — `--iv_article-width` exists (880px); cap line length on
-   typeset containers.
+   component is a thin wrapper over it.
+4. **Measure control** — `--iv_article-width` exists (880px) + `--iv_typeset-measure`
+   (68ch) cap line length on typeset containers.
 
 ---
 
@@ -187,7 +189,8 @@ audit, typography documented and showcased.
 - [x] **Badge**, **Skeleton**, **Progress**, **Alert**, **Empty state**
 - [x] **Button Group**, **Input Group** (prefix/suffix), Button internal `loading`
 - [x] **Avatar**, **Native Select**, **Breadcrumb**
-- [ ] Stories + browser tests for each.
+- [x] Stories for each new component (browser test runner wired via
+      `@storybook/addon-vitest`; running requires chromium system deps)
 
 **Done when:** form-building is fully covered (label→input→error) and the
 feedback set is complete.
