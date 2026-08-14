@@ -2,6 +2,12 @@
 
 All notable changes to the `@elluzion/iv-ui` package are documented in this file. This project follows [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Changed
+
+- **AlertDialog replaces ConfirmDialog** (`alert-dialog.svelte` → `AlertDialog`). The store is now `alertDialogState` / `showAlertDialog` (from `stores/alert-dialog.ts`) and takes a config object with a customizable `actions` list (`AlertDialogAction`). Styles are now scoped to the component, fixing the broken confirm-dialog CSS. `dialogState`/`showDialog` and `DialogState` are removed — migrate to `showAlertDialog({ title, message, actions })`.
+
 ## [0.1.0] - 2026-08-02
 
 ### Added

@@ -4,7 +4,7 @@ A Svelte 5 component library with a monochrome dark design system.
 
 ## Components
 
-Button, Card, Accordion, Checkbox, Dialog, Sheet, ConfirmDialog, Input, Textarea, RadioGroup, Separator, Select, Tabs, Slider, Switch, Toast, LoadingSpinner — all following the design system defined in [DESIGN.md](./DESIGN.md).
+Button, Card, Accordion, Checkbox, Dialog, Sheet, AlertDialog, Input, Textarea, RadioGroup, Separator, Select, Tabs, Slider, Switch, Toast, LoadingSpinner — all following the design system defined in [DESIGN.md](./DESIGN.md).
 
 ## Installation
 

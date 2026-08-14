@@ -6,8 +6,20 @@ export interface ToastState {
 	type: ToastType;
 }
 
-export interface DialogState {
-	message: string;
-	onconfirm: () => void;
-	oncancel: () => void;
+export interface AlertDialogAction {
+	label: string;
+	variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger';
+	size?: 'sm' | 'md' | 'lg';
+	disabled?: boolean;
+	closeOnClick?: boolean;
+	onClick?: () => void;
+}
+
+export interface AlertDialogState {
+	title?: string;
+	message?: string;
+	actions?: AlertDialogAction[];
+	closeOnBackdrop?: boolean;
+	closeOnEscape?: boolean;
+	onclose?: () => void;
 }

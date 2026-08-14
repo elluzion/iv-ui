@@ -18,7 +18,7 @@ export type {
 export { default as Menu } from './components/menu.svelte';
 export type { MenuEntry, MenuItem, MenuSemantic } from './components/menu.svelte';
 export { default as Shortcut } from './components/shortcut.svelte';
-export { default as ConfirmDialog } from './components/confirm-dialog.svelte';
+export { default as AlertDialog } from './components/alert-dialog.svelte';
 export { default as Input } from './components/input.svelte';
 export { default as Textarea } from './components/textarea.svelte';
 export { default as Field } from './components/field.svelte';
@@ -61,8 +61,8 @@ export type { ToggleGroupItem, ToggleGroupMode } from './components/toggle-group
 export { default as Collapsible } from './components/collapsible.svelte';
 export { default as ContextMenu } from './components/context-menu.svelte';
 
-export { dialogState, showDialog } from './stores/dialog.js';
+export { alertDialogState, showAlertDialog } from './stores/alert-dialog.js';
 export { toastState, showToast, hideToast } from './stores/toast.js';
 export { reducedMotion } from './stores/motion.js';
 
-export type { ToastType, ToastState, DialogState } from './types.js';
+export type { ToastType, ToastState, AlertDialogAction, AlertDialogState } from './types.js';

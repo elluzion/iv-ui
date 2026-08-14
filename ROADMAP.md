@@ -73,7 +73,7 @@ Four pillars worth borrowing from:
 | Component | Status |
 |---|---|
 | Dialog | ✅ done |
-| ConfirmDialog (≈ Alert Dialog) | ✅ done |
+| ConfirmDialog (≈ Alert Dialog) | ✅ done — renamed **AlertDialog**; configurable `actions` list, own scoped styles |
 | Sheet | ✅ done |
 | Popover | ✅ done |
 | Tooltip | ✅ done |

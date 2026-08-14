@@ -54,7 +54,7 @@ Overlays add semantic events on top of this convention:
 |---|---|
 | `onclose` / `onopen` | Overlay lifecycle (Dialog, Sheet, Popover) |
 | `onchange` | CustomEvent with `detail` payload (Select, Slider, Switch, Checkbox, RadioGroup) |
-| `onconfirm` / `oncancel` | ConfirmDialog actions |
+| `onClick` / `onclose` | AlertDialog action callbacks + dialog close (store-driven config) |
 
 Form controls forward the native set too: `oninput`, `onchange`, `onfocus`,
 `onblur`, `onkeydown` (and `on:input`, `on:change`, …).
@@ -94,14 +94,25 @@ Accessible-name rules:
 | `placement` / `align` / `gap` / `offset` | — | Floating positioning (Popover, Tooltip) |
 | `interactive` | `true` | Popover: panel participates in the page (vs. decorative) |
 
-Modal contracts (Dialog, Sheet, ConfirmDialog):
+Modal contracts (Dialog, Sheet, AlertDialog):
 
 - `role="dialog"` / `role="alertdialog"`, `aria-modal="true"`.
 - `aria-labelledby` → the title element id; `aria-describedby` → the body id.
-- **Focus management** via the `focusTrap` action (`src/lib/utils/focus-trap.js`):
+- **Focus management** via the `focusTrap` action (`src/lib/utils/focus-trap.ts`):
   initial focus moves to the first focusable child, Tab cycles within the
   modal, and focus is restored to the opener on close.
 - `body { overflow: hidden }` while open; restored on close.
+
+AlertDialog is store-driven, not prop-driven:
+
+- Open with `showAlertDialog(config)`; the mounted `<AlertDialog />` renders
+  `role="alertdialog"` from `alertDialogState`.
+- `config.actions` is a customizable list of `AlertDialogAction`
+  (`{ label, variant?, size?, disabled?, closeOnClick?, onClick? }`), rendered
+  as `Button`s right-aligned in the footer. When omitted, a single default
+  `OK` (primary) action is shown.
+- `closeOnBackdrop` / `closeOnEscape` (both default `true`) and an `onclose`
+  callback configure dismissal.
 
 Toast announcement:
 
