@@ -595,16 +595,17 @@
 			flex: 1;
 			min-width: 0;
 			font-family: var(--iv_font-mono);
-			font-size: var(--iv_text-body-sm);
+			font-size: var(--iv_text-base);
 			color: var(--iv_foreground);
 
 			&::placeholder {
 				color: var(--iv_foreground-dim);
 			}
 
+			&:focus,
 			&:focus-visible {
-				outline: var(--iv_outline-width) solid var(--iv_foreground);
-				outline-offset: var(--iv_outline-offset);
+				outline: none;
+				box-shadow: none;
 			}
 		}
 	}

@@ -53,7 +53,6 @@ Four pillars worth borrowing from:
 | **Label / Field** (label + helper + error wrapper) | ✅ done |
 | Checkbox / Radio / Switch / Slider / Select | ✅ done |
 | Native Select | ✅ done |
-| **Combobox** (searchable select) | missing |
 | Input OTP / Date Picker / Calendar | stretch — skip unless needed |
 
 **Layout & Navigation**
@@ -198,10 +197,9 @@ feedback set is complete.
 
 *Goal: advanced interactions for denser products.*
 
-- [ ] **Combobox** (searchable select) — biggest behavioral lift
-- [ ] **Context Menu** (reuse Menu/Popover internals — cheap win)
+- [x] **Context Menu** (reuse Menu/Popover internals — cheap win)
 - [ ] **Table** + **Pagination** (sorting-ready, token-styled, scrollable)
-- [ ] **Toggle / Toggle Group**, **Collapsible**
+- [x] **Toggle / Toggle Group**, **Collapsible**
 - [ ] **Drawer** (mobile sheet), **Command palette** (stretch — do last, skip if
       time-boxed)
 
