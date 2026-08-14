@@ -5,7 +5,7 @@
 	import Dialog from './dialog.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Common/Dialog',
+		title: 'Overlays & Dialog/Dialog',
 		component: Dialog,
 		tags: ['autodocs'],
 		argTypes: {

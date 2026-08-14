@@ -3,7 +3,7 @@
 	import Alert from './alert.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Common/Alert',
+		title: 'Feedback & Status/Alert',
 		component: Alert,
 		tags: ['autodocs'],
 		argTypes: {

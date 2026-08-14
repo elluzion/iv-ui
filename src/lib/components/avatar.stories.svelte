@@ -3,7 +3,7 @@
 	import Avatar from './avatar.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Common/Avatar',
+		title: 'Display & Media/Avatar',
 		component: Avatar,
 		tags: ['autodocs'],
 		argTypes: {

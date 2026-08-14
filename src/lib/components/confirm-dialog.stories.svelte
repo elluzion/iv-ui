@@ -6,7 +6,7 @@
 
 	const { Story } = defineMeta({
 		component: ConfirmDialog,
-		title: 'Common/ConfirmDialog',
+		title: 'Overlays & Dialog/ConfirmDialog',
 		tags: ['autodocs']
 	});
 

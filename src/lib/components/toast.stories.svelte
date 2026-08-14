@@ -6,7 +6,7 @@
 
 	const { Story } = defineMeta({
 		component: Toast,
-		title: 'Common/Toast',
+		title: 'Feedback & Status/Toast',
 		tags: ['autodocs']
 	});
 

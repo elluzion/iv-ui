@@ -5,7 +5,7 @@
 	import Card from './card.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Common/Card',
+		title: 'Layout & Navigation/Card',
 		component: Card,
 		tags: ['autodocs'],
 		argTypes: {

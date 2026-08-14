@@ -3,7 +3,7 @@
 	import NativeSelect from './native-select.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Form/NativeSelect',
+		title: 'Form & Input/NativeSelect',
 		component: NativeSelect,
 		tags: ['autodocs'],
 		argTypes: {

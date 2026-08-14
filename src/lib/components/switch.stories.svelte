@@ -3,7 +3,7 @@
 	import Switch from './switch.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Common/Switch',
+		title: 'Form & Input/Switch',
 		component: Switch,
 		tags: ['autodocs'],
 		argTypes: {

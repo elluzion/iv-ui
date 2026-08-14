@@ -3,7 +3,7 @@
 	import Collapsible from './collapsible.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Common/Collapsible',
+		title: 'Misc/Collapsible',
 		component: Collapsible,
 		tags: ['autodocs'],
 		argTypes: {

@@ -12,7 +12,7 @@
 	import ButtonGroup from './button-group.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Common/ButtonGroup',
+		title: 'Form & Input/ButtonGroup',
 		component: ButtonGroup,
 		tags: ['autodocs']
 	});

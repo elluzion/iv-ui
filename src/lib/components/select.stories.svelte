@@ -34,7 +34,7 @@
 	];
 
 	const { Story } = defineMeta({
-		title: 'Common/Select',
+		title: 'Form & Input/Select',
 		component: Select,
 		tags: ['autodocs'],
 		argTypes: {

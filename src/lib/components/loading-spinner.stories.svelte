@@ -4,7 +4,7 @@
 
 	const { Story } = defineMeta({
 		component: LoadingSpinner,
-		title: 'Common/LoadingSpinner',
+		title: 'Feedback & Status/LoadingSpinner',
 		tags: ['autodocs'],
 		argTypes: {
 			size: { control: { type: 'number', min: 8, max: 96, step: 4 } },

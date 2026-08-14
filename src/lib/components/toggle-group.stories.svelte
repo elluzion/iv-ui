@@ -4,7 +4,7 @@
 	import ToggleGroup from './toggle-group.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Common/ToggleGroup',
+		title: 'Misc/ToggleGroup',
 		component: ToggleGroup,
 		tags: ['autodocs'],
 		argTypes: {

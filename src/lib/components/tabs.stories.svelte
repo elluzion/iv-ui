@@ -7,7 +7,7 @@
 	import Tabs from './tabs.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Common/Tabs',
+		title: 'Layout & Navigation/Tabs',
 		component: Tabs,
 		tags: ['autodocs'],
 		argTypes: {

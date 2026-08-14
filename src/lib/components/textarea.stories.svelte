@@ -3,7 +3,7 @@
 	import Textarea from './textarea.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Common/Textarea',
+		title: 'Form & Input/Textarea',
 		component: Textarea,
 		tags: ['autodocs'],
 		argTypes: {

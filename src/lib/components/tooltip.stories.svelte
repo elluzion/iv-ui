@@ -6,7 +6,7 @@
 	import Tooltip from './tooltip.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Overlay/Tooltip',
+		title: 'Overlays & Dialog/Tooltip',
 		component: Tooltip,
 		tags: ['autodocs'],
 		argTypes: {

@@ -3,7 +3,7 @@
 	import Article from './article.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Common/Article',
+		title: 'Layout & Navigation/Article',
 		component: Article,
 		tags: ['autodocs'],
 		argTypes: {

@@ -41,7 +41,7 @@
 	];
 
 	const { Story } = defineMeta({
-		title: 'Common/ContextMenu',
+		title: 'Overlays & Dialog/ContextMenu',
 		tags: ['autodocs']
 	});
 </script>

@@ -5,7 +5,7 @@
 	import NativeSelect from './native-select.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Form/Field',
+		title: 'Form & Input/Field',
 		component: Field,
 		tags: ['autodocs'],
 		argTypes: {

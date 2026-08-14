@@ -4,7 +4,7 @@
 	import Toggle from './toggle.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Common/Toggle',
+		title: 'Misc/Toggle',
 		component: Toggle,
 		tags: ['autodocs'],
 		argTypes: {

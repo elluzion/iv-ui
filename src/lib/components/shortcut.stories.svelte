@@ -3,7 +3,7 @@
 	import Shortcut from './shortcut.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Common/Shortcut',
+		title: 'Display & Media/Shortcut',
 		component: Shortcut,
 		tags: ['autodocs'],
 		argTypes: {

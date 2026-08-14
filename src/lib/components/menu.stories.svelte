@@ -96,7 +96,7 @@
 	];
 
 	const { Story } = defineMeta({
-		title: 'Common/Menu',
+		title: 'Overlays & Dialog/Menu',
 		component: Menu,
 		tags: ['autodocs']
 	});

@@ -4,7 +4,7 @@
 	import Breadcrumb from './breadcrumb.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Navigation/Breadcrumb',
+		title: 'Layout & Navigation/Breadcrumb',
 		component: Breadcrumb,
 		tags: ['autodocs']
 	});

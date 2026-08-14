@@ -10,7 +10,7 @@
 	];
 
 	const { Story } = defineMeta({
-		title: 'Common/RadioGroup',
+		title: 'Form & Input/RadioGroup',
 		component: RadioGroup,
 		tags: ['autodocs'],
 		argTypes: {

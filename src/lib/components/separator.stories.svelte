@@ -3,7 +3,7 @@
 	import Separator from './separator.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Common/Separator',
+		title: 'Layout & Navigation/Separator',
 		component: Separator,
 		tags: ['autodocs'],
 		argTypes: {

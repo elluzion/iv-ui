@@ -31,7 +31,7 @@
 	];
 
 	const { Story } = defineMeta({
-		title: 'Common/Popover',
+		title: 'Overlays & Dialog/Popover',
 		tags: ['autodocs']
 	});
 </script>

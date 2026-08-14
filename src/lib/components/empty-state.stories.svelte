@@ -5,7 +5,7 @@
 	import EmptyState from './empty-state.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Common/EmptyState',
+		title: 'Feedback & Status/EmptyState',
 		component: EmptyState,
 		tags: ['autodocs']
 	});

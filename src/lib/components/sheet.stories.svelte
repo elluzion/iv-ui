@@ -5,7 +5,7 @@
 	import Sheet from './sheet.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Common/Sheet',
+		title: 'Overlays & Dialog/Sheet',
 		component: Sheet,
 		tags: ['autodocs'],
 		argTypes: {

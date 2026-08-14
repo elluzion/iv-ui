@@ -11,7 +11,7 @@
 	import Input from './input.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Common/Input',
+		title: 'Form & Input/Input',
 		component: Input,
 		tags: ['autodocs'],
 		argTypes: {
