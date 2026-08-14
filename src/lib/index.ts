@@ -55,6 +55,11 @@ export { default as Avatar } from './components/avatar.svelte';
 export type { AvatarSize, AvatarStatus } from './components/avatar.svelte';
 export { default as Breadcrumb } from './components/breadcrumb.svelte';
 export type { BreadcrumbItem } from './components/breadcrumb.svelte';
+export { default as Toggle } from './components/toggle.svelte';
+export { default as ToggleGroup } from './components/toggle-group.svelte';
+export type { ToggleGroupItem, ToggleGroupMode } from './components/toggle-group.svelte';
+export { default as Collapsible } from './components/collapsible.svelte';
+export { default as ContextMenu } from './components/context-menu.svelte';
 
 export { dialogState, showDialog } from './stores/dialog.js';
 export { toastState, showToast, hideToast } from './stores/toast.js';

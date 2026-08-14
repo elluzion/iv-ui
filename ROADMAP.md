@@ -79,7 +79,6 @@ Four pillars worth borrowing from:
 | Tooltip | ✅ done |
 | Menu (≈ Dropdown) | ✅ done |
 | **Context Menu** | missing (cheap, reuses Menu internals) |
-| **Hover Card** | missing (cheap, reuses Popover internals) |
 | **Drawer** (bottom mobile sheet) | stretch |
 | **Command palette** | stretch (high delight) |
 
@@ -200,7 +199,7 @@ feedback set is complete.
 *Goal: advanced interactions for denser products.*
 
 - [ ] **Combobox** (searchable select) — biggest behavioral lift
-- [ ] **Context Menu**, **Hover Card** (reuse Menu/Popover internals — cheap wins)
+- [ ] **Context Menu** (reuse Menu/Popover internals — cheap win)
 - [ ] **Table** + **Pagination** (sorting-ready, token-styled, scrollable)
 - [ ] **Toggle / Toggle Group**, **Collapsible**
 - [ ] **Drawer** (mobile sheet), **Command palette** (stretch — do last, skip if
