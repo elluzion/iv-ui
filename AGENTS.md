@@ -34,7 +34,8 @@ This is a Svelte 5 component library (`iv-ui`) wrapped in a SvelteKit app for de
 | `src/lib/theme/`      | CSS tokens + base styles (`tokens.css`, `base.css`, `typeset.css`, `theme.css` bundling all)                                                                                                                                |
 | `src/lib/stores/`     | Global state stores (toast, dialog, motion)                                                                                                                                                                                  |
 | `src/lib/utils/`      | Shared helpers (focus-trap)                                                                                                                                                                                                  |
-| `src/lib/foundation/` | Foundation showcase stories (tokens, colors, typography, states)                                                                                                                                                             |
+| `src/lib/foundation/` | Foundation showcase stories (tokens, colors, typography, states) |
+| `src/lib/showcase/`   | Full-page composite showcase stories (one realistic page assembling many components) |
 | `src/lib/index.ts`    | Library entry point — re-exports components and stores                                                                                                                                                                       |
 | `src/routes/`         | Showcase/preview SvelteKit app (not part of the distributed package)                                                                                                                                                         |
 
