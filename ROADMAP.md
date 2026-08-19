@@ -34,7 +34,7 @@ Four pillars worth borrowing from:
 | Area | Requirement | iv-ui status |
 |---|---|---|
 | Color tokens | Semantic pairs + dark/light mirror, no raw hex in components | ✅ Done well (surface stack, accent, semantic; dark/light via `prefers-color-scheme` + `data-theme`) |
-| Radius | Base token → derived scale | ✅ `--iv_radius` (14px) → `-sm`/`-lg` via `calc()`, plus `-pill` |
+| Radius | Base token → derived scale | ✅ `--iv_radius` (4px) → `-sm` (0, controls) / `-lg` (8px, dialogs) via `calc()`, plus `-pill` (semantic circles) |
 | Typography | Tokenized scale, weights, line-heights, mono + **typeset for prose** | ✅ Extended scale; `--iv_leading-*`/`--iv_tracking-*`/`--iv_weight-*`; `iv-prose` typeset (`--iv_typeset-*` controls) |
 | Motion | Duration/easing tokens, reduced-motion support | ✅ Duration tokens + per-context `--iv_motion-*`; all zeroed under `prefers-reduced-motion` |
 | Spacing / z-index / size | Tokens | ✅ Done |
@@ -176,7 +176,7 @@ typography system.*
       existing components (use the a11y Storybook addon as the checklist).
 - [x] Add Foundation stories (tokens, type, colors, states).
 
-**Done when:** no raw hex/rgba/rem in any component, all components pass a11y
+**Done when:** no raw hex or raw font-size in any component, all components pass a11y
 audit, typography documented and showcased.
 
 ### Phase 2 — High-value core (the gap-closers)

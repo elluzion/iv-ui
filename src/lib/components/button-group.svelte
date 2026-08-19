@@ -132,15 +132,15 @@
 		}
 
 		> :global(.iv-btn:first-child) {
-			border-radius: var(--iv_radius-pill) 0 0 var(--iv_radius-pill);
+			border-radius: var(--iv_radius-sm) 0 0 var(--iv_radius-sm);
 		}
 
 		> :global(.iv-btn:last-child) {
-			border-radius: 0 var(--iv_radius-pill) var(--iv_radius-pill) 0;
+			border-radius: 0 var(--iv_radius-sm) var(--iv_radius-sm) 0;
 		}
 
 		> :global(.iv-btn:only-child) {
-			border-radius: var(--iv_radius-pill);
+			border-radius: var(--iv_radius-sm);
 		}
 
 		> :global(.iv-btn:not(:first-child)) {
@@ -154,13 +154,15 @@
 		}
 
 		> :global(.iv-btn.iv-selected) {
-			background: var(--iv_accent-surface);
-			border-color: var(--iv_accent);
-			color: var(--iv_accent);
+			background: var(--iv_reverse-bg);
+			border-color: var(--iv_reverse-bg);
+			color: var(--iv_reverse-fg);
+			box-shadow: inset 0 -3px 0 var(--iv_cursor);
 
 			&:hover {
-				background: var(--iv_accent-surface);
-				border-color: var(--iv_accent);
+				background: var(--iv_reverse-hover);
+				border-color: var(--iv_reverse-hover);
+				color: var(--iv_surface);
 			}
 		}
 
@@ -169,11 +171,11 @@
 			align-items: stretch;
 
 			> :global(.iv-btn:first-child) {
-				border-radius: var(--iv_radius-pill) var(--iv_radius-pill) 0 0;
+				border-radius: var(--iv_radius-sm) var(--iv_radius-sm) 0 0;
 			}
 
 			> :global(.iv-btn:last-child) {
-				border-radius: 0 0 var(--iv_radius-pill) var(--iv_radius-pill);
+				border-radius: 0 0 var(--iv_radius-sm) var(--iv_radius-sm);
 			}
 
 			> :global(.iv-btn:not(:first-child)) {

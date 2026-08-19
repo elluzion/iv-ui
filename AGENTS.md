@@ -71,7 +71,7 @@ Consumers must also install `@tabler/icons-svelte` (peer dependency).
 
 ## Design System
 
-**Read `DESIGN.md` before writing or modifying any component.** It defines a monochrome dark UI: pure black canvas, hairline borders, pill-shaped controls, one accent color (brass). Hardcoded hex/rgba values in components are forbidden — always reference tokens from `src/lib/theme/tokens.css`.
+**Read `DESIGN.md` before writing or modifying any component.** It defines a monochrome dark console UI: pure black canvas, hairline borders, sharp (0px) controls with 4–8px container radii, reverse-video selection, one hardened brass cursor accent, mono-forward typography (IBM Plex Mono is the UI voice; Sora reserved for headings and prose). Hardcoded hex/rgba values in components are forbidden — always reference tokens from `src/lib/theme/tokens.css`.
 
 Component APIs must follow the universal contract in **`COMPONENTS.md`** (see Roadmap & Contracts above) — `size`/`variant`/`disabled` conventions, `$props()`/`$bindable` runes, dual events, accessible names, focus-visible rings, and reduced-motion.
 

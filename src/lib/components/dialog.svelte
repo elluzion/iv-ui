@@ -164,6 +164,7 @@
 
 		h2 {
 			margin: 0;
+			font-family: var(--iv_font-sans);
 			font-size: var(--iv_text-xl);
 			font-weight: 600;
 			color: var(--iv_foreground);

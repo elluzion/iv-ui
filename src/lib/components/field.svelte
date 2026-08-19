@@ -76,7 +76,7 @@
 	.iv-field-label {
 		display: inline-flex;
 		align-items: center;
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-ui);
 		font-size: var(--iv_text-label);
 		font-weight: var(--iv_weight-medium);
 		color: var(--iv_foreground);
@@ -94,7 +94,7 @@
 
 	.iv-field-message {
 		margin: var(--iv_spacing-xs) 0 0;
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-ui);
 		font-size: var(--iv_text-sm);
 		line-height: var(--iv_leading-base);
 	}

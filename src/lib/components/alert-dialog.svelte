@@ -124,6 +124,7 @@
 
 	.iv-alertdialog-title {
 		margin: 0;
+		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-xl);
 		font-weight: 600;
 		color: var(--iv_foreground);
@@ -131,6 +132,7 @@
 
 	.iv-alertdialog-message {
 		margin: var(--iv_spacing-md) 0 0;
+		font-family: var(--iv_font-ui);
 		color: var(--iv_foreground-dim);
 		line-height: var(--iv_leading-base);
 	}

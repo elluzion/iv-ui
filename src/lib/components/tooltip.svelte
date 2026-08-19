@@ -176,12 +176,13 @@
 		top: 0;
 		z-index: var(--iv_z-dropdown);
 		padding: var(--iv_spacing-xs) var(--iv_spacing-md);
-		border-radius: var(--iv_radius-pill);
+		border-radius: var(--iv_radius-sm);
 		background: var(--iv_surface-elevated);
+		border: 1px solid var(--iv_border-hover);
 		color: var(--iv_foreground);
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-mono);
 		font-size: var(--iv_text-body-sm);
-		font-weight: 500;
+		font-weight: 400;
 		line-height: var(--iv_leading-tight);
 		white-space: nowrap;
 		box-shadow: var(--iv_shadow-md);

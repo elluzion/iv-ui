@@ -236,10 +236,28 @@
 
 	.iv-section-header {
 		padding: 0.375rem 0.5rem 0.25rem;
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-ui);
 		font-size: var(--iv_text-sm);
 		font-weight: 500;
 		color: var(--iv_foreground-dim);
+		letter-spacing: var(--iv_tracking-wide);
+		text-transform: uppercase;
+
+		&::before,
+		&::after {
+			color: var(--iv_bracket);
+			font-weight: 400;
+		}
+
+		&::before {
+			content: '\0022';
+			padding-inline-end: 0.4em;
+		}
+
+		&::after {
+			content: '\0022';
+			padding-inline-start: 0.4em;
+		}
 	}
 
 	.iv-separator {
@@ -255,25 +273,44 @@
 		gap: var(--iv_spacing-sm);
 		padding: var(--iv_spacing-sm) var(--iv_spacing-md);
 		border-radius: var(--iv_radius-sm);
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-ui);
 		font-size: var(--iv_text-body);
 		color: var(--iv_foreground);
 		cursor: pointer;
-		transition: background var(--iv_transition-fast);
+		transition:
+			background var(--iv_transition-fast),
+			color var(--iv_transition-fast);
 
-		&:hover,
-		&.iv-active {
+		&:hover:not(.iv-active):not(.iv-selected) {
 			background: var(--iv_surface-hover);
+		}
+
+		&.iv-active,
+		&.iv-selected {
+			background: var(--iv_reverse-bg);
+			color: var(--iv_reverse-fg);
+
+			.iv-leading,
+			.iv-shortcut,
+			.iv-trailing {
+				color: var(--iv_reverse-fg);
+			}
 		}
 
 		&:focus-visible {
 			outline: none;
-			background: var(--iv_surface-hover);
-			box-shadow: inset 0 0 0 var(--iv_ring-width) var(--iv_ring);
+			background: var(--iv_reverse-bg);
+			color: var(--iv_reverse-fg);
+
+			.iv-leading,
+			.iv-shortcut,
+			.iv-trailing {
+				color: var(--iv_reverse-fg);
+			}
 		}
 
 		&.iv-disabled {
-			opacity: 0.45;
+			opacity: var(--iv_disabled-opacity);
 			cursor: not-allowed;
 		}
 
@@ -341,7 +378,7 @@
 	.iv-empty {
 		padding: 0.75rem 0.5rem;
 		text-align: center;
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-ui);
 		font-size: var(--iv_text-label);
 		color: var(--iv_foreground-dim);
 	}

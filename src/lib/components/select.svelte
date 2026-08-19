@@ -436,7 +436,7 @@
 		width: 100%;
 		box-sizing: border-box;
 		border: 1px solid var(--iv_border);
-		border-radius: var(--iv_radius);
+		border-radius: var(--iv_radius-sm);
 		background: var(--iv_surface-raised);
 		color: var(--iv_foreground);
 		font-family: var(--iv_font-mono);
@@ -455,14 +455,18 @@
 		&.iv-open {
 			outline: none;
 			border-color: var(--iv_border-focus);
-			box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_ring);
+			box-shadow:
+				inset 0 0 0 var(--iv_ring-width) var(--iv_ring),
+				inset 3px 0 0 var(--iv_cursor);
 		}
 
 		&.iv-has-error {
 			border-color: var(--iv_border-error);
 
 			&.iv-open {
-				box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_error-surface);
+				box-shadow:
+					inset 0 0 0 var(--iv_ring-width) var(--iv_error-surface),
+					inset 3px 0 0 var(--iv_error);
 			}
 		}
 
@@ -513,9 +517,9 @@
 		align-items: center;
 		max-width: 100%;
 		padding: 1px 6px;
-		border-radius: var(--iv_radius-pill);
+		border-radius: var(--iv_radius-sm);
 		background: var(--iv_surface-overlay);
-		border: 1px solid var(--iv_border);
+		border: 1px solid var(--iv_border-hover);
 		color: var(--iv_foreground);
 		font-family: var(--iv_font-mono);
 		font-size: var(--iv_text-chips);
@@ -537,7 +541,7 @@
 		justify-content: center;
 		width: var(--iv_control-md);
 		height: var(--iv_control-md);
-		border-radius: 50%;
+		border-radius: var(--iv_radius-sm);
 		color: var(--iv_foreground-dim);
 		cursor: pointer;
 		flex-shrink: 0;
@@ -571,8 +575,8 @@
 		box-sizing: border-box;
 		background: var(--iv_surface-raised);
 		border: 1px solid var(--iv_border);
-		border-radius: var(--iv_radius);
-		box-shadow: var(--iv_shadow-lg);
+		border-radius: var(--iv_radius-sm);
+		box-shadow: var(--iv_shadow-md);
 		overflow: hidden;
 	}
 
@@ -630,7 +634,7 @@
 
 		&::-webkit-scrollbar-thumb {
 			background: var(--iv_border);
-			border-radius: var(--iv_radius-pill);
+			border-radius: var(--iv_radius-sm);
 
 			&:hover {
 				background: var(--iv_border-hover);
@@ -640,7 +644,7 @@
 
 	.iv-label {
 		display: block;
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-ui);
 		font-size: var(--iv_text-label);
 		font-weight: 500;
 		color: var(--iv_foreground);
@@ -654,7 +658,7 @@
 
 	.iv-message {
 		margin: var(--iv_spacing-xs) 0 0 0;
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-ui);
 		font-size: var(--iv_text-sm);
 	}
 

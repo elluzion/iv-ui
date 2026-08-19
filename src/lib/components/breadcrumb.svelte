@@ -80,6 +80,7 @@
 			display: inline-flex;
 			align-items: center;
 			gap: var(--iv_spacing-xs);
+			font-family: var(--iv_font-mono);
 			font-size: var(--iv_text-sm);
 			line-height: var(--iv_leading-base);
 			text-decoration: none;
@@ -88,15 +89,20 @@
 		a {
 			color: var(--iv_foreground-dim);
 			border-radius: var(--iv_radius-sm);
-			transition: color var(--iv_transition-base);
+			padding: 2px 6px;
+			transition:
+				color var(--iv_transition-base),
+				background var(--iv_transition-base);
 
 			&:hover {
 				color: var(--iv_foreground);
+				background: var(--iv_surface-overlay);
 			}
 
 			&:focus-visible {
 				outline: none;
-				box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_ring);
+				background: var(--iv_surface-overlay);
+				box-shadow: inset 0 0 0 var(--iv_ring-width) var(--iv_ring);
 			}
 		}
 
@@ -110,5 +116,6 @@
 		display: inline-flex;
 		align-items: center;
 		color: var(--iv_foreground-dim);
+		font-family: var(--iv_font-mono);
 	}
 </style>

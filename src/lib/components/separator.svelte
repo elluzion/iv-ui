@@ -82,11 +82,13 @@
 
 			.iv-label-text {
 				padding-inline: var(--iv_spacing-md);
-				font-family: var(--iv_font-sans);
+				font-family: var(--iv_font-mono);
 				font-size: var(--iv_text-sm);
 				font-weight: 500;
 				color: var(--iv_foreground-dim);
 				white-space: nowrap;
+				letter-spacing: var(--iv_tracking-wide);
+				text-transform: uppercase;
 			}
 		}
 	}

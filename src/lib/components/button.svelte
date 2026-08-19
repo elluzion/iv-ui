@@ -60,12 +60,12 @@
 <style>
 	button {
 		padding: var(--iv_control-pad-y) var(--iv_btn-pad-x);
-		border-radius: var(--iv_radius-pill);
+		border-radius: var(--iv_radius-sm);
 		font-weight: 600;
 		border: 1px solid var(--iv_border);
 		color: var(--iv_foreground);
 		background: var(--iv_surface-elevated);
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-ui);
 		cursor: pointer;
 		transition:
 			border-color var(--iv_transition-base),
@@ -77,6 +77,10 @@
 		gap: var(--iv_spacing-sm);
 		align-items: center;
 		justify-content: center;
+
+		&:active:not(:disabled):not(.iv-loading) {
+			transform: scale(0.98);
+		}
 
 		&:hover {
 			border-color: var(--iv_border-hover);
@@ -131,11 +135,13 @@
 
 		&.iv-danger {
 			background: var(--iv_error);
-			border-color: transparent;
+			border-color: var(--iv_error);
 			color: var(--iv_surface);
 
 			&:hover {
-				background: var(--iv_error-dim);
+				background: var(--iv_error);
+				border-color: var(--iv_error-dim);
+				filter: brightness(1.08);
 			}
 		}
 

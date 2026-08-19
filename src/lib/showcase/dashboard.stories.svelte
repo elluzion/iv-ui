@@ -257,6 +257,20 @@
 {/snippet}
 
 {#snippet dashboard(args: { loading?: boolean })}
+	<!--
+		CONTRACT: The Instrument Console (seed c0ns0l3, assigned direction 4).
+		THESIS: mono-forward tool UI on sharp hairline frames with reverse-video
+		selection and one hardened brass cursor block; refuses the rounded shadcn card
+		tableau. OWN-WORLD: black canvas, 1px square frames, brass block cursors,
+		reverse-video selection, Plex Mono everywhere, Sora for titles. STORY: a
+		deployment console read through seams, brass numerals and cursor states.
+		FIRST VIEWPORT: black workbench, brass-marked rail, bare breadcrumb bar, four
+		tabular stat cards, bordered tabs, two-column release console. FORM: 4/7 deck,
+		challenger raises taken (monumental numerals, specimen type, quoted labels,
+		trend+value progress, brass caret, depth emphasis). FINISH: unreviewed and
+		undocumented is unfinished; this build ends with the finish review, the verdict,
+		and DESIGN.md
+	-->
 	<div class="sh-root">
 		<aside class="sh-sidebar">
 			<div class="sh-brand">
@@ -1055,7 +1069,7 @@ FEATURE_QUEUE_BATCHING=true</code
 		min-height: 100vh;
 		background: var(--iv_surface);
 		color: var(--iv_foreground);
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-ui);
 		font-size: var(--iv_text-body);
 		line-height: var(--iv_leading-base);
 	}
@@ -1089,12 +1103,14 @@ FEATURE_QUEUE_BATCHING=true</code
 		width: 10px;
 		height: 10px;
 		border-radius: var(--iv_radius-sm);
-		background: var(--iv_accent);
+		background: var(--iv_cursor);
+		box-shadow: inset 0 0 0 2px var(--iv_surface);
 	}
 
 	.sh-brand-name {
-		font-size: var(--iv_text-base);
-		font-weight: var(--iv_weight-bold);
+		font-family: var(--iv_font-mono);
+		font-size: var(--iv_text-body);
+		font-weight: var(--iv_weight-semibold);
 		letter-spacing: var(--iv_tracking-wider);
 	}
 
@@ -1126,8 +1142,22 @@ FEATURE_QUEUE_BATCHING=true</code
 		transform: translateY(-50%);
 		width: 3px;
 		height: 16px;
-		border-radius: var(--iv_radius-pill);
-		background: var(--iv_accent);
+		border-radius: var(--iv_radius-sm);
+		background: var(--iv_cursor);
+		box-shadow: inset var(--iv_outline-width) 0 0 var(--iv_surface);
+		animation: iv-caret-blink 1.1s steps(1) infinite;
+	}
+
+	@keyframes iv-caret-blink {
+		50% {
+			opacity: 0;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.sh-nav-item.sh-active::before {
+			animation: none;
+		}
 	}
 
 	.sh-nav-badge {
@@ -1169,10 +1199,10 @@ FEATURE_QUEUE_BATCHING=true</code
 		width: 100%;
 		padding: var(--iv_spacing-sm);
 		border: 1px solid transparent;
-		border-radius: var(--iv_radius);
+		border-radius: var(--iv_radius-sm);
 		background: transparent;
 		color: var(--iv_foreground);
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-ui);
 		cursor: pointer;
 		transition:
 			background-color var(--iv_transition-base),
@@ -1310,6 +1340,7 @@ FEATURE_QUEUE_BATCHING=true</code
 
 	.sh-page-title {
 		margin: 0;
+		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-h2);
 		font-weight: var(--iv_weight-bold);
 		letter-spacing: var(--iv_tracking-tight);
@@ -1318,6 +1349,7 @@ FEATURE_QUEUE_BATCHING=true</code
 
 	.sh-page-desc {
 		margin: var(--iv_spacing-xs) 0 0;
+		font-family: var(--iv_font-ui);
 		color: var(--iv_foreground-dim);
 	}
 
@@ -1360,13 +1392,17 @@ FEATURE_QUEUE_BATCHING=true</code
 	.sh-stat-label {
 		font-size: var(--iv_text-body-sm);
 		color: var(--iv_foreground-dim);
+		letter-spacing: var(--iv_tracking-wide);
+		text-transform: uppercase;
 	}
 
 	.sh-stat-value {
 		font-family: var(--iv_font-mono);
-		font-size: var(--iv_text-h2);
+		font-size: var(--iv_text-h1);
 		font-weight: var(--iv_weight-semibold);
 		line-height: var(--iv_leading-tight);
+		color: var(--iv_accent);
+		font-variant-numeric: tabular-nums;
 	}
 
 	.sh-stat-meta {

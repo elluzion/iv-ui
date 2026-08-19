@@ -7,13 +7,27 @@
 	});
 </script>
 
-<Story name="Scale">
+<Story name="Roles">
 	<div class="section">
-		<h3>Roles — Display → Caption, one sans family at heavier weights</h3>
-		{#each [['Display', 'var(--iv_text-display)', '700'], ['Heading 1', 'var(--iv_text-h1)', '600'], ['Heading 2', 'var(--iv_text-h2)', '600'], ['Heading 3', 'var(--iv_text-h3)', '600'], ['Title', 'var(--iv_text-title)', '600'], ['Body', 'var(--iv_text-body)', '400'], ['Label', 'var(--iv_text-label)', '500'], ['Small', 'var(--iv_text-sm)', '400'], ['Caption', 'var(--iv_text-caption)', '400']] as [name, token, weight] (name)}
+		<h3>Two faces, one rule — Plex Mono carries the UI, Sora speaks prose and headings</h3>
+		{#each [['Display', 'var(--iv_text-display)', '700', 'var(--iv_font-sans)'], ['Heading 1', 'var(--iv_text-h1)', '600', 'var(--iv_font-sans)'], ['Heading 2', 'var(--iv_text-h2)', '600', 'var(--iv_font-sans)'], ['Heading 3', 'var(--iv_text-h3)', '600', 'var(--iv_font-sans)'], ['Title', 'var(--iv_text-title)', '600', 'var(--iv_font-sans)'], ['Button / Tab', 'var(--iv_text-btn)', '600', 'var(--iv_font-ui)'], ['Label', 'var(--iv_text-label)', '500', 'var(--iv_font-ui)'], ['Body', 'var(--iv_text-body)', '400', 'var(--iv_font-ui)'], ['Small', 'var(--iv_text-sm)', '400', 'var(--iv_font-ui)'], ['Caption', 'var(--iv_text-caption)', '400', 'var(--iv_font-mono)']] as [name, token, weight, face] (name)}
 			<div class="scale-row">
-				<div class="sample" style="font-size: {token}; font-weight: {weight}">{name}</div>
+				<div class="sample" style="font-size: {token}; font-weight: {weight}; font-family: {face}">
+					{name}
+				</div>
 				<div class="meta">{token} · {weight}</div>
+			</div>
+		{/each}
+	</div>
+</Story>
+
+<Story name="Specimen">
+	<div class="section">
+		<h3>Specimen — the same mono voice at every step</h3>
+		{#each [['var(--iv_text-xl)', '0x1F'], ['var(--iv_text-lg)', '0x1F'], ['var(--iv_text-base)', '0x1F'], ['var(--iv_text-label)', '0x1F'], ['var(--iv_text-xs)', '0x1F']] as [token, sample] (token)}
+			<div class="scale-row">
+				<div class="sample mono" style="font-size: {token}">{sample}</div>
+				<div class="meta">{token}</div>
 			</div>
 		{/each}
 	</div>
@@ -40,28 +54,16 @@
 	</div>
 </Story>
 
-<Story name="Mono">
-	<div class="section">
-		<h3>Mono-for-data — never a heading, never prose</h3>
-		<div class="scale-row">
-			<div class="sample" style="font-family: var(--iv_font-mono)">
-				0x1F — timestamps, ids, code
-			</div>
-			<div class="meta">--iv_font-mono</div>
-		</div>
-	</div>
-</Story>
-
 <Story name="Typeset">
 	<div class="section">
-		<h3>iv-prose — container-aware typeset (size · leading · flow)</h3>
+		<h3>iv-prose — Sora prose carries the reading voice inside containers</h3>
 		<div class="typeset-demo iv-prose">
 			<h1>Section heading</h1>
 			<p>
 				The typeset is driven by <code>--iv_typeset-size</code>,
 				<code>--iv_typeset-leading</code> and <code>--iv_typeset-flow</code>. Set them on a preset
 				class (<code>.iv-prose-docs</code>, <code>.iv-prose-chat</code>) to re-rhythm the whole
-				document.
+				document. Prose and headings read in Sora; <code>code</code> stays in Plex Mono.
 			</p>
 			<h2>Streaming-stable rhythm</h2>
 			<p>
@@ -119,6 +121,11 @@ for (const item of items)
 		text-overflow: ellipsis;
 	}
 
+	.mono {
+		color: var(--iv_accent);
+		letter-spacing: var(--iv_tracking-wide);
+	}
+
 	.meta {
 		width: 220px;
 		flex-shrink: 0;
@@ -141,7 +148,7 @@ for (const item of items)
 		padding: var(--iv_spacing-2xl);
 		box-sizing: border-box;
 		border: 1px solid var(--iv_border);
-		border-radius: var(--iv_radius-lg);
+		border-radius: var(--iv_radius);
 		background: var(--iv_surface-raised);
 	}
 </style>

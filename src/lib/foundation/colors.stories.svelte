@@ -9,7 +9,7 @@
 
 <Story name="Surfaces">
 	<div class="section">
-		<h3>Surface stack — four gray layers, one step lighter each</h3>
+		<h3>Surface stack — black canvas up through four raised layers</h3>
 		<div class="foundation-grid">
 			{#each ['--iv_surface', '--iv_surface-raised', '--iv_surface-elevated', '--iv_surface-hover', '--iv_surface-overlay'] as t (t)}
 				<div class="swatch">
@@ -26,7 +26,7 @@
 
 <Story name="Borders & Rings">
 	<div class="section">
-		<h3>Hairlines — borders never carry depth on their own</h3>
+		<h3>Hairlines — structure from 1px seams, never shadow</h3>
 		<div class="foundation-grid">
 			{#each ['--iv_border', '--iv_border-hover', '--iv_border-focus', '--iv_border-error', '--iv_ring'] as t (t)}
 				<div class="swatch">
@@ -58,11 +58,28 @@
 	</div>
 </Story>
 
-<Story name="Semantic">
+<Story name="Accent & Semantic">
 	<div class="section">
-		<h3>Accent + three semantic tones — used on small marks only</h3>
+		<h3>One brass signal plus three semantic tones — small marks only</h3>
 		<div class="foundation-grid">
 			{#each ['--iv_accent', '--iv_accent-dim', '--iv_accent-surface', '--iv_success', '--iv_error', '--iv_info'] as t (t)}
+				<div class="swatch">
+					<div class="swatch-chip" style="background: var({t})"></div>
+					<div class="swatch-meta">
+						<p class="swatch-name">{t.replace('--iv_', '')}</p>
+						<p class="swatch-token">{t}</p>
+					</div>
+				</div>
+			{/each}
+		</div>
+	</div>
+</Story>
+
+<Story name="Reverse Video">
+	<div class="section">
+		<h3>Terminal cursor surfaces — the block that marks selection</h3>
+		<div class="foundation-grid">
+			{#each ['--iv_reverse-bg', '--iv_reverse-fg', '--iv_reverse-hover', '--iv_cursor', '--iv_caret', '--iv_bracket'] as t (t)}
 				<div class="swatch">
 					<div class="swatch-chip" style="background: var({t})"></div>
 					<div class="swatch-meta">
@@ -101,7 +118,7 @@
 
 	.swatch {
 		border: 1px solid var(--iv_border);
-		border-radius: var(--iv_radius);
+		border-radius: var(--iv_radius-sm);
 		overflow: hidden;
 		background: var(--iv_surface-raised);
 	}

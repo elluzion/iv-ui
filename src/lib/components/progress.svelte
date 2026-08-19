@@ -49,11 +49,13 @@
 		</div>
 	{/if}
 	<div class="iv-track">
-		<div
-			class="iv-fill"
-			class:iv-indeterminate={indeterminate}
-			style:width={indeterminate ? undefined : pct + '%'}
-		></div>
+		<div class="iv-fill-wrap">
+			<div
+				class="iv-fill"
+				class:iv-indeterminate={indeterminate}
+				style:transform={indeterminate ? undefined : `scaleX(${pct / 100})`}
+			></div>
+		</div>
 	</div>
 </div>
 
@@ -78,7 +80,7 @@
 	}
 
 	.iv-label {
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-ui);
 		font-size: var(--iv_text-label);
 		font-weight: var(--iv_weight-medium);
 		color: var(--iv_foreground);
@@ -94,16 +96,28 @@
 		position: relative;
 		width: 100%;
 		height: var(--iv_progress-h-md);
-		border-radius: var(--iv_radius-pill);
+		border-radius: var(--iv_radius-sm);
 		background: var(--iv_surface-elevated);
 		overflow: hidden;
 	}
 
-	.iv-fill {
+	.iv-fill-wrap {
+		position: absolute;
+		inset: 0;
+		width: 100%;
 		height: 100%;
-		border-radius: var(--iv_radius-pill);
-		background: var(--iv_foreground-dim);
-		transition: width var(--iv_transition-base);
+	}
+
+	.iv-fill {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: var(--iv_radius-sm);
+		background: var(--iv_cursor);
+		transform-origin: left center;
+		transition: transform var(--iv_transition-base);
 
 		&.iv-indeterminate {
 			width: 40%;

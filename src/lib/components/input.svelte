@@ -189,7 +189,7 @@
 		display: flex;
 		align-items: center;
 		border: 1px solid var(--iv_border);
-		border-radius: var(--iv_radius);
+		border-radius: var(--iv_radius-sm);
 		background: var(--iv_surface-raised);
 		transition:
 			border-color var(--iv_transition-base),
@@ -202,14 +202,16 @@
 
 		&:focus-within {
 			border-color: var(--iv_border-focus);
-			box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_ring);
+			box-shadow:
+				inset 0 0 0 var(--iv_ring-width) var(--iv_ring),
+				inset 3px 0 0 var(--iv_cursor);
 		}
 
 		&.iv-has-error {
 			border-color: var(--iv_border-error);
 
 			&:focus-within {
-				box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_error-surface);
+				box-shadow: inset 0 0 0 var(--iv_ring-width) var(--iv_error-surface);
 			}
 		}
 
@@ -308,7 +310,7 @@
 		justify-content: center;
 		width: var(--iv_control-md);
 		height: var(--iv_control-md);
-		border-radius: 50%;
+		border-radius: var(--iv_radius-sm);
 		color: var(--iv_foreground-dim);
 		flex-shrink: 0;
 
@@ -326,7 +328,7 @@
 
 	.iv-label {
 		display: block;
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-ui);
 		font-size: var(--iv_text-label);
 		font-weight: 500;
 		color: var(--iv_foreground);
@@ -340,7 +342,7 @@
 
 	.iv-message {
 		margin: var(--iv_spacing-xs) 0 0 0;
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-ui);
 		font-size: var(--iv_text-sm);
 	}
 

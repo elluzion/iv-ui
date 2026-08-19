@@ -48,9 +48,10 @@
 		height: var(--iv_badge-h-md);
 		padding: 0 var(--iv_badge-pad-x-md);
 		border: 1px solid var(--iv_border);
-		border-radius: var(--iv_radius-pill);
+		border-radius: var(--iv_radius-sm);
 		background: var(--iv_surface-elevated);
 		color: var(--iv_foreground-dim);
+		font-family: var(--iv_font-mono);
 		font-size: var(--iv_text-chips);
 		font-weight: var(--iv_weight-semibold);
 		white-space: nowrap;
@@ -93,7 +94,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		border-radius: 50%;
+		border-radius: var(--iv_radius-sm);
 		color: inherit;
 		opacity: 0.7;
 

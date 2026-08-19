@@ -84,7 +84,7 @@
 		gap: var(--iv_spacing-lg);
 		width: 100%;
 		padding: var(--iv_spacing-lg) var(--iv_spacing-xl);
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-ui);
 		font-size: var(--iv_text-btn);
 		font-weight: 500;
 		color: var(--iv_foreground);
@@ -128,7 +128,7 @@
 	}
 
 	.iv-panel {
-		padding: 0 var(--iv_spacing-xl);
+		padding: var(--iv_spacing-lg);
 		border-top: 1px solid var(--iv_border);
 		background: var(--iv_surface-raised);
 		color: var(--iv_foreground-dim);

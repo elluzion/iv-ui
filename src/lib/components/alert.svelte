@@ -72,27 +72,31 @@
 		box-sizing: border-box;
 		padding: var(--iv_spacing-md) var(--iv_spacing-lg);
 		border: 1px solid var(--iv_border);
-		border-radius: var(--iv_radius);
+		border-radius: var(--iv_radius-sm);
 		background: var(--iv_surface-raised);
 
 		&.iv-alert-info {
 			background: var(--iv_info-surface);
-			border-color: var(--iv_info);
+			border-color: var(--iv_border);
+			box-shadow: inset 3px 0 0 var(--iv_info);
 		}
 
 		&.iv-alert-success {
 			background: var(--iv_success-surface);
-			border-color: var(--iv_success);
+			border-color: var(--iv_border);
+			box-shadow: inset 3px 0 0 var(--iv_success);
 		}
 
 		&.iv-alert-warning {
 			background: var(--iv_error-surface);
-			border-color: var(--iv_error-dim);
+			border-color: var(--iv_border);
+			box-shadow: inset 3px 0 0 var(--iv_error);
 		}
 
 		&.iv-alert-error {
 			background: var(--iv_error-surface);
-			border-color: var(--iv_error-dim);
+			border-color: var(--iv_border);
+			box-shadow: inset 3px 0 0 var(--iv_error);
 		}
 	}
 
@@ -127,6 +131,7 @@
 
 	.iv-alert-title {
 		margin: 0;
+		font-family: var(--iv_font-sans);
 		font-size: var(--iv_text-body);
 		font-weight: var(--iv_weight-semibold);
 		color: var(--iv_foreground);
@@ -135,6 +140,7 @@
 
 	.iv-alert-body {
 		margin-top: 2px;
+		font-family: var(--iv_font-ui);
 		font-size: var(--iv_text-sm);
 		color: var(--iv_foreground-dim);
 		line-height: var(--iv_leading-base);

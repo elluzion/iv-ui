@@ -81,11 +81,11 @@
 		justify-content: center;
 		gap: var(--iv_spacing-sm);
 		padding: var(--iv_control-pad-y) var(--iv_btn-pad-x);
-		border-radius: var(--iv_radius);
+		border-radius: var(--iv_radius-sm);
 		border: 1px solid var(--iv_border);
 		background: var(--iv_surface-elevated);
 		color: var(--iv_foreground);
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-ui);
 		font-size: var(--iv_text-btn);
 		font-weight: var(--iv_weight-semibold);
 		cursor: pointer;
@@ -110,13 +110,15 @@
 		}
 
 		&.iv-checked {
-			background: var(--iv_accent-surface);
-			border-color: var(--iv_accent);
-			color: var(--iv_accent);
+			background: var(--iv_reverse-bg);
+			border-color: var(--iv_reverse-bg);
+			color: var(--iv_reverse-fg);
+			box-shadow: inset 0 -3px 0 var(--iv_cursor);
 
 			&:hover:not(:disabled) {
-				background: var(--iv_accent-surface);
-				border-color: var(--iv_accent);
+				background: var(--iv_reverse-hover);
+				border-color: var(--iv_reverse-hover);
+				color: var(--iv_surface);
 			}
 		}
 
@@ -136,7 +138,8 @@
 		&.iv-lg {
 			padding: var(--iv_control-pad-y-lg) var(--iv_btn-pad-x-lg);
 			font-size: var(--iv_text-lg);
-			border-radius: var(--iv_radius-lg);
+			gap: var(--iv_spacing-sm);
+			border-radius: var(--iv_radius-sm);
 		}
 	}
 

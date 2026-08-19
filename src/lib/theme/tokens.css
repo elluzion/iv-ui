@@ -1,50 +1,70 @@
 :root {
 	--iv_surface: #000000;
-	--iv_surface-raised: #141415;
-	--iv_surface-elevated: #1e1e20;
-	--iv_surface-hover: #242427;
-	--iv_surface-overlay: rgba(255, 255, 255, 0.1);
+	--iv_surface-raised: #101011;
+	--iv_surface-elevated: #18181a;
+	--iv_surface-hover: #1f1f22;
+	--iv_surface-overlay: rgba(255, 255, 255, 0.08);
 
-	--iv_border: #2a2a2d;
-	--iv_border-hover: #3a3a3d;
-	--iv_border-focus: #4a4a4d;
-	--iv_border-error: #f08858;
+	--iv_border: #26262a;
+	--iv_border-hover: #3a3a3f;
+	--iv_border-focus: #4a4a50;
+	--iv_border-error: #e0503a;
 
-	--iv_foreground: #fafafa;
-	--iv_foreground-dim: #8e8e93;
+	--iv_foreground: #f2f2f2;
+	--iv_foreground-dim: #8a8a90;
 	--iv_foreground-inverse: #000000;
-	--iv_foreground-hover: #e4e4e4;
+	--iv_foreground-hover: #dcdcdc;
 
 	--iv_accent: #c7a24a;
-	--iv_accent-dim: #7d6a3c;
-	--iv_accent-surface: rgba(199, 162, 74, 0.1);
+	--iv_accent-dim: #8a6f2f;
+	--iv_accent-surface: rgba(199, 162, 74, 0.12);
 
 	--iv_success: #7c9b7c;
-	--iv_success-dim: #5a7a5a;
-	--iv_success-surface: rgba(124, 155, 124, 0.1);
+	--iv_success-dim: #557255;
+	--iv_success-surface: rgba(124, 155, 124, 0.12);
 
-	--iv_error: #f08858;
-	--iv_error-dim: #da7550;
-	--iv_error-surface: rgba(240, 136, 88, 0.1);
+	--iv_error: #e0503a;
+	--iv_error-dim: #b23c2a;
+	--iv_error-surface: rgba(224, 80, 58, 0.12);
 
 	--iv_info: #5d8ee8;
 	--iv_info-dim: #3a6fcc;
-	--iv_info-surface: rgba(93, 142, 232, 0.1);
+	--iv_info-surface: rgba(93, 142, 232, 0.12);
 
-	--iv_overlay: rgba(0, 0, 0, 0.4);
-	--iv_ring: rgba(255, 255, 255, 0.1);
+	--iv_overlay: rgba(0, 0, 0, 0.5);
+	--iv_ring: rgba(255, 255, 255, 0.12);
 
-	--iv_radius: 14px;
+	/* Reverse-video: the terminal cursor / selection state (foreground fill, surface text) */
+	--iv_reverse-bg: var(--iv_foreground);
+	--iv_reverse-fg: var(--iv_surface);
+	--iv_reverse-hover: var(--iv_foreground-hover);
+
+	/* Hardened brass — block cursor, caret, brackets; never a glow */
+	--iv_cursor: var(--iv_accent);
+	--iv_caret: var(--iv_accent);
+	--iv_bracket: var(--iv_accent-dim);
+
+	/* Hazard stripe texture for disabled/destructive zones */
+	--iv_hazard-angle: 45deg;
+	--iv_hazard-stripe: repeating-linear-gradient(
+		var(--iv_hazard-angle),
+		transparent 0 4px,
+		var(--iv_surface-overlay) 4px 8px
+	);
+
+	--iv_radius: 4px;
 	--iv_radius-sm: calc(var(--iv_radius) - 4px);
-	--iv_radius-lg: calc(var(--iv_radius) + 6px);
+	--iv_radius-lg: calc(var(--iv_radius) + 4px);
 	--iv_radius-pill: 999px;
 
-	--iv_shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
-	--iv_shadow-md: 0 4px 20px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.4);
-	--iv_shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.6), 0 2px 6px rgba(0, 0, 0, 0.4);
+	--iv_shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.55);
+	--iv_shadow-md: 0 4px 20px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.45);
+	--iv_shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.65), 0 2px 6px rgba(0, 0, 0, 0.45);
 
-	--iv_font-sans: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+	--iv_font-sans: 'Sora', system-ui, sans-serif;
 	--iv_font-mono: 'IBM Plex Mono', monospace;
+	/* The UI voice: mono-forward. Sora is reserved for headings and prose. */
+	--iv_font-ui: var(--iv_font-mono);
 
 	--iv_text-xs: 0.75rem;
 	--iv_text-sm: 0.8rem;
@@ -91,15 +111,15 @@
 	--iv_spacing-xl: 20px;
 	--iv_spacing-2xl: 24px;
 
-	--iv_transition-fast: 0.12s;
-	--iv_transition-base: 0.15s;
-	--iv_transition-slow: 0.2s;
+	--iv_transition-fast: 0.1s;
+	--iv_transition-base: 0.13s;
+	--iv_transition-slow: 0.18s;
 
-	--iv_motion-fade: 0.15s;
-	--iv_motion-scale: 0.15s;
-	--iv_motion-fly: 0.16s;
-	--iv_motion-slide: 0.18s;
-	--iv_motion-subtle: 0.12s;
+	--iv_motion-fade: 0.13s;
+	--iv_motion-scale: 0.13s;
+	--iv_motion-fly: 0.14s;
+	--iv_motion-slide: 0.16s;
+	--iv_motion-subtle: 0.1s;
 
 	--iv_ease-in: cubic-bezier(0.4, 0, 1, 1);
 	--iv_ease-out: cubic-bezier(0, 0, 0.2, 1);
@@ -109,9 +129,9 @@
 	--iv_spin-duration: 0.75s;
 	--iv_spin-easing: cubic-bezier(0.3, 0.7, 0.7, 0.3);
 
-	--iv_outline-width: 2px;
-	--iv_outline-offset: 2px;
-	--iv_ring-width: 3px;
+	--iv_outline-width: 1px;
+	--iv_outline-offset: 3px;
+	--iv_ring-width: 1px;
 	--iv_blur: 12px;
 	--iv_disabled-opacity: 0.5;
 
@@ -132,17 +152,17 @@
 	--iv_control-sm: 16px;
 	--iv_control-md: 20px;
 
-	--iv_control-pad-y-sm: 5px;
-	--iv_control-pad-y: 9px;
-	--iv_control-pad-y-lg: 13px;
+	--iv_control-pad-y-sm: 6px;
+	--iv_control-pad-y: 10px;
+	--iv_control-pad-y-lg: 14px;
 
-	--iv_control-pad-x-sm: 11px;
-	--iv_control-pad-x: 13px;
-	--iv_control-pad-x-lg: 16px;
+	--iv_control-pad-x-sm: 12px;
+	--iv_control-pad-x: 15px;
+	--iv_control-pad-x-lg: 18px;
 
-	--iv_btn-pad-x-sm: 13px;
-	--iv_btn-pad-x: 18px;
-	--iv_btn-pad-x-lg: 24px;
+	--iv_btn-pad-x-sm: 14px;
+	--iv_btn-pad-x: 20px;
+	--iv_btn-pad-x-lg: 26px;
 
 	--iv_thumb-sm: 14px;
 	--iv_thumb-md: 18px;
@@ -157,7 +177,7 @@
 
 	--iv_popover-min-w: 10rem;
 	--iv_popover-max-w: 20rem;
-	--iv_popover-margin: 8px;
+	--iv_popover-margin: 4px;
 
 	--iv_toast-min-w: 260px;
 	--iv_toast-close-size: 32px;
@@ -168,8 +188,8 @@
 	--iv_separator-size: 1px;
 	--iv_spinner-border: 2px;
 
-	--iv_tooltip-gap: 8px;
-	--iv_tooltip-margin: 8px;
+	--iv_tooltip-gap: 4px;
+	--iv_tooltip-margin: 4px;
 
 	--iv_radio-border: 1.5px;
 	--iv_radio-dot-sm: 5px;
@@ -256,115 +276,127 @@
 
 @media (prefers-color-scheme: light) {
 	:root:not([data-theme='dark']):not(.theme-dark) {
-		--iv_surface: #ffffff;
-		--iv_surface-raised: #f4f4f5;
-		--iv_surface-elevated: #e4e4e7;
-		--iv_surface-hover: #d4d4d8;
-		--iv_surface-overlay: rgba(0, 0, 0, 0.05);
+		--iv_surface: #fcfcfc;
+		--iv_surface-raised: #f2f2f2;
+		--iv_surface-elevated: #e8e8e8;
+		--iv_surface-hover: #dddcdb;
+		--iv_surface-overlay: rgba(0, 0, 0, 0.04);
 
-		--iv_border: #d4d4d8;
-		--iv_border-hover: #a1a1aa;
-		--iv_border-focus: #71717a;
-		--iv_border-error: #b03308;
+		--iv_border: #d4d3cf;
+		--iv_border-hover: #b3b2ad;
+		--iv_border-focus: #82817c;
+		--iv_border-error: #b33a22;
 
-		--iv_foreground: #18181b;
-		--iv_foreground-dim: #71717a;
+		--iv_foreground: #141414;
+		--iv_foreground-dim: #6e6d68;
 		--iv_foreground-inverse: #ffffff;
-		--iv_foreground-hover: #27272a;
+		--iv_foreground-hover: #232322;
 
-		--iv_accent: #b0851a;
-		--iv_accent-dim: #8b6914;
-		--iv_accent-surface: rgba(176, 133, 26, 0.1);
+		--iv_accent: #8a6f2f;
+		--iv_accent-dim: #6b5523;
+		--iv_accent-surface: rgba(138, 111, 47, 0.1);
 
-		--iv_success: #3b7a3b;
-		--iv_success-dim: #2d5e2d;
-		--iv_success-surface: rgba(59, 122, 59, 0.1);
+		--iv_success: #3b6e3b;
+		--iv_success-dim: #2c552c;
+		--iv_success-surface: rgba(59, 110, 59, 0.1);
 
-		--iv_error: #b03308;
-		--iv_error-dim: #892a0d;
-		--iv_error-surface: rgba(176, 51, 8, 0.1);
+		--iv_error: #b33a22;
+		--iv_error-dim: #8c2c1a;
+		--iv_error-surface: rgba(179, 58, 34, 0.1);
 
-		--iv_info: #2563eb;
-		--iv_info-dim: #1d4ed8;
-		--iv_info-surface: rgba(37, 99, 235, 0.1);
+		--iv_info: #2f5fc4;
+		--iv_info-dim: #244a99;
+		--iv_info-surface: rgba(47, 95, 196, 0.1);
 
-		--iv_overlay: rgba(0, 0, 0, 0.3);
-		--iv_ring: rgba(0, 0, 0, 0.06);
+		--iv_overlay: rgba(0, 0, 0, 0.25);
+		--iv_ring: rgba(0, 0, 0, 0.08);
+
+		--iv_reverse-bg: var(--iv_foreground);
+		--iv_reverse-fg: var(--iv_surface);
+		--iv_reverse-hover: var(--iv_foreground-hover);
 	}
 }
 
 [data-theme='light'],
 .theme-light {
-	--iv_surface: #ffffff;
-	--iv_surface-raised: #f4f4f5;
-	--iv_surface-elevated: #e4e4e7;
-	--iv_surface-hover: #d4d4d8;
-	--iv_surface-overlay: rgba(0, 0, 0, 0.05);
+	--iv_surface: #fcfcfc;
+	--iv_surface-raised: #f2f2f2;
+	--iv_surface-elevated: #e8e8e8;
+	--iv_surface-hover: #dddcdb;
+	--iv_surface-overlay: rgba(0, 0, 0, 0.04);
 
-	--iv_border: #d4d4d8;
-	--iv_border-hover: #a1a1aa;
-	--iv_border-focus: #71717a;
-	--iv_border-error: #b03308;
+	--iv_border: #d4d3cf;
+	--iv_border-hover: #b3b2ad;
+	--iv_border-focus: #82817c;
+	--iv_border-error: #b33a22;
 
-	--iv_foreground: #18181b;
-	--iv_foreground-dim: #71717a;
+	--iv_foreground: #141414;
+	--iv_foreground-dim: #6e6d68;
 	--iv_foreground-inverse: #ffffff;
-	--iv_foreground-hover: #27272a;
+	--iv_foreground-hover: #232322;
 
-	--iv_accent: #b0851a;
-	--iv_accent-dim: #8b6914;
-	--iv_accent-surface: rgba(176, 133, 26, 0.1);
+	--iv_accent: #8a6f2f;
+	--iv_accent-dim: #6b5523;
+	--iv_accent-surface: rgba(138, 111, 47, 0.1);
 
-	--iv_success: #3b7a3b;
-	--iv_success-dim: #2d5e2d;
-	--iv_success-surface: rgba(59, 122, 59, 0.1);
+	--iv_success: #3b6e3b;
+	--iv_success-dim: #2c552c;
+	--iv_success-surface: rgba(59, 110, 59, 0.1);
 
-	--iv_error: #b03308;
-	--iv_error-dim: #892a0d;
-	--iv_error-surface: rgba(176, 51, 8, 0.1);
+	--iv_error: #b33a22;
+	--iv_error-dim: #8c2c1a;
+	--iv_error-surface: rgba(179, 58, 34, 0.1);
 
-	--iv_info: #2563eb;
-	--iv_info-dim: #1d4ed8;
-	--iv_info-surface: rgba(37, 99, 235, 0.1);
+	--iv_info: #2f5fc4;
+	--iv_info-dim: #244a99;
+	--iv_info-surface: rgba(47, 95, 196, 0.1);
 
-	--iv_overlay: rgba(0, 0, 0, 0.3);
-	--iv_ring: rgba(0, 0, 0, 0.06);
+	--iv_overlay: rgba(0, 0, 0, 0.25);
+	--iv_ring: rgba(0, 0, 0, 0.08);
+
+	--iv_reverse-bg: var(--iv_foreground);
+	--iv_reverse-fg: var(--iv_surface);
+	--iv_reverse-hover: var(--iv_foreground-hover);
 }
 
 [data-theme='dark'],
 .theme-dark {
 	--iv_surface: #000000;
-	--iv_surface-raised: #141415;
-	--iv_surface-elevated: #1e1e20;
-	--iv_surface-hover: #242427;
-	--iv_surface-overlay: rgba(255, 255, 255, 0.1);
+	--iv_surface-raised: #101011;
+	--iv_surface-elevated: #18181a;
+	--iv_surface-hover: #1f1f22;
+	--iv_surface-overlay: rgba(255, 255, 255, 0.08);
 
-	--iv_border: #2a2a2d;
-	--iv_border-hover: #3a3a3d;
-	--iv_border-focus: #4a4a4d;
-	--iv_border-error: #f08858;
+	--iv_border: #26262a;
+	--iv_border-hover: #3a3a3f;
+	--iv_border-focus: #4a4a50;
+	--iv_border-error: #e0503a;
 
-	--iv_foreground: #fafafa;
-	--iv_foreground-dim: #8e8e93;
+	--iv_foreground: #f2f2f2;
+	--iv_foreground-dim: #8a8a90;
 	--iv_foreground-inverse: #000000;
-	--iv_foreground-hover: #e4e4e4;
+	--iv_foreground-hover: #dcdcdc;
 
 	--iv_accent: #c7a24a;
-	--iv_accent-dim: #7d6a3c;
-	--iv_accent-surface: rgba(199, 162, 74, 0.1);
+	--iv_accent-dim: #8a6f2f;
+	--iv_accent-surface: rgba(199, 162, 74, 0.12);
 
 	--iv_success: #7c9b7c;
-	--iv_success-dim: #5a7a5a;
-	--iv_success-surface: rgba(124, 155, 124, 0.1);
+	--iv_success-dim: #557255;
+	--iv_success-surface: rgba(124, 155, 124, 0.12);
 
-	--iv_error: #f08858;
-	--iv_error-dim: #da7550;
-	--iv_error-surface: rgba(240, 136, 88, 0.1);
+	--iv_error: #e0503a;
+	--iv_error-dim: #b23c2a;
+	--iv_error-surface: rgba(224, 80, 58, 0.12);
 
 	--iv_info: #5d8ee8;
 	--iv_info-dim: #3a6fcc;
-	--iv_info-surface: rgba(93, 142, 232, 0.1);
+	--iv_info-surface: rgba(93, 142, 232, 0.12);
 
-	--iv_overlay: rgba(0, 0, 0, 0.4);
-	--iv_ring: rgba(255, 255, 255, 0.1);
+	--iv_overlay: rgba(0, 0, 0, 0.5);
+	--iv_ring: rgba(255, 255, 255, 0.12);
+
+	--iv_reverse-bg: var(--iv_foreground);
+	--iv_reverse-fg: var(--iv_surface);
+	--iv_reverse-hover: var(--iv_foreground-hover);
 }

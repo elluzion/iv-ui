@@ -177,7 +177,7 @@
 	}
 
 	.iv-label {
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-ui);
 		font-size: var(--iv_text-body);
 		color: var(--iv_foreground);
 		line-height: var(--iv_leading-tight);

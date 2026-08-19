@@ -146,6 +146,7 @@
 
 		&.iv-selected {
 			border-color: var(--iv_accent);
+			box-shadow: inset 0 -3px 0 var(--iv_cursor);
 			background: var(--iv_accent-surface);
 		}
 
@@ -162,6 +163,7 @@
 		&.iv-disabled {
 			opacity: var(--iv_disabled-opacity);
 			cursor: not-allowed;
+			background-image: var(--iv_hazard-stripe);
 		}
 
 		.iv-header {
@@ -181,6 +183,7 @@
 
 			.iv-title {
 				margin: 0;
+				font-family: var(--iv_font-sans);
 				font-size: var(--iv_text-base);
 				font-weight: 600;
 				color: var(--iv_foreground);
@@ -191,6 +194,7 @@
 
 			.iv-description {
 				margin: 0;
+				font-family: var(--iv_font-ui);
 				font-size: var(--iv_text-label);
 				color: var(--iv_foreground-dim);
 			}

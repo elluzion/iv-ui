@@ -31,13 +31,13 @@
 		&.iv-rect {
 			width: 100%;
 			height: 0.875rem;
-			border-radius: var(--iv_skeleton-radius);
+			border-radius: var(--iv_radius-sm);
 		}
 
 		&.iv-line {
 			width: 100%;
 			height: 0.75em;
-			border-radius: var(--iv_radius-pill);
+			border-radius: var(--iv_radius-sm);
 		}
 
 		&.iv-circle {

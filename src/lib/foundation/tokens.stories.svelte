@@ -9,8 +9,8 @@
 
 <Story name="Radius">
 	<div class="section">
-		<h3>Derived scale — set --iv_radius and the rest follow via calc()</h3>
-		{#each [['sm', 'var(--iv_radius-sm)', 'calc(radius − 4px)'], ['md', 'var(--iv_radius)', 'base, 14px'], ['lg', 'var(--iv_radius-lg)', 'calc(radius + 6px)'], ['pill', 'var(--iv_radius-pill)', '999px']] as [name, token, note] (name)}
+		<h3>Sharp scale — controls at 0, containers 4px, large surfaces 8px</h3>
+		{#each [['sm', 'var(--iv_radius-sm)', 'controls: buttons, inputs, chips, tabs'], ['md', 'var(--iv_radius)', 'containers: cards, menus, popovers, toasts'], ['lg', 'var(--iv_radius-lg)', 'large surfaces: dialogs, sheets'], ['pill', 'var(--iv_radius-pill)', 'semantic circles: avatars, radio, status']] as [name, token, note] (name)}
 			<div class="row">
 				<div class="radius-demo" style="border-radius: {token}"></div>
 				<div class="meta">
@@ -51,10 +51,50 @@
 	</div>
 </Story>
 
+<Story name="Chrome">
+	<div class="section">
+		<h3>Instrument chrome — cursor, reverse-video, brackets, hazard</h3>
+		<div class="row">
+			<div class="cursor-demo" title="--iv_cursor: block cursor / caret" aria-hidden="true"></div>
+			<div class="meta">
+				<code>--iv_cursor</code><span> — brass block cursor & caret, hard left edge</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="reverse-demo" title="--iv_reverse-bg/-fg: terminal cursor selection">
+				Reverse-video
+			</div>
+			<div class="meta">
+				<code>--iv_reverse-bg</code><span> / </span><code>--iv_reverse-fg</code><span>
+					— foreground fill, surface text</span
+				>
+			</div>
+		</div>
+		<div class="row">
+			<div class="bracket-demo" title="--iv_bracket: box-drawing accent" aria-hidden="true">
+				┌ ─ ┐
+			</div>
+			<div class="meta">
+				<code>--iv_bracket</code><span> — frame corners and brackets</span>
+			</div>
+		</div>
+		<div class="row">
+			<div
+				class="hazard-demo"
+				title="--iv_hazard-stripe: disabled/destructive texture"
+				aria-hidden="true"
+			></div>
+			<div class="meta">
+				<code>--iv_hazard-stripe</code><span> — diagonal stripe for disabled zones</span>
+			</div>
+		</div>
+	</div>
+</Story>
+
 <Story name="Motion">
 	<div class="section">
-		<h3>Durations — per-context tokens, all zeroed under prefers-reduced-motion</h3>
-		{#each [['--iv_transition-fast', '0.12s', 'color, background, chevron rotation'], ['--iv_transition-base', '0.15s', 'borders, shadows, rings'], ['--iv_transition-slow', '0.2s', 'large surfaces'], ['--iv_motion-fade', '0.15s', 'dialog/sheet/toast backdrops'], ['--iv_motion-scale', '0.15s', 'dialog/confirm scale-in'], ['--iv_motion-fly', '0.16s', 'toast rise, popover offset'], ['--iv_motion-slide', '0.18s', 'accordion expand, sheet slide']] as [token, value, use] (token)}
+		<h3>Durations — short cuts, block flips, all zeroed under reduced-motion</h3>
+		{#each [['--iv_transition-fast', '0.10s', 'color, background, chevron rotation'], ['--iv_transition-base', '0.13s', 'borders, shadows, rings'], ['--iv_transition-slow', '0.18s', 'large surfaces'], ['--iv_motion-fade', '0.13s', 'dialog/sheet/toast backdrops'], ['--iv_motion-scale', '0.13s', 'dialog/confirm scale-in'], ['--iv_motion-fly', '0.14s', 'toast rise, popover offset'], ['--iv_motion-slide', '0.16s', 'accordion expand, sheet slide']] as [token, value, use] (token)}
 			<div class="row">
 				<div class="meta">
 					<code>{token}</code>
@@ -103,6 +143,37 @@
 		background: var(--iv_surface-raised);
 		border: 1px solid var(--iv_border);
 		border-radius: var(--iv_radius);
+	}
+
+	.cursor-demo {
+		width: 12px;
+		height: 20px;
+		background: var(--iv_cursor);
+	}
+
+	.reverse-demo {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: var(--iv_spacing-sm) var(--iv_spacing-lg);
+		background: var(--iv_reverse-bg);
+		color: var(--iv_reverse-fg);
+		font-family: var(--iv_font-mono);
+		font-size: var(--iv_text-body);
+	}
+
+	.bracket-demo {
+		font-family: var(--iv_font-mono);
+		font-size: var(--iv_text-base);
+		color: var(--iv_bracket);
+		letter-spacing: var(--iv_tracking-wide);
+	}
+
+	.hazard-demo {
+		width: 96px;
+		height: 20px;
+		background: var(--iv_hazard-stripe);
+		border: 1px solid var(--iv_border);
 	}
 
 	.meta {

@@ -3,15 +3,19 @@ body {
 	padding: 0;
 	background-color: var(--iv_surface);
 	color: var(--iv_foreground);
-	font-family: var(--iv_font-sans);
+	font-family: var(--iv_font-ui);
 	height: 100dvh;
 	display: flex;
 	flex-direction: column;
 }
 
+html {
+	caret-color: var(--iv_caret);
+}
+
 ::selection {
-	background-color: var(--iv_accent);
-	color: var(--iv_surface);
+	background-color: var(--iv_reverse-bg);
+	color: var(--iv_reverse-fg);
 }
 
 button {
@@ -25,11 +29,21 @@ a {
 a[href] {
 	color: var(--iv_accent);
 	text-decoration: none;
+	border-block-end: 1px solid var(--iv_border-hover);
+	text-underline-offset: 3px;
+	transition:
+		color var(--iv_transition-base),
+		border-color var(--iv_transition-base);
 }
 
 a[href]:hover {
-	text-decoration: underline;
-	text-decoration-style: dotted;
+	color: var(--iv_accent-dim);
+	border-block-end-color: var(--iv_bracket);
+}
+
+/* Terminal numerals for tabular data */
+:where(table, .iv-tabular) {
+	font-variant-numeric: tabular-nums;
 }
 
 html {
@@ -48,9 +62,15 @@ html {
 
 ::-webkit-scrollbar-thumb {
 	background: var(--iv_border);
-	border-radius: var(--iv_radius-pill);
+	border-radius: var(--iv_radius-sm);
 }
 
 ::-webkit-scrollbar-thumb:hover {
 	background: var(--iv_border-hover);
+}
+
+/* Font rendering — sharper edges on the console face */
+:where(body, input, textarea, select, button) {
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
 }

@@ -30,8 +30,9 @@ All components forward these to the root element (via `...restProps`):
 - Every class name is prefixed `iv-` (`.iv-btn`, `.iv-card`, `.iv-dialog`).
 - Variant/state classes share the prefix (`.iv-primary`, `.iv-selected`,
   `.iv-disabled`, `.iv-active`, `.iv-open`).
-- No raw hex/rgba/rem/px in component styles — only tokens from
-  `src/lib/theme/tokens.css` (`--iv_*`).
+- No raw hex/rgba colors and no raw `font-size` rem/px in component styles — only
+  tokens from `src/lib/theme/tokens.css` (`--iv_*`). Small geometric values
+  (4px offsets, hairline positioning) may be literal where no token exists.
 
 ---
 
@@ -137,7 +138,13 @@ Every component must pass the Storybook a11y addon:
 
 - **Focus**: visible `:focus-visible` indicator on every interactive element.
   Ring via `0 0 0 var(--iv_ring-width) var(--iv_ring)` or outline
-  `var(--iv_outline-width) solid var(--iv_foreground)`.
+  `var(--iv_outline-width) solid var(--iv_foreground)`. Inputs/selects add a
+  hard `3px` brass cursor bar (`inset 3px 0 0 var(--iv_cursor)`) as the prompt
+  marker.
+- **State**: selected/active states render as **reverse-video** blocks
+  (`--iv_reverse-bg` fill, `--iv_reverse-fg` text) with an optional `3px` brass
+  cursor bar — terminal cursor, never a glow or shadow tint. Threat semantics
+  (error tones) keep their semantic edge bar and muted surface fill.
 - **Roles**: correct semantics — `dialog`, `menu`/`menuitem`, `tablist`/`tab`/
   `tabpanel`, `switch`, `slider`, `listbox`/`option`, `radiogroup`, `tooltip`.
 - **Names**: every control has an accessible name (label, aria-label, or

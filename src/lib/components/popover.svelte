@@ -293,9 +293,9 @@
 		box-sizing: border-box;
 		background: var(--iv_surface-raised);
 		border: 1px solid var(--iv_border);
-		border-radius: var(--iv_radius);
+		border-radius: var(--iv_radius-sm);
 		box-shadow: var(--iv_shadow-md);
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-mono);
 
 		&:empty {
 			display: none;

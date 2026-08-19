@@ -104,7 +104,7 @@
 		display: inline-flex;
 		align-items: center;
 		flex-shrink: 0;
-		border-radius: var(--iv_radius-pill);
+		border-radius: var(--iv_radius-sm);
 		background: var(--iv_surface-elevated);
 		border: 1px solid var(--iv_border);
 		cursor: pointer;
@@ -126,8 +126,8 @@
 		}
 
 		&.iv-checked {
-			background: var(--iv_accent-dim);
-			border-color: var(--iv_accent-dim);
+			background: var(--iv_cursor);
+			border-color: var(--iv_cursor);
 		}
 
 		&.iv-disabled {
@@ -138,7 +138,7 @@
 	.iv-thumb {
 		position: absolute;
 		left: 2px;
-		border-radius: 50%;
+		border-radius: var(--iv_radius-sm);
 		background: var(--iv_foreground);
 		transition: transform var(--iv_transition-fast);
 
@@ -166,7 +166,7 @@
 	}
 
 	.iv-label {
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-ui);
 		font-size: var(--iv_text-body);
 		color: var(--iv_foreground);
 		line-height: var(--iv_leading-tight);

@@ -55,7 +55,7 @@
 		min-width: var(--iv_toast-min-w);
 		max-width: min(520px, calc(100dvw - 2rem));
 		padding: var(--iv_spacing-sm) var(--iv_spacing-sm) var(--iv_spacing-sm) var(--iv_spacing-md);
-		border-radius: var(--iv_radius);
+		border-radius: var(--iv_radius-sm);
 		border: 1px solid var(--iv_border);
 		background: var(--iv_surface-raised);
 		box-shadow: var(--iv_shadow-md);
@@ -63,16 +63,19 @@
 		&.iv-toast-success {
 			background: var(--iv_success-surface);
 			border-color: var(--iv_success);
+			box-shadow: inset 3px 0 0 var(--iv_success);
 		}
 
 		&.iv-toast-error {
 			background: var(--iv_error-surface);
 			border-color: var(--iv_error-dim);
+			box-shadow: inset 3px 0 0 var(--iv_error);
 		}
 
 		&.iv-toast-info {
 			background: var(--iv_info-surface);
 			border-color: var(--iv_info);
+			box-shadow: inset 3px 0 0 var(--iv_info);
 		}
 	}
 
@@ -80,6 +83,7 @@
 		display: flex;
 		gap: var(--iv_spacing-md);
 		align-items: center;
+		font-family: var(--iv_font-mono);
 		font-size: var(--iv_text-body);
 		min-width: 0;
 

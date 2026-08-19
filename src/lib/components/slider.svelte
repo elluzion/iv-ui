@@ -241,7 +241,7 @@
 			<div
 				class="iv-thumb"
 				class:iv-active={dragging === 'lower'}
-				style="left: {lowerPct}%; --thumb-size: {thumbSize}px"
+				style="left: {lowerPct}%; --thumb-size: {thumbSize}"
 				role="slider"
 				tabindex={disabled ? -1 : 0}
 				aria-valuemin={min}
@@ -256,7 +256,7 @@
 			<div
 				class="iv-thumb"
 				class:iv-active={dragging === 'upper'}
-				style="left: {upperPct}%; --thumb-size: {thumbSize}px"
+				style="left: {upperPct}%; --thumb-size: {thumbSize}"
 				role="slider"
 				tabindex={disabled ? -1 : 0}
 				aria-valuemin={min}
@@ -275,7 +275,7 @@
 			<div
 				class="iv-thumb"
 				class:iv-active={dragging === 'single'}
-				style="left: {singlePct}%; --thumb-size: {thumbSize}px"
+				style="left: {singlePct}%; --thumb-size: {thumbSize}"
 			></div>
 		{/if}
 
@@ -313,7 +313,7 @@
 	}
 
 	.iv-label {
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-ui);
 		font-size: var(--iv_text-label);
 		font-weight: 500;
 		color: var(--iv_foreground);
@@ -329,7 +329,7 @@
 	.iv-track {
 		position: relative;
 		width: 100%;
-		border-radius: var(--iv_radius-pill);
+		border-radius: var(--iv_radius-sm);
 		background: var(--iv_surface-elevated);
 		cursor: pointer;
 		touch-action: none;
@@ -356,8 +356,8 @@
 		top: 0;
 		left: 0;
 		height: 100%;
-		border-radius: var(--iv_radius-pill);
-		background: var(--iv_foreground-dim);
+		border-radius: var(--iv_radius-sm);
+		background: var(--iv_cursor);
 		pointer-events: none;
 	}
 
@@ -366,19 +366,20 @@
 		top: 50%;
 		width: var(--thumb-size);
 		height: var(--thumb-size);
-		border-radius: 50%;
+		border-radius: var(--iv_radius-sm);
 		background: var(--iv_foreground);
+		border: 1px solid var(--iv_border);
 		transform: translate(-50%, -50%);
-		transition: box-shadow var(--iv_transition-base);
+		transition: border-color var(--iv_transition-base);
 		cursor: pointer;
 
 		&.iv-active {
-			box-shadow: var(--iv_shadow-md);
+			border-color: var(--iv_cursor);
 		}
 
 		&:focus-visible {
-			outline: var(--iv_outline-width) solid var(--iv_foreground);
-			outline-offset: 3px;
+			outline: none;
+			box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_ring);
 		}
 	}
 
@@ -397,7 +398,7 @@
 		width: 2px;
 		height: 4px;
 		transform: translate(-50%, -50%);
-		border-radius: var(--iv_radius-pill);
+		border-radius: var(--iv_radius-sm);
 		background: var(--iv_border);
 
 		&.iv-active {

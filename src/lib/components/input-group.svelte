@@ -35,7 +35,7 @@
 		width: 100%;
 		box-sizing: border-box;
 		border: 1px solid var(--iv_border);
-		border-radius: var(--iv_radius);
+		border-radius: var(--iv_radius-sm);
 		background: var(--iv_surface-raised);
 		overflow: hidden;
 		transition:
@@ -48,7 +48,9 @@
 
 		&:focus-within {
 			border-color: var(--iv_border-focus);
-			box-shadow: 0 0 0 var(--iv_ring-width) var(--iv_ring);
+			box-shadow:
+				inset 0 0 0 var(--iv_ring-width) var(--iv_ring),
+				inset 3px 0 0 var(--iv_cursor);
 		}
 
 		&.iv-disabled {
@@ -81,7 +83,7 @@
 		padding: 0 var(--iv_control-pad-x);
 		background: var(--iv_surface-elevated);
 		color: var(--iv_foreground-dim);
-		font-family: var(--iv_font-sans);
+		font-family: var(--iv_font-ui);
 		font-size: var(--iv_text-label);
 		white-space: nowrap;
 		user-select: none;

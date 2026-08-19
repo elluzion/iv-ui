@@ -49,15 +49,17 @@
 		justify-content: center;
 		width: 40px;
 		height: 40px;
-		border-radius: 50%;
+		border-radius: var(--iv_radius-sm);
 		background: var(--iv_surface-elevated);
+		border: 1px solid var(--iv_border);
 		color: var(--iv_foreground-dim);
 		margin-bottom: var(--iv_spacing-xs);
 	}
 
 	.iv-empty-title {
 		margin: 0;
-		font-size: var(--iv_text-base);
+		font-family: var(--iv_font-sans);
+		font-size: var(--iv_text-lg);
 		font-weight: var(--iv_weight-semibold);
 		color: var(--iv_foreground);
 		line-height: var(--iv_leading-tight);
@@ -66,6 +68,7 @@
 	.iv-empty-description {
 		margin: 0;
 		max-width: 36ch;
+		font-family: var(--iv_font-ui);
 		font-size: var(--iv_text-sm);
 		color: var(--iv_foreground-dim);
 		line-height: var(--iv_leading-base);
