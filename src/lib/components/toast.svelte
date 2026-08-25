@@ -18,11 +18,11 @@
 		>
 			<div class="iv-content">
 				{#if $toastState.type === 'error'}
-					<IconMoodSadDizzy stroke={2} size="1.1rem" color="var(--iv_error-dim)" />
+					<IconMoodSadDizzy stroke={2} size="1.1rem" color="var(--iv_surface)" />
 				{:else if $toastState.type === 'success'}
-					<IconCheck stroke={2} size="1.1rem" color="var(--iv_success-dim)" />
+					<IconCheck stroke={2} size="1.1rem" color="var(--iv_surface)" />
 				{:else}
-					<IconInfoCircle stroke={2} size="1.1rem" color="var(--iv_info-dim)" />
+					<IconInfoCircle stroke={2} size="1.1rem" color="var(--iv_surface)" />
 				{/if}
 				<span>{$toastState.message}</span>
 			</div>
@@ -57,25 +57,25 @@
 		padding: var(--iv_spacing-sm) var(--iv_spacing-sm) var(--iv_spacing-sm) var(--iv_spacing-md);
 		border-radius: var(--iv_radius-sm);
 		border: 1px solid var(--iv_border);
-		background: var(--iv_surface-raised);
+		background: var(--iv_surface-elevated);
 		box-shadow: var(--iv_shadow-md);
 
 		&.iv-toast-success {
-			background: var(--iv_success-surface);
+			background: var(--iv_success);
 			border-color: var(--iv_success);
-			box-shadow: inset 3px 0 0 var(--iv_success);
+			color: var(--iv_surface);
 		}
 
 		&.iv-toast-error {
-			background: var(--iv_error-surface);
-			border-color: var(--iv_error-dim);
-			box-shadow: inset 3px 0 0 var(--iv_error);
+			background: var(--iv_error);
+			border-color: var(--iv_error);
+			color: var(--iv_surface);
 		}
 
 		&.iv-toast-info {
-			background: var(--iv_info-surface);
+			background: var(--iv_info);
 			border-color: var(--iv_info);
-			box-shadow: inset 3px 0 0 var(--iv_info);
+			color: var(--iv_surface);
 		}
 	}
 
@@ -113,6 +113,20 @@
 			opacity: 1;
 			outline: var(--iv_outline-width) solid var(--iv_foreground);
 			outline-offset: var(--iv_outline-offset);
+		}
+	}
+
+	.iv-toast-success .iv-close,
+	.iv-toast-error .iv-close,
+	.iv-toast-info .iv-close {
+		color: var(--iv_surface);
+
+		&:hover {
+			background: rgba(0, 0, 0, 0.2);
+		}
+
+		&:focus-visible {
+			outline-color: var(--iv_surface);
 		}
 	}
 
