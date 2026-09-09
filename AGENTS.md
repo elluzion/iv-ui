@@ -2,7 +2,7 @@
 
 - **Language**: TypeScript
 - **Package Manager**: bun
-- **Add-ons**: prettier, storybook, eslint, vitest (browser tests via Storybook), svelte opencode plugin (`@sveltejs/opencode` + Impeccable skill)
+- **Add-ons**: oxfmt, oxlint, storybook, vitest (browser tests via Storybook), svelte opencode plugin (`@sveltejs/opencode` + Impeccable skill)
 
 ---
 
@@ -48,8 +48,8 @@ bun dev                 # dev server (showcase app)
 bun run build           # build showcase + package (svelte-package + publint)
 bun run storybook       # storybook at :6006
 bun run check           # type-check with svelte-check
-bun run lint            # prettier --check + eslint
-bun run format          # prettier --write
+bun run lint            # oxfmt --check + oxlint
+bun run format          # oxfmt --write
 bun run test            # vitest browser tests (playwright/chromium)
 bun run test:watch      # vitest in watch mode
 ```
@@ -84,7 +84,7 @@ DESIGN.md references design token files; if paths are stale, the authoritative l
 
 ## Code Style
 
-Prettier: tabs, single quotes, no trailing commas, 100 print width, svelte plugin.
+Oxfmt: tabs, single quotes, no trailing commas, 100 print width, svelte plugin.
 
 **All class names are prefixed `iv-`** (e.g. `iv-btn`, `iv-card`, `iv-dialog`) to scope component styles and avoid collisions with consumer styles. Variant/state classes use the same prefix (`iv-primary`, `iv-selected`, `iv-disabled`), and token names use `--iv_` (see DESIGN.md). Never introduce unprefixed class names in components.
 
