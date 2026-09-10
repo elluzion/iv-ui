@@ -47,9 +47,9 @@ bun run build         # vite build + svelte-package + publint
 ## Linting & Type-Checking
 
 ```sh
-bun run lint          # prettier --check + eslint
+bun run lint          # oxfmt --check + oxlint
 bun run check         # svelte-check type-check
-bun run format        # prettier --write
+bun run format        # oxfmt --write
 ```
 
 ## Testing
