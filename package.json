@@ -1,6 +1,6 @@
 {
 	"name": "@elluzion/iv-ui",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "A Svelte 5 component library with a monochrome dark design system.",
 	"type": "module",
 	"author": "elluzion",
