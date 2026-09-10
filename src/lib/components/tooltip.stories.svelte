@@ -26,6 +26,9 @@
 		await userEvent.hover(canvas.getByRole('button', { name: 'Hover me' }));
 		const tooltip = await canvas.findByRole('tooltip');
 		await expect(tooltip).toHaveTextContent('Adds a new project');
+		// Wait for fade transition to complete so a11y color-contrast checks run on
+		// the fully-opaque tooltip (mid-fade blended colors are ~4.49 and flake).
+		await new Promise((r) => setTimeout(r, 200));
 	}}
 >
 	<Button variant="secondary">Hover me</Button>
