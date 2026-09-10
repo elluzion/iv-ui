@@ -62,19 +62,16 @@
 		box-shadow: var(--iv_shadow-md);
 
 		&.iv-toast-success {
-			background: var(--iv_success-surface);
 			border-color: var(--iv_success);
 			box-shadow: inset 3px 0 0 var(--iv_success);
 		}
 
 		&.iv-toast-error {
-			background: var(--iv_error-surface);
 			border-color: var(--iv_error-dim);
 			box-shadow: inset 3px 0 0 var(--iv_error);
 		}
 
 		&.iv-toast-info {
-			background: var(--iv_info-surface);
 			border-color: var(--iv_info);
 			box-shadow: inset 3px 0 0 var(--iv_info);
 		}

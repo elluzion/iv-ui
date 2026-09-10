@@ -2,7 +2,7 @@
 	import { IconX } from '@tabler/icons-svelte';
 	import type { Snippet } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
-	import { quintOut } from 'svelte/easing';
+	import { cubicInOut } from 'svelte/easing';
 	import { reducedMotion } from '../stores/motion.js';
 	import { focusTrap } from '../utils/focus-trap.js';
 
@@ -47,12 +47,12 @@
 
 	const flyParams = $derived(
 		side === 'left'
-			? { x: '-100%', y: 0, duration: $reducedMotion ? 0 : 380, easing: quintOut }
+			? { x: '-100%', y: 0, duration: $reducedMotion ? 0 : 380, easing: cubicInOut }
 			: side === 'right'
-				? { x: '100%', y: 0, duration: $reducedMotion ? 0 : 380, easing: quintOut }
+				? { x: '100%', y: 0, duration: $reducedMotion ? 0 : 380, easing: cubicInOut }
 				: side === 'top'
-					? { x: 0, y: '-100%', duration: $reducedMotion ? 0 : 380, easing: quintOut }
-					: { x: 0, y: '100%', duration: $reducedMotion ? 0 : 380, easing: quintOut }
+					? { x: 0, y: '-100%', duration: $reducedMotion ? 0 : 380, easing: cubicInOut }
+					: { x: 0, y: '100%', duration: $reducedMotion ? 0 : 380, easing: cubicInOut }
 	);
 
 	function close() {
@@ -90,7 +90,7 @@
 		onclick={handleBackdropClick}
 		onkeydown={handleKeydown}
 		use:focusTrap={{ initial: true }}
-		transition:fade={{ duration: $reducedMotion ? 0 : 280, easing: quintOut }}
+		transition:fade={{ duration: $reducedMotion ? 0 : 280, delay: open ? 0 : 100, easing: cubicInOut }}
 		{...restProps}
 	>
 		<div
