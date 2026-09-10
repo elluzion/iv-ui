@@ -172,7 +172,7 @@
 
 		&.iv-side-top,
 		&.iv-side-bottom {
-			width: min(100%, var(--iv_sheet-lg));
+			width: 100%;
 			height: var(--iv_sheet-md);
 			left: 0;
 			right: 0;
