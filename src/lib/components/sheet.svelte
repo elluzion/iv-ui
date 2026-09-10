@@ -90,7 +90,11 @@
 		onclick={handleBackdropClick}
 		onkeydown={handleKeydown}
 		use:focusTrap={{ initial: true }}
-		transition:fade={{ duration: $reducedMotion ? 0 : 280, delay: open ? 0 : 100, easing: cubicInOut }}
+		transition:fade={{
+			duration: $reducedMotion ? 0 : 280,
+			delay: open ? 0 : 100,
+			easing: cubicInOut
+		}}
 		{...restProps}
 	>
 		<div
