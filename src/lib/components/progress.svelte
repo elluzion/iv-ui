@@ -117,7 +117,7 @@
 		border-radius: var(--iv_radius-sm);
 		background: var(--iv_cursor);
 		transform-origin: left center;
-		transition: transform var(--iv_transition-base);
+		transition: transform var(--iv_transition-base) var(--iv_ease-in-out);
 
 		&.iv-indeterminate {
 			width: 40%;

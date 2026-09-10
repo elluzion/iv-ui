@@ -94,7 +94,7 @@
 <Story name="Motion">
 	<div class="section">
 		<h3>Durations — short cuts, block flips, all zeroed under reduced-motion</h3>
-		{#each [['--iv_transition-fast', '0.10s', 'color, background, chevron rotation'], ['--iv_transition-base', '0.13s', 'borders, shadows, rings'], ['--iv_transition-slow', '0.18s', 'large surfaces'], ['--iv_motion-fade', '0.13s', 'dialog/sheet/toast backdrops'], ['--iv_motion-scale', '0.13s', 'dialog/confirm scale-in'], ['--iv_motion-fly', '0.14s', 'toast rise, popover offset'], ['--iv_motion-slide', '0.16s', 'accordion expand, sheet slide']] as [token, value, use] (token)}
+		{#each [['--iv_transition-fast', '0.15s', 'color, background, chevron rotation'], ['--iv_transition-base', '0.22s', 'borders, shadows, rings'], ['--iv_transition-slow', '0.3s', 'large surfaces'], ['--iv_motion-fade', '0.23s', 'dialog/sheet/toast backdrops'], ['--iv_motion-scale', '0.23s', 'dialog/confirm scale-in'], ['--iv_motion-fly', '0.24s', 'toast rise, popover offset'], ['--iv_motion-slide', '0.26s', 'accordion expand, sheet slide']] as [token, value, use] (token)}
 			<div class="row">
 				<div class="meta">
 					<code>{token}</code>

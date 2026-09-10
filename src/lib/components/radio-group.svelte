@@ -157,8 +157,8 @@
 		border-radius: 50%;
 		background: var(--iv_surface-raised);
 		transition:
-			border-color var(--iv_transition-fast),
-			background var(--iv_transition-fast);
+			border-color var(--iv_transition-fast) var(--iv_ease-out),
+			background var(--iv_transition-fast) var(--iv_ease-out);
 
 		&.iv-sm {
 			width: var(--iv_control-sm);

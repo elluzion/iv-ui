@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { fade, scale } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
 	import { reducedMotion } from '../stores/motion.js';
 	import { alertDialogState } from '../stores/alert-dialog.js';
 	import { focusTrap } from '../utils/focus-trap.js';
@@ -68,12 +69,12 @@
 		onclick={handleBackdropClick}
 		onkeydown={handleKeydown}
 		use:focusTrap={{ initial: true }}
-		transition:fade={{ duration: $reducedMotion ? 0 : 150 }}
+		transition:fade={{ duration: $reducedMotion ? 0 : 280, easing: quintOut }}
 		{...restProps}
 	>
 		<div
 			class="iv-alertdialog"
-			transition:scale={{ duration: $reducedMotion ? 0 : 150, start: 0.95 }}
+			transition:scale={{ duration: $reducedMotion ? 0 : 360, start: 0.96, easing: quintOut }}
 		>
 			{#if $alertDialogState.title}
 				<h2 id={titleId} class="iv-alertdialog-title">{$alertDialogState.title}</h2>

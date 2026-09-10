@@ -10,12 +10,13 @@ export const reducedMotion = readable(false, (set) => {
 	// In Vitest/Storybook browser tests, force reduced motion to avoid
 	// flaky a11y color-contrast failures while toasts/tooltips are mid-fade
 	// (e.g. #797979 on #0c0c0d at 50% opacity -> 4.49 vs 4.5 threshold).
-	// import.meta.env.MODE === 'test' in Vitest, navigator.webdriver in Playwright.
+	// navigator.webdriver is true in Playwright's Chromium; __vitest_browser__
+	// is injected by Vitest browser runner.
 	const isTestEnv =
 		// @ts-ignore
-		(import.meta as unknown as { env?: { MODE?: string } })?.env?.MODE === 'test' ||
-		// @ts-ignore
 		(globalThis as unknown as { __vitest_worker__?: unknown })?.__vitest_worker__ !== undefined ||
+		// @ts-ignore
+		(globalThis as unknown as { __vitest_browser__?: unknown })?.__vitest_browser__ !== undefined ||
 		// @ts-ignore
 		(typeof navigator !== 'undefined' &&
 			(navigator as unknown as { webdriver?: boolean }).webdriver);

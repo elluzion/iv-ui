@@ -2,6 +2,7 @@
 	import { IconX } from '@tabler/icons-svelte';
 	import type { Snippet } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
 	import { reducedMotion } from '../stores/motion.js';
 	import { focusTrap } from '../utils/focus-trap.js';
 
@@ -46,12 +47,12 @@
 
 	const flyParams = $derived(
 		side === 'left'
-			? { x: '-100%', y: 0, duration: $reducedMotion ? 0 : 180 }
+			? { x: '-100%', y: 0, duration: $reducedMotion ? 0 : 380, easing: quintOut }
 			: side === 'right'
-				? { x: '100%', y: 0, duration: $reducedMotion ? 0 : 180 }
+				? { x: '100%', y: 0, duration: $reducedMotion ? 0 : 380, easing: quintOut }
 				: side === 'top'
-					? { x: 0, y: '-100%', duration: $reducedMotion ? 0 : 180 }
-					: { x: 0, y: '100%', duration: $reducedMotion ? 0 : 180 }
+					? { x: 0, y: '-100%', duration: $reducedMotion ? 0 : 380, easing: quintOut }
+					: { x: 0, y: '100%', duration: $reducedMotion ? 0 : 380, easing: quintOut }
 	);
 
 	function close() {
@@ -89,7 +90,7 @@
 		onclick={handleBackdropClick}
 		onkeydown={handleKeydown}
 		use:focusTrap={{ initial: true }}
-		transition:fade={{ duration: $reducedMotion ? 0 : 150 }}
+		transition:fade={{ duration: $reducedMotion ? 0 : 280, easing: quintOut }}
 		{...restProps}
 	>
 		<div
@@ -261,7 +262,7 @@
 			padding: 0 var(--iv_spacing-sm);
 			margin-right: calc(var(--iv_spacing-sm) * -1);
 			cursor: pointer;
-			transition: color var(--iv_transition-base);
+			transition: color var(--iv_transition-base) var(--iv_ease-in-out);
 
 			&:hover {
 				color: var(--iv_foreground);

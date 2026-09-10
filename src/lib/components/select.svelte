@@ -444,8 +444,8 @@
 		padding: var(--iv_control-pad-y) var(--iv_control-pad-x);
 		cursor: pointer;
 		transition:
-			border-color var(--iv_transition-base),
-			box-shadow var(--iv_transition-base);
+			border-color var(--iv_transition-base) var(--iv_ease-in-out),
+			box-shadow var(--iv_transition-base) var(--iv_ease-in-out);
 
 		&:hover:not(.iv-disabled) {
 			border-color: var(--iv_border-hover);
@@ -563,7 +563,7 @@
 		align-items: center;
 		flex-shrink: 0;
 		color: var(--iv_foreground-dim);
-		transition: transform var(--iv_transition-fast);
+		transition: transform var(--iv_transition-fast) var(--iv_ease-out);
 
 		&.iv-open {
 			transform: rotate(180deg);

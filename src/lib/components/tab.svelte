@@ -47,9 +47,9 @@
 		white-space: nowrap;
 		border-radius: var(--iv_radius-sm);
 		transition:
-			color var(--iv_transition-fast),
-			background var(--iv_transition-fast),
-			box-shadow var(--iv_transition-fast);
+			color var(--iv_transition-fast) var(--iv_ease-out),
+			background var(--iv_transition-fast) var(--iv_ease-out),
+			box-shadow var(--iv_transition-fast) var(--iv_ease-out);
 
 		&.iv-sm {
 			padding: 0.4rem var(--iv_spacing-sm);

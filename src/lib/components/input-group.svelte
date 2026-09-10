@@ -39,8 +39,8 @@
 		background: var(--iv_surface-raised);
 		overflow: hidden;
 		transition:
-			border-color var(--iv_transition-base),
-			box-shadow var(--iv_transition-base);
+			border-color var(--iv_transition-base) var(--iv_ease-in-out),
+			box-shadow var(--iv_transition-base) var(--iv_ease-in-out);
 
 		&:hover:not(:focus-within) {
 			border-color: var(--iv_border-hover);

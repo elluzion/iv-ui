@@ -8,6 +8,7 @@
 	} from '@tabler/icons-svelte';
 	import type { Snippet } from 'svelte';
 	import { fly } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
 	import { reducedMotion } from '../stores/motion.js';
 
 	interface Props {
@@ -45,7 +46,7 @@
 	class="iv-alert iv-alert-{type} {className}"
 	role={type === 'error' ? 'alert' : 'status'}
 	{...restProps}
-	transition:fly={{ y: 8, duration: $reducedMotion ? 0 : 150 }}
+	transition:fly={{ y: 8, duration: $reducedMotion ? 0 : 340, easing: quintOut }}
 >
 	<span class="iv-alert-icon" aria-hidden="true"><Icon size={18} /></span>
 	<div class="iv-alert-content">

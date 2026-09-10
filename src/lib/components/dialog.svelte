@@ -2,6 +2,7 @@
 	import { IconX } from '@tabler/icons-svelte';
 	import type { Snippet } from 'svelte';
 	import { fade, scale } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
 	import { reducedMotion } from '../stores/motion.js';
 	import { focusTrap } from '../utils/focus-trap.js';
 
@@ -69,14 +70,14 @@
 		onclick={handleBackdropClick}
 		onkeydown={handleKeydown}
 		use:focusTrap={{ initial: true }}
-		transition:fade={{ duration: $reducedMotion ? 0 : 150 }}
+		transition:fade={{ duration: $reducedMotion ? 0 : 280, easing: quintOut }}
 		{...restProps}
 	>
 		<div
 			class="iv-dialog"
 			class:iv-dialog-sm={size === 'sm'}
 			class:iv-dialog-lg={size === 'lg'}
-			transition:scale={{ duration: $reducedMotion ? 0 : 150, start: 0.95 }}
+			transition:scale={{ duration: $reducedMotion ? 0 : 360, start: 0.96, easing: quintOut }}
 		>
 			{#if title || icon}
 				<div class="iv-header">
@@ -183,7 +184,7 @@
 			padding: 0 var(--iv_spacing-sm);
 			margin-right: calc(var(--iv_spacing-sm) * -1);
 			cursor: pointer;
-			transition: color var(--iv_transition-base);
+			transition: color var(--iv_transition-base) var(--iv_ease-in-out);
 
 			&:hover {
 				color: var(--iv_foreground);

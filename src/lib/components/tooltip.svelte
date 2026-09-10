@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
 	import { reducedMotion } from '../stores/motion.js';
 
 	export type TooltipPosition = 'top' | 'bottom' | 'left' | 'right';
@@ -152,7 +153,7 @@
 			class:iv-ready={positioned}
 			role="tooltip"
 			style="left: {offset.left}px; top: {offset.top}px"
-			transition:fade={{ duration: $reducedMotion ? 0 : 100 }}
+			transition:fade={{ duration: $reducedMotion ? 0 : 280, easing: quintOut }}
 		>
 			{#if content}
 				{@render content()}

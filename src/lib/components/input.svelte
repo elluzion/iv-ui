@@ -192,8 +192,8 @@
 		border-radius: var(--iv_radius-sm);
 		background: var(--iv_surface-raised);
 		transition:
-			border-color var(--iv_transition-base),
-			box-shadow var(--iv_transition-base);
+			border-color var(--iv_transition-base) var(--iv_ease-in-out),
+			box-shadow var(--iv_transition-base) var(--iv_ease-in-out);
 		overflow: hidden;
 
 		&:hover {

@@ -1093,7 +1093,7 @@
 		background: var(--iv_foreground);
 		color: var(--iv_surface);
 		cursor: pointer;
-		transition: background var(--iv_transition-base);
+		transition: background var(--iv_transition-base) var(--iv_ease-in-out);
 
 		&:hover {
 			background: var(--iv_foreground-hover);

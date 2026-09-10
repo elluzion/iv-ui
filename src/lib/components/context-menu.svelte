@@ -2,6 +2,7 @@
 	import { tick } from 'svelte';
 	import type { Snippet } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
 	import { reducedMotion } from '../stores/motion.js';
 	import Menu, { type MenuEntry } from './menu.svelte';
 
@@ -216,7 +217,7 @@
 		role="none"
 		style="left: {pos.left}px; top: {pos.top}px"
 		onkeydown={handlePanelKeydown}
-		transition:fade={{ duration: $reducedMotion ? 0 : 120 }}
+		transition:fade={{ duration: $reducedMotion ? 0 : 280, easing: quintOut }}
 	>
 		<Menu
 			{entries}

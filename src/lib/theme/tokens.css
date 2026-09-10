@@ -111,19 +111,21 @@
 	--iv_spacing-xl: 20px;
 	--iv_spacing-2xl: 24px;
 
-	--iv_transition-fast: 0.1s;
-	--iv_transition-base: 0.13s;
-	--iv_transition-slow: 0.18s;
+	--iv_transition-fast: 0.2s;
+	--iv_transition-base: 0.32s;
+	--iv_transition-slow: 0.48s;
 
-	--iv_motion-fade: 0.13s;
-	--iv_motion-scale: 0.13s;
-	--iv_motion-fly: 0.14s;
-	--iv_motion-slide: 0.16s;
-	--iv_motion-subtle: 0.1s;
+	--iv_motion-fade: 0.28s;
+	--iv_motion-scale: 0.36s;
+	--iv_motion-fly: 0.34s;
+	--iv_motion-slide: 0.38s;
+	--iv_motion-subtle: 0.22s;
 
-	--iv_ease-in: cubic-bezier(0.4, 0, 1, 1);
-	--iv_ease-out: cubic-bezier(0, 0, 0.2, 1);
-	--iv_ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+	--iv_ease-in: cubic-bezier(0.32, 0, 0.67, 0);
+	--iv_ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+	--iv_ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+	--iv_ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+	--iv_ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 	--iv_ease-snappy: cubic-bezier(0.3, 0.7, 0.7, 0.3);
 
 	--iv_spin-duration: 0.75s;

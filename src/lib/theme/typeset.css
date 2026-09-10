@@ -86,7 +86,7 @@
 		text-decoration-style: dotted;
 		text-decoration-thickness: 1px;
 		text-underline-offset: 3px;
-		transition: color var(--iv_transition-base);
+		transition: color var(--iv_transition-base) var(--iv_ease-in-out);
 
 		&:hover {
 			color: var(--iv_accent-dim);

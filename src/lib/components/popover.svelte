@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import { fly } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
 	import { reducedMotion } from '../stores/motion.js';
 
 	export type PopoverPlacement = 'top' | 'bottom' | 'left' | 'right';
@@ -181,12 +182,12 @@
 
 	const flyParams = $derived(
 		placement === 'top'
-			? { y: 8, duration: $reducedMotion ? 0 : 150 }
+			? { y: 8, duration: $reducedMotion ? 0 : 340, easing: quintOut }
 			: placement === 'bottom'
-				? { y: -8, duration: $reducedMotion ? 0 : 150 }
+				? { y: -8, duration: $reducedMotion ? 0 : 340, easing: quintOut }
 				: placement === 'left'
-					? { x: 8, duration: $reducedMotion ? 0 : 150 }
-					: { x: -8, duration: $reducedMotion ? 0 : 150 }
+					? { x: 8, duration: $reducedMotion ? 0 : 340, easing: quintOut }
+					: { x: -8, duration: $reducedMotion ? 0 : 340, easing: quintOut }
 	);
 
 	$effect(() => {

@@ -370,7 +370,7 @@
 		background: var(--iv_foreground);
 		border: 1px solid var(--iv_border);
 		transform: translate(-50%, -50%);
-		transition: border-color var(--iv_transition-base);
+		transition: border-color var(--iv_transition-base) var(--iv_ease-in-out);
 		cursor: pointer;
 
 		&.iv-active {

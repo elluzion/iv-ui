@@ -3,6 +3,7 @@
 	import { getContext } from 'svelte';
 	import type { Snippet } from 'svelte';
 	import { fade, slide } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
 	import { reducedMotion } from '../stores/motion.js';
 	import { accordionContextKey, type AccordionContext } from './accordion-context.js';
 
@@ -48,13 +49,13 @@
 	</button>
 
 	{#if open}
-		<div transition:fade={{ duration: $reducedMotion ? 0 : 120 }}>
+		<div transition:fade={{ duration: $reducedMotion ? 0 : 280, easing: quintOut }}>
 			<div
 				id={contentId}
 				class="iv-panel"
 				role="region"
 				aria-labelledby={triggerId}
-				transition:slide={{ duration: $reducedMotion ? 0 : 180 }}
+				transition:slide={{ duration: $reducedMotion ? 0 : 380, easing: quintOut }}
 			>
 				{@render children()}
 			</div>
@@ -90,7 +91,7 @@
 		color: var(--iv_foreground);
 		text-align: left;
 		cursor: pointer;
-		transition: background var(--iv_transition-fast);
+		transition: background var(--iv_transition-fast) var(--iv_ease-out);
 
 		&:hover:not(:disabled) {
 			background: var(--iv_surface-overlay);
@@ -119,7 +120,7 @@
 		align-items: center;
 		flex-shrink: 0;
 		color: var(--iv_foreground-dim);
-		transition: transform var(--iv_transition-fast);
+		transition: transform var(--iv_transition-fast) var(--iv_ease-out);
 
 		&.iv-open {
 			transform: rotate(180deg);

@@ -278,8 +278,8 @@
 		color: var(--iv_foreground);
 		cursor: pointer;
 		transition:
-			background var(--iv_transition-fast),
-			color var(--iv_transition-fast);
+			background var(--iv_transition-fast) var(--iv_ease-out),
+			color var(--iv_transition-fast) var(--iv_ease-out);
 
 		&:hover:not(.iv-active):not(.iv-selected) {
 			background: var(--iv_surface-hover);

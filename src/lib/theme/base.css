@@ -32,8 +32,8 @@ a[href] {
 	border-block-end: 1px solid var(--iv_border-hover);
 	text-underline-offset: 3px;
 	transition:
-		color var(--iv_transition-base),
-		border-color var(--iv_transition-base);
+		color var(--iv_transition-base) var(--iv_ease-in-out),
+		border-color var(--iv_transition-base) var(--iv_ease-in-out);
 }
 
 a[href]:hover {

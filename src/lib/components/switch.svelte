@@ -108,7 +108,7 @@
 		background: var(--iv_surface-elevated);
 		border: 1px solid var(--iv_border);
 		cursor: pointer;
-		transition: background var(--iv_transition-fast);
+		transition: background var(--iv_transition-fast) var(--iv_ease-out);
 
 		&:focus-visible {
 			outline: var(--iv_outline-width) solid var(--iv_foreground);
@@ -140,7 +140,7 @@
 		left: 2px;
 		border-radius: var(--iv_radius-sm);
 		background: var(--iv_foreground);
-		transition: transform var(--iv_transition-fast);
+		transition: transform var(--iv_transition-fast) var(--iv_ease-out);
 
 		.iv-switch.iv-sm & {
 			width: var(--iv_thumb-sm);

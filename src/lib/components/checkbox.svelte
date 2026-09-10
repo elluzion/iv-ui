@@ -151,8 +151,8 @@
 		background: var(--iv_surface-raised);
 		color: var(--iv_foreground-inverse);
 		transition:
-			background var(--iv_transition-fast),
-			border-color var(--iv_transition-fast);
+			background var(--iv_transition-fast) var(--iv_ease-out),
+			border-color var(--iv_transition-fast) var(--iv_ease-out);
 
 		&.iv-sm {
 			width: var(--iv_control-sm);

@@ -91,8 +91,8 @@
 			border-radius: var(--iv_radius-sm);
 			padding: 2px 6px;
 			transition:
-				color var(--iv_transition-base),
-				background var(--iv_transition-base);
+				color var(--iv_transition-base) var(--iv_ease-in-out),
+				background var(--iv_transition-base) var(--iv_ease-in-out);
 
 			&:hover {
 				color: var(--iv_foreground);

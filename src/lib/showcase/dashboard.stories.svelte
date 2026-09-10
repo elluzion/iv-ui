@@ -1205,8 +1205,8 @@ FEATURE_QUEUE_BATCHING=true</code
 		font-family: var(--iv_font-ui);
 		cursor: pointer;
 		transition:
-			background-color var(--iv_transition-base),
-			border-color var(--iv_transition-base);
+			background-color var(--iv_transition-base) var(--iv_ease-in-out),
+			border-color var(--iv_transition-base) var(--iv_ease-in-out);
 
 		&:hover {
 			background: var(--iv_surface-raised);

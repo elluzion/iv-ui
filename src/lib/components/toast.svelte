@@ -3,6 +3,7 @@
 	import { hideToast, toastState } from '../stores/toast.js';
 	import { reducedMotion } from '../stores/motion.js';
 	import { fade, fly } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
 </script>
 
 {#if $toastState}
@@ -10,11 +11,11 @@
 		class="iv-toast-layer"
 		role={$toastState.type === 'error' ? 'alert' : 'status'}
 		aria-live={$toastState.type === 'error' ? 'assertive' : 'polite'}
-		transition:fade={{ duration: $reducedMotion ? 0 : 120 }}
+		transition:fade={{ duration: $reducedMotion ? 0 : 280, easing: quintOut }}
 	>
 		<div
 			class="iv-toast iv-toast-{$toastState.type}"
-			transition:fly={{ y: 16, duration: $reducedMotion ? 0 : 160 }}
+			transition:fly={{ y: 16, duration: $reducedMotion ? 0 : 340, easing: quintOut }}
 		>
 			<div class="iv-content">
 				{#if $toastState.type === 'error'}

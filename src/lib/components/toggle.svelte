@@ -90,10 +90,10 @@
 		font-weight: var(--iv_weight-semibold);
 		cursor: pointer;
 		transition:
-			border-color var(--iv_transition-base),
-			color var(--iv_transition-base),
-			background var(--iv_transition-base),
-			transform var(--iv_transition-fast);
+			border-color var(--iv_transition-base) var(--iv_ease-in-out),
+			color var(--iv_transition-base) var(--iv_ease-in-out),
+			background var(--iv_transition-base) var(--iv_ease-in-out),
+			transform var(--iv_transition-fast) var(--iv_ease-out);
 
 		&:hover:not(:disabled) {
 			border-color: var(--iv_border-hover);

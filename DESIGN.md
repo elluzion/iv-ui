@@ -381,11 +381,19 @@ elements that genuinely overlay the page.
 
 ## Interaction & Motion
 
-Motion is short, physical, and terminal. Durations: fast 100ms, base 130ms, slow
-180ms; motion tokens fade/scale/fly/slide at 130–160ms. All durations zero out
-under `@media (prefers-reduced-motion: reduce)` and the `$reducedMotion` store.
-State changes read as cursor events: hover brightens a hairline, active/selected
-flips reverse-video, focus draws a brass caret. No fade-in-and-lift choreography.
+Motion is buttery smooth and confident. Durations: fast 200ms, base 320ms, slow
+480ms; motion tokens fade 280ms, scale 360ms, fly 340ms, slide 380ms, subtle
+220ms — all a touch longer than before so panels breathe. Easing is
+emphasized and physical: `ease-out` is `cubic-bezier(0.16, 1, 0.3, 1)` (quint-out),
+`ease-in` is `cubic-bezier(0.32, 0, 0.67, 0)`, `ease-in-out` is
+`cubic-bezier(0.65, 0, 0.35, 1)`, plus `ease-spring` (`0.34, 1.56, 0.64, 1`) for
+scale pops and `ease-emphasized` (`0.2, 0, 0, 1`) for hero moments. Overlays
+fade + scale/fly/slide with these curves; hover and focus use the base
+transition. All durations zero out under `@media (prefers-reduced-motion:
+reduce)` and the `$reducedMotion` store (forced in Vitest/Playwright to keep
+axe stable). State changes still read as cursor events: hover brightens a
+hairline, active/selected flips reverse-video, focus draws a brass caret — now
+with a longer, smoother tail.
 
 ---
 

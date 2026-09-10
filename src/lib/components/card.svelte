@@ -116,7 +116,7 @@
 		border-radius: var(--iv_radius);
 		color: var(--iv_foreground);
 		overflow: hidden;
-		transition: border-color var(--iv_transition-base);
+		transition: border-color var(--iv_transition-base) var(--iv_ease-in-out);
 
 		--pad-x: var(--iv_card-pad-x);
 		--pad-y: var(--iv_card-pad-y);
