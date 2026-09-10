@@ -543,7 +543,7 @@
 			<button
 				class="mm-fab"
 				type="button"
-				aria-label="Start a new job"
+				aria-label="Quick add job"
 				onclick={() => (addJobOpen = true)}
 			>
 				<IconPlus size={22} aria-hidden="true" />
@@ -698,7 +698,10 @@
 		const canvas = within(canvasElement);
 		await userEvent.click(canvas.getByRole('button', { name: 'Start a new job' }));
 		const dialog = await canvas.findByRole('dialog');
-		await expect(within(dialog).getByRole('heading', { name: 'Log a new job' })).toBeVisible();
+		await waitFor(
+			async () =>
+				await expect(within(dialog).getByRole('heading', { name: 'Log a new job' })).toBeVisible()
+		);
 		await userEvent.keyboard('{Escape}');
 		await waitFor(() => expect(canvas.queryByRole('dialog')).not.toBeInTheDocument());
 	}}

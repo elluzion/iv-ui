@@ -80,7 +80,7 @@
 		<div class="iv-header">
 			<div class="iv-header-text">
 				{#if title}
-					<h3 class="iv-title">{title}</h3>
+					<h2 class="iv-title">{title}</h2>
 				{/if}
 				{#if description}
 					<p class="iv-description">{description}</p>
