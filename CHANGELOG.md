@@ -4,6 +4,9 @@ All notable changes to the `@elluzion/iv-ui` package are documented in this file
 
 ## [Unreleased]
 
+### Changed
+- **Docs:** removed `PLAN.md` (superseded by `ROADMAP.md`, written against the pre-redesign token names) and a stale pre-redesign `.impeccable` critique. `ROADMAP.md` statuses now match the code (Context Menu, Toggle/ToggleGroup, Collapsible done; CI and package shape done). `README.md` lists the full catalog and `typeset.css`; `PRODUCT.md` and `DESIGN.md` no longer describe the redesign as in progress and match the shipped radii and motion tokens.
+
 ## [0.2.0] - 2026-09-10
 
 ### Added

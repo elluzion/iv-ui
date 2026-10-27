@@ -101,8 +101,8 @@ the single brass accent is hardened into block carets and bracket marks — neve
 glow, never a pill. This is the anti-shadcn: no soft rounded cards, no layered
 pastel surfaces, no accent-glowing buttons.
 
-Density stays tight and intentional: every control and container is a sharp
-square (`0px` controls, `4px` containers, `8px` dialogs); circles survive only
+Density stays tight and intentional: every control and floating panel is a sharp
+square (`0px` controls, `4px` cards, `8px` dialogs); circles survive only
 where shape is semantic (avatars, radio, status dots, spinners). The canvas is
 pure black by default, with a full light-theme mirror applied via
 `prefers-color-scheme` or `data-theme` / `.theme-*`. Radii, fonts, and cues are
@@ -118,11 +118,12 @@ lift patterns, and brass used as a decorative fill.
 
 - Pure black canvas (dark) / pure white canvas (light), four gray surface layers.
 - Hairline `1px` borders create all on-page structure; shadows belong to overlays.
-- Every control is a sharp square; containers rest at 4px, dialogs and sheets at 8px.
+- Every control and floating panel is a sharp square; cards rest at 4px, dialogs
+  and sheets at 8px.
 - Exactly one accent (brass) plus three semantic tones, hard-edged and small.
 - Mono-forward type: IBM Plex Mono is the UI voice; Sora is reserved for headings and prose.
 - Terminal state grammar: reverse-video selection, block cursors, box-drawing brackets.
-- Short, physical motion (100–180ms) — no lifts, no reveals, all zeroed under reduced motion.
+- Confident, physical motion (200–480ms) — no lifts, no reveals, all zeroed under reduced motion.
 
 ---
 
@@ -238,7 +239,8 @@ with a bare element selector — scope hiding rules to a dedicated icon class.
 The form language is "sharp square, or tiny container radius — never a pill."
 Controls — buttons, inputs, chips, tabs, toggles, switch tracks and thumbs,
 slider thumbs, progress rails, select triggers and dropdowns — are `0px` squares.
-Containers — cards, menus, popovers, tooltips, toasts, alerts — rest at `4px`.
+Floating panels and inline blocks — menus, popovers, tooltips, toasts, alerts,
+empty states — also sit at `0px`. Cards are the one container at `4px`.
 Large surfaces — dialogs and sheets — use `8px`. Circles (`pill`) exist only where
 shape carries semantic meaning: avatars, radio dots, status dots, spinners,
 skeleton circles. Nothing else rounds.
@@ -246,8 +248,8 @@ skeleton circles. Nothing else rounds.
 ### Named Rules
 
 **The Sharp-By-Default Rule.** When in doubt, square. A corner rounds only when a
-container needs to read as a discrete object at rest, and even then it is 4px.
-A pill is never the answer.
+container needs to read as a discrete object at rest (a card), and even then it
+is 4px. A pill is never the answer.
 
 ---
 
@@ -292,8 +294,8 @@ elements that genuinely overlay the page.
 - **Icon:** Transparent, no padding, dim icon brightening to foreground on hover.
 - **Danger:** Error fill, inverse text, keeps the error fill on hover with a slight
   brighten (never darkens below the inverse-text contrast floor).
-- **Hover / Focus:** Border brightens and fill lightens (100–150ms); focus shows a
-  1px ring with the ring token.
+- **Hover / Focus:** Border brightens and fill lightens (200ms fast / 320ms base
+  token); focus shows a 1px ring with the ring token.
 - **Disabled:** Dimmed to `--iv_disabled-opacity`, `not-allowed` cursor.
 
 **Never** give a button a brass or colored fill; **never** round it beyond `0px`.
@@ -350,8 +352,9 @@ elements that genuinely overlay the page.
 
 - **Shape:** 8px radius, raised fill, hairline border, `ambient-lg` shadow,
   `sm/md/lg` widths 400/520/640px (sheets 320/440/560px).
-- **Backdrop:** 50% black scrim with 12px blur; content fades in, the panel scales
-  from 0.95 (130ms). Title in Sora at 1.1rem/600; footer actions right-aligned.
+- **Backdrop:** 50% black scrim with 12px blur; content fades in over 280ms, the
+  panel scales from 0.96 over 360ms. Title in Sora at 1.1rem/600; footer actions
+  right-aligned.
 
 ### Tooltip / Toast
 
@@ -403,7 +406,7 @@ with a longer, smoother tail.
 
 - **Do** keep the canvas pure black (dark) / pure white (light) and build depth
   with hairline seams and four surface layers.
-- **Do** make every control a sharp square; rest containers at 4px, dialogs at 8px.
+- **Do** make every control a sharp square; rest cards at 4px, dialogs at 8px.
 - **Do** use reverse-video (foreground fill, surface text) for selection and active states.
 - **Do** use the brass cursor block and box-drawing brackets for the accent —
   never a soft glow or shadow-tinted ring.

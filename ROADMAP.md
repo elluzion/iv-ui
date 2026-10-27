@@ -4,6 +4,10 @@ Analysis of shadcn (https://ui.shadcn.com/llms.txt) mapped onto iv-ui's existing
 foundation. The goal: a quickly usable, clean, token-pure UI library for future
 projects.
 
+**Status (2026-10-27):** `v0.2.0` released. Phases 1–2 complete; Phase 3 open on
+Table/Pagination, Drawer, and Command palette; Phase 4 partly done (package shape,
+CI). Component status lives in §2b.
+
 ---
 
 ## 1. shadcn analysis — what it does well
@@ -77,7 +81,7 @@ Four pillars worth borrowing from:
 | Popover | ✅ done |
 | Tooltip | ✅ done |
 | Menu (≈ Dropdown) | ✅ done |
-| **Context Menu** | missing (cheap, reuses Menu internals) |
+| **Context Menu** | ✅ done |
 | **Drawer** (bottom mobile sheet) | stretch |
 | **Command palette** | stretch (high delight) |
 
@@ -108,8 +112,8 @@ Four pillars worth borrowing from:
 
 | Component | Status |
 |---|---|
-| **Toggle / Toggle Group** | missing |
-| **Collapsible** | missing (≈ AccordionItem without list semantics) |
+| **Toggle / Toggle Group** | ✅ done |
+| **Collapsible** | ✅ done |
 
 ### 2c. The universal component contract (attributes)
 
@@ -212,12 +216,12 @@ passing.
 
 - [ ] Showcase app → real docs: foundation pages + live per-component playground
       with dark/light toggle.
-- [ ] Package polish: export every new component from `index.ts`, green `publint`,
-      tree-shaking sanity, types coverage.
+- [x] Package shape: every component exported from `index.ts`, green `publint`,
+      `.d.ts` emitted by `svelte-package`.
 - [ ] Theming guide: how to override tokens / theme presets (brass variants),
       dark/light opt-out.
-- [ ] CI: `lint && check && vitest` gate, semantic versioning + changelog,
-      automated storybook test run.
+- [x] CI: `lint && check && vitest && build` gate on push/PR, tag-triggered
+      release workflow, changelog maintained in `CHANGELOG.md`.
 - [ ] Optional stretch: registry/CLI or copy-paste snippets, `llms.txt` + AI docs
       for the library.
 

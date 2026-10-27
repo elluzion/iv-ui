@@ -51,19 +51,18 @@ through Storybook. The dark theme is default; a mirrored light theme applies via
 
 ## Brand Commitments
 
-Original product truth, function, API, and constraints are preserved. The visual
-world is being replaced: sharp micro-radius controls, box-drawing/frame grammar,
-reverse-video selection, mono-forward typography (IBM Plex Mono for UI voice,
-Sora for headings and prose), a single hardened brass accent rendered
+Product truth, function, API, and constraints stay stable; the visual world is
+the **Instrument Console**: sharp micro-radius controls, box-drawing/frame
+grammar, reverse-video selection, mono-forward typography (IBM Plex Mono for UI
+voice, Sora for headings and prose), a single hardened brass accent rendered
 terminally — never a soft glow, never a pill.
 
 ## Evidence on Hand
 
 - Current implementation in `src/lib/` (components, theme tokens, stores, utils,
-  foundation/showcase stories) — the old look is evidence of what the product
-  is, not authority over what it becomes.
-- `DESIGN.md`, `ROADMAP.md`, `COMPONENTS.md`, `AGENTS.md` document the incumbent
-  system and will be synced to the new world during the redesign.
+  foundation/showcase stories) — the shipped system is the authority.
+- `DESIGN.md`, `ROADMAP.md`, `COMPONENTS.md`, `AGENTS.md` document that system and
+  are kept in sync with it.
 - No real customer testimonials, benchmarks, or case studies exist; do not
   fabricate them.
 

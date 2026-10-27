@@ -4,7 +4,13 @@ A Svelte 5 component library with a monochrome dark design system.
 
 ## Components
 
-Button, Card, Accordion, Checkbox, Dialog, Sheet, AlertDialog, Input, Textarea, RadioGroup, Separator, Select, Tabs, Slider, Switch, Toast, LoadingSpinner — all following the design system defined in [DESIGN.md](./DESIGN.md).
+All components follow the design system in [DESIGN.md](./DESIGN.md) and the API contract in [COMPONENTS.md](./COMPONENTS.md).
+
+- **Form & Input** — Button, ButtonGroup, Input, Textarea, InputGroup, Field, Checkbox, RadioGroup, Switch, Slider, Select, NativeSelect
+- **Layout & Navigation** — Card, Article, Tabs (+ TabList, Tab, TabPanel), Accordion (+ AccordionItem), Separator, Breadcrumb, Collapsible
+- **Overlays** — Dialog, AlertDialog, Sheet, Popover, Tooltip, Menu, ContextMenu, Toast
+- **Feedback** — Alert, Progress, Skeleton, LoadingSpinner, EmptyState, Badge
+- **Display & Misc** — Avatar, Shortcut, Toggle, ToggleGroup
 
 ## Installation
 
@@ -28,11 +34,13 @@ CSS can also be imported piecemeal:
 ```ts
 import '@elluzion/iv-ui/tokens.css';
 import '@elluzion/iv-ui/base.css';
+import '@elluzion/iv-ui/typeset.css';
 ```
 
 ## Developing
 
 ```sh
+bun dev               # showcase app (dev server)
 bun run storybook     # component explorer at :6006
 ```
 
@@ -54,14 +62,19 @@ bun run format        # oxfmt --write
 
 ## Testing
 
-Tests run through Storybook + Vitest browser tests (playwright/chromium). Story files live alongside components as `*.stories.svelte` / `*.stories.ts`.
+```sh
+bun run test          # Storybook stories as Vitest browser tests (Playwright/Chromium)
+bun run test:watch    # same, in watch mode
+```
+
+Every story renders under `@storybook/addon-a11y` (violations fail the run), and interactive components add a `play` function for their primary interaction.
 
 ## Publishing
 
 This package is published to **GitHub Packages**. To release:
 
 1. Log in / configure auth for `https://npm.pkg.github.com` (a `NODE_AUTH_TOKEN` with `write:packages` in CI).
-2. Create a version commit + `v*` tag (e.g. `v0.1.0`) and push; the release workflow builds and publishes.
+2. Create a version commit + `v*` tag (e.g. `v0.2.0`) and push; the release workflow builds and publishes.
 
 ## License
 
