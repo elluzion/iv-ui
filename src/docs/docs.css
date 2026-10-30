@@ -1851,10 +1851,15 @@ dialog.iv-docs-nav-dialog::backdrop {
 	border: 0;
 }
 
+.iv-docs-shell[data-rail='false'] {
+	grid-template-columns: var(--docs-sidebar) minmax(0, 1fr);
+}
+
 /* ---------------------------------------------------------------- responsive */
 
 @media (max-width: 1180px) {
-	.iv-docs-shell {
+	.iv-docs-shell,
+	.iv-docs-shell[data-rail='false'] {
 		grid-template-columns: var(--docs-sidebar) minmax(0, 1fr);
 	}
 
@@ -1864,7 +1869,8 @@ dialog.iv-docs-nav-dialog::backdrop {
 }
 
 @media (max-width: 900px) {
-	.iv-docs-shell {
+	.iv-docs-shell,
+	.iv-docs-shell[data-rail='false'] {
 		grid-template-columns: minmax(0, 1fr);
 	}
 
@@ -2000,10 +2006,6 @@ dialog.iv-docs-nav-dialog::backdrop {
 }
 
 /* ------------------------------------------------------- doc chrome details */
-
-.iv-docs-shell[data-rail='false'] {
-	grid-template-columns: var(--docs-sidebar) minmax(0, 1fr);
-}
 
 .iv-docs-index-group,
 .iv-docs-section,
