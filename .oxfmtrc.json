@@ -13,6 +13,7 @@
     "bun.lock",
     "bun.lockb",
     "/static/",
-    "/.github/skills/"
+    "/.github/skills/",
+    "/src/docs/generated/"
   ]
 }

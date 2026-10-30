@@ -25,3 +25,6 @@ vite.config.ts.timestamp-*
 
 *storybook.log
 storybook-static
+
+# Docs build output
+/src/docs/generated
