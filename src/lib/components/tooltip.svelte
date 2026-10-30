@@ -38,13 +38,6 @@
 
 	const hasContent = $derived(!!(label || content));
 
-	const GAP = parseInt(
-		getComputedStyle(document.documentElement).getPropertyValue('--iv_tooltip-gap')
-	);
-	const MARGIN = parseInt(
-		getComputedStyle(document.documentElement).getPropertyValue('--iv_tooltip-margin')
-	);
-
 	function clearTimer() {
 		if (timer) {
 			clearTimeout(timer);
@@ -81,6 +74,9 @@
 		const t = tip.getBoundingClientRect();
 		const vw = window.innerWidth;
 		const vh = window.innerHeight;
+		const styles = getComputedStyle(document.documentElement);
+		const GAP = parseInt(styles.getPropertyValue('--iv_tooltip-gap')) || 8;
+		const MARGIN = parseInt(styles.getPropertyValue('--iv_tooltip-margin')) || 8;
 
 		let pos = position;
 

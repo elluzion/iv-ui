@@ -44,6 +44,20 @@
 	<p>A sheet anchored to the left edge of the viewport.</p>
 </Story>
 
+<Story
+	name="Right"
+	args={{ open: true, title: 'Right Sheet', side: 'right' }}
+	play={async ({ canvasElement }) => {
+		const panel = canvasElement.querySelector('.iv-sheet');
+		await expect(panel).toBeVisible();
+		await waitFor(() =>
+			expect(panel?.getBoundingClientRect().width).toBeLessThan(window.innerWidth)
+		);
+	}}
+>
+	<p>A sheet anchored to the right edge of the viewport.</p>
+</Story>
+
 <Story name="Top" args={{ open: true, title: 'Top Sheet', side: 'top' }}>
 	<p>A sheet anchored to the top edge of the viewport.</p>
 </Story>

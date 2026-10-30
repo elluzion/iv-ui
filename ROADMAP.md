@@ -191,8 +191,8 @@ audit, typography documented and showcased.
 - [x] **Badge**, **Skeleton**, **Progress**, **Alert**, **Empty state**
 - [x] **Button Group**, **Input Group** (prefix/suffix), Button internal `loading`
 - [x] **Avatar**, **Native Select**, **Breadcrumb**
-- [x] Stories for each new component (browser test runner wired via
-      `@storybook/addon-vitest`; running requires chromium system deps)
+- [x] Stories for each new component (standalone Vitest browser runner with
+      Testing Library + axe; running requires chromium system deps)
 
 **Done when:** form-building is fully covered (label→input→error) and the
 feedback set is complete.
@@ -214,16 +214,17 @@ passing.
 
 *Goal: make it a library people (you) can adopt in 5 minutes.*
 
-- [ ] Showcase app → real docs: foundation pages + live per-component playground
-      with dark/light toggle.
+- [x] Showcase app → real docs: prerendered docs site with guides, foundation
+      pages, per-component pages, examples, and dark/light toggle.
 - [x] Package shape: every component exported from `index.ts`, green `publint`,
       `.d.ts` emitted by `svelte-package`.
-- [ ] Theming guide: how to override tokens / theme presets (brass variants),
+- [x] Theming guide: how to override tokens / theme presets (brass variants),
       dark/light opt-out.
 - [x] CI: `lint && check && vitest && build` gate on push/PR, tag-triggered
       release workflow, changelog maintained in `CHANGELOG.md`.
-- [ ] Optional stretch: registry/CLI or copy-paste snippets, `llms.txt` + AI docs
-      for the library.
+- [x] Optional stretch: registry/CLI or copy-paste snippets, `llms.txt` + AI docs
+      for the library (`llms.txt`, `llms-full.txt`, `llms-api.txt`, per-page
+      Markdown mirrors, and JSON API).
 
 **Done when:** `bun i @elluzion/iv-ui` + one import + `theme.css` = a working
 app shell.
