@@ -40,11 +40,13 @@ import '@elluzion/iv-ui/typeset.css';
 ## Developing
 
 ```sh
-bun dev               # showcase app (dev server)
+bun dev               # docs site at :5173 (regenerates docs data)
 bun run storybook     # component explorer at :6006
 ```
 
-`src/lib/` is the library; `src/routes/` is the showcase app (not part of the distributed package).
+The docs site is a prerendered SvelteKit app in this repo. Its content lives in `src/docs/` (outside `src/lib`, so it is not part of the published package), and `scripts/docs-gen.ts` turns that content into the component pages, Markdown mirrors, API JSON, search index, and `llms*.txt` corpora at build time.
+
+`src/lib/` is the library; `src/routes/` serves the docs site and its machine-readable endpoints (not part of the distributed package).
 
 ## Building
 
@@ -63,11 +65,12 @@ bun run format        # oxfmt --write
 ## Testing
 
 ```sh
-bun run test          # Storybook stories as Vitest browser tests (Playwright/Chromium)
+bun run test          # standalone Vitest browser tests (Playwright/Chromium)
 bun run test:watch    # same, in watch mode
+bun run docs:check    # validate docs content (examples, API ids, related links)
 ```
 
-Every story renders under `@storybook/addon-a11y` (violations fail the run), and interactive components add a `play` function for their primary interaction.
+Component tests live in `src/lib/test/*.test.ts` and use Testing Library plus axe (`expectAccessible()`), so they run without Storybook. Storybook stories remain the interactive documentation and are checked by `@storybook/addon-a11y` when browsing them.
 
 ## Publishing
 
