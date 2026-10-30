@@ -42,6 +42,7 @@
 	},
 	"files": [
 		"dist",
+		"!dist/test",
 		"!dist/**/*.test.*",
 		"!dist/**/*.spec.*",
 		"!dist/**/*.stories.*"
