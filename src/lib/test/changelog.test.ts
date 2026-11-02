@@ -8,7 +8,10 @@ describe('changelog', () => {
 
 	it('splits CHANGELOG.md into release sections, newest first', () => {
 		expect(releases.length).toBeGreaterThan(0);
-		expect(releases[0].unreleased).toBe(true);
+
+		const [latest] = releases;
+		expect(latest.version).toMatch(/^(Unreleased|\d+\.\d+\.\d+)$/i);
+		expect(latest.date ?? '').toMatch(/^\d{4}-\d{2}-\d{2}$/);
 
 		const release = releases.find((entry) => entry.version === '0.2.0');
 		expect(release?.date).toBe('2026-09-10');

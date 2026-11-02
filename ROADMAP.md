@@ -4,7 +4,7 @@ Analysis of shadcn (https://ui.shadcn.com/llms.txt) mapped onto iv-ui's existing
 foundation. The goal: a quickly usable, clean, token-pure UI library for future
 projects.
 
-**Status (2026-10-27):** `v0.2.0` released. Phases 1–2 complete; Phase 3 open on
+**Status (2026-11-02):** `v0.3.0` released. Phases 1–2 complete; Phase 3 open on
 Table/Pagination, Drawer, and Command palette; Phase 4 partly done (package shape,
 CI). Component status lives in §2b.
 

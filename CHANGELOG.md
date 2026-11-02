@@ -2,7 +2,7 @@
 
 All notable changes to the `@elluzion/iv-ui` package are documented in this file. This project follows [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+## [0.3.0] - 2026-11-02
 
 ### Added
 - **Docs site:** a fully prerendered SvelteKit documentation site for all 41 components (37 pages, including compound pages) plus guides and foundation pages. Each page covers import, preview, usage, examples, API, accessibility, tokens/CSS hooks, and related links. Content lives in `src/docs/` (outside the published `src/lib`), and `scripts/docs-gen.ts` generates the static data, per-page Markdown mirrors, JSON API, search index, and `llms.txt` / `llms-full.txt` / `llms-api.txt` corpora from one source.

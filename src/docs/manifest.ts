@@ -9,7 +9,7 @@ export const site = {
 	title: 'iv-ui — Svelte 5 component library',
 	description:
 		'A Svelte 5 component library with a monochrome, console-grade design system. Token-pure, accessible, runes-native.',
-	version: '0.2.0',
+	version: '0.3.0',
 	packageName: '@elluzion/iv-ui',
 	github: 'https://github.com/elluzion/iv-ui',
 	license: 'MIT'
