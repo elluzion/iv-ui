@@ -9,7 +9,9 @@ const config = {
 	},
 	kit: {
 		// The docs site is fully static: every route is prerendered.
-		adapter: adapter({ strict: true })
+		// No options: on Vercel this switches to zero-config mode and writes the
+		// Build Output API to .vercel/output; locally it still writes build/.
+		adapter: adapter()
 	}
 };
 
