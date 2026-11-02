@@ -60,13 +60,17 @@
 
 <style>
 	.iv-breadcrumb {
+		--iv_breadcrumb-pad-x: 6px;
+
 		ol {
 			display: flex;
 			align-items: center;
 			flex-wrap: wrap;
 			gap: var(--iv_spacing-xs);
 			list-style: none;
-			margin: 0;
+			/* Pull the chips back by their own padding so the first and last
+			   label line up with surrounding content. */
+			margin: 0 calc(-1 * var(--iv_breadcrumb-pad-x));
 			padding: 0;
 		}
 	}
@@ -80,6 +84,7 @@
 			display: inline-flex;
 			align-items: center;
 			gap: var(--iv_spacing-xs);
+			padding: 2px var(--iv_breadcrumb-pad-x);
 			font-family: var(--iv_font-mono);
 			font-size: var(--iv_text-sm);
 			line-height: var(--iv_leading-base);
@@ -88,8 +93,8 @@
 
 		a {
 			color: var(--iv_foreground-dim);
+			border-block-end: 0;
 			border-radius: var(--iv_radius-sm);
-			padding: 2px 6px;
 			transition:
 				color var(--iv_transition-base) var(--iv_ease-in-out),
 				background var(--iv_transition-base) var(--iv_ease-in-out);

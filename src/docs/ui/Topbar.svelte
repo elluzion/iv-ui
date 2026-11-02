@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
+	import { Shortcut } from '$lib';
 	import { IconBrandGithub, IconMenu2, IconMoon, IconSearch, IconSun } from '@tabler/icons-svelte';
 	import { site } from '../manifest';
 	import { readTheme, toggleTheme, type Theme } from '../lib/theme';
@@ -59,8 +60,8 @@
 				<IconSearch size={14} aria-hidden="true" />
 				<span class="iv-docs-search-label">Search docs</span>
 			</span>
-			<span class="iv-docs-search-hint" aria-hidden="true">
-				<span class="iv-docs-kbd">⌘</span><span class="iv-docs-kbd">K</span>
+			<span class="iv-docs-search-keys" aria-hidden="true">
+				<Shortcut keys={['⌘', 'K']} />
 			</span>
 		</button>
 

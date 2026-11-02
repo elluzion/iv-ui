@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Badge, Breadcrumb } from '$lib';
 	import { inline } from '../lib/inline';
 	import CopyButton from './CopyButton.svelte';
 
@@ -16,21 +17,14 @@
 
 <header class="iv-docs-header">
 	{#if crumbs.length}
-		<nav class="iv-docs-crumbs" aria-label="Breadcrumb">
-			{#each crumbs as crumb, index (crumb.label)}
-				{#if crumb.href}
-					<a href={crumb.href}>{crumb.label}</a>
-				{:else}
-					<span aria-current="page">{crumb.label}</span>
-				{/if}
-				{#if index < crumbs.length - 1}<span aria-hidden="true">/</span>{/if}
-			{/each}
-		</nav>
+		<Breadcrumb items={crumbs} />
 	{/if}
 
 	<div class="iv-docs-title-row">
 		<h1 class="iv-docs-title">{title}</h1>
-		{#if badge}<span class="iv-docs-badge" data-tone="accent">{badge}</span>{/if}
+		{#if badge}
+			<Badge variant={badge === 'deprecated' ? 'error' : 'accent'} size="sm">{badge}</Badge>
+		{/if}
 		{#if since}<span class="iv-docs-meta">since {since}</span>{/if}
 	</div>
 

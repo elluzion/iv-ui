@@ -11,6 +11,7 @@
 	import RelatedCards from '../../../docs/ui/RelatedCards.svelte';
 	import SectionLabel from '../../../docs/ui/SectionLabel.svelte';
 	import TokenChips from '../../../docs/ui/TokenChips.svelte';
+	import { Shortcut } from '$lib';
 
 	let { data } = $props();
 
@@ -126,7 +127,7 @@
 					<tbody>
 						{#each doc.accessibility.keyboard as [keys, action] (keys)}
 							<tr>
-								<td><span class="iv-docs-kbd">{keys}</span></td>
+								<td><Shortcut {keys} /></td>
 								<td>{@html inline(action)}</td>
 							</tr>
 						{/each}

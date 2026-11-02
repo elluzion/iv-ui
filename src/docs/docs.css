@@ -177,11 +177,10 @@ body {
 	gap: 7px;
 }
 
-.iv-docs-searchbtn .iv-docs-search-hint {
+.iv-docs-search-keys {
 	display: inline-flex;
 	gap: 3px;
 	align-items: center;
-	font-size: 0.62rem;
 }
 
 .iv-docs-iconbtn {
@@ -390,29 +389,6 @@ body {
 
 /* ------------------------------------------------------------------ header */
 
-.iv-docs-crumbs {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 6px;
-	font-size: 0.68rem;
-	color: var(--iv_foreground-dim);
-}
-
-.iv-docs-crumbs a {
-	color: var(--iv_foreground-dim);
-	text-decoration: none;
-	border: 0;
-}
-
-.iv-docs-crumbs a:hover {
-	color: var(--iv_foreground);
-}
-
-.iv-docs-crumbs span {
-	opacity: 0.5;
-}
-
 .iv-docs-title-row {
 	display: flex;
 	flex-wrap: wrap;
@@ -444,34 +420,6 @@ body {
 	gap: 8px;
 	font-size: 0.65rem;
 	color: var(--iv_foreground-dim);
-}
-
-.iv-docs-badge {
-	display: inline-flex;
-	align-items: center;
-	gap: 4px;
-	padding: 1px 6px;
-	border: 1px solid var(--iv_border);
-	font-size: 0.6rem;
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
-	color: var(--iv_foreground-dim);
-	white-space: nowrap;
-}
-
-.iv-docs-badge[data-tone='accent'] {
-	border-color: var(--iv_accent-dim);
-	color: var(--iv_accent);
-}
-
-.iv-docs-badge[data-tone='error'] {
-	border-color: var(--iv_error-dim);
-	color: var(--iv_error);
-}
-
-.iv-docs-badge[data-tone='plain'] {
-	border-color: transparent;
-	padding-inline: 0;
 }
 
 /* ---------------------------------------------------------------- sections */
@@ -963,16 +911,6 @@ html[data-theme='light'] .iv-docs-code-body .shiki span {
 .iv-docs-kbd-table td:first-child {
 	width: 38%;
 	padding-right: 16px;
-}
-
-.iv-docs-kbd {
-	display: inline-block;
-	padding: 1px 5px;
-	border: 1px solid var(--iv_border);
-	background: var(--iv_surface-elevated);
-	font-size: 0.65rem;
-	color: var(--iv_foreground);
-	white-space: nowrap;
 }
 
 .iv-docs-pager {
@@ -1854,7 +1792,7 @@ dialog.iv-docs-nav-dialog::backdrop {
 	}
 
 	.iv-docs-searchbtn .iv-docs-search-label,
-	.iv-docs-searchbtn .iv-docs-search-hint,
+	.iv-docs-search-keys,
 	.iv-docs-version {
 		display: none;
 	}
