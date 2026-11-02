@@ -5,6 +5,17 @@
 		<link rel="icon" href="%sveltekit.assets%/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="text-scale" content="scale" />
+		<script>
+			try {
+				const stored = localStorage.getItem('iv-docs-theme');
+				const light = stored
+					? stored === 'light'
+					: window.matchMedia('(prefers-color-scheme: light)').matches;
+				document.documentElement.dataset.theme = light ? 'light' : 'dark';
+			} catch {
+				document.documentElement.dataset.theme = 'dark';
+			}
+		</script>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

@@ -2,7 +2,7 @@
 
 - **Language**: TypeScript
 - **Package Manager**: bun
-- **Add-ons**: oxfmt, oxlint, storybook, vitest (browser tests via Storybook), svelte opencode plugin (`@sveltejs/opencode` + Impeccable skill)
+- **Add-ons**: oxfmt, oxlint, storybook, vitest (standalone browser tests), svelte opencode plugin (`@sveltejs/opencode` + Impeccable skill)
 
 ---
 
@@ -36,22 +36,26 @@ This is a Svelte 5 component library (`iv-ui`) wrapped in a SvelteKit app for de
 | `src/lib/utils/`      | Shared helpers (focus-trap)                                                                                                                                                                                                  |
 | `src/lib/foundation/` | Foundation showcase stories (tokens, colors, typography, states) |
 | `src/lib/showcase/`   | Full-page composite showcase stories (one realistic page assembling many components) |
-| `src/lib/index.ts`    | Library entry point — re-exports components and stores                                                                                                                                                                       |
-| `src/routes/`         | Showcase/preview SvelteKit app (not part of the distributed package)                                                                                                                                                         |
+| `src/lib/test/`       | Standalone Vitest browser tests and Svelte fixtures |
+| `src/lib/index.ts`    | Library entry point — re-exports components and stores |
+| `src/docs/`           | Docs site content (component/guide/foundation registry, examples, UI shell, styles) — outside `src/lib`, so it is not published |
+| `src/routes/`         | Docs site routes: component/guide/foundation pages, `components` index, `api` JSON, `.md` mirrors, `llms*.txt`, sitemap/robots |
+| `scripts/docs-gen.ts` | Generates docs data, Markdown, API JSON, search index, and `llms*.txt` from the content registry |
 
 Svelte 5 runes mode is forced for all project code (but not `node_modules`) via `vite.config.ts`.
 
 ## Commands
 
 ```sh
-bun dev                 # dev server (showcase app)
-bun run build           # build showcase + package (svelte-package + publint)
+bun dev                 # docs site dev server (regenerates docs data)
+bun run build           # prerender docs site + build package (svelte-package + publint)
 bun run storybook       # storybook at :6006
 bun run check           # type-check with svelte-check
 bun run lint            # oxfmt --check + oxlint
 bun run format          # oxfmt --write
-bun run test            # vitest browser tests (playwright/chromium)
+bun run test            # standalone vitest browser tests (playwright/chromium)
 bun run test:watch      # vitest in watch mode
+bun run docs:check      # validate docs content (examples, API ids, related links)
 ```
 
 **Before committing:** run `bun run lint && bun run check && bun run test`.
@@ -94,13 +98,12 @@ Components accept both `onclick` and `on:click` props to support Svelte 5 $props
 
 ## Testing
 
-**Create a Storybook story file for every component.** Whenever you add or modify a component, you must write (or update) its stories alongside it as `*.stories.svelte` / `*.stories.ts`. Stories should cover the component's variants, states, and props.
+**Create a Storybook story file for every component.** Whenever you add or modify a component, you must write (or update) its stories alongside it as `*.stories.svelte` / `*.stories.ts`. Stories should cover the component's variants, states, and props. Stories are the interactive documentation; they do not run the test suite.
 
-Tests are Storybook stories run through the `@storybook/addon-vitest` integration (browser tests via Playwright/Chromium). Story files live alongside components (`*.stories.svelte`, `*.stories.ts`). Run via `bun run test` (one-shot) or `bun run test:watch`.
+Tests are standalone Vitest browser tests in `src/lib/test/*.test.ts`, using `@testing-library/svelte` and `@testing-library/user-event` in Playwright/Chromium. Run via `bun run test` (one-shot) or `bun run test:watch`. No Storybook server or dev server is involved.
 
-Two tiers of coverage:
+- `src/lib/test/setup.ts` loads the theme, jest-dom, Testing Library cleanup, and resets the toast/alert-dialog stores between tests.
+- `src/lib/test/helpers.ts` provides `snippet()` for child content and `expectAccessible()`, which runs axe and ignores page-shell-only rules (`region`, `landmark-one-main`, `page-has-heading-one`, `html-has-lang`).
+- Component fixtures that need composition (for example Tabs, Accordion, Popover) live in `src/lib/test/fixtures/`.
 
-1. **Render + accessibility (baseline)** — every story is rendered in the browser and checked by the `@storybook/addon-a11y` addon, which is configured to fail on violations (`test: 'error'` in `.storybook/preview.ts`). New stories must pass axe.
-2. **Interaction tests** — stories that exercise a real interaction define a `play` function on `<Story play={...}>` using helpers imported from `storybook/test` (`expect`, `userEvent`, `within`, `screen`, `fn`, `waitFor`). Play functions run both in the Storybook UI and under Vitest.
-
-Write a `play` function for the component's primary interaction (click/change/keyboard/overlay open-close) whenever the component is interactive; static display components can rely on tier 1. Match assertions to the contract in `COMPONENTS.md` (dual events, accessible names, focus management, reduced motion).
+Every component test should cover its primary interaction (click/change/keyboard/overlay open-close) and call `expectAccessible()`. Match assertions to the contract in `COMPONENTS.md` (dual events, accessible names, focus management, reduced motion). When adding a component, add or extend a test file in `src/lib/test/` as well as its stories.

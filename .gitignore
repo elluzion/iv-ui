@@ -25,3 +25,10 @@ vite.config.ts.timestamp-*
 
 *storybook.log
 storybook-static
+
+# Docs build output
+/src/docs/generated
+
+# Vitest browser screenshots/attachments
+.vitest-attachments
+src/lib/test/__screenshots__

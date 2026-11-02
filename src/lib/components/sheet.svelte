@@ -100,6 +100,7 @@
 		<div
 			class="iv-sheet {className}"
 			class:iv-side-left={side === 'left'}
+			class:iv-side-right={side === 'right'}
 			class:iv-side-top={side === 'top'}
 			class:iv-side-bottom={side === 'bottom'}
 			class:iv-sheet-sm={size === 'sm'}
@@ -148,6 +149,7 @@
 
 	.iv-sheet {
 		position: absolute;
+		box-sizing: border-box;
 		width: 100%;
 		height: 100%;
 		background: var(--iv_surface-raised);
@@ -159,15 +161,15 @@
 
 		&.iv-side-left,
 		&.iv-side-right {
-			width: var(--iv_sheet-md);
+			width: min(var(--iv_sheet-md), 100%);
 			height: 100%;
 
 			&.iv-sheet-sm {
-				width: var(--iv_sheet-sm);
+				width: min(var(--iv_sheet-sm), 100%);
 			}
 
 			&.iv-sheet-lg {
-				width: var(--iv_sheet-lg);
+				width: min(var(--iv_sheet-lg), 100%);
 			}
 
 			&.iv-sheet-full {

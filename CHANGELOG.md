@@ -4,8 +4,17 @@ All notable changes to the `@elluzion/iv-ui` package are documented in this file
 
 ## [Unreleased]
 
+### Added
+- **Docs site:** a fully prerendered SvelteKit documentation site for all 41 components (37 pages, including compound pages) plus guides and foundation pages. Each page covers import, preview, usage, examples, API, accessibility, tokens/CSS hooks, and related links. Content lives in `src/docs/` (outside the published `src/lib`), and `scripts/docs-gen.ts` generates the static data, per-page Markdown mirrors, JSON API, search index, and `llms.txt` / `llms-full.txt` / `llms-api.txt` corpora from one source.
+- **Testing:** standalone Vitest browser tests in `src/lib/test/` using `@testing-library/svelte`, `@testing-library/user-event`, and axe. The suite covers every component's primary interaction and accessibility, and no longer requires Storybook. Storybook remains the interactive component explorer.
+
 ### Changed
 - **Docs:** removed `PLAN.md` (superseded by `ROADMAP.md`, written against the pre-redesign token names) and a stale pre-redesign `.impeccable` critique. `ROADMAP.md` statuses now match the code (Context Menu, Toggle/ToggleGroup, Collapsible done; CI and package shape done). `README.md` lists the full catalog and `typeset.css`; `PRODUCT.md` and `DESIGN.md` no longer describe the redesign as in progress and match the shipped radii and motion tokens.
+
+### Fixed
+- **Docs:** the motion page now demonstrates each duration and easing token (plus the spinner tokens) instead of one shared transition; the mobile navigation dialog renders the full sidebar; installation, code, and callout blocks keep consistent vertical spacing; the components index lays out name, status, and summary correctly on phones; the theme editor edits `--iv_radius-lg` and `--iv_spacing-lg`, which visibly change the preview.
+- **Popover:** docs examples no longer toggle `open` in the anchor handler, which closed the panel on the same click that opened it.
+- **Sheet:** right-side sheets now receive `iv-side-right`, so they use their configured width instead of stretching fullscreen; left/right widths are capped to the viewport and use border-box sizing.
 
 ## [0.2.0] - 2026-09-10
 
