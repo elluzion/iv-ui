@@ -65,6 +65,12 @@
 
 	<div class="iv-docs-side-group">
 		<div class="iv-docs-side-label">Reference</div>
+		<a
+			class="iv-docs-side-link"
+			href="/changelog"
+			aria-current={current('/changelog')}
+			onclick={() => (ui.nav = false)}>Changelog</a
+		>
 		<a class="iv-docs-side-link" href="/api/index.json">API index (JSON)</a>
 		<a class="iv-docs-side-link" href="/llms.txt">llms.txt</a>
 		<a class="iv-docs-side-link" href="/llms-full.txt">llms-full.txt</a>

@@ -2272,3 +2272,138 @@ dialog.iv-docs-nav-dialog::backdrop {
 		grid-column: 1 / -1;
 	}
 }
+
+/* ---------------------------------------------------------------- changelog */
+
+.iv-docs-changelog {
+	max-width: 74ch;
+}
+
+.iv-docs-changelog-intro p,
+.iv-docs-release-body p {
+	margin: 0 0 12px;
+	font-size: 0.85rem;
+	line-height: 1.7;
+	color: var(--iv_foreground-dim);
+}
+
+.iv-docs-changelog-intro a,
+.iv-docs-release-body a {
+	color: var(--iv_accent);
+	text-decoration: none;
+	border-bottom: 1px solid var(--iv_accent-dim);
+}
+
+.iv-docs-changelog-intro a:hover,
+.iv-docs-release-body a:hover {
+	border-bottom-color: var(--iv_accent);
+}
+
+.iv-docs-release {
+	margin-top: 30px;
+	padding-top: 22px;
+	border-top: 1px solid var(--iv_border);
+	scroll-margin-top: calc(var(--docs-topbar) + 20px);
+}
+
+.iv-docs-release-head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 10px;
+	margin-bottom: 14px;
+}
+
+.iv-docs-release-version {
+	margin: 0;
+	font-family: var(--iv_font-sans);
+	font-size: 1.15rem;
+	font-weight: 600;
+	letter-spacing: -0.01em;
+	color: var(--iv_foreground);
+}
+
+.iv-docs-release-date {
+	margin-left: auto;
+	font-family: var(--iv_font-mono);
+	font-size: 0.66rem;
+	letter-spacing: 0.08em;
+	color: var(--iv_foreground-dim);
+}
+
+.iv-docs-release-body > h3:first-child {
+	margin-top: 0;
+}
+
+.iv-docs-release-body h3 {
+	margin: 22px 0 8px;
+	font-family: var(--iv_font-sans);
+	font-size: 0.95rem;
+	font-weight: 600;
+	color: var(--iv_foreground);
+}
+
+.iv-docs-release-body ul,
+.iv-docs-release-body ol {
+	margin: 0 0 14px;
+	padding-left: 1.1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	font-size: 0.82rem;
+	line-height: 1.65;
+	color: var(--iv_foreground-dim);
+}
+
+.iv-docs-release-body li ul,
+.iv-docs-release-body li ol {
+	margin: 6px 0 0;
+}
+
+.iv-docs-release-body li::marker {
+	color: var(--iv_accent-dim);
+}
+
+.iv-docs-release-body strong {
+	color: var(--iv_foreground);
+	font-weight: 600;
+}
+
+.iv-docs-release-body code {
+	font-family: var(--iv_font-mono);
+	font-size: 0.92em;
+	color: var(--iv_foreground);
+	background: var(--iv_surface-elevated);
+	padding: 0.08em 0.32em;
+	border: 1px solid var(--iv_border);
+	white-space: nowrap;
+}
+
+.iv-docs-release-body pre {
+	margin: 0 0 14px;
+	padding: 12px 14px;
+	border: 1px solid var(--iv_border);
+	background: var(--iv_surface-raised);
+	overflow-x: auto;
+	font-size: 0.75rem;
+	line-height: 1.6;
+}
+
+.iv-docs-release-body pre code {
+	padding: 0;
+	border: 0;
+	background: none;
+	white-space: pre;
+}
+
+.iv-docs-release-body blockquote {
+	margin: 0 0 14px;
+	padding: 2px 0 2px 14px;
+	border-left: 2px solid var(--iv_accent-dim);
+}
+
+.iv-docs-release-body hr {
+	margin: 20px 0;
+	border: 0;
+	border-top: 1px solid var(--iv_border);
+}

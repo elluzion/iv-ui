@@ -7,6 +7,7 @@ export function GET() {
 	const paths = [
 		'/',
 		'/components',
+		'/changelog',
 		...guides.map((doc) => `/docs/${doc.slug}`),
 		...foundations.map((doc) => `/foundations/${doc.slug}`),
 		...components.map((doc) => `/components/${doc.slug}`)

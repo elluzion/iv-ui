@@ -909,6 +909,15 @@ async function main() {
 			keywords: `${token.dark} ${token.light} css variable`
 		});
 	}
+	search.push({
+		id: 'reference-changelog',
+		type: 'guide',
+		title: 'Changelog',
+		summary: 'Every notable change to the package, newest first.',
+		url: '/changelog',
+		category: 'Reference',
+		keywords: 'changelog release notes versions history unreleased'
+	});
 
 	/* ------------------------------- llms ------------------------------- */
 	const componentLinks = categories

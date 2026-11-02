@@ -84,6 +84,7 @@
 		"@types/node": "^22",
 		"@vitest/browser-playwright": "^4.1.10",
 		"@vitest/coverage-v8": "^4.1.10",
+		"micromark": "^4.0.3",
 		"minisearch": "^7.2.0",
 		"oxfmt": "^0.67.0",
 		"oxlint": "^1.82.0",
