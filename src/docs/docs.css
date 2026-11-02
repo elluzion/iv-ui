@@ -1656,7 +1656,8 @@ dialog.iv-docs-dialog::backdrop {
 	outline: none;
 	color: var(--iv_foreground);
 	font-family: var(--iv_font-mono);
-	font-size: 0.95rem;
+	/* 16px: anything smaller makes iOS Safari zoom the viewport on focus. */
+	font-size: 16px;
 }
 
 .iv-docs-search-top input::placeholder {
