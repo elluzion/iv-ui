@@ -644,16 +644,6 @@ body {
 	border-bottom: 1px solid var(--iv_cursor);
 }
 
-.iv-docs-demo-toolbar {
-	position: absolute;
-	top: 6px;
-	right: 7px;
-	display: flex;
-	align-items: center;
-	gap: 4px;
-	z-index: 1;
-}
-
 .iv-docs-tool {
 	display: inline-flex;
 	align-items: center;
@@ -752,10 +742,6 @@ html[data-theme='light'] .iv-docs-code-body .shiki span {
 
 .iv-docs-code-body .shiki code {
 	font-family: inherit;
-}
-
-.iv-docs-copy {
-	position: relative;
 }
 
 /* --------------------------------------------------------------- API table */
@@ -1155,15 +1141,6 @@ html[data-theme='light'] .iv-docs-code-body .shiki span {
 	gap: 8px;
 }
 
-.iv-docs-panel-label {
-	width: 100%;
-	font-size: 0.6rem;
-	letter-spacing: 0.1em;
-	text-transform: uppercase;
-	color: var(--iv_foreground-dim);
-	margin-bottom: -6px;
-}
-
 .iv-docs-install {
 	display: flex;
 	align-items: center;
@@ -1188,27 +1165,6 @@ html[data-theme='light'] .iv-docs-code-body .shiki span {
 .iv-docs-install code::before {
 	content: '$ ';
 	color: var(--iv_accent);
-}
-
-.iv-docs-copybtn {
-	border: 1px solid var(--iv_border);
-	background: var(--iv_surface);
-	color: var(--iv_foreground-dim);
-	font-family: var(--iv_font-mono);
-	font-size: 0.6rem;
-	padding: 2px 6px;
-	cursor: pointer;
-	flex: none;
-}
-
-.iv-docs-copybtn:hover {
-	color: var(--iv_foreground);
-	border-color: var(--iv_border-hover);
-}
-
-.iv-docs-copybtn[data-copied='true'] {
-	color: var(--iv_accent);
-	border-color: var(--iv_accent-dim);
 }
 
 .iv-docs-section-head {
@@ -1657,23 +1613,6 @@ html[data-theme='light'] .iv-docs-code-body .shiki span {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 	gap: 10px;
-}
-
-.iv-docs-state-cell {
-	border: 1px solid var(--iv_border);
-	background: var(--iv_surface-raised);
-	padding: 14px;
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-	align-items: flex-start;
-}
-
-.iv-docs-state-cell > span {
-	font-size: 0.58rem;
-	letter-spacing: 0.12em;
-	text-transform: uppercase;
-	color: var(--iv_foreground-dim);
 }
 
 /* ----------------------------------------------------------------- search */
